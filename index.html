@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="nn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webdesigner frå Vinje – Portefølje</title>
+    <meta
+      name="description"
+      content="Nettsider og identitetar med presisjon og jordnær estetikk. Basert i Vinje, Telemark."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      href="/fonts/Display.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+
+    <script src="/scripts.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="/">DYNNI</a>
+        <ul class="nav-links">
+          <li><a href="#arbeid">Arbeid</a></li>
+          <li><a href="#tenester">Tenester</a></li>
+          <li><a href="/om-meg">Om</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a class="lang" href="/en/">EN</a>
+      </nav>
+      <section class="hero" aria-label="Intro">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1 class="typewriter">
+            <span class="typed-text"></span>
+            <span class="cursor">|</span>
+          </h1>
+          <p>Eg byggjer merkevare med presisjon og jordnær estetikk.</p>
+          <div class="cta">
+            <a class="btn primary" href="#arbeid">Sjå prosjekt</a>
+            <a class="btn ghost" href="#kontakt">Bestill sparring</a>
+          </div>
+          <div class="coords" aria-hidden="true">
+            <a href="https://maps.app.goo.gl/mne2cmMqw8WXiNzv8">
+              59,57° N — 8,49° E (Vinje)</a
+            >
+          </div>
+        </div>
+        <button class="scroll-hint" aria-label="Rull vidare">↓</button>
+      </section>
+    </header>
+
+    <main>
+      <section id="arbeid" class="work">
+        <header><h2>Utvalde prosjekt</h2></header>
+        <ul class="case-grid">
+          <li class="case">
+            <a href="https://kollegaogvenn.no">
+              <figure>
+                <img
+                  src="https://api.microlink.io?url=https://kollegaogvenn.no&screenshot=true&meta=false&embed=screenshot.url"
+                  alt="Kollega og Venn – nettside preview"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Kollega og Venn – frå kaos til klar identitet
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="case">
+            <a href="https://example.com">
+              <figure>
+                <img
+                  src="https://api.microlink.io?url=https://example.com&screenshot=true&meta=false&embed=screenshot.url"
+                  alt="Example.com – nettside preview"
+                  loading="lazy"
+                />
+                <figcaption>Example.com – moderne webdesign</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="case">
+            <a href="https://github.com">
+              <figure>
+                <img
+                  src="https://api.microlink.io?url=https://github.com&screenshot=true&meta=false&embed=screenshot.url"
+                  alt="GitHub – nettside preview"
+                  loading="lazy"
+                />
+                <figcaption>GitHub – utviklerplattform</figcaption>
+              </figure>
+            </a>
+          </li>
+          <!-- fleire case -->
+        </ul>
+      </section>
+
+      <section id="tenester" class="method">
+        <header><h2>Metoden min</h2></header>
+        <ol class="steps">
+          <li>
+            <h3>Kartlegging</h3>
+            <p>Behov, mål, publikum. Korte innsiktsøvingar.</p>
+          </li>
+          <li>
+            <h3>Skisser</h3>
+            <p>Retningar i typografi, farge og komposisjon.</p>
+          </li>
+          <li>
+            <h3>Prototype</h3>
+            <p>Interaktiv test. Rask iterasjon med reelle innhald.</p>
+          </li>
+          <li>
+            <h3>Levering</h3>
+            <p>Lansering, opplæring og lett vedlikehald.</p>
+          </li>
+        </ol>
+        <div class="type-scaler" aria-live="polite">
+          <!-- interaktiv komponent kan mountast med litt JS -->
+        </div>
+      </section>
+
+      <section class="social-proof">
+        <header><h2>Kundar og resultat</h2></header>
+        <ul class="quotes">
+          <li>
+            <blockquote>
+              <p>«Vi dobla førespurnader på tre månader.»</p>
+              <footer>– Namn, verksemd</footer>
+            </blockquote>
+          </li>
+        </ul>
+      </section>
+
+      <section id="kontakt" class="contact">
+        <header><h2>La oss prate</h2></header>
+        <p>30 min uforpliktande sparring.</p>
+        <div class="contact-actions">
+          <a class="btn primary" href="/book">Book i kalender</a>
+          <a class="btn" href="mailto:hei@dittdomene.no">paal@dynni.no</a>
+          <a class="btn" href="tel:+47XXXXXXXX">+47 91 69 77 07</a>
+        </div>
+        <form class="mini-form" action="/api/contact" method="post">
+          <label>Namnet ditt<input name="name" required /></label>
+          <label>E-post<input name="email" type="email" required /></label>
+          <label>Kva treng du?<textarea name="need" rows="3"></textarea></label>
+          <label
+            >Ramme (budsjett)
+            <select name="budget">
+              <option value="under-25k">Under 25 000</option>
+              <option value="25-75k">25 000–75 000</option>
+              <option value="75-200k">75 000–200 000</option>
+              <option value="200k+">200 000+</option>
+            </select>
+          </label>
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <ul>
+          <li>
+            <a href="/index"> <img src="dynni-logo.svg" alt="DYNNI" /></a>
+          </li>
+          <li>
+            <a href="mailto:hei@dynni.no">hei@dynni.no</a>
+          </li>
+          <li>
+            <a href="tel:+4791697707">+47 91 69 77 07</a>
+          </li>
+        </ul>
+        <p>© 2025 DYNNI</p>
+        <a href="/personvern">Personvern</a>
+      </div>
+    </footer>
+
+    <script>
+      // Handle website preview loading and fallbacks
+      document.addEventListener("DOMContentLoaded", function () {
+        const previewImages = document.querySelectorAll(
+          'img[src*="microlink.io"]'
+        );
+
+        previewImages.forEach((img) => {
+          // Add loading state
+          img.classList.add("loading");
+
+          // Handle successful load
+          img.addEventListener("load", function () {
+            this.classList.remove("loading");
+            this.style.background = "none";
+          });
+
+          // Handle load errors - fallback to favicon
+          img.addEventListener("error", function () {
+            const url = this.src.match(/url=([^&]+)/)?.[1];
+            if (url) {
+              // Try to get favicon as fallback
+              this.src = `https://www.google.com/s2/favicons?domain=${url}&sz=64`;
+              this.style.objectFit = "contain";
+              this.style.padding = "20px";
+            }
+          });
+
+          // Set timeout for slow loading
+          setTimeout(() => {
+            if (img.classList.contains("loading")) {
+              img.style.opacity = "0.7";
+            }
+          }, 3000);
+        });
+      });
+    </script>
+  </body>
+</html>
