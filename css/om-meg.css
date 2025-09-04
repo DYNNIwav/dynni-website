@@ -98,10 +98,22 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    padding-top: var(--space-6);
+  }
+
   .about-section {
     grid-template-columns: 1fr;
     height: auto;
     text-align: center;
+  }
+  .about-image img {
+    width: 250px;
+    height: auto;
+  }
+  .about-content p {
+    font-size: var(--font-size-0);
+    width: 250px;
   }
   .about-content {
     font-size: var(--font-size-0);
