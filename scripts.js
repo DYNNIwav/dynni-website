@@ -207,8 +207,8 @@ class TypewriterEffect {
       const texts = [
         'Hei!',
         'Eg heiter Pål.',
-        'Eg er ein webdesigner frå Vinje i Telemark, som er basert i Oslo.',
-        'Kontakt meg for å lage din drømme nettside!'
+        'Eg er ein webdesigner frå Vinje i Telemark, som er basert i Oslo.'
+
       ];
       
       const typewriter = new TypewriterEffect(typewriterElement, texts, {
