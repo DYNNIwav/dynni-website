@@ -13,7 +13,9 @@
   box-sizing: border-box;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh;
   padding: var(--space-4) var(--space-2);
+  grid-template-columns: 1fr 1fr 1fr;
   backdrop-filter: blur(8px);
   background: linear-gradient(
     to bottom,
