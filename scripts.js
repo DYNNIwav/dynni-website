@@ -40,9 +40,11 @@ class TypewriterEffect {
       
       // Validate elements exist
       if (!this.textElement) {
-        console.error('TypewriterEffect: .typed-text element not found');
+        console.error('TypewriterEffect: .typed-text element not found in', element);
         return;
       }
+      
+      console.log('TypewriterEffect initialized for:', element, 'with texts:', texts);
       
       // Start the animation
       if (this.options.autoStart) {
@@ -204,9 +206,9 @@ class TypewriterEffect {
     if (typewriterElement) {
       const texts = [
         'Hei!',
-        'Eg heiter Pål',
-        'Eg er ein webdesigner frå Vinje',
-        'Eg elskar å lage vakre og funksjonelle nettsider'
+        'Eg heiter Pål.',
+        'Eg er ein webdesigner frå Vinje i Telemark, som er basert i Oslo.',
+        'Kontakt meg for å lage din drømme nettside!'
       ];
       
       const typewriter = new TypewriterEffect(typewriterElement, texts, {
@@ -217,6 +219,8 @@ class TypewriterEffect {
         loop: true,
         humanize: true
       });
+
+    
       
       // Optional: Control the typewriter
       // typewriter.pause();
@@ -229,19 +233,28 @@ class TypewriterEffect {
       {
         selector: '.hero-typewriter',
         texts: ['Hei!', 'Eg heiter Pål', 'Eg er ein webdesigner frå Vinje', 'Eg elskar å lage vakre og funksjonelle nettsider'],
-        options: { typeSpeed: 100, loop: true }
+        options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
       },
       {
-        selector: '.subtitle-typewriter',
-        texts: ['Merkevare med presisjon'],
-        options: { typeSpeed: 150, loop: false }
+        selector: '.typewriter-2',
+        texts: ['Ta kontakt.', 'bestill 30 min uforpliktande sparring','La oss bygge noko saman! :)',  ],
+        options: { typeSpeed: 150, deleteSpeed: 75, humanize: true, loop: true }
+      },
+      {
+        selector: '.typewriter-3',
+        texts: ['Kven?', 'Kva?', 'Korleis?', ],
+        options: { typeSpeed: 200, deleteSpeed: 100, humanize: true, loop: true }
       }
     ];
     
     configs.forEach(config => {
       const element = document.querySelector(config.selector);
+      console.log('Looking for:', config.selector, 'Found:', element);
       if (element) {
+        console.log('Initializing typewriter for:', config.selector, 'with texts:', config.texts);
         new TypewriterEffect(element, config.texts, config.options);
+      } else {
+        console.log('Element not found for selector:', config.selector);
       }
     });
     

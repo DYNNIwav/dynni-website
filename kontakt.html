@@ -16,7 +16,7 @@
     />
 
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/kontakt.css" />
     <script
       src="https://kit.fontawesome.com/0d42989d58.js"
       crossorigin="anonymous"
@@ -28,10 +28,14 @@
     <header class="site-header">
       <nav class="nav">
         <a class="logo" href="./">DYNNI</a>
-        <h3 class="sidebar-text">© DYNNI 2025</h3>
         <ul class="nav-links">
+          <li><a href="./om-meg">Om</a></li>
+          <li><a href="./kontakt">Kontakt</a></li>
+        </ul>
+        <h3 class="sidebar-text">© DYNNI 2025</h3>
+        <ul class="nav-links-social">
           <li>
-            <a href="https://www.instagram.com/dynni.wav" target="_blank"
+            <a href="https://www.instagram.com/dynni.wav/" target="_blank"
               ><i class="fab fa-instagram"></i
             ></a>
           </li>
@@ -48,31 +52,23 @@
       <section class="hero" aria-label="Intro">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 class="typewriter">
+          <h1 class="typewriter-2">
             <span class="typed-text"></span>
           </h1>
-          <p>Eg byggjer merkevare med presisjon og jordnær estetikk.</p>
-          <div class="cta">
-            <a class="btn primary" href="./om-meg">Vil du vite meir?</a>
-            <a class="btn ghost" href="./kontakt">Bestill sparring</a>
-          </div>
-          <div class="coords" aria-hidden="true">
-            <a href="https://maps.app.goo.gl/mne2cmMqw8WXiNzv8">
-              59,57° N — 8,49° E (Vinje)</a
+
+          <div class="contact-actions">
+            <a class="btn primary" href="https://cal.com/dynni"
+              >Book i kalender</a
             >
+            <a class="btn" href="mailto:paal@dynni.no">paal@dynni.no</a>
+            <a class="btn" href="tel:+4791697707">+47 91 69 77 07</a>
           </div>
         </div>
       </section>
       <section id="kontakt" class="contact">
         <header><h2>La oss prate</h2></header>
         <p>30 min uforpliktande sparring.</p>
-        <div class="contact-actions">
-          <a class="btn primary" href="https://cal.com/dynni"
-            >Book i kalender</a
-          >
-          <a class="btn" href="mailto:hei@dittdomene.no">paal@dynni.no</a>
-          <a class="btn" href="tel:+47XXXXXXXX">+47 91 69 77 07</a>
-        </div>
+
         <form class="mini-form" action="/api/contact" method="post">
           <label>Namnet ditt<input name="name" required /></label>
           <label>E-post<input name="email" type="email" required /></label>

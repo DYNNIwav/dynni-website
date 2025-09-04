@@ -6,23 +6,51 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/om-meg.css" />
+
+    <script
+      src="https://kit.fontawesome.com/0d42989d58.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./scripts.js"></script>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav">
         <a class="logo" href="../">DYNNI</a>
+
         <ul class="nav-links">
-          <li><a href="#arbeid">Arbeid</a></li>
-          <li><a href="#tenester">Tenester</a></li>
-          <li><a href="../om-meg">Om</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="./om-meg">Om</a></li>
+          <li><a href="./kontakt">Kontakt</a></li>
         </ul>
-        <a class="lang" href="../en/">EN</a>
+
+        <h3 class="sidebar-text">© DYNNI 2025</h3>
+
+        <ul class="nav-links-social">
+          <li>
+            <a href="https://www.instagram.com/dynni.wav/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dynni" target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
       </nav>
     </header>
     <main>
       <section id="om" class="about">
-        <h1 class="section-title">OM MEG</h1>
+        <div class="hero" aria-label="Intro">
+          <div class="hero-bg" aria-hidden="true"></div>
+          <div class="hero-content">
+            <h1 class="typewriter-3">
+              <span class="typed-text"></span>
+            </h1>
+          </div>
+        </div>
+
         <div class="about-section">
           <div class="about-image">
             <img src="./assets/img/Pål-bjønnef.jpg" alt="Portrett" />
@@ -34,8 +62,95 @@
               <li>Systematisk design med stilguide</li>
               <li>Langsiktig samarbeid</li>
             </ul>
-            <p><a href="./manifest">Manifest</a> · <a href="./cv.pdf">CV</a></p>
+            <p>
+              <a href="https://www.instagram.com/dynni.wav/">
+                <i class="fab fa-instagram"></i>
+              </a>
+              ·
+              <a href="./cv.pdf">CV</a>
+            </p>
           </div>
+        </div>
+      </section>
+
+      <section id="arbeid" class="work">
+        <header><h2>Utvalde prosjekt</h2></header>
+        <ul class="case-grid">
+          <li class="case">
+            <a href="https://kollegaogvenn.no">
+              <figure>
+                <img
+                  src="https://api.microlink.io?url=https://kollegaogvenn.no&screenshot=true&meta=false&embed=screenshot.url"
+                  alt="Kollega og Venn – nettside preview"
+                  loading="lazy"
+                />
+                <figcaption>
+                  Kollega & Venn – frå idé til klar identitet
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="case">
+            <a href="https://example.com">
+              <figure>
+                <img
+                  src="https://api.microlink.io?url=https://example.com&screenshot=true&meta=false&embed=screenshot.url"
+                  alt="Example.com – nettside preview"
+                  loading="lazy"
+                />
+                <figcaption>Example.com – moderne webdesign</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="case">
+            <a href="https://github.com">
+              <figure>
+                <img
+                  src="https://api.microlink.io?url=https://github.com&screenshot=true&meta=false&embed=screenshot.url"
+                  alt="GitHub – nettside preview"
+                  loading="lazy"
+                />
+                <figcaption>GitHub – utviklerplattform</figcaption>
+              </figure>
+            </a>
+          </li>
+          <!-- fleire case -->
+        </ul>
+      </section>
+
+      <section class="social-proof">
+        <header><h2>Kundar og resultat</h2></header>
+        <ul class="quotes">
+          <li>
+            <blockquote>
+              <p>«Vi dobla førespurnader på tre månader.»</p>
+              <footer>– Charlotte, Kollega & Venn</footer>
+            </blockquote>
+          </li>
+        </ul>
+      </section>
+      <section id="korleis" class="method">
+        <header><h2>Metoden min</h2></header>
+        <ol class="steps">
+          <li>
+            <h3>Kartlegging</h3>
+            <p>Behov, mål, publikum. Korte innsiktsøvingar.</p>
+          </li>
+          <li>
+            <h3>Skisser</h3>
+            <p>Retningar i typografi, farge og komposisjon.</p>
+          </li>
+          <li>
+            <h3>Prototype</h3>
+            <p>Interaktiv test. Rask iterasjon med reelle innhald.</p>
+          </li>
+          <li>
+            <h3>Levering</h3>
+            <p>Lansering, opplæring og lett vedlikehald.</p>
+          </li>
+        </ol>
+        <div class="type-scaler" aria-live="polite">
+          <!-- interaktiv komponent kan mountast med litt JS -->
         </div>
       </section>
     </main>
