@@ -102,6 +102,14 @@ a:focus-visible {
   }
 }
 
+@media (max-width: 500px) {
+  .typewriter,
+  .typewriter-2,
+  .typewriter-3 {
+    font-size: var(--font-size-1);
+  }
+}
+
 /* TYPE SCALER placeholder */
 .type-scaler {
   margin-top: var(--space-7);

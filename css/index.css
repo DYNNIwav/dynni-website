@@ -144,6 +144,20 @@
       rgba(255, 255, 255, 0)
     );
 }
+@media (max-width: 768px) {
+  .cta {
+    flex-direction: column;
+  }
+  .btn {
+    font-size: var(--font-size-0);
+  }
+  .hero p {
+    font-size: var(--font-size-0);
+  }
+  .coords {
+    font-size: var(--font-size-0);
+  }
+}
 .btn.primary:hover {
   background: linear-gradient(
       to bottom right,
