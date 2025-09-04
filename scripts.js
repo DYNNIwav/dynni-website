@@ -208,7 +208,7 @@ class TypewriterEffect {
       },
       {
         selector: '.typewriter-2',
-        texts: ['Ta kontakt.', 'bestill 30 min uforpliktande sparring','La oss bygge noko saman! :)'],
+        texts: ['Ta kontakt.', 'book 30 min uforpliktande sparring','Håpar eg høyrer frå deg!'],
         options: { typeSpeed: 150, deleteSpeed: 75, humanize: true, loop: true }
       },
       {
