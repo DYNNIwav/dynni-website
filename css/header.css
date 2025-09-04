@@ -63,7 +63,17 @@
 }
 .nav-links i {
   font-size: var(--font-size-2);
+  color: var(--color-text-muted);
 }
+
+.nav-links-social i {
+  color: var(--color-text-muted);
+}
+
+.nav-links-social a:hover i {
+  color: var(--color-accent);
+}
+
 .nav-links a:hover {
   color: var(--color-accent);
 }
@@ -80,6 +90,19 @@
   margin: 0;
   width: fit-content;
   max-width: 60px;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .nav-links-social {
