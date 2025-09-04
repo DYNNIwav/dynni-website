@@ -1,0 +1,21 @@
+{
+    "name": "DYNNI - Webdesigner",
+    "short_name": "DYNNI",
+    "description": "Webdesigner frå Vinje, Telemark. Nettsider og identitetar med presisjon og jordnær estetikk.",
+    "icons": [
+        {
+            "src": "./assets/img/logo/dynni-logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#0e1110",
+    "background_color": "#0e1110",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/",
+    "lang": "nn",
+    "dir": "ltr",
+    "orientation": "portrait-primary",
+    "categories": ["design", "portfolio", "business"]
+}

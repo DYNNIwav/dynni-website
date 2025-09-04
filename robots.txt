@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dynniway.github.io/dynni-website/sitemap.xml
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow specific files
+Allow: /css/
+Allow: /assets/
+Allow: /scripts.js

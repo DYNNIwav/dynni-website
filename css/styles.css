@@ -94,6 +94,14 @@ a:focus-visible {
   background-size: 24px 24px, 24px 24px;
 }
 
+@media (max-width: 768px) {
+  .typewriter,
+  .typewriter-2,
+  .typewriter-3 {
+    font-size: var(--font-size-4);
+  }
+}
+
 /* TYPE SCALER placeholder */
 .type-scaler {
   margin-top: var(--space-7);
