@@ -64,11 +64,13 @@ h2 {
 .about-section {
   position: relative;
   display: grid;
-  gap: var(--space-6);
-  grid-template-columns: 1fr 1fr;
-  align-items: space-between;
+
+  grid-template-columns: 2fr 3fr;
+
+  justify-content: space-around;
   margin-bottom: 20px;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .about-image {
@@ -134,7 +136,7 @@ h2 {
 
   grid-template-columns: repeat(3, 1fr);
 
-  height: 50vh;
+  min-height: 50vh;
 }
 
 @media (max-width: 768px) {
@@ -219,17 +221,21 @@ h2 {
 }
 
 /* SOSIALT PROV */
+.social-proof {
+  position: relative;
+  min-height: 50vh;
+  min-height: 50dvh;
+}
 .social-proof .quotes {
   position: relative;
   list-style: none;
   padding: 0;
-  margin: 0;
+
   margin-left: 20px;
   margin-right: 20px;
   display: grid;
   gap: var(--space-6);
   grid-template-columns: repeat(2, 1fr);
-  height: 50vh;
 }
 
 blockquote {
