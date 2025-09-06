@@ -65,7 +65,7 @@ h2 {
   position: relative;
   display: grid;
 
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 1fr;
 
   justify-content: space-around;
   margin-bottom: 20px;
@@ -84,7 +84,8 @@ h2 {
 
 .about-image img {
   filter: grayscale(1);
-  width: 350px;
+  width: 35dvw;
+  width: 35vw;
   height: auto;
   object-fit: cover;
 }
@@ -92,7 +93,8 @@ h2 {
   position: relative;
   display: flex;
   flex-direction: column;
-
+  width: 40dvw;
+  width: 40vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,17 +111,25 @@ h2 {
     grid-template-columns: 1fr;
     height: auto;
     text-align: center;
+    width: 100dvw;
+    width: 100vw;
   }
   .about-image img {
-    width: 250px;
+    width: 45dvw;
+    width: 45vw;
     height: auto;
   }
   .about-content p {
     font-size: var(--font-size-0);
-    width: 250px;
+    width: 45dvw;
+    width: 45vw;
+    height: auto;
   }
   .about-content {
     font-size: var(--font-size-0);
+    width: 45dvw;
+    width: 45vw;
+    height: auto;
   }
 }
 
