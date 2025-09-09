@@ -26,8 +26,11 @@ h2 {
 }
 
 .typewriter-3 {
+  position: relative;
   display: flex;
   min-height: 20vh;
+  min-height: 20dvh;
+
   justify-content: center;
   width: 100%;
 }
@@ -71,6 +74,7 @@ h2 {
 
   justify-content: space-around;
   margin-bottom: 20px;
+  margin: 0 auto;
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -115,6 +119,7 @@ h2 {
     text-align: center;
     width: 100dvw;
     width: 100vw;
+    justify-content: space-around;
   }
   .about-image img {
     width: 45dvw;
@@ -123,7 +128,8 @@ h2 {
   }
   .about-content {
     font-size: var(--font-size-0);
-    width: 100%;
+    width: 90dvw;
+    width: 90vw;
     max-width: 90vw;
     height: auto;
     margin: 0 auto;
@@ -136,7 +142,6 @@ h2 {
     max-width: 80vw;
     height: auto;
     text-align: center;
-    margin: 0 auto var(--space-5) auto;
   }
 }
 
