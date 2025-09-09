@@ -28,7 +28,6 @@ h2 {
 .typewriter-3 {
   display: flex;
   min-height: 20vh;
-  align-items: center;
   justify-content: center;
   width: 100%;
 }
