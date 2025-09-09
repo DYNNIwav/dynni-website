@@ -99,6 +99,9 @@ a:focus-visible {
   .typewriter-2,
   .typewriter-3 {
     font-size: var(--font-size-6);
+    min-height: auto;
+
+    margin-bottom: var(--space-4);
   }
 }
 
