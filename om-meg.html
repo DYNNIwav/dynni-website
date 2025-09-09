@@ -119,14 +119,15 @@
           ><img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
         /></a>
 
-        <ul class="nav-links">
-          <li><a href="./om-meg">Om</a></li>
+        <ul class="nav-links main-nav">
+          <li><a href="./">Heim</a></li>
+          <li><a href="./om-meg">Om meg</a></li>
           <li><a href="./kontakt">Kontakt</a></li>
         </ul>
 
         <h3 class="sidebar-text">© DYNNI 2025</h3>
 
-        <ul class="nav-links">
+        <ul class="nav-links social-nav">
           <li>
             <a href="https://www.instagram.com/dynni.wav/" target="_blank"
               ><i class="fab fa-instagram"></i
@@ -139,6 +140,32 @@
           </li>
         </ul>
       </nav>
+      <!-- Mobile Hamburger Menu -->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger-btn">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </label>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+          <nav class="mobile-nav">
+            <div class="mobile-nav-content">
+              <a class="mobile-logo" href="./">
+                <img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
+              </a>
+
+              <ul class="mobile-nav-links"></ul>
+
+              <div class="mobile-social"></div>
+
+              <p class="mobile-copyright"></p>
+            </div>
+          </nav>
+        </div>
+      </div>
     </header>
     <main>
       <section id="om" class="about">
@@ -256,5 +283,68 @@
         </div>
       </section>
     </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Hamburger menu functionality
+        const menuToggle = document.getElementById("menu-toggle");
+        const body = document.body;
+
+        if (menuToggle) {
+          // Populate mobile menu with existing desktop navigation
+          const desktopMainNav = document.querySelector(".main-nav");
+          const desktopSocialNav = document.querySelector(".social-nav");
+          const desktopCopyright = document.querySelector(".sidebar-text");
+
+          const mobileNavLinks = document.querySelector(".mobile-nav-links");
+          const mobileSocial = document.querySelector(".mobile-social");
+          const mobileCopyright = document.querySelector(".mobile-copyright");
+
+          // Clone main navigation links
+          if (desktopMainNav && mobileNavLinks) {
+            const mainLinks = desktopMainNav.querySelectorAll("li");
+            mainLinks.forEach((link) => {
+              const clonedLink = link.cloneNode(true);
+              mobileNavLinks.appendChild(clonedLink);
+            });
+          }
+
+          // Clone social links
+          if (desktopSocialNav && mobileSocial) {
+            const socialLinks = desktopSocialNav.querySelectorAll("li a");
+            socialLinks.forEach((link) => {
+              const clonedLink = link.cloneNode(true);
+              mobileSocial.appendChild(clonedLink);
+            });
+          }
+
+          // Clone copyright text
+          if (desktopCopyright && mobileCopyright) {
+            mobileCopyright.textContent = desktopCopyright.textContent;
+          }
+
+          menuToggle.addEventListener("change", function () {
+            if (this.checked) {
+              // Menu is open - prevent body scroll
+              body.style.overflow = "hidden";
+            } else {
+              // Menu is closed - restore body scroll
+              body.style.overflow = "";
+            }
+          });
+
+          // Close menu when clicking on overlay
+          const overlay = document.querySelector(".mobile-nav-overlay");
+          if (overlay) {
+            overlay.addEventListener("click", function (e) {
+              if (e.target === this) {
+                menuToggle.checked = false;
+                body.style.overflow = "";
+              }
+            });
+          }
+        }
+      });
+    </script>
   </body>
 </html>
