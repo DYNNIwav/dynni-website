@@ -98,7 +98,7 @@ a:focus-visible {
   .typewriter,
   .typewriter-2,
   .typewriter-3 {
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-6);
   }
 }
 
@@ -106,7 +106,7 @@ a:focus-visible {
   .typewriter,
   .typewriter-2,
   .typewriter-3 {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-4);
   }
 }
 
