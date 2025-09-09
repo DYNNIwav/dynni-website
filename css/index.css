@@ -60,7 +60,9 @@
 .typewriter {
   display: flex;
   min-height: 20vh;
-  align-items: left;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .typed-text {
