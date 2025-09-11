@@ -197,40 +197,128 @@ class TypewriterEffect {
     elements.forEach(el => observer.observe(el));
   }
   
-  // Initialize all typewriters
-  document.addEventListener('DOMContentLoaded', function() {
-    // Multiple typewriter instances
-    const configs = [
-      {
-        selector: '.typewriter',
-        texts: ['Hei!', 'Eg heiter Pål.', 'Eg er ein webdesigner frå Vinje i Telemark, som er basert i Oslo.'],
-        options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
-      },
-      {
-        selector: '.typewriter-2',
-        texts: ['Ta kontakt.', 'book 30 min uforpliktande sparring','Håpar eg høyrer frå deg!'],
-        options: { typeSpeed: 150, deleteSpeed: 75, humanize: true, loop: true }
-      },
-      {
-        selector: '.typewriter-3',
-        texts: ['Kven?', 'Kva?', 'Korleis?'],
-        options: { typeSpeed: 200, deleteSpeed: 100, humanize: true, loop: true }
-      }
-    ];
+// Hamburger Menu Functionality
+function initHamburgerMenu() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const body = document.body;
+
+  if (menuToggle) {
+    // Populate mobile menu with existing desktop navigation
+    const desktopMainNav = document.querySelector(".main-nav");
+    const desktopSocialNav = document.querySelector(".social-nav");
+    const desktopCopyright = document.querySelector(".sidebar-text");
     
-    configs.forEach(config => {
-      const element = document.querySelector(config.selector);
-      if (element) {
-        new TypewriterEffect(element, config.texts, config.options);
+    const mobileNavLinks = document.querySelector(".mobile-nav-links");
+    const mobileSocial = document.querySelector(".mobile-social");
+    const mobileCopyright = document.querySelector(".mobile-copyright");
+
+    // Clone main navigation links
+    if (desktopMainNav && mobileNavLinks) {
+      const mainLinks = desktopMainNav.querySelectorAll("li");
+      mainLinks.forEach((link) => {
+        const clonedLink = link.cloneNode(true);
+        mobileNavLinks.appendChild(clonedLink);
+      });
+    }
+
+    // Clone social links
+    if (desktopSocialNav && mobileSocial) {
+      const socialLinks = desktopSocialNav.querySelectorAll("li a");
+      socialLinks.forEach((link) => {
+        const clonedLink = link.cloneNode(true);
+        mobileSocial.appendChild(clonedLink);
+      });
+    }
+
+    // Clone copyright text
+    if (desktopCopyright && mobileCopyright) {
+      mobileCopyright.textContent = desktopCopyright.textContent;
+    }
+
+    menuToggle.addEventListener("change", function () {
+      if (this.checked) {
+        // Menu is open - prevent body scroll
+        body.style.overflow = "hidden";
+      } else {
+        // Menu is closed - restore body scroll
+        body.style.overflow = "";
       }
     });
-    
-    // Scroll-triggered typewriter (uncomment to use)
-    // createScrollTriggeredTypewriter('.scroll-typewriter', [
-    //   'Animasjon på scroll',
-    //   'Perfekt for lang side'
-    // ]);
+
+    // Close menu when clicking on overlay
+    const overlay = document.querySelector(".mobile-nav-overlay");
+    if (overlay) {
+      overlay.addEventListener("click", function (e) {
+        if (e.target === this) {
+          menuToggle.checked = false;
+          body.style.overflow = "";
+        }
+      });
+    }
+  }
+}
+
+// Button Spotlight Effect
+function initButtonSpotlight() {
+  const buttons = document.querySelectorAll(".btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("mousemove", (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      button.style.setProperty("--x", x + "px");
+      button.style.setProperty("--y", y + "px");
+    });
+
+    button.addEventListener("mouseleave", () => {
+      button.style.setProperty("--x", "0");
+      button.style.setProperty("--y", "0");
+    });
   });
+}
+
+// Initialize all typewriters
+document.addEventListener('DOMContentLoaded', function() {
+  // Multiple typewriter instances
+  const configs = [
+    {
+      selector: '.typewriter',
+      texts: ['Hei!', 'Eg heiter Pål.', 'Eg er ein webdesigner frå Vinje i Telemark, som er basert i Oslo.'],
+      options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
+    },
+    {
+      selector: '.typewriter-2',
+      texts: ['Ta kontakt.', 'book 30 min uforpliktande sparring','Håpar eg høyrer frå deg!'],
+      options: { typeSpeed: 150, deleteSpeed: 75, humanize: true, loop: true }
+    },
+    {
+      selector: '.typewriter-3',
+      texts: ['Kven?', 'Kva?', 'Korleis?'],
+      options: { typeSpeed: 200, deleteSpeed: 100, humanize: true, loop: true }
+    }
+  ];
+  
+  configs.forEach(config => {
+    const element = document.querySelector(config.selector);
+    if (element) {
+      new TypewriterEffect(element, config.texts, config.options);
+    }
+  });
+  
+  // Initialize hamburger menu
+  initHamburgerMenu();
+  
+  // Initialize button spotlight effect
+  initButtonSpotlight();
+  
+  // Scroll-triggered typewriter (uncomment to use)
+  // createScrollTriggeredTypewriter('.scroll-typewriter', [
+  //   'Animasjon på scroll',
+  //   'Perfekt for lang side'
+  // ]);
+});
   
   // Respect user motion preferences
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

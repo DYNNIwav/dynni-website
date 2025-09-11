@@ -247,64 +247,7 @@
           }, 3000);
         });
 
-        // Hamburger menu functionality
-        const menuToggle = document.getElementById("menu-toggle");
-        const body = document.body;
-
-        if (menuToggle) {
-          // Populate mobile menu with existing desktop navigation
-          const desktopMainNav = document.querySelector(".main-nav");
-          const desktopSocialNav = document.querySelector(".social-nav");
-          const desktopCopyright = document.querySelector(".sidebar-text");
-
-          const mobileNavLinks = document.querySelector(".mobile-nav-links");
-          const mobileSocial = document.querySelector(".mobile-social");
-          const mobileCopyright = document.querySelector(".mobile-copyright");
-
-          // Clone main navigation links
-          if (desktopMainNav && mobileNavLinks) {
-            const mainLinks = desktopMainNav.querySelectorAll("li");
-            mainLinks.forEach((link) => {
-              const clonedLink = link.cloneNode(true);
-              mobileNavLinks.appendChild(clonedLink);
-            });
-          }
-
-          // Clone social links
-          if (desktopSocialNav && mobileSocial) {
-            const socialLinks = desktopSocialNav.querySelectorAll("li a");
-            socialLinks.forEach((link) => {
-              const clonedLink = link.cloneNode(true);
-              mobileSocial.appendChild(clonedLink);
-            });
-          }
-
-          // Clone copyright text
-          if (desktopCopyright && mobileCopyright) {
-            mobileCopyright.textContent = desktopCopyright.textContent;
-          }
-
-          menuToggle.addEventListener("change", function () {
-            if (this.checked) {
-              // Menu is open - prevent body scroll
-              body.style.overflow = "hidden";
-            } else {
-              // Menu is closed - restore body scroll
-              body.style.overflow = "";
-            }
-          });
-
-          // Close menu when clicking on overlay
-          const overlay = document.querySelector(".mobile-nav-overlay");
-          if (overlay) {
-            overlay.addEventListener("click", function (e) {
-              if (e.target === this) {
-                menuToggle.checked = false;
-                body.style.overflow = "";
-              }
-            });
-          }
-        }
+        // All JavaScript functionality is now handled by scripts.js
       });
     </script>
   </body>
