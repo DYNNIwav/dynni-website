@@ -320,3 +320,118 @@ blockquote footer {
   font-size: var(--font-size-0);
   letter-spacing: 0.06em;
 }
+
+/* KONTAKT */
+.cta {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
+  margin: 100px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: var(--radius-1);
+  border: var(--border-1);
+  color: var(--color-text);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-fast) var(--ease-curve),
+    background var(--dur-fast) var(--ease-curve),
+    border-color var(--dur-fast) var(--ease-curve),
+    box-shadow var(--dur-fast) var(--ease-curve);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    150px circle at var(--x, 0) var(--y, 0),
+    rgba(59, 170, 132, 0.15) 0%,
+    rgba(59, 170, 132, 0.05) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: var(--radius-1);
+}
+.btn:hover {
+  border-color: var(--color-border-strong);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0)
+  );
+  box-shadow: var(--shadow-1);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn.primary {
+  border-color: transparent;
+  background: linear-gradient(
+      to bottom right,
+      rgba(59, 170, 132, 0.2),
+      rgba(181, 106, 58, 0.18)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0)
+    );
+}
+
+.btn.primary::before {
+  background: radial-gradient(
+    150px circle at var(--x, 0) var(--y, 0),
+    rgba(59, 170, 132, 0.3) 0%,
+    rgba(59, 170, 132, 0.1) 40%,
+    transparent 70%
+  );
+}
+@media (max-width: 768px) {
+  .cta {
+    flex-direction: column;
+  }
+  .btn {
+    font-size: var(--font-size-0);
+  }
+  .hero p {
+    font-size: var(--font-size-0);
+  }
+  .coords {
+    font-size: var(--font-size-0);
+  }
+}
+.btn.primary:hover {
+  background: linear-gradient(
+      to bottom right,
+      rgba(59, 170, 132, 0.3),
+      rgba(181, 106, 58, 0.26)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0)
+    );
+  box-shadow: var(--shadow-2);
+}

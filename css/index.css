@@ -115,10 +115,31 @@
     rgba(255, 255, 255, 0.02),
     rgba(255, 255, 255, 0)
   );
+  position: relative;
+  overflow: hidden;
   transition: transform var(--dur-fast) var(--ease-curve),
     background var(--dur-fast) var(--ease-curve),
     border-color var(--dur-fast) var(--ease-curve),
     box-shadow var(--dur-fast) var(--ease-curve);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    150px circle at var(--x, 0) var(--y, 0),
+    rgba(59, 170, 132, 0.15) 0%,
+    rgba(59, 170, 132, 0.05) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: var(--radius-1);
 }
 .btn:hover {
   border-color: var(--color-border-strong);
@@ -128,6 +149,10 @@
     rgba(255, 255, 255, 0)
   );
   box-shadow: var(--shadow-1);
+}
+
+.btn:hover::before {
+  opacity: 1;
 }
 .btn:active {
   transform: translateY(1px);
@@ -145,6 +170,15 @@
       rgba(255, 255, 255, 0.05),
       rgba(255, 255, 255, 0)
     );
+}
+
+.btn.primary::before {
+  background: radial-gradient(
+    150px circle at var(--x, 0) var(--y, 0),
+    rgba(59, 170, 132, 0.3) 0%,
+    rgba(59, 170, 132, 0.1) 40%,
+    transparent 70%
+  );
 }
 @media (max-width: 768px) {
   .cta {
