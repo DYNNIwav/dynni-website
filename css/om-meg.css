@@ -1,20 +1,31 @@
 /* Apple-Style About Page - Clean & Minimal */
 
-.hero {
-  height: 20vh;
-  display: grid;
-  place-items: center;
-  padding-top: var(--space-xl);
+#om {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
 }
 
-.hero-content {
-  text-align: center;
-  max-width: 800px;
+#arbeid,
+#korleis,
+#social-proof {
+  height: auto;
+  margin: var(--space-xl) 0 var(--space-xl) 0;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: var(--space-xl);
+  position: relative;
+  min-height: 10dvh;
 }
 
 .typewriter-3 {
   display: flex;
-  min-height: 20vh;
+
   align-items: center;
   justify-content: flex-start;
 }
@@ -22,10 +33,11 @@
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
+  justify-content: space-around;
   align-items: center;
-  min-height: 100vh;
-  padding: 0 var(--space-md);
+  gap: var(--space-md);
+  padding: var(--space-md);
+  position: relative;
 }
 
 .about-image {
@@ -34,10 +46,9 @@
 
 .about-image img {
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   height: auto;
   filter: grayscale(1);
-  box-shadow: 10px color-mix(in srgb, var(--glass) 100%, transparent);
   border: 15px solid white;
   transition: var(--transition);
 }
@@ -60,7 +71,6 @@
   gap: var(--space-md);
   list-style: none;
   padding: 0;
-  margin: var(--space-xl) var(--space-md);
 }
 
 .case a {
@@ -163,6 +173,10 @@ blockquote footer {
 
 /* Mobile */
 @media (max-width: 768px) {
+  #om {
+    height: 100dvh;
+  }
+
   .about-section {
     grid-template-columns: 1fr;
     text-align: left;

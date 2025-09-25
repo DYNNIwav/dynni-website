@@ -23,7 +23,7 @@ body {
   color: var(--text);
   background: var(--bg);
   margin: 0;
-  padding: 10px;
+  padding: var(--space-md);
   min-height: 100vh;
   line-height: 1.5;
   font-weight: 400;
@@ -43,10 +43,18 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
   object-fit: cover;
   z-index: -1;
+}
+
+.btn i {
+  transition: var(--transition);
+  margin-right: var(--space-xs);
+  display: inline-block;
 }
 
 /* True Glass Morphism - Transparent & Glassy */
