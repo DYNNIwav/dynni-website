@@ -1,89 +1,49 @@
-/* Design tokens: fargar, typografi, spacing, radius, skuggar */
+/* Apple iOS/macOS Design System - Clean & Minimal */
 :root {
-  /* Fargar (mørk skog/sot + nordlysgrøn/kobbar aksent) */
-  --color-bg: #0e1110;
-  --color-bg-elev-1: #121614;
-  --color-bg-elev-2: #161b19;
+  /* Pure Black Background */
+  --bg: #000000;
 
-  --color-text: #e6e8e6;
-  --color-text-dim: #b7bcb7;
-  --color-text-muted: #8a928a;
+  /* True Glass Morphism - Transparent & Glassy */
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-strong: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.4);
 
-  --color-accent: #3baa84; /* nordlysgrøn */
-  --color-accent-strong: #2d9a75;
-  --color-accent-subtle: rgba(59, 170, 132, 0.12);
+  /* Apple Typography */
+  --text: #ffffff;
+  --text-secondary: #8e8e93;
 
-  --color-copper: #b56a3a; /* alternativ aksent (kobbar) */
-  --color-border: rgba(230, 232, 230, 0.08);
-  --color-border-strong: rgba(230, 232, 230, 0.16);
+  /* Apple Blue System */
+  --blue: #007aff;
+  --blue-glow: rgba(0, 122, 255, 0.3);
 
-  /* Typografi */
-  --font-sans: "JetBrains Mono", ui-monospace, SF Mono, Monaco, "Cascadia Code",
-    "Roboto Mono", Consolas, "Courier New", monospace;
-  --font-display: "JetBrains Mono", ui-monospace, SF Mono, Monaco,
-    "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  /* Simple Design Tokens */
+  --radius: 12px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Typo-skala (modular 1.2) */
-  --font-size-0: 0.833rem; /* sm */
-  --font-size-1: 1rem; /* base */
-  --font-size-2: 1.2rem; /* h6 */
-  --font-size-3: 1.44rem; /* h5 */
-  --font-size-4: 1.728rem; /* h4 */
-  --font-size-5: 2.074rem; /* h3 */
-  --font-size-6: 2.488rem; /* h2 */
-  --font-size-7: 2.986rem; /* h1 */
+  /* Code Editor Typography - Programmer Aesthetic */
+  --font-display: "Fira Code", "JetBrains Mono", ui-monospace, "SF Mono", Monaco,
+    monospace;
+  --font-body: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Monaco,
+    monospace;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Monaco,
+    monospace;
 
-  /* Line-height */
-  --lh-tight: 1.2;
-  --lh-normal: 1.5;
-  --lh-loose: 1.65;
-
-  /* Spacing skala (8-basert) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 40px;
-  --space-8: 56px;
-  --space-9: 72px;
-  --space-10: 96px;
-
-  /* Radius og border */
-  --radius-1: 6px;
-  --radius-2: 10px;
-  --radius-round: 999px;
-  --border-1: 1px solid var(--color-border);
-  --border-2: 1px solid var(--color-border-strong);
-
-  /* Skuggar (subtile) */
-  --shadow-1: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.25);
-  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.35), 0 12px 24px rgba(0, 0, 0, 0.25);
-
-  /* Overgongar */
-  --ease-curve: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --dur-fast: 120ms;
-  --dur-med: 220ms;
-  --dur-slow: 420ms;
-
-  /* Grid akse-farge (svak, for taktil bakgrunn) */
-  --grid-line: rgba(230, 232, 230, 0.04);
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --color-bg: #f7f7f6;
-    --color-bg-elev-1: #ffffff;
-    --color-bg-elev-2: #f2f2f0;
-
-    --color-text: #121614;
-    --color-text-dim: #3b423c;
-    --color-text-muted: #676f69;
-
-    --color-border: rgba(0, 0, 0, 0.08);
-    --color-border-strong: rgba(0, 0, 0, 0.16);
-
-    --grid-line: rgba(0, 0, 0, 0.05);
+    --bg: #ffffff;
+    --glass: rgba(0, 0, 0, 0.1);
+    --glass-border: rgba(0, 0, 0, 0.2);
+    --glass-highlight: rgba(255, 255, 255, 0.8);
+    --text: #000000;
   }
 }
