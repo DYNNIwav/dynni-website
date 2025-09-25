@@ -171,6 +171,14 @@ blockquote footer {
   font-weight: 600;
 }
 
+#kontakt {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   #om {

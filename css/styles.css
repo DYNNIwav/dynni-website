@@ -35,19 +35,17 @@ main {
   min-height: 100vh;
 }
 
-#kontakt {
-  display: none;
-}
-
 .background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  width: 100dvw;
   height: 100vh;
   height: 100dvh;
-  object-fit: cover;
+  background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: -1;
 }
 
