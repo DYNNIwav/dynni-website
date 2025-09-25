@@ -28,7 +28,7 @@ html {
   text-align: left;
 }
 
-.cta {
+.contact-actions {
   display: flex;
   gap: var(--space-md);
   align-items: center;
