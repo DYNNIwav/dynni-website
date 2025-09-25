@@ -38,7 +38,8 @@ html {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .cta {
-    flex-direction: column;
+  .contact-actions {
+    display: grid;
+    gap: var(--space-sm);
   }
 }
