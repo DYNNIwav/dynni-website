@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+
 .hero {
   position: relative;
   height: 100vh;
@@ -56,13 +61,13 @@
   margin-top: var(--space-lg);
 }
 
-.btn i {
+.btn i.fa-arrow-right {
   margin-right: var(--space-xs);
-  transition: var(--transition);
   transform: rotate(-50deg);
+  transition: var(--transition);
 }
 
-.btn i :hover {
+.btn i.fa-arrow-right:hover {
   transform: rotate(0deg);
 }
 
