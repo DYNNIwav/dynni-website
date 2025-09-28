@@ -41,7 +41,7 @@ main {
 
 @supports (webkit-touch-callout: none) {
   .background {
-    min-height: 110vh;
+    min-height: -webkit-fill-available;
   }
 }
 
@@ -49,13 +49,13 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 110vw;
-  height: 110vh;
+  width: 100vw;
+  height: 100vh;
   height: webkit-fill-available;
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
   background-position: center;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -211,7 +211,6 @@ pre,
 @media (max-width: 768px) {
   main {
     margin-left: 0 !important;
-    width: 100vw;
     height: 100vh;
     height: webkit-fill-available;
   }
