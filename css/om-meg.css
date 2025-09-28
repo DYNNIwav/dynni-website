@@ -113,6 +113,7 @@ html {
   list-style: none;
   padding: 0;
   margin: var(--space-xl) var(--space-md);
+  width: auto;
 }
 
 blockquote {

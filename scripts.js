@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const configs = [
     {
       selector: '.typewriter',
-      texts: ['Hei!', 'Eg heiter Pål.', 'Eg er ein webdesigner frå Vinje i Telemark, som er basert i Oslo.'],
+      texts: ['Hei!', 'Eg heiter Pål.', 'Eg er ein webutviklar og -designer frå Vinje, basert i Oslo.'],
       options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
     },
     {
