@@ -26,7 +26,7 @@ body {
   margin: 0;
   padding: var(--space-md);
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: webkit-fill-available;
   line-height: 1.5;
   font-weight: 400;
   -webkit-overflow-scrolling: touch;
@@ -36,7 +36,13 @@ body {
 main {
   margin-left: 100px;
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: webkit-fill-available;
+}
+
+@supports (webkit-touch-callout: none) {
+  .background {
+    min-height: -webkit-fill-available;
+  }
 }
 
 .background {
@@ -45,12 +51,12 @@ main {
   left: 0;
   width: 100vw;
   height: 100vh;
-  height: 100dvh;
+  height: webkit-fill-available;
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   z-index: -1;
 }
 
