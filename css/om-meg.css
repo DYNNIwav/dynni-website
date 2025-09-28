@@ -48,6 +48,7 @@ html {
 
 .about-image img {
   width: auto;
+  height: 70vh;
   height: 70dvh;
   filter: grayscale(1);
   border: 15px solid white;

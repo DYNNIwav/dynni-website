@@ -26,7 +26,7 @@ body {
   margin: 0;
   padding: var(--space-md);
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   line-height: 1.5;
   font-weight: 400;
   -webkit-overflow-scrolling: touch;
@@ -36,7 +36,7 @@ body {
 main {
   margin-left: 100px;
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 .background {
@@ -46,12 +46,11 @@ main {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  height: 100svh;
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   z-index: -1;
 }
 
