@@ -15,6 +15,7 @@ html {
 #social-proof {
   height: auto;
   margin: var(--space-xl) 0 var(--space-xl) 0;
+  margin-left: 100px;
 }
 
 .hero {
@@ -37,13 +38,17 @@ html {
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: var(--space-md);
+  align-items: space-around;
+  gap: var(--space-lg);
   position: relative;
+  width: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-image {
-  justify-self: center;
+  justify-self: flex-end;
+  margin-left: 100px;
 }
 
 .about-image img {
@@ -63,8 +68,7 @@ html {
 }
 
 .about-content {
-  max-width: 500px;
-  justify-self: center;
+  justify-self: flex-start;
 }
 
 /* Case Grid */
@@ -189,6 +193,13 @@ blockquote footer {
   .about-section {
     grid-template-columns: 1fr;
     text-align: left;
+  }
+  .about-image {
+    justify-self: center;
+    margin-left: 0;
+  }
+  .about-content {
+    justify-self: center;
   }
 
   .quotes {
