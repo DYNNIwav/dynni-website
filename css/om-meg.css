@@ -48,8 +48,8 @@ html {
 
 .about-image img {
   width: auto;
-  height: 70vh;
-  height: 70dvh;
+  height: 60vh;
+  height: 60dvh;
   filter: grayscale(1);
   border: 15px solid white;
   transition: var(--transition);
