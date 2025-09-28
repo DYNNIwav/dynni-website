@@ -8,7 +8,7 @@ html {
 .hero {
   position: relative;
   height: 100vh;
-  height: 100dvh;
+  height: 100svh;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -63,14 +63,16 @@ html {
   margin-top: var(--space-lg);
 }
 
-.btn i.fa-arrow-right {
+.btn i {
+  display: inline-block;
   margin-right: var(--space-xs);
   transform: rotate(-50deg);
   transition: var(--transition);
 }
 
-.btn i.fa-arrow-right:hover {
+.btn:hover i {
   transform: rotate(0deg);
+  transition: var(--transition);
 }
 
 .coords {

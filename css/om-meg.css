@@ -1,5 +1,9 @@
 /* Apple-Style About Page - Clean & Minimal */
 
+html {
+  scroll-behavior: smooth;
+}
+
 #om {
   min-height: 100vh;
   min-height: 100dvh;
@@ -33,10 +37,8 @@
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-around;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-md);
   position: relative;
 }
 
@@ -45,9 +47,8 @@
 }
 
 .about-image img {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
+  width: auto;
+  height: 70dvh;
   filter: grayscale(1);
   border: 15px solid white;
   transition: var(--transition);
@@ -62,6 +63,7 @@
 
 .about-content {
   max-width: 500px;
+  justify-self: center;
 }
 
 /* Case Grid */
@@ -182,10 +184,6 @@ blockquote footer {
 
 /* Mobile */
 @media (max-width: 768px) {
-  #om {
-    height: 100dvh;
-  }
-
   .about-section {
     grid-template-columns: 1fr;
     text-align: left;

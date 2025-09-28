@@ -53,12 +53,6 @@ main {
   z-index: -1;
 }
 
-.btn i {
-  transition: var(--transition);
-  margin-right: var(--space-xs);
-  display: inline-block;
-}
-
 /* True Glass Morphism - Transparent & Glassy */
 .glass {
   background: var(--glass);
@@ -199,32 +193,6 @@ pre,
   font-weight: 600;
 }
 
-/* Enhanced button styling for code aesthetic */
-.btn {
-  font-family: var(--font-body);
-  font-feature-settings: "liga" 1, "calt" 1;
-  position: relative;
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  background: linear-gradient(
-    135deg,
-    transparent,
-    var(--glass-highlight),
-    transparent
-  );
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.btn:hover::after {
-  opacity: 1;
-}
-
 /* Utilities */
 .container {
   max-width: 1200px;
@@ -235,7 +203,7 @@ pre,
 /* Mobile */
 @media (max-width: 768px) {
   main {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
   .btn {
