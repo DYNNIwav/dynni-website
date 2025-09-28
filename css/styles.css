@@ -41,7 +41,7 @@ main {
 
 @supports (webkit-touch-callout: none) {
   .background {
-    min-height: -webkit-fill-available;
+    min-height: 110vh;
   }
 }
 
@@ -49,8 +49,8 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 110vw;
+  height: 110vh;
   height: webkit-fill-available;
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
@@ -211,6 +211,9 @@ pre,
 @media (max-width: 768px) {
   main {
     margin-left: 0 !important;
+    width: 100vw;
+    height: 100vh;
+    height: webkit-fill-available;
   }
 
   .btn {
