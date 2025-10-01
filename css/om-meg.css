@@ -190,6 +190,12 @@ blockquote footer {
 
 /* Mobile */
 @media (max-width: 768px) {
+  #arbeid,
+  #korleis,
+  #social-proof {
+    margin-left: 0;
+  }
+
   .about-section {
     grid-template-columns: 1fr;
     text-align: left;
