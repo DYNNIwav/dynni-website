@@ -230,6 +230,10 @@ blockquote footer {
 
 /* Mobile */
 @media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+  }
+
   #arbeid,
   #korleis,
   #social-proof {
