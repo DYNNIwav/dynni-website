@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Observe all .steps li elements
+  // Observe all animated elements
   const stepsElements = document.querySelectorAll('.steps li, .quotes, .case a, .about-image, .about-content');
   stepsElements.forEach(el => {
     observer.observe(el);
