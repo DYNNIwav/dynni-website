@@ -1,3 +1,5 @@
+console.log('scripts.js loaded');
+
 class TypewriterEffect {
     constructor(element, texts, options = {}) {
       // Validation
@@ -335,3 +337,23 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log('Element intersecting:', entry.target);
+        entry.target.classList.add('show');
+      }
+      else {
+        entry.target.classList.remove('show');
+      }
+    });
+  });
+
+  // Observe all .steps li elements
+  const stepsElements = document.querySelectorAll('.steps li, .quotes, .case a, .about-image, .about-content');
+  stepsElements.forEach(el => {
+    observer.observe(el);
+  });
+});

@@ -212,45 +212,5 @@
         </div>
       </section>
     </main>
-
-    <script>
-      // Handle website preview loading and fallbacks
-      document.addEventListener("DOMContentLoaded", function () {
-        const previewImages = document.querySelectorAll(
-          'img[src*="microlink.io"]'
-        );
-
-        previewImages.forEach((img) => {
-          // Add loading state
-          img.classList.add("loading");
-
-          // Handle successful load
-          img.addEventListener("load", function () {
-            this.classList.remove("loading");
-            this.style.background = "none";
-          });
-
-          // Handle load errors - fallback to favicon
-          img.addEventListener("error", function () {
-            const url = this.src.match(/url=([^&]+)/)?.[1];
-            if (url) {
-              // Try to get favicon as fallback
-              this.src = `https://www.google.com/s2/favicons?domain=${url}&sz=64`;
-              this.style.objectFit = "contain";
-              this.style.padding = "20px";
-            }
-          });
-
-          // Set timeout for slow loading
-          setTimeout(() => {
-            if (img.classList.contains("loading")) {
-              img.style.opacity = "0.7";
-            }
-          }, 3000);
-        });
-
-        // All JavaScript functionality is now handled by scripts.js
-      });
-    </script>
   </body>
 </html>
