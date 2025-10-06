@@ -51,7 +51,7 @@ main {
   left: 0;
   width: 100vw;
   height: 110vh;
-  height: 110dvh;
+  height: 110svh;
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
   background-position: center;
