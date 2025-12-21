@@ -299,6 +299,11 @@ document.addEventListener('DOMContentLoaded', function() {
       selector: '.typewriter-3',
       texts: ['Kven?', 'Kva?', 'Korleis?'],
       options: { typeSpeed: 200, deleteSpeed: 100, humanize: true, loop: true }
+    },
+    {
+      selector: '.typewriter-4',
+      texts: ['Lydtekniker.', 'Frå felt til miks.', 'TV. Sport. Musikk.'],
+      options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
     }
   ];
   
@@ -352,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Observe all animated elements
-  const stepsElements = document.querySelectorAll('.steps li, .quotes, .case a, .about-image, .about-content');
+  const stepsElements = document.querySelectorAll('.steps li, .quotes, .case a, .about-image, .about-content, .project-card');
   stepsElements.forEach(el => {
     observer.observe(el);
   });
