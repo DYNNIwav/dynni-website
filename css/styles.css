@@ -39,12 +39,9 @@ main {
 
 .background {
   position: fixed;
-  top: -200px;
-  left: -10px;
-  right: -10px;
-  bottom: -200px;
+  inset: -50vh -10px;
   width: calc(100vw + 20px);
-  height: calc(100svh + 400px);
+  min-height: 200vh;
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
   background-position: center;
