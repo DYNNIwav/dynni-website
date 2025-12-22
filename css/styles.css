@@ -45,11 +45,15 @@ main {
 
 .background {
   position: fixed;
-  top: 0;
+  top: -50px;
   left: 0;
+  right: 0;
+  bottom: -50px;
+
   width: 100vw;
-  height: 110vh;
-  height: 110svh;
+  min-height: 100vh;
+  min-height: 100lvh;
+  padding-bottom: env(safe-area-inset-bottom, 0);
   background-image: url("../assets/img/pexels-fredrikwandem-19427621.jpg");
   background-size: cover;
   background-position: center;
