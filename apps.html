@@ -1,77 +1,62 @@
 <!DOCTYPE html>
 <html lang="nn">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1"
+      content="width=device-width, initial-scale=1.0"
       viewport-fit="cover"
     />
 
     <!-- Primary Meta Tags -->
-    <title>
-      Kontakt Pål Omland Eilevstjønn - Webutviklar og -designer frå Vinje |
-      DYNNI
-    </title>
-    <meta
-      name="title"
-      content="Kontakt Pål Omland Eilevstjønn - Webutviklar og -designer frå Vinje | DYNNI"
-    />
+    <title>iOS-appar - Pål Omland Eilevstjønn | DYNNI</title>
+    <meta name="title" content="iOS-appar - Pål Omland Eilevstjønn | DYNNI" />
     <meta
       name="description"
-      content="Ta kontakt med Pål Omland Eilevstjønn for webutvikling og -design. Book sparring eller send melding. Basert i Oslo, arbeider over heile Noreg."
+      content="iOS-apputviklar med appar som Hourwell, Taake og CarShare. Sjå appane mine på App Store."
     />
     <meta
       name="keywords"
-      content="kontakt, webutviklar, Pål Omland Eilevstjønn, DYNNI, Vinje, Oslo, sparring, webutvikling, tilbud"
+      content="iOS, apputviklar, app developer, Hourwell, Taake, CarShare, App Store, Swift, Pål Omland Eilevstjønn, DYNNI"
     />
     <meta name="author" content="Pål Omland Eilevstjønn" />
     <meta name="robots" content="index, follow" />
 
     <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="https://dynniway.github.io/dynni-website/kontakt"
-    />
+    <link rel="canonical" href="https://dynni.no/apps" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://dynniway.github.io/dynni-website/kontakt"
-    />
+    <meta property="og:url" content="https://dynni.no/apps" />
     <meta
       property="og:title"
-      content="Kontakt Pål Omland Eilevstjønn - Webutviklar og -designer frå Vinje, Telemark | DYNNI"
+      content="iOS-appar - Pål Omland Eilevstjønn | DYNNI"
     />
     <meta
       property="og:description"
-      content="Ta kontakt med Pål Omland Eilevstjønn for webutvikling og -design. Book sparring eller send melding. Basert i Oslo, arbeider over heile Noreg."
+      content="iOS-apputviklar med appar som Hourwell, Taake og CarShare. Sjå appane mine på App Store."
     />
     <meta
       property="og:image"
-      content="https://dynniway.github.io/dynni-website/assets/img/og-image.jpg"
+      content="https://dynni.no/assets/img/apps/hourwell.png"
     />
     <meta property="og:locale" content="nn_NO" />
-    <meta property="og:site_name" content="DYNNI - Webutviklar og -designer" />
+    <meta property="og:site_name" content="DYNNI" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://dynniway.github.io/dynni-website/kontakt"
-    />
+    <meta property="twitter:url" content="https://dynni.no/apps" />
     <meta
       property="twitter:title"
-      content="Kontakt Pål Omland Eilevstjønn - Webutviklar og -designer frå Vinje, Telemark | DYNNI"
+      content="iOS-appar - Pål Omland Eilevstjønn | DYNNI"
     />
     <meta
       property="twitter:description"
-      content="Ta kontakt med Pål Omland Eilevstjønn for webutvikling og -design. Book sparring eller send melding. Basert i Oslo, arbeider over heire Noreg."
+      content="iOS-apputviklar med appar som Hourwell, Taake og CarShare. Sjå appane mine på App Store."
     />
     <meta
       property="twitter:image"
-      content="https://dynniway.github.io/dynni-website/assets/img/og-image.jpg"
+      content="https://dynni.no/assets/img/apps/hourwell.png"
     />
     <meta property="twitter:creator" content="@dynni_wav" />
 
@@ -84,7 +69,7 @@
     <link rel="apple-touch-icon" href="./assets/img/logo/dynni-logo.svg" />
     <link rel="manifest" href="./assets/favicon/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#0e1110" />
-    <meta name="theme-color" content="#0e1110" />
+    <meta name="theme-color" content="#transparent" />
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -96,7 +81,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/kontakt.css" />
+    <link rel="stylesheet" href="./css/apps.css" />
 
     <!-- Scripts -->
     <script
@@ -109,21 +94,19 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ContactPage",
+        "@type": "ProfilePage",
         "mainEntity": {
           "@type": "Person",
           "name": "Pål Omland Eilevstjønn",
           "alternateName": "DYNNI",
-          "jobTitle": "Webutviklar og -designer",
-          "url": "https://dynni.no/",
-          "email": "paal@dynni.no",
-          "telephone": "+4791697707",
+          "description": "iOS-apputviklar med appar som Hourwell, Taake og CarShare.",
+          "url": "https://dynni.no/apps",
+          "jobTitle": "iOS-utviklar",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Oslo",
             "addressCountry": "NO"
-          },
-          "sameAs": ["https://www.instagram.com/dynni.wav"]
+          }
         }
       }
     </script>
@@ -134,13 +117,16 @@
         <a class="logo" href="./"
           ><img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
         /></a>
+
         <ul class="nav-links-main">
           <li><a href="./om-meg">Om meg</a></li>
           <li><a href="./lyd">Lyd</a></li>
           <li><a href="./apps">Apps</a></li>
           <li><a href="./kontakt">Kontakt</a></li>
         </ul>
+
         <h3 class="sidebar-text">© DYNNI 2025</h3>
+
         <ul class="nav-links-social">
           <li>
             <a href="https://www.instagram.com/dynni.wav/" target="_blank"
@@ -174,6 +160,7 @@
               <ul class="nav-links-main">
                 <li><a href="./om-meg">Om meg</a></li>
                 <li><a href="./lyd">Lyd</a></li>
+                <li><a href="./apps">Apps</a></li>
                 <li><a href="./kontakt">Kontakt</a></li>
               </ul>
               <h3 class="sidebar-text">© DYNNI 2025</h3>
@@ -195,23 +182,99 @@
         </div>
       </div>
     </header>
-
     <main>
       <div class="background"></div>
-      <section class="hero" aria-label="Intro">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-content">
-          <h1 class="typewriter-2">
-            <span class="typed-text"></span>
-          </h1>
 
-          <div class="contact-actions">
-            <a class="btn primary" href="https://cal.com/dynni" target="_blank"
-              >Book i kalender</a
-            >
-            <a class="btn" href="mailto:paal@dynni.no">paal@dynni.no</a>
-            <a class="btn" href="tel:+4791697707">+47 91 69 77 07</a>
+      <section id="apps-intro">
+        <div class="hero" aria-label="Intro">
+          <div class="hero-bg" aria-hidden="true"></div>
+          <div class="hero-content">
+            <h1 class="typewriter-5">
+              <span class="typed-text"></span>
+            </h1>
           </div>
+        </div>
+
+        <div class="apps-intro-content">
+          <p>
+            iOS-utviklar med fokus på brukarvenleg design og god
+            brukaroppleving. Her er appane eg har laga.
+          </p>
+        </div>
+      </section>
+
+      <section id="prosjekt">
+        <h2>iOS-appar</h2>
+        <ul class="app-grid">
+          <li>
+            <a href="#" target="_blank" class="app-card">
+              <figure>
+                <img
+                  src="./assets/img/apps/hourwell.png"
+                  alt="Hourwell"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <h3>Hourwell</h3>
+                  <p class="meta">
+                    <span class="platform"><i class="fab fa-apple"></i> iOS + Watch</span> · Utviklar
+                  </p>
+                  <p class="description">
+                    Tidssporingsapp for frilansarar. Timer, prosjekt, kundar, utgifter og fakturering. Smarte tillegg for norske arbeidarar med overtid og ubekvem arbeidstid.
+                  </p>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" target="_blank" class="app-card">
+              <figure>
+                <img
+                  src="./assets/img/apps/taake.png"
+                  alt="Taake"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <h3>Taake</h3>
+                  <p class="meta">
+                    <span class="platform"><i class="fab fa-apple"></i> iOS + Watch</span> · Utviklar
+                  </p>
+                  <p class="description">
+                    Følgjer med på alkoholinntaket ditt. Estimerer promille, reaksjonstest, historikk og nødkontaktar. Apple Watch-støtte med falloppdaging.
+                  </p>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" target="_blank" class="app-card">
+              <figure>
+                <img
+                  src="./assets/img/apps/carshare.png"
+                  alt="CarShare"
+                  loading="lazy"
+                />
+                <figcaption>
+                  <h3>CarShare</h3>
+                  <p class="meta">
+                    <span class="platform"><i class="fab fa-apple"></i> iOS</span> · Utviklar
+                  </p>
+                  <p class="description">
+                    Del bil med andre og hald styr på turar og kostnader. Registrer køyring, sjå statistikk og del rekneskapet automatisk med familiemedlemmer.
+                  </p>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section id="kontakt" class="contact">
+        <h2>Vil du samarbeide?</h2>
+        <div class="cta">
+          <a class="btn primary" href="./kontakt">Ta kontakt</a>
         </div>
       </section>
     </main>

@@ -1,0 +1,181 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#apps-intro {
+  min-height: 50vh;
+  min-height: 50svh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: var(--space-xl);
+}
+
+#prosjekt {
+  height: auto;
+  margin: var(--space-xl) 0 var(--space-xl) 0;
+  margin-left: 100px;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: var(--space-xl);
+  position: relative;
+  min-height: 10vh;
+  min-height: 10svh;
+}
+
+.typewriter-5 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.apps-intro-content {
+  max-width: 600px;
+  margin: var(--space-xl) auto;
+  margin-left: 100px;
+  padding: 0 var(--space-md);
+}
+
+.apps-intro-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Apps */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-lg) 0;
+}
+
+.app-card {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+  box-shadow: inset 0 1px 0 var(--glass-highlight),
+    0 4px 16px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.app-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.app-card:hover {
+  transform: translateY(-8px);
+  background: var(--glass-strong);
+  box-shadow: inset 0 1px 0 var(--glass-highlight),
+    0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.app-card figure {
+  margin: 0;
+}
+
+.app-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.app-card:hover img {
+  transform: scale(1.02);
+}
+
+.app-card figcaption {
+  padding: var(--space-md);
+}
+
+.app-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 var(--space-xs) 0;
+  color: var(--text);
+}
+
+.app-card .meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.app-card .meta .platform {
+  color: var(--blue);
+}
+
+.app-card .description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.app-store-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.app-store-link:hover {
+  background: var(--glass-strong);
+}
+
+.app-store-link i {
+  font-size: 1.1rem;
+}
+
+/* CTA */
+#kontakt {
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #prosjekt {
+    margin-left: 0;
+  }
+
+  .apps-intro-content {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}

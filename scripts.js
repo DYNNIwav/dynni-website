@@ -304,6 +304,11 @@ document.addEventListener('DOMContentLoaded', function() {
       selector: '.typewriter-4',
       texts: ['Lydtekniker.', 'Frå felt til miks.', 'TV. Sport. Musikk.'],
       options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
+    },
+    {
+      selector: '.typewriter-5',
+      texts: ['iOS-utviklar.', 'Swift. SwiftUI. CloudKit.', 'Appar med sjel.'],
+      options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
     }
   ];
   
@@ -357,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Observe all animated elements
-  const stepsElements = document.querySelectorAll('.steps li, .quotes, .case a, .about-image, .about-content, .project-card');
+  const stepsElements = document.querySelectorAll('.steps li, .quotes, .case a, .about-image, .about-content, .project-card, .app-card');
   stepsElements.forEach(el => {
     observer.observe(el);
   });
