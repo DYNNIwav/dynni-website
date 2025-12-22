@@ -23,7 +23,7 @@ html {
   align-content: center;
   margin-top: var(--space-xl);
   position: relative;
-  min-height: 10dvh;
+  min-height: 10svh;
 }
 
 .typewriter-3 {
@@ -60,7 +60,7 @@ html {
 .about-image img {
   width: auto;
   height: 60vh;
-  height: 60dvh;
+  height: 60svh; 
   filter: grayscale(1);
   border: 15px solid white;
   transition: var(--transition);

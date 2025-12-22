@@ -21,6 +21,7 @@ html {
 .typewriter {
   display: flex;
   min-height: 20vh;
+  min-height: 20svh; 
   align-items: center;
   justify-content: flex-start;
 }

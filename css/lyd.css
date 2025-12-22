@@ -4,7 +4,7 @@ html {
 
 #lyd-intro {
   min-height: 50vh;
-  min-height: 50dvh;
+  min-height: 50svh; 
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,6 @@ html {
   align-items: center;
   align-content: center;
   margin-top: var(--space-xl);
-  min-height: 10dvh;
 }
 
 #prosjekt,
@@ -29,7 +28,8 @@ html {
   align-content: center;
   margin-top: var(--space-xl);
   position: relative;
-  min-height: 10dvh;
+  min-height: 10vh;
+  min-height: 10svh; 
 }
 
 .typewriter-4 {
