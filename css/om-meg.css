@@ -60,7 +60,7 @@ html {
 .about-image img {
   width: auto;
   height: 60vh;
-  height: 60svh; 
+  height: 60svh;
   filter: grayscale(1);
   border: 15px solid white;
   transition: var(--transition);

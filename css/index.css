@@ -6,7 +6,7 @@ html {
 .hero {
   position: relative;
   height: 100vh;
-  height: 100svh; 
+  height: 100svh;
   display: flex;
   place-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@ html {
 .typewriter {
   display: flex;
   min-height: 20vh;
-  min-height: 20svh; 
+  min-height: 20svh;
   align-items: center;
   justify-content: flex-start;
 }
