@@ -16,7 +16,7 @@
   justify-content: space-between;
   padding: var(--space-md);
   background: var(--glass);
-  border: 2px solid color-mix(in srgb, var(--glass-strong) 100%, transparent);
+  border: 2px solid var(--glass-strong);
 
   z-index: 50;
 }
@@ -161,10 +161,8 @@
   width: 280px;
   height: 100vh;
   height: 100svh;
-  background: color-mix(in srgb, var(--glass) 100%, transparent);
-
-  border-right: 1px solid
-    color-mix(in srgb, var(--glass-border) 100%, transparent);
+  background: var(--glass);
+  border-right: 1px solid var(--glass-border);
   transform: translateX(-100%);
   transition: var(--transition);
 }
