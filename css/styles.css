@@ -46,6 +46,8 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .glass {
