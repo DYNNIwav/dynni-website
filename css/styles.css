@@ -201,4 +201,13 @@ pre,
     padding: var(--space-xs) var(--space-sm);
     font-size: 0.9rem;
   }
+
+  .background {
+    top: calc(-1 * env(safe-area-inset-top, 0px));
+    right: calc(-1 * env(safe-area-inset-right, 0px));
+    bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
+    left: calc(-1 * env(safe-area-inset-left, 0px));
+    width: auto;
+    height: auto;
+  }
 }
