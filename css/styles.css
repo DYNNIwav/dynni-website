@@ -13,7 +13,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background: var(--bg) url("../assets/img/pexels-fredrikwandem-19427621.jpg") center / cover no-repeat fixed;
+  background: var(--bg);
 }
 
 body {
@@ -202,7 +202,4 @@ pre,
     font-size: 0.9rem;
   }
 
-  .background {
-    display: none;
-  }
 }

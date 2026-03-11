@@ -287,12 +287,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const configs = [
     {
       selector: '.typewriter',
-      texts: ['Hei!', 'Eg heiter Pål.', 'Eg er ein webutviklar og -designer frå Vinje, basert i Oslo.'],
+      texts: ['Hei!', 'Eg heiter Pål.', 'Webutviklar og lydteknikar frå Vinje.'],
       options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
     },
     {
       selector: '.typewriter-2',
-      texts: ['Ta kontakt.', 'book 30 min uforpliktande sparring','Håpar eg høyrer frå deg!'],
+      texts: ['Ta kontakt.', 'Send ei melding eller book eit møte.', 'Håpar eg høyrer frå deg!'],
       options: { typeSpeed: 150, deleteSpeed: 75, humanize: true, loop: true }
     },
     {
@@ -302,12 +302,12 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       selector: '.typewriter-4',
-      texts: ['Lydtekniker.', 'Frå felt til miks.', 'TV. Sport. Musikk.'],
+      texts: ['Lydteknikar.', 'TV. Sport. Musikk.'],
       options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
     },
     {
       selector: '.typewriter-5',
-      texts: ['iOS-utviklar.', 'Swift. SwiftUI. CloudKit.', 'Appar med sjel.'],
+      texts: ['iOS-utviklar.', 'Swift og SwiftUI.'],
       options: { typeSpeed: 100, deleteSpeed: 50, humanize: true, loop: true }
     }
   ];
