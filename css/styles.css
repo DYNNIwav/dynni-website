@@ -131,10 +131,10 @@ main {
 
 .background {
     position: fixed;
-    top: -50px;
+    top: -100px;
     left: 0;
-    width: 100vw;
-    height: calc(100lvh + 100px);
+    right: 0;
+    bottom: -100px;
     background: #000000;
     z-index: -1;
 }
