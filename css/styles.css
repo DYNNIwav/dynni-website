@@ -131,11 +131,10 @@ main {
 
 .background {
     position: fixed;
-    top: 0;
+    top: -50px;
     left: 0;
     width: 100vw;
-    height: 100vh;
-    height: 100lvh;
+    height: calc(100lvh + 100px);
     background: #000000;
     z-index: -1;
 }
@@ -280,6 +279,6 @@ a:hover {
 
     .background::after {
         background-size: 64px 64px;
-        opacity: 0.06;
+        opacity: 0.05;
     }
 }
