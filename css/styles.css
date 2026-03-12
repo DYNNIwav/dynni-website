@@ -277,4 +277,9 @@ a:hover {
     .scroll-hint {
         display: none;
     }
+
+    .background::after {
+        background-size: 64px 64px;
+        opacity: 0.06;
+    }
 }
