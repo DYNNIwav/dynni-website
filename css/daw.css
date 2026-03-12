@@ -1,0 +1,213 @@
+.daw {
+    background: var(--glass);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 4px 24px rgba(0, 0, 0, 0.1),
+        0 16px 48px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.daw-transport {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px var(--space-md);
+    border-bottom: 1px solid var(--glass-border);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    position: relative;
+}
+
+.daw-transport-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.daw-transport-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: default;
+}
+
+.daw-transport-btn.record {
+    color: #ff5f57;
+}
+
+.daw-timecode {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.daw-session-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.daw-tracks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.daw-track {
+    display: flex;
+    border-bottom: 1px solid var(--glass-border);
+    min-height: 72px;
+}
+
+.daw-track:last-child {
+    border-bottom: none;
+}
+
+.daw-track-header {
+    width: 160px;
+    min-width: 160px;
+    padding: 8px;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.daw-track-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.daw-track-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.daw-track-info {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.daw-track-name {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daw-track-meta {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+}
+
+.daw-channel-badge {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: var(--blue);
+    color: white;
+    font-size: 0.55rem;
+    font-weight: 600;
+    margin-right: 3px;
+}
+
+.daw-track-timeline {
+    flex: 1;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.daw-clip {
+    height: 56px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 122, 255, 0.15);
+    border: 1px solid rgba(0, 122, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.daw-clip-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--blue);
+    padding: 3px 8px 0;
+    white-space: nowrap;
+}
+
+.daw-waveform {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0 8px 4px;
+}
+
+.daw-waveform span {
+    flex: 1;
+    min-width: 2px;
+    background: var(--blue);
+    opacity: 0.5;
+    border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+    .daw-track-header {
+        width: 120px;
+        min-width: 120px;
+    }
+
+    .daw-track-thumb {
+        width: 36px;
+        height: 36px;
+    }
+
+    .daw-track-name {
+        font-size: 0.65rem;
+    }
+
+    .daw-clip {
+        min-width: 150px;
+        height: 48px;
+    }
+
+    .daw-transport {
+        padding: 8px var(--space-sm);
+        flex-wrap: wrap;
+    }
+
+    .daw-timecode {
+        font-size: 0.75rem;
+    }
+}

@@ -1,5 +1,5 @@
 :root {
-  --bg: #2d2d2b;
+  --bg: #0a0f14;
 
   --glass: rgba(255, 255, 255, 0.05);
   --glass-strong: rgba(255, 255, 255, 0.08);
@@ -13,29 +13,16 @@
   --blue-glow: rgba(0, 122, 255, 0.3);
 
   --radius: 12px;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   --transition: all 0.3s ease;
 
-  --font-display: "Fira Code", "JetBrains Mono", ui-monospace, "SF Mono", Monaco,
-    monospace;
-  --font-body: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Monaco,
-    monospace;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Monaco,
     monospace;
+  --font-display: var(--font-mono);
+  --font-body: var(--font-mono);
 
   --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 24px;
   --space-lg: 32px;
   --space-xl: 48px;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #ffffff;
-    --glass: rgba(0, 0, 0, 0.1);
-    --glass-border: rgba(0, 0, 0, 0.2);
-    --glass-highlight: rgba(255, 255, 255, 0.8);
-    --text: #000000;
-  }
 }

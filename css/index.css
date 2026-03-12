@@ -1,29 +1,5 @@
 html {
-  scroll-behavior: smooth;
   overflow-y: hidden;
-}
-
-.hero {
-  position: relative;
-  height: 100vh;
-  height: 100svh;
-  display: flex;
-  place-items: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-content {
-  text-align: center;
-  max-width: 800px;
-}
-
-.typewriter {
-  display: flex;
-  min-height: 20vh;
-  min-height: 20svh;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 .typed-text {
@@ -57,7 +33,6 @@ html {
   display: flex;
   gap: var(--space-md);
   align-items: center;
-  justify-content: center;
   margin-top: var(--space-lg);
 }
 
@@ -88,7 +63,6 @@ html {
   text-decoration: none;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .cta {
     flex-direction: column;
