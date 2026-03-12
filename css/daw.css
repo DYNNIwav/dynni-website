@@ -8,7 +8,8 @@
         inset 0 1px 0 var(--glass-highlight),
         0 4px 24px rgba(0, 0, 0, 0.1),
         0 16px 48px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .daw-transport {
@@ -20,7 +21,8 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
-    position: relative;
+    position: sticky;
+    left: 0;
 }
 
 .daw-transport-controls {
@@ -68,6 +70,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: max-content;
+    min-width: 100%;
 }
 
 .daw-track {
@@ -81,13 +87,17 @@
 }
 
 .daw-track-header {
-    width: 160px;
-    min-width: 160px;
+    width: 200px;
+    min-width: 200px;
     padding: 8px;
     border-right: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
     gap: 8px;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .daw-track-thumb {
@@ -117,26 +127,25 @@
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .daw-track-meta {
     font-family: var(--font-mono);
     font-size: 0.6rem;
     color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .daw-channel-badge {
-    display: inline-block;
+    align-self: flex-start;
     padding: 1px 5px;
     border-radius: 3px;
     background: var(--blue);
     color: white;
     font-size: 0.55rem;
     font-weight: 600;
-    margin-right: 3px;
 }
 
 .daw-track-timeline {
@@ -144,9 +153,11 @@
     padding: 6px;
     display: flex;
     align-items: center;
+    gap: 4px;
 }
 
 .daw-clip {
+    flex-shrink: 0;
     height: 56px;
     border-radius: 6px;
     overflow: hidden;
@@ -184,8 +195,8 @@
 
 @media (max-width: 768px) {
     .daw-track-header {
-        width: 120px;
-        min-width: 120px;
+        width: 140px;
+        min-width: 140px;
     }
 
     .daw-track-thumb {
@@ -198,7 +209,6 @@
     }
 
     .daw-clip {
-        min-width: 150px;
         height: 48px;
     }
 
