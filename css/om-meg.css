@@ -21,11 +21,15 @@
     align-items: center;
     min-height: 100vh;
     min-height: 100svh;
+    padding: var(--space-lg) 0;
     position: relative;
 }
 
 .about-image {
     justify-self: end;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
 }
 
 .js .about-image {
@@ -41,8 +45,9 @@
 
 .about-image img {
     width: auto;
-    height: 45vh;
-    height: 45svh;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
     filter: grayscale(1);
     border: 12px solid white;
     transition: var(--transition);
@@ -319,8 +324,8 @@ blockquote footer {
     }
 
     .about-image img {
-        height: 40vh;
         height: 40svh;
+        max-height: none;
     }
 
     .about-hero {

@@ -158,6 +158,23 @@
     color: var(--blue);
 }
 
+.app-info .meta .status {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.app-info .meta .status.coming-soon {
+    background: rgba(0, 122, 255, 0.12);
+    color: var(--blue);
+}
+
+.app-info .meta .status.in-dev {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+}
+
 .app-info .description {
     font-size: 0.9rem;
     color: var(--text-secondary);
