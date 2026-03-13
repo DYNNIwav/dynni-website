@@ -10,7 +10,9 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 html {
@@ -97,7 +99,9 @@ main {
 .js .terminal-output {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 .terminal-output.reveal {
@@ -125,8 +129,13 @@ main {
 }
 
 @keyframes drift {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(6px); }
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(6px);
+    }
 }
 
 .background {
@@ -159,7 +168,6 @@ blockquote {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
 }
-
 
 .btn {
     display: inline-flex;
@@ -244,7 +252,6 @@ a:hover {
     opacity: 0.8;
 }
 
-
 #kontakt {
     min-height: 100vh;
     min-height: 100svh;
@@ -252,6 +259,12 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 0 var(--space-md);
+}
+
+#kontakt h2 {
+    font-size: clamp(1.4rem, 4vw, 2.5rem);
 }
 
 @media (max-width: 768px) {
