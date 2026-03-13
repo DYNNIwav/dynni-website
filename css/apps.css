@@ -159,10 +159,13 @@
 }
 
 .app-info .meta .status {
+    display: block;
+    width: fit-content;
     font-size: 0.75rem;
     padding: 2px 8px;
     border-radius: 4px;
     font-weight: 500;
+    margin-top: var(--space-xs);
 }
 
 .app-info .meta .status.coming-soon {
