@@ -243,6 +243,16 @@ function initWaveforms() {
   });
 }
 
+// randomize clip widths for authentic DAW look
+function initClipWidths() {
+  document.querySelectorAll(".daw-track-timeline").forEach((timeline) => {
+    const clips = timeline.querySelectorAll(".daw-clip");
+    clips.forEach((clip) => {
+      clip.style.width = 60 + Math.floor(Math.random() * 140) + "px";
+    });
+  });
+}
+
 // grain texture
 function initGrain() {
   const bg = document.querySelector(".background");
@@ -344,6 +354,12 @@ function initScrollAnimations() {
     .forEach((el) => observer.observe(el));
 }
 
+// check if element fits in viewport, used for scroll behavior
+function fitsInViewport(el) {
+  if (!el) return false;
+  return el.offsetHeight <= window.innerHeight;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const lang = document.documentElement.lang || "nn";
   const isEn = lang === "en";
@@ -400,9 +416,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             const section = document.querySelector(".about-section");
             if (section) {
+              const fits = fitsInViewport(section);
               section.scrollIntoView({
                 behavior: isMobile ? "instant" : "smooth",
-                block: isMobile ? "start" : "center",
+                block: fits ? "center" : "start",
               });
             }
             const output = document.querySelector(".about-content .terminal-output");
@@ -467,9 +484,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const isMobile = window.innerWidth <= 768;
             const appsSection = document.querySelector("#prosjekt");
             if (appsSection) {
+              const fits = fitsInViewport(appsSection);
               appsSection.scrollIntoView({
                 behavior: isMobile ? "instant" : "smooth",
-                block: isMobile ? "start" : "center",
+                block: fits ? "center" : "start",
               });
             }
           }, 400);
@@ -488,9 +506,19 @@ document.addEventListener("DOMContentLoaded", function () {
   initHamburgerMenu();
   initTerminals();
   initWaveforms();
+  initClipWidths();
   initGrain();
   initScrollHint();
   initScrollAnimations();
+});
+
+// recover from black screen on BFCache restore or stuck JS
+window.addEventListener("pageshow", function (e) {
+  if (e.persisted) {
+    document.querySelectorAll(".daw-output, .terminal-output, .about-content, .about-image, .app-card, .daw-track, .quotes, .steps li").forEach(function (el) {
+      el.classList.add("reveal", "show");
+    });
+  }
 });
 
 // skip typewriter if user has reduced motion on
