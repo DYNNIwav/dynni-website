@@ -26,16 +26,17 @@
 
 .about-image {
     justify-self: end;
+}
+
+.js .about-image {
     opacity: 0;
     transform: translateX(-200px);
     transition: all 1.5s ease;
-    animation: fallback-reveal 1s ease 8s forwards;
 }
 
 .about-image.show {
     opacity: 1;
     transform: translateX(0);
-    animation: none;
 }
 
 .about-image img {
@@ -55,16 +56,17 @@
 
 .about-content {
     justify-self: start;
+}
+
+.js .about-content {
     opacity: 0;
     transform: translateX(200px);
     transition: all 1.5s ease;
-    animation: fallback-reveal 1s ease 8s forwards;
 }
 
 .about-content.show {
     opacity: 1;
     transform: translateX(0);
-    animation: none;
 }
 
 
@@ -91,6 +93,9 @@
         inset 0 1px 0 var(--glass-highlight),
         0 4px 16px rgba(0, 0, 0, 0.05);
     text-decoration: none;
+}
+
+.js .case-card {
     opacity: 0;
     transform: translateY(40px);
     transition:
@@ -193,6 +198,9 @@
     padding: 0;
     margin: var(--space-lg) 0;
     max-width: 600px;
+}
+
+.js .quotes {
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.8s ease;
@@ -250,6 +258,9 @@ blockquote footer {
     box-shadow:
         inset 0 1px 0 var(--glass-highlight),
         0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.js .steps li {
     opacity: 0;
     transform: translateY(40px);
     transition:

@@ -512,14 +512,6 @@ document.addEventListener("DOMContentLoaded", function () {
   initScrollAnimations();
 });
 
-// recover from black screen on BFCache restore or stuck JS
-window.addEventListener("pageshow", function (e) {
-  if (e.persisted) {
-    document.querySelectorAll(".daw-output, .terminal-output, .about-content, .about-image, .app-card, .daw-track, .quotes, .steps li").forEach(function (el) {
-      el.classList.add("reveal", "show");
-    });
-  }
-});
 
 // skip typewriter if user has reduced motion on
 if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

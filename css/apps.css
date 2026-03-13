@@ -45,18 +45,19 @@
         inset 0 1px 0 var(--glass-highlight),
         0 4px 16px rgba(0, 0, 0, 0.05);
     text-decoration: none;
+}
+
+.js .app-card {
     opacity: 0;
     transform: translateY(40px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
-    animation: fallback-reveal 0.8s ease 8s forwards;
 }
 
 .app-card.show {
     opacity: 1;
     transform: translateY(0);
-    animation: none;
 }
 
 

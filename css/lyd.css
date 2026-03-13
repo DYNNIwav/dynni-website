@@ -6,30 +6,26 @@
     padding: 0 var(--space-lg);
 }
 
-.daw-output {
+.js .daw-output {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    animation: fallback-reveal 0.8s ease 8s forwards;
 }
 
 .daw-output.reveal {
     opacity: 1;
     transform: translateY(0);
-    animation: none;
 }
 
-.daw-output .daw-track {
+.js .daw-output .daw-track {
     opacity: 0;
     transform: translateX(-30px);
     transition: opacity 0.4s ease, transform 0.4s ease;
-    animation: fallback-reveal 0.4s ease 9s forwards;
 }
 
 .daw-output .daw-track.show {
     opacity: 1;
     transform: translateX(0);
-    animation: none;
 }
 
 
