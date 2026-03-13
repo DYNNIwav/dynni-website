@@ -29,11 +29,13 @@
     opacity: 0;
     transform: translateX(-200px);
     transition: all 1.5s ease;
+    animation: fallback-reveal 1s ease 8s forwards;
 }
 
 .about-image.show {
     opacity: 1;
     transform: translateX(0);
+    animation: none;
 }
 
 .about-image img {
@@ -56,12 +58,15 @@
     opacity: 0;
     transform: translateX(200px);
     transition: all 1.5s ease;
+    animation: fallback-reveal 1s ease 8s forwards;
 }
 
 .about-content.show {
     opacity: 1;
     transform: translateX(0);
+    animation: none;
 }
+
 
 .case-grid {
     display: grid;

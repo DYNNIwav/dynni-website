@@ -98,11 +98,20 @@ main {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    animation: fallback-reveal 0.8s ease 8s forwards;
 }
 
 .terminal-output.reveal {
     opacity: 1;
     transform: translateY(0);
+    animation: none;
+}
+
+@keyframes fallback-reveal {
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .scroll-hint {

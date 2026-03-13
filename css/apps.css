@@ -50,12 +50,15 @@
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
+    animation: fallback-reveal 0.8s ease 8s forwards;
 }
 
 .app-card.show {
     opacity: 1;
     transform: translateY(0);
+    animation: none;
 }
+
 
 .app-card:hover {
     transform: translateY(-6px);
