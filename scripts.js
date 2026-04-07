@@ -486,13 +486,22 @@ document.addEventListener("DOMContentLoaded", function () {
         onComplete: function () {
           setTimeout(() => {
             const isMobile = window.innerWidth <= 768;
+            const intro = document.querySelector(".services-intro");
             const section = document.querySelector(".services-section");
             if (section) {
               section.classList.add("reveal");
-              section.scrollIntoView({
-                behavior: isMobile ? "instant" : "smooth",
-                block: "start",
-              });
+              // Scroll til intro-teksten er sentrert i viewport
+              if (intro) {
+                intro.scrollIntoView({
+                  behavior: isMobile ? "instant" : "smooth",
+                  block: "center",
+                });
+              } else {
+                section.scrollIntoView({
+                  behavior: isMobile ? "instant" : "smooth",
+                  block: "start",
+                });
+              }
             }
           }, 400);
         },
