@@ -19,6 +19,8 @@ window.scrollTo(0, 0);
       "/apps.html": "/en/apps.html",
       "/kontakt": "/en/contact",
       "/kontakt.html": "/en/contact.html",
+      "/tjenester": "/en/services",
+      "/tjenester.html": "/en/services.html",
     },
     en: {
       "/en/": "/",
@@ -31,6 +33,8 @@ window.scrollTo(0, 0);
       "/en/apps.html": "/apps.html",
       "/en/contact": "/kontakt",
       "/en/contact.html": "/kontakt.html",
+      "/en/services": "/tjenester",
+      "/en/services.html": "/tjenester.html",
     },
   };
 
@@ -464,6 +468,30 @@ document.addEventListener("DOMContentLoaded", function () {
               const tracks = daw.querySelectorAll(".daw-track");
               tracks.forEach((track, i) => {
                 setTimeout(() => track.classList.add("show"), 200 + i * 80);
+              });
+            }
+          }, 400);
+        },
+      },
+    },
+    {
+      selector: ".typewriter-6",
+      texts: isEn ? ["cat services.txt"] : ["cat tjenester.txt"],
+      options: {
+        typeSpeed: 80,
+        startDelay: 1000,
+        humanize: true,
+        loop: false,
+        sound: true,
+        onComplete: function () {
+          setTimeout(() => {
+            const isMobile = window.innerWidth <= 768;
+            const section = document.querySelector(".services-section");
+            if (section) {
+              section.classList.add("reveal");
+              section.scrollIntoView({
+                behavior: isMobile ? "instant" : "smooth",
+                block: "start",
               });
             }
           }, 400);

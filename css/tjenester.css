@@ -1,0 +1,275 @@
+/* Hero - fullscreen centered like sound-hero / contact-hero */
+.services-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-lg);
+}
+
+/* Content section - hidden until typewriter completes */
+.services-section {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.js .services-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.services-section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.services-intro {
+    margin-bottom: var(--space-xl);
+}
+
+.services-intro p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+/* Service cards */
+.services-grid {
+    display: grid;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.service-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    transition: var(--transition);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.service-card:hover {
+    background: var(--glass-strong);
+    border-color: var(--glass-highlight);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    background: rgba(0, 122, 255, 0.1);
+    border: 1px solid rgba(0, 122, 255, 0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: var(--space-sm);
+}
+
+.service-card h3 {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.service-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: var(--space-sm);
+}
+
+.service-price span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+}
+
+.service-includes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-includes li {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.service-includes li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+/* CTA buttons - reuse .btn.primary from styles.css, just add margin */
+.service-card .btn,
+.bottom-cta .btn {
+    margin-top: var(--space-md);
+}
+
+/* Process section */
+.process-section {
+    margin-bottom: var(--space-xl);
+}
+
+.process-section h2 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+}
+
+.process-step {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    transition: var(--transition);
+}
+
+.process-step:hover {
+    background: var(--glass-strong);
+    transform: translateY(-2px);
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue);
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.process-step h3 {
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.process-step p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Trust section */
+.trust-section {
+    margin-bottom: var(--space-xl);
+}
+
+.trust-section h2 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.trust-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
+}
+
+.trust-item {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: var(--space-sm);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    line-height: 1.5;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.trust-item strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* FAQ */
+.faq-section {
+    margin-bottom: var(--space-xl);
+}
+
+.faq-section h2 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--space-sm) 0;
+}
+
+.faq-item h3 {
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.faq-item p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* CTA bottom */
+.bottom-cta {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--glass-border);
+}
+
+.bottom-cta h2 {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.bottom-cta p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: var(--space-md);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .services-hero {
+        padding: 0 var(--space-sm);
+    }
+    .services-section {
+        padding: var(--space-xl) var(--space-sm);
+    }
+    .service-price {
+        font-size: 1.2rem;
+    }
+}
