@@ -242,6 +242,76 @@
     line-height: 1.6;
 }
 
+/* Case example */
+.case-section {
+    margin-bottom: var(--space-xl);
+}
+
+.case-section h2 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.case-example {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-md);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.case-input {
+    padding: var(--space-lg);
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.case-input p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: var(--space-sm);
+}
+
+.case-output {
+    padding: var(--space-lg);
+}
+
+.case-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.case-meta {
+    margin-top: var(--space-sm);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .case-example {
+        grid-template-columns: 1fr;
+    }
+    .case-input {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        padding: var(--space-md);
+    }
+}
+
 /* CTA bottom - brukar .contact + .cta frå index.css (same som lyd-sida) */
 
 /* Mobile responsive */
