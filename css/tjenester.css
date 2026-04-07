@@ -242,24 +242,7 @@
     line-height: 1.6;
 }
 
-/* CTA bottom */
-.bottom-cta {
-    text-align: center;
-    padding: var(--space-xl) 0;
-    border-top: 1px solid var(--glass-border);
-}
-
-.bottom-cta h2 {
-    font-size: 1.1rem;
-    color: var(--text);
-    margin-bottom: var(--space-xs);
-}
-
-.bottom-cta p {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-bottom: var(--space-md);
-}
+/* CTA bottom - brukar .contact + .cta frå index.css (same som lyd-sida) */
 
 /* Mobile responsive */
 @media (max-width: 768px) {
