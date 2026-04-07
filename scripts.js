@@ -21,6 +21,8 @@ window.scrollTo(0, 0);
       "/kontakt.html": "/en/contact.html",
       "/tjenester": "/en/services",
       "/tjenester.html": "/en/services.html",
+      "/blogg": "/en/blog",
+      "/blogg.html": "/en/blog.html",
     },
     en: {
       "/en/": "/",
@@ -35,6 +37,8 @@ window.scrollTo(0, 0);
       "/en/contact.html": "/kontakt.html",
       "/en/services": "/tjenester",
       "/en/services.html": "/tjenester.html",
+      "/en/blog": "/blogg",
+      "/en/blog.html": "/blogg.html",
     },
   };
 
@@ -508,6 +512,38 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
     {
+      selector: ".typewriter-7",
+      texts: isEn ? ["ls blog/"] : ["ls blogg/"],
+      options: {
+        typeSpeed: 80,
+        startDelay: 1000,
+        humanize: true,
+        loop: false,
+        sound: true,
+        onComplete: function () {
+          setTimeout(() => {
+            const isMobile = window.innerWidth <= 768;
+            const intro = document.querySelector(".blog-intro");
+            const section = document.querySelector(".blog-section");
+            if (section) {
+              section.classList.add("reveal");
+              if (intro) {
+                intro.scrollIntoView({
+                  behavior: isMobile ? "instant" : "smooth",
+                  block: "center",
+                });
+              } else {
+                section.scrollIntoView({
+                  behavior: isMobile ? "instant" : "smooth",
+                  block: "start",
+                });
+              }
+            }
+          }, 400);
+        },
+      },
+    },
+    {
       selector: ".typewriter-5",
       texts: isEn ? ["ls apps/"] : ["ls apps/"],
       options: {
@@ -547,8 +583,48 @@ document.addEventListener("DOMContentLoaded", function () {
   initGrain();
   initScrollHint();
   initScrollAnimations();
+  initBlogFilters();
+  initReadingProgress();
 });
 
+
+// blog category filter
+function initBlogFilters() {
+  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".post-card");
+  if (!buttons.length || !cards.length) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const category = btn.dataset.category;
+      buttons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      cards.forEach((card) => {
+        if (category === "all" || card.dataset.category === category) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+// reading progress bar for articles
+function initReadingProgress() {
+  const bar = document.querySelector(".reading-progress");
+  if (!bar) return;
+
+  const update = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = Math.min(progress, 100) + "%";
+  };
+
+  window.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+}
 
 // skip typewriter if user has reduced motion on
 if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

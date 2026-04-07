@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script>document.documentElement.classList.add('js')</script>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+
+        <title>Blog | DYNNI</title>
+        <meta name="title" content="Blog | DYNNI" />
+        <meta
+            name="description"
+            content="Articles about OSINT, background checks, digital security and privacy. Learn what exists about you online, and how to protect yourself."
+        />
+        <meta name="author" content="Pål Omland Eilevstjønn" />
+        <meta name="robots" content="index, follow" />
+
+        <link rel="canonical" href="https://dynni.no/en/blog" />
+        <link rel="alternate" hreflang="nn" href="https://dynni.no/blogg" />
+        <link rel="alternate" hreflang="en" href="https://dynni.no/en/blog" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dynni.no/en/blog" />
+        <meta property="og:title" content="Blog | DYNNI" />
+        <meta property="og:description" content="Articles about OSINT, background checks, digital security and privacy." />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="DYNNI" />
+
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content="Blog | DYNNI" />
+        <meta property="twitter:description" content="Articles about OSINT, background checks, digital security and privacy." />
+
+        <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
+        <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
+        <meta name="theme-color" content="#000000" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../css/styles.css" />
+        <link rel="stylesheet" href="../css/blogg.css" />
+
+        <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
+        <script src="../scripts.js"></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <nav class="nav">
+                <a class="logo" href="../en/"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+                <ul class="nav-links-main">
+                    <li><a href="../en/about">About</a></li>
+                    <li><a href="../en/sound">Sound</a></li>
+                    <li><a href="../en/apps">Apps</a></li>
+                    <li><a href="../en/services">Check</a></li>
+                    <li><a href="../en/blog">Blog</a></li>
+                    <li><a href="../en/contact">Contact</a></li>
+                </ul>
+                <span class="sidebar-text">&copy; DYNNI 2026</span>
+                <ul class="nav-links-social">
+                    <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+                <div class="lang-switch">
+                    <a href="../blogg">NO</a>
+                    <a href="../en/blog" class="active">EN</a>
+                </div>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+                <label for="menu-toggle" class="hamburger-btn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </label>
+                <div class="mobile-nav-overlay">
+                    <nav class="mobile-nav">
+                        <div class="mobile-nav-content">
+                            <a class="logo" href="../en/"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+                            <ul class="nav-links-main">
+                                <li><a href="../en/about">About</a></li>
+                                <li><a href="../en/sound">Sound</a></li>
+                                <li><a href="../en/apps">Apps</a></li>
+                                <li><a href="../en/services">Check</a></li>
+                                <li><a href="../en/blog">Blog</a></li>
+                                <li><a href="../en/contact">Contact</a></li>
+                            </ul>
+                            <span class="sidebar-text">&copy; DYNNI 2026</span>
+                            <ul class="nav-links-social">
+                                <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                            <div class="lang-switch">
+                                <a href="../blogg">NO</a>
+                                <a href="../en/blog" class="active">EN</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="background"></div>
+
+            <section class="blog-hero">
+                <div class="hero-prompt">
+                    <span class="prompt-prefix">~ $ </span>
+                    <h1 class="typewriter-7" data-static-text="ls blog/">
+                        <span class="typed-text"></span><span class="terminal-cursor"></span>
+                    </h1>
+                </div>
+            </section>
+
+            <section class="blog-section">
+                <div class="blog-intro">
+                    <p>
+                        Articles about OSINT, background checks, digital security and privacy.
+                        What exists about you online, and how can you protect yourself?
+                    </p>
+                </div>
+
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="osint">OSINT</button>
+                    <button class="filter-btn" data-category="personvern">Privacy</button>
+                    <button class="filter-btn" data-category="tryggleik">Security</button>
+                </div>
+
+                <div class="blog-grid">
+
+                    <a href="../en/blog/what-is-public-about-you" class="post-card" data-category="personvern">
+                        <div class="post-meta">
+                            <span class="post-category">Privacy</span>
+                            <span class="post-date">April 7, 2026</span>
+                            <span class="post-reading-time">6 min</span>
+                        </div>
+                        <h2>What is public about you in Norway?</h2>
+                        <p>You might not have thought about it, but there is a surprising amount of information about you in public registries. Here's what anyone can find.</p>
+                    </a>
+
+                    <a href="../en/blog/how-to-check-if-someone-is-real" class="post-card" data-category="tryggleik">
+                        <div class="post-meta">
+                            <span class="post-category">Security</span>
+                            <span class="post-date">April 7, 2026</span>
+                            <span class="post-reading-time">7 min</span>
+                        </div>
+                        <h2>How to check if someone is who they say they are</h2>
+                        <p>Met someone online and wondering if they're real? Here are concrete steps you can take to verify someone's identity, completely legally.</p>
+                    </a>
+
+                    <a href="../en/blog/remove-yourself-from-1881-and-gulesider" class="post-card" data-category="personvern">
+                        <div class="post-meta">
+                            <span class="post-category">Privacy</span>
+                            <span class="post-date">April 7, 2026</span>
+                            <span class="post-reading-time">5 min</span>
+                        </div>
+                        <h2>How to remove yourself from 1881 and Gulesider</h2>
+                        <p>Step-by-step guide to removing your name, address and phone number from Norwegian phone directories. Takes under 10 minutes.</p>
+                    </a>
+
+                    <a href="../en/blog/what-is-osint" class="post-card" data-category="osint">
+                        <div class="post-meta">
+                            <span class="post-category">OSINT</span>
+                            <span class="post-date">April 7, 2026</span>
+                            <span class="post-reading-time">5 min</span>
+                        </div>
+                        <h2>What is OSINT, and why should you care?</h2>
+                        <p>OSINT (Open Source Intelligence) is the method used by police, journalists and investigation firms to find information. Here's how it works.</p>
+                    </a>
+
+                    <a href="../en/blog/employers-check-you" class="post-card" data-category="tryggleik">
+                        <div class="post-meta">
+                            <span class="post-category">Security</span>
+                            <span class="post-date">April 7, 2026</span>
+                            <span class="post-reading-time">5 min</span>
+                        </div>
+                        <h2>3 things employers check before hiring you</h2>
+                        <p>Most employers Google you before an interview. Here's what they look for, and how you can prepare.</p>
+                    </a>
+
+                </div>
+            </section>
+
+            <section id="kontakt" class="contact">
+                <h2>Want to know what exists about you?</h2>
+                <div class="cta">
+                    <a class="btn primary" href="../en/contact">Get in touch</a>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
