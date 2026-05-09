@@ -178,6 +178,51 @@
     color: var(--text-secondary);
 }
 
+.app-info .meta .status.in-beta {
+    background: rgba(255, 159, 10, 0.14);
+    color: #ff9f0a;
+}
+
+.app-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.app-cta,
+.app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.app-cta {
+    background: var(--blue);
+    color: white;
+}
+
+.app-cta:hover {
+    transform: translateY(-1px);
+    background: rgba(0, 122, 255, 0.85);
+}
+
+.app-link {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+}
+
+.app-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+
 .app-info .description {
     font-size: 0.9rem;
     color: var(--text-secondary);
