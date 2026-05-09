@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>Hourwell — Privacy | DYNNI</title>
+    <meta name="title" content="Hourwell — Privacy | DYNNI" />
+    <meta name="description" content="Privacy policy for Hourwell, an iOS app for time and earnings tracking for Norwegian TV/film freelancers." />
+    <meta name="author" content="Pål Omland Eilevstjønn" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://dynni.no/en/hourwell/privacy" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dynni.no/en/hourwell/privacy" />
+    <meta property="og:title" content="Hourwell — Privacy" />
+    <meta property="og:description" content="Privacy policy for Hourwell." />
+    <meta property="og:image" content="https://dynni.no/assets/img/apps/hourwell.png" />
+
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/logo/dynni-logo.svg" />
+    <link rel="apple-touch-icon" href="../../assets/img/logo/dynni-logo.svg" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../css/styles.css" />
+
+    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
+    <script src="../../scripts.js"></script>
+
+    <style>
+      .privacy-content { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; line-height: 1.6; }
+      .privacy-content h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+      .privacy-content .last-updated { color: var(--color-text-secondary, #777); font-size: 0.9rem; margin-bottom: 3rem; }
+      .privacy-content h2 { margin-top: 2.5rem; margin-bottom: 0.75rem; font-size: 1.4rem; }
+      .privacy-content h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; }
+      .privacy-content p, .privacy-content li { margin-bottom: 0.6rem; }
+      .privacy-content ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+      .privacy-content code { font-family: "JetBrains Mono", monospace; font-size: 0.9em; padding: 0.1em 0.3em; background: rgba(255,255,255,0.06); border-radius: 4px; }
+      .privacy-content .lang-toggle { margin-top: 1.5rem; font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="../"><img src="../../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+        <ul class="nav-links-main">
+          <li><a href="../about">About</a></li>
+          <li><a href="../sound">Sound</a></li>
+          <li><a href="../apps">Apps</a></li>
+          <li><a href="../services">Services</a></li>
+          <li><a href="../blog">Blog</a></li>
+          <li><a href="../contact">Contact</a></li>
+        </ul>
+        <span class="sidebar-text">© DYNNI 2026</span>
+        <ul class="nav-links-social">
+          <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="privacy-content">
+      <h1>Hourwell — Privacy</h1>
+      <p class="last-updated">Last updated: 9 May 2026</p>
+
+      <p>Hourwell is an iOS app that helps freelancers in TV and film track their hours, calculate Norwegian collective-agreement supplements, send invoices, and compare rates anonymously. Privacy is built into the design — we collect as little as possible, and store as much as possible locally on your device.</p>
+
+      <h2>What data Hourwell handles</h2>
+
+      <h3>1. On your device</h3>
+      <p>The following stays on your iPhone and iPad (synced via your own iCloud, never our servers):</p>
+      <ul>
+        <li>Time entries, projects, clients, invoices, expenses</li>
+        <li>User preferences (currency, language, default rate, notification settings)</li>
+        <li>Notes, photos attached to entries</li>
+        <li>Geofence coordinates for projects (if you enable Smart auto-track)</li>
+      </ul>
+      <p>We have no access to this data. Delete the app and disable iCloud, and it's all gone.</p>
+
+      <h3>2. Anonymous rate submissions (optional opt-in)</h3>
+      <p>If you explicitly opt in, you can send anonymous rate data to the Community Rates feature. We send:</p>
+      <ul>
+        <li>Production type (e.g. "Feature film")</li>
+        <li>Role and seniority (e.g. "Cinematographer/DOP, 6 years")</li>
+        <li>Day rate / hourly rate</li>
+        <li>Year of the engagement</li>
+        <li>A randomly generated <code>app_install_id</code> (UUID) used only for rate limiting</li>
+      </ul>
+      <p>We do <em>not</em> send your name, email, phone, project names, client names, or anything that could identify you. Data is hosted by Supabase (EU North region, GDPR-compliant). Aggregated statistics are hidden until at least 3 people have submitted for the same role and seniority (k-anonymity).</p>
+
+      <h3>3. Permissions the app requests</h3>
+      <ul>
+        <li><strong>Microphone and Speech Recognition</strong>: Only when you actively use the "Voice entry" feature to log hours by voice. Audio is processed locally on iOS.</li>
+        <li><strong>Location</strong>: Only if you enable "Smart auto-track" for a project. Uses Apple's geofence APIs; coordinates never leave your device.</li>
+        <li><strong>Notifications</strong>: For long-shift reminders (over 10 hours), daily check-ins, and geofence prompts. You can disable these in Settings any time.</li>
+        <li><strong>Photos</strong>: Only when you actively choose to attach a photo to an entry (e.g. for documentation).</li>
+      </ul>
+
+      <h2>Third parties</h2>
+      <ul>
+        <li><strong>Apple iCloud</strong>: We use Apple's CloudKit for syncing between your own devices. Apple's privacy policy applies to that data.</li>
+        <li><strong>Supabase</strong>: Only for anonymous rate submissions (opt-in). Server in EU North (Stockholm), GDPR-compliant.</li>
+      </ul>
+      <p>We <em>never</em> sell data, we <em>never</em> share data with marketing companies, and we don't track you across apps.</p>
+
+      <h2>Your rights</h2>
+      <p>Under GDPR you have the right to:</p>
+      <ul>
+        <li>Access what data Hourwell holds about you (answer: nothing on our servers besides anonymous rate submissions)</li>
+        <li>Have data deleted — uninstall the app, or email us if you want your anonymous app_install_id reset</li>
+        <li>File a complaint with the Norwegian Data Protection Authority if you think we're mishandling data</li>
+      </ul>
+
+      <h2>Changes to this policy</h2>
+      <p>If we make material changes, we'll notify you in the app. Minor edits (clarifications, corrections) are made directly on this page.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or concerns? Email <a href="mailto:paal@dynni.no">paal@dynni.no</a>.</p>
+
+      <p class="lang-toggle"><a href="/hourwell/privacy">Norsk versjon</a></p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="copyright">© DYNNI 2026 — <a href="../contact">Contact</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
