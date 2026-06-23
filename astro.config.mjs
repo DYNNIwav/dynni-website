@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 
-// Static site. `directory` build format gives clean URLs (/apps, /glimt) the way the old
-// vercel.json cleanUrls did. Pages still being migrated live in public/ and are served as-is.
+// Static site. `file` format mirrors the old static URL structure (/glimt/privacy.html served
+// clean as /glimt/privacy by vercel.json cleanUrls), so existing relative links like
+// ./child-safety keep resolving correctly. Pages still being migrated live in public/ as-is.
 export default defineConfig({
   site: 'https://dynni.no',
-  build: { format: 'directory' },
+  build: { format: 'file' },
   trailingSlash: 'ignore',
 });

@@ -1,0 +1,53 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Nav from "../../../components/Nav.astro";
+import Footer from "../../../components/Footer.astro";
+const title = "Glimt — Child Safety | DYNNI";
+const description = "Child safety standards (CSAE) for Glimt. Zero tolerance for child abuse.";
+const canonical = "https://dynni.no/en/glimt/child-safety";
+---
+<Base lang="en" title={title} description={description} canonical={canonical}>
+  <link slot="head" rel="stylesheet" href="/css/legal.css" />
+  <Nav lang="en" />
+  <main class="privacy-content">
+      <h1>Glimt — Child Safety</h1>
+      <p class="last-updated">Last updated: 23 June 2026</p>
+
+      <p>Glimt has <strong>zero tolerance</strong> for child sexual abuse and exploitation (CSAE), and for any use of the app to send inappropriate content to minors. This page describes the measures we have in place, as required by the Apple App Store and Google Play child-safety policies.</p>
+
+      <h2>Our structural protection: no contact with strangers</h2>
+      <p>The single most effective safeguard is built into how Glimt works:</p>
+      <ul>
+        <li><strong>Friend-only.</strong> You can only receive a glimt from someone whose friend request you have accepted. There are no messages from strangers.</li>
+        <li><strong>No discovery, no public feed, no algorithm.</strong> Nobody can browse for, be recommended, or contact random users. There is no way for a predator to reach a child they don't already know and who hasn't accepted them.</li>
+        <li><strong>No open profiles.</strong> Users are found only by exact username, by people adding each other.</li>
+      </ul>
+      <p>This removes the primary grooming vector that exists on open social platforms.</p>
+
+      <h2>Age requirement</h2>
+      <p>Users must enter their date of birth at sign-up and be at least 13 years old (and meet any higher local minimum, e.g. 16 where required). Under-age sign-ups are blocked before an account is created.</p>
+
+      <h2>Reporting and blocking</h2>
+      <ul>
+        <li>Every user can <strong>block</strong> and <strong>report</strong> another user or a specific glimt from inside the app.</li>
+        <li>Because content is end-to-end encrypted, a report <strong>attaches the decrypted content as evidence</strong> (uploaded by the reporter's own device to a private moderation store) so our moderators can actually review it, without weakening encryption for anyone else.</li>
+      </ul>
+
+      <h2>Moderation and response</h2>
+      <ul>
+        <li>Reported accounts are <strong>auto-hidden</strong> once reported by multiple distinct users, so harmful content is removed from circulation <strong>immediately</strong>, well within the required 24 hours.</li>
+        <li>Reports and evidence are reviewed. Confirmed CSAE results in <strong>immediate account termination</strong> and <strong>preservation + reporting to the relevant authority</strong> (Kripos in Norway, NCMEC in the US, and equivalents elsewhere).</li>
+        <li>Ephemeral by design: glimt are deleted after viewing and unopened content is auto-deleted, limiting how long any material can persist.</li>
+      </ul>
+
+      <h2>On-device safety (rolling out)</h2>
+      <p>We are adding <strong>on-device sensitive-content detection</strong> (Apple SensitiveContentAnalysis / Android equivalents) to blur and warn on nudity, especially for minors, entirely on the device, so it protects children <strong>without</strong> sending anyone's content to a server or breaking end-to-end encryption.</p>
+
+      <h2>Contact</h2>
+      <p>Child-safety concerns and law-enforcement requests: <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+      <p>We respond to credible reports of CSAE as our highest priority.</p>
+
+      <p class="lang-toggle"><a href="/glimt/child-safety">Norsk versjon</a></p>
+    </main>
+  <Footer lang="en" />
+</Base>

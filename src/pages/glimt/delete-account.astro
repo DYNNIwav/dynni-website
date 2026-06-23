@@ -1,0 +1,43 @@
+---
+import Base from "../../layouts/Base.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+const title = "Glimt — Slette konto og data | DYNNI";
+const description = "Korleis du slettar Glimt-kontoen din og alle data, i appen eller ved å be om det.";
+const canonical = "https://dynni.no/glimt/delete-account";
+---
+<Base lang="nn" title={title} description={description} canonical={canonical}>
+  <link slot="head" rel="stylesheet" href="/css/legal.css" />
+  <Nav lang="nn" />
+  <main class="privacy-content">
+      <h1>Slette konto og data</h1>
+      <p class="last-updated">Sist oppdatert: 23. juni 2026</p>
+
+      <p>Du kan slette Glimt-kontoen din og alle data knytt til han når som helst. Dette kan ikkje angrast.</p>
+
+      <h2>Slette i appen (raskast)</h2>
+      <ol>
+        <li>Opne Glimt og gå til <strong>Innstillingar</strong> (bjørne-logoen oppe til venstre i kameraet).</li>
+        <li>Bla ned til <strong>Slett konto</strong>.</li>
+        <li>Stadfest. Kontoen din blir då sletta med ein gong.</li>
+      </ol>
+
+      <h2>Be om sletting utan appen</h2>
+      <p>Har du ikkje tilgang til appen, send ein e-post til <a href="mailto:paal@dynni.no?subject=Slett%20Glimt-kontoen%20min">paal@dynni.no</a> frå e-postadressa kontoen er registrert på, med emne «Slett Glimt-kontoen min». Vi slettar kontoen innan 30 dagar og stadfestar når det er gjort.</p>
+
+      <h2>Kva som blir sletta</h2>
+      <ul>
+        <li>Kontoen din (e-post, brukarnamn, avatar, fødselsdato).</li>
+        <li>Venene dine og bål-medlemskapa dine.</li>
+        <li>Alle glimt og vekeglimt (desse er uansett flyktige og ende-til-ende-krypterte).</li>
+        <li>Push-token og innstillingane dine.</li>
+      </ul>
+      <p>Rapportar med tilhøyrande bevis kan bli haldne så lenge det trengst for å oppfylle rettslege plikter knytt til tryggleik, og blir så sletta.</p>
+
+      <h2>Kontakt</h2>
+      <p><a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+
+      <p class="lang-toggle"><a href="/en/glimt/delete-account">English version</a></p>
+    </main>
+  <Footer lang="nn" />
+</Base>

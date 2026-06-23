@@ -1,0 +1,43 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Nav from "../../../components/Nav.astro";
+import Footer from "../../../components/Footer.astro";
+const title = "Glimt — Delete account and data | DYNNI";
+const description = "How to delete your Glimt account and all data, in the app or by request.";
+const canonical = "https://dynni.no/en/glimt/delete-account";
+---
+<Base lang="en" title={title} description={description} canonical={canonical}>
+  <link slot="head" rel="stylesheet" href="/css/legal.css" />
+  <Nav lang="en" />
+  <main class="privacy-content">
+      <h1>Delete account and data</h1>
+      <p class="last-updated">Last updated: 23 June 2026</p>
+
+      <p>You can delete your Glimt account and all data linked to it at any time. This cannot be undone.</p>
+
+      <h2>Delete in the app (fastest)</h2>
+      <ol>
+        <li>Open Glimt and go to <strong>Settings</strong> (the bear logo at the top-left of the camera).</li>
+        <li>Scroll down to <strong>Delete account</strong>.</li>
+        <li>Confirm. Your account is deleted immediately.</li>
+      </ol>
+
+      <h2>Request deletion without the app</h2>
+      <p>If you can't access the app, email <a href="mailto:paal@dynni.no?subject=Delete%20my%20Glimt%20account">paal@dynni.no</a> from the address your account is registered with, with the subject "Delete my Glimt account". We'll delete the account within 30 days and confirm when it's done.</p>
+
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your account (email, username, avatar, date of birth).</li>
+        <li>Your friends and bål memberships.</li>
+        <li>All glimt and vekeglimt (these are ephemeral and end-to-end encrypted anyway).</li>
+        <li>Your push token and settings.</li>
+      </ul>
+      <p>Reports with their evidence may be retained as long as needed to meet legal safety obligations, then deleted.</p>
+
+      <h2>Contact</h2>
+      <p><a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+
+      <p class="lang-toggle"><a href="/glimt/delete-account">Norsk versjon</a></p>
+    </main>
+  <Footer lang="en" />
+</Base>
