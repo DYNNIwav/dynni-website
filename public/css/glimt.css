@@ -133,6 +133,7 @@ body.glimt-page {
 /* Hero phone shows the app at rest, not a placeholder label. */
 .app-resting { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 1; animation: settle 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both; }
 .app-bear { font-size: 2.6rem; filter: drop-shadow(0 0 14px var(--ice-glow)); }
+.app-bear-img { width: 66px; height: 66px; border-radius: 18px; filter: drop-shadow(0 0 16px var(--ice-glow)); }
 .app-word { font-family: var(--font-mono); letter-spacing: 0.08em; font-size: 0.95rem; color: var(--frost); }
 .app-hint { font-family: var(--font-prose); font-size: 0.72rem; color: var(--fog); }
 @keyframes settle { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
