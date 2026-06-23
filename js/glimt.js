@@ -20,62 +20,72 @@
     layer.style.setProperty('--grain', 'url(' + c.toDataURL() + ')');
   }
 
-  // ---- Living aurora: pre-rendered blurred ribbons, drift via drawImage, 30fps, pausable ----
+  // ---- Flowing aurora: waving "curtains" drawn additively into a LOW-RES buffer (cheap blur),
+  //      upscaled by CSS for softness. Reads like real northern lights, stays cold/on-brand. ----
   function initAurora() {
     var canvas = document.querySelector('.aurora-canvas');
     if (!canvas) return;
-    // On phones, or where canvas filter is unsupported, skip the loop and lean on a CSS gradient.
-    var probe = document.createElement('canvas').getContext('2d');
-    var canBlur = typeof probe.filter !== 'undefined';
-    if (window.innerWidth <= 768 || !canBlur) {
-      canvas.style.background =
-        'radial-gradient(60% 40% at 30% 12%, rgba(140,203,255,0.10), transparent 70%),' +
-        'radial-gradient(50% 35% at 75% 8%, rgba(140,203,255,0.08), transparent 70%)';
-      return;
-    }
     var ctx = canvas.getContext('2d');
-    var W, H, dpr, ribbons = [];
-    function ribbon(hue, w, h) {
-      var off = document.createElement('canvas');
-      off.width = w; off.height = h;
-      var o = off.getContext('2d');
-      o.filter = 'blur(48px)';
-      var g = o.createLinearGradient(0, 0, 0, h);
-      g.addColorStop(0, 'rgba(140,203,255,0)');
-      g.addColorStop(0.5, hue);
-      g.addColorStop(1, 'rgba(140,203,255,0)');
-      o.fillStyle = g;
-      o.fillRect(w * 0.2, 0, w * 0.6, h);
-      return off;
-    }
+    var canBlur = typeof ctx.filter !== 'undefined';
+
+    // Glacier blue + a hint of cold teal-green for aurora believability. Top-anchored curtains.
+    var CURTAINS = [
+      { hue: '140,203,255', x: 0.26, w: 0.20, amp: 0.10, freq: 3.1, speed: 0.00010, phase: 0.0, a: 0.34 },
+      { hue: '120,228,202', x: 0.50, w: 0.24, amp: 0.13, freq: 2.4, speed: 0.00014, phase: 1.7, a: 0.26 },
+      { hue: '160,210,255', x: 0.72, w: 0.18, amp: 0.09, freq: 3.6, speed: 0.00008, phase: 3.2, a: 0.30 },
+      { hue: '110,180,240', x: 0.40, w: 0.30, amp: 0.16, freq: 1.9, speed: 0.00006, phase: 4.6, a: 0.18 },
+    ];
+    var W, H, vw, vh, SCALE = 0.32; // low-res backing buffer
+
     function size() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = canvas.width = window.innerWidth * dpr;
-      H = canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      var bandH = H * 0.5;
-      ribbons = [
-        { img: ribbon('rgba(140,203,255,0.13)', W * 0.7, bandH), speed: 0.00009, span: 0.18, y: -H * 0.05 },
-        { img: ribbon('rgba(120,180,240,0.10)', W * 0.8, bandH), speed: 0.00013, span: 0.22, y: H * 0.04 },
-        { img: ribbon('rgba(160,210,255,0.08)', W * 0.6, bandH), speed: 0.00007, span: 0.14, y: -H * 0.1 },
-      ];
+      vw = window.innerWidth; vh = window.innerHeight;
+      W = canvas.width = Math.max(2, Math.round(vw * SCALE));
+      H = canvas.height = Math.max(2, Math.round(vh * SCALE));
+      canvas.style.width = vw + 'px';
+      canvas.style.height = vh + 'px';
     }
+
     function frame(t) {
       ctx.clearRect(0, 0, W, H);
-      for (var i = 0; i < ribbons.length; i++) {
-        var r = ribbons[i];
-        var x = Math.sin(t * r.speed + i) * W * r.span + (W - r.img.width) / 2;
-        ctx.drawImage(r.img, x, r.y);
+      ctx.globalCompositeOperation = 'lighter';
+      if (canBlur) ctx.filter = 'blur(' + Math.round(W * 0.03) + 'px)';
+      for (var c = 0; c < CURTAINS.length; c++) {
+        var cur = CURTAINS[c];
+        var bx = cur.x * W + Math.sin(t * cur.speed * 0.6 + cur.phase) * W * 0.06; // slow horizontal drift
+        var bw = cur.w * W;
+        var pulse = 0.7 + 0.3 * Math.sin(t * cur.speed * 1.7 + cur.phase * 2); // brightness breathing
+        var grad = ctx.createLinearGradient(0, 0, 0, H);
+        grad.addColorStop(0.0, 'rgba(' + cur.hue + ',0)');
+        grad.addColorStop(0.18, 'rgba(' + cur.hue + ',' + (cur.a * pulse).toFixed(3) + ')');
+        grad.addColorStop(0.62, 'rgba(' + cur.hue + ',' + (cur.a * 0.35 * pulse).toFixed(3) + ')');
+        grad.addColorStop(1.0, 'rgba(' + cur.hue + ',0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        var steps = 14, i, y, x;
+        for (i = 0; i <= steps; i++) {
+          y = (H * i) / steps;
+          x = bx + Math.sin(y / H * cur.freq * Math.PI + t * cur.speed + cur.phase) * W * cur.amp;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        for (i = steps; i >= 0; i--) {
+          y = (H * i) / steps;
+          x = bx + bw + Math.sin(y / H * cur.freq * Math.PI + t * cur.speed + cur.phase) * W * cur.amp;
+          ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fill();
       }
+      ctx.filter = 'none';
+      ctx.globalCompositeOperation = 'source-over';
     }
+
     size();
-    if (reduce) { frame(0); return; } // one static frame, no loop
+    if (reduce) { frame(3000); return; } // one static frame, no loop
 
     var last = 0, running = false, raf = 0;
     function loop(t) {
       if (!running) return;
-      if (t - last >= 33) { frame(t); last = t; }
+      if (t - last >= 33) { frame(t); last = t; } // ~30fps
       raf = requestAnimationFrame(loop);
     }
     function start() { if (!running) { running = true; raf = requestAnimationFrame(loop); } }
@@ -88,23 +98,6 @@
     document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
     var rt;
     window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 200); }, { passive: true });
-  }
-
-  // ---- Melting iceberg spine: one shared rAF-coalesced scroll handler writes --melt ----
-  function initMelt() {
-    if (reduce) return; // CSS leaves a static half-melt
-    var root = document.documentElement;
-    var docH = 0, winH = 0, dirty = false;
-    function measure() { winH = window.innerHeight; docH = document.documentElement.scrollHeight - winH; }
-    function apply() {
-      dirty = false;
-      var p = docH > 0 ? Math.min(1, Math.max(0, window.scrollY / docH)) : 0;
-      root.style.setProperty('--melt', p.toFixed(3));
-    }
-    measure();
-    window.addEventListener('scroll', function () { if (!dirty) { dirty = true; requestAnimationFrame(apply); } }, { passive: true });
-    window.addEventListener('resize', function () { measure(); apply(); }, { passive: true });
-    apply();
   }
 
   // ---- One-shot reveals: add .show then unobserve, so signatures never replay/reset ----
@@ -136,10 +129,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     initGrain();
     initAurora();
-    initMelt();
     initReveals();
     initMagnetic();
-    // Hero dawn: settle the hero in on load (CSS does the staggering).
     var hero = document.querySelector('.hero-dawn');
     if (hero) requestAnimationFrame(function () { hero.classList.add('lit'); });
   });
