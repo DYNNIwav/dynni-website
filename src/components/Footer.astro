@@ -1,0 +1,12 @@
+---
+interface Props { lang?: 'nn' | 'en' }
+const { lang = 'nn' } = Astro.props;
+const contact = lang === 'en' ? '/en/contact' : '/kontakt';
+const label = lang === 'en' ? 'Contact' : 'Kontakt';
+---
+<footer class="site-footer">
+  <div class="footer-content">
+    <p class="copyright">© DYNNI 2026 — <a href={contact}>{label}</a></p>
+    <slot />
+  </div>
+</footer>

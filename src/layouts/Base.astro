@@ -1,0 +1,67 @@
+---
+// Shared page shell for dynni.no. The <head> boilerplate that used to be copy-pasted into every
+// .html file now lives here once. Pages pass metadata as props and their content as the default
+// slot; extra <head> tags (page-specific CSS/JS) go in the named "head" slot.
+interface Props {
+  lang?: 'nn' | 'en';
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  bodyClass?: string;
+  themeColor?: string;
+}
+const {
+  lang = 'nn',
+  title,
+  description = '',
+  canonical,
+  ogTitle,
+  ogDescription,
+  ogImage = 'https://dynni.no/assets/img/apps/glimt.png',
+  bodyClass = '',
+  themeColor = '#000000',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    {description && <meta name="description" content={description} />}
+    <meta name="author" content="Pål Omland Eilevstjønn" />
+    <meta name="robots" content="index, follow" />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <meta property="og:type" content="website" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:title" content={ogTitle ?? title} />
+    {(ogDescription ?? description) && <meta property="og:description" content={ogDescription ?? description} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="DYNNI" />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo/dynni-logo.svg" />
+    <link rel="apple-touch-icon" href="/assets/img/logo/dynni-logo.svg" />
+    <meta name="theme-color" content={themeColor} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous" is:inline></script>
+    <script src="/scripts.js" is:inline></script>
+
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

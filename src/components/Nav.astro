@@ -1,0 +1,64 @@
+---
+// The fixed sidebar nav + mobile hamburger, shared across every page. Labels and links switch
+// on `lang`; this replaces the block that used to be copy-pasted into every .html file.
+interface Props { lang?: 'nn' | 'en' }
+const { lang = 'nn' } = Astro.props;
+
+const links = lang === 'en'
+  ? [
+      { href: '/en/about', label: 'About' },
+      { href: '/en/sound', label: 'Sound' },
+      { href: '/en/apps', label: 'Apps' },
+      { href: '/en/services', label: 'Check' },
+      { href: '/en/blog', label: 'Blog' },
+      { href: '/en/contact', label: 'Contact' },
+    ]
+  : [
+      { href: '/om-meg', label: 'Om meg' },
+      { href: '/lyd', label: 'Lyd' },
+      { href: '/apps', label: 'Apps' },
+      { href: '/tjenester', label: 'Sjekk' },
+      { href: '/blogg', label: 'Blogg' },
+      { href: '/kontakt', label: 'Kontakt' },
+    ];
+const home = lang === 'en' ? '/en/' : '/';
+---
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href={home}><img src="/assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+    <ul class="nav-links-main">
+      {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+    </ul>
+    <span class="sidebar-text">© DYNNI 2026</span>
+    <ul class="nav-links-social">
+      <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+    <slot name="lang-switch" />
+  </nav>
+
+  <div class="hamburger-menu">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger-btn">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </label>
+    <div class="mobile-nav-overlay">
+      <nav class="mobile-nav">
+        <div class="mobile-nav-content">
+          <a class="logo" href={home}><img src="/assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+          <ul class="nav-links-main">
+            {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          </ul>
+          <span class="sidebar-text">© DYNNI 2026</span>
+          <ul class="nav-links-social">
+            <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+          <slot name="lang-switch-mobile" />
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

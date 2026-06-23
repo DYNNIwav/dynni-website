@@ -10,6 +10,10 @@ body.glimt-page {
   --ember: rgba(232, 185, 138, 0.22);
   background: var(--polar);
   color: var(--frost);
+  /* Form a stacking context so the z-index:-3/-2/-1 background layers paint ABOVE the body's
+     own opaque background. Without this, the opaque body background covers the aurora entirely. */
+  position: relative;
+  z-index: 0;
   --melt: 0; /* 0..1 written by JS on scroll; reduced-motion leaves a static half-melt */
 }
 .glimt-page .ice { color: var(--ice); }
