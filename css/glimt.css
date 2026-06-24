@@ -183,15 +183,26 @@ body.glimt-page {
 @keyframes wipe { 0% { transform: translateX(-110%); } 26% { transform: translateX(110%); } 100% { transform: translateX(110%); } }
 
 /* Privat feature: encrypt shimmer + lock */
-/* Lock that clicks shut on a loop: open briefly, then locked (with a glow) most of the cycle. */
-.lock-loop { position: relative; width: 2.6rem; height: 2.6rem; }
-.lock-loop i { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; color: var(--ice); }
-.lock-open { opacity: 1; }
-.lock-closed { opacity: 0; }
-.show .lock-open { animation: lockOpen 5s ease-in-out 0.6s infinite; }
-.show .lock-closed { animation: lockClosed 5s ease-in-out 0.6s infinite; }
-@keyframes lockOpen { 0%, 16% { opacity: 1; } 32%, 88% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes lockClosed { 0%, 16% { opacity: 0; text-shadow: none; } 38%, 84% { opacity: 1; text-shadow: 0 0 16px var(--ice-glow); } 100% { opacity: 0; text-shadow: none; } }
+/* A real padlock whose shackle (the bolt) glides smoothly up and clicks shut, then lifts again.
+   One continuous movement, not a swap between two icons. */
+.lock-svg { width: 58px; height: 72px; overflow: visible; }
+.lock-svg .lock-body { fill: var(--ice); }
+.lock-svg .lock-hole { fill: var(--polar); }
+.lock-svg .lock-shackle { fill: none; stroke: var(--ice); stroke-width: 6; stroke-linecap: round; transform: translateY(0); }
+.show .lock-svg .lock-shackle { animation: shackle 4.8s cubic-bezier(0.65, 0, 0.35, 1) 0.6s infinite; }
+/* lifts open, holds, then glides shut for most of the cycle */
+@keyframes shackle {
+  0%, 14% { transform: translateY(-11px); }
+  34%, 86% { transform: translateY(0); }
+  100% { transform: translateY(-11px); }
+}
+.show .lock-svg { animation: lockclick 4.8s ease 0.6s infinite; }
+/* a soft glow blooms at the moment it clicks shut */
+@keyframes lockclick {
+  0%, 26% { filter: drop-shadow(0 0 0 rgba(140, 203, 255, 0)); }
+  36% { filter: drop-shadow(0 0 12px var(--ice-glow)); }
+  60%, 100% { filter: drop-shadow(0 0 4px rgba(140, 203, 255, 0.2)); }
+}
 
 /* ---------- ICEBERG DIVIDER (the melting spine) ---------- */
 /* ---------- STORY ---------- */
@@ -261,9 +272,8 @@ body.glimt-page {
   .show .ember-ring span { animation: none !important; transition: none; opacity: 0.85; transform: translate(var(--x), var(--y)); }
   .app-bear-img { animation: none !important; }
   .show .frost-wipe { animation: none !important; }
-  .show .lock-open, .show .lock-closed { animation: none !important; }
-  .lock-open { opacity: 0; }
-  .lock-closed { opacity: 1; }
+  .show .lock-svg, .show .lock-svg .lock-shackle { animation: none !important; }
+  .lock-svg .lock-shackle { transform: translateY(0); }
   .reveal-up { opacity: 1 !important; transform: none !important; transition: none !important; }
   .values-grid li { opacity: 1 !important; transform: none !important; transition: none !important; border-top-color: var(--ice); }
   .waitlist button { transition: none !important; }
