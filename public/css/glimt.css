@@ -52,6 +52,8 @@ body.glimt-page {
 /* ---------- HERO ---------- */
 .glimt-hero { padding: 5.5rem 0 4rem; }
 .glimt-hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; perspective: 1100px; }
+/* Hero copy sits on the same frosted ice glass, so the grey lede/note/badges stay readable. */
+.glimt-hero-copy { background: rgba(13, 19, 26, 0.5); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 2rem 2.2rem; }
 
 /* Dawn reveal: children start hidden, .lit (added on load) settles them in, staggered. */
 .hero-dawn > * { opacity: 0; transform: translateY(16px); }
@@ -246,7 +248,7 @@ body.glimt-page {
 .values-grid p { color: var(--fog); font-size: 0.9rem; line-height: 1.5; margin: 0; }
 
 /* ---------- FINAL CTA ---------- */
-.glimt-cta { text-align: center; padding: 4rem 1.5rem 6rem; margin: 2rem 0 0; }
+.glimt-cta { text-align: center; max-width: 40rem; margin: var(--section) auto 0; padding: 2.6rem 2.2rem; background: rgba(13, 19, 26, 0.5); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 24px; }
 .glimt-cta h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 0.6rem; letter-spacing: -0.02em; }
 .glimt-cta > p { color: var(--fog); margin-bottom: 1.8rem; }
 .glimt-cta .waitlist { margin: 0 auto; justify-content: center; }
