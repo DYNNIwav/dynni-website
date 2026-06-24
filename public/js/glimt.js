@@ -23,7 +23,7 @@
   // ---- WebGL aurora: real-time fbm-noise curtains. The "video-like" look, generated on the GPU.
   var FRAG = [
     'precision highp float;',
-    'uniform vec2 u_res; uniform float u_time;',
+    'uniform vec2 u_res; uniform float u_time; uniform float u_scroll;',
     'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453123); }',
     'float noise(vec2 p){',
     '  vec2 i=floor(p), f=fract(p); vec2 u=f*f*(3.0-2.0*f);',
@@ -38,7 +38,7 @@
     '  float curtains = fbm(vec2(uv.x*6.0 - t*0.6 + flow*1.7, uv.y*1.4 + t*0.12));',
     '  float topMask = smoothstep(-0.1, 0.7, uv.y);',
     '  float intensity = pow(curtains, 1.35) * topMask;',
-    '  intensity *= 0.9 + 0.24*sin(u_time*0.55);',
+    '  intensity *= (0.9 + 0.24*sin(u_time*0.55)) * (1.0 + u_scroll*0.5);',
     '  intensity = clamp(intensity, 0.0, 1.0);',
     '  vec3 blue = vec3(0.55, 0.80, 1.0);',
     '  vec3 teal = vec3(0.47, 0.90, 0.80);',
@@ -65,7 +65,7 @@
     var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
     var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    var uRes = gl.getUniformLocation(prog, 'u_res'), uTime = gl.getUniformLocation(prog, 'u_time');
+    var uRes = gl.getUniformLocation(prog, 'u_res'), uTime = gl.getUniformLocation(prog, 'u_time'), uScroll = gl.getUniformLocation(prog, 'u_scroll');
     var dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1 : 1.5);
 
     function size() {
@@ -74,7 +74,12 @@
       canvas.style.width = window.innerWidth + 'px'; canvas.style.height = window.innerHeight + 'px';
       gl.viewport(0, 0, w, h); gl.uniform2f(uRes, w, h);
     }
-    function frame(ms) { gl.uniform1f(uTime, ms / 1000); gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLES, 0, 3); }
+    function frame(ms) {
+      gl.uniform1f(uTime, ms / 1000);
+      // Aurora swells a little as you scroll into the page, like it breathes with you.
+      gl.uniform1f(uScroll, Math.min(1, (window.scrollY || 0) / (window.innerHeight || 1)));
+      gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
     size();
     if (reduce) { frame(3200); return true; }
 
@@ -167,11 +172,27 @@
     });
   }
 
+  // ---- Hero phone tilts gently toward the pointer (responds to you = crafted, not a loop) ----
+  function initPhoneTilt() {
+    if (reduce || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var hero = document.querySelector('.glimt-hero');
+    var phone = document.querySelector('.glimt-hero-phone');
+    if (!hero || !phone) return;
+    hero.addEventListener('pointermove', function (ev) {
+      var r = hero.getBoundingClientRect();
+      var dx = (ev.clientX - (r.left + r.width / 2)) / r.width;
+      var dy = (ev.clientY - (r.top + r.height / 2)) / r.height;
+      phone.style.transform = 'rotateY(' + (dx * 7).toFixed(2) + 'deg) rotateX(' + (-dy * 7).toFixed(2) + 'deg)';
+    });
+    hero.addEventListener('pointerleave', function () { phone.style.transform = ''; });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initGrain();
     initAurora();
     initReveals();
     initMagnetic();
+    initPhoneTilt();
     var hero = document.querySelector('.hero-dawn');
     if (hero) requestAnimationFrame(function () { hero.classList.add('lit'); });
   });
