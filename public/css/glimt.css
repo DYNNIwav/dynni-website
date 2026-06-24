@@ -133,7 +133,8 @@ body.glimt-page {
 /* Hero phone shows the app at rest, not a placeholder label. */
 .app-resting { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 1; animation: settle 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both; }
 .app-bear { font-size: 2.6rem; filter: drop-shadow(0 0 14px var(--ice-glow)); }
-.app-bear-img { width: 66px; height: 66px; border-radius: 18px; filter: drop-shadow(0 0 16px var(--ice-glow)); }
+.app-bear-img { width: 66px; height: 66px; border-radius: 18px; filter: drop-shadow(0 0 16px var(--ice-glow)); animation: logoGlow 5s ease-in-out 2s infinite; }
+@keyframes logoGlow { 0%, 100% { filter: drop-shadow(0 0 12px var(--ice-glow)); } 50% { filter: drop-shadow(0 0 26px var(--ice-glow)); } }
 .app-word { font-family: var(--font-mono); letter-spacing: 0.08em; font-size: 0.95rem; color: var(--frost); }
 .app-hint { font-family: var(--font-prose); font-size: 0.72rem; color: var(--fog); }
 @keyframes settle { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -166,22 +167,31 @@ body.glimt-page {
   position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border-radius: 50%;
   background: var(--ice); box-shadow: 0 0 8px var(--ice-glow); opacity: 0; transform: translate(-50%, -50%) scale(0.4);
 }
-.show .ember-ring span { opacity: 0.85; transform: translate(var(--x), var(--y)) scale(1); transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.ember-ring span:nth-child(1) { --x: -64px; --y: -34px; transition-delay: 0.2s; }
-.ember-ring span:nth-child(2) { --x: 60px; --y: -38px; transition-delay: 0.29s; }
-.ember-ring span:nth-child(3) { --x: 72px; --y: 32px; transition-delay: 0.38s; }
-.ember-ring span:nth-child(4) { --x: -70px; --y: 40px; transition-delay: 0.47s; }
-.ember-ring span:nth-child(5) { --x: 2px; --y: 70px; transition-delay: 0.56s; }
+.show .ember-ring span { opacity: 0.85; transform: translate(var(--x), var(--y)) scale(1); transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); animation: dotbreathe 3.6s ease-in-out 1.4s infinite; }
+/* breathe keeps each dot's place (--x/--y) and just gently pulses, so they read as living
+   presences leaning toward the fire. Different durations desync them naturally. */
+@keyframes dotbreathe { 0%, 100% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0.8; } 50% { transform: translate(var(--x), var(--y)) scale(1.22); opacity: 1; } }
+.ember-ring span:nth-child(1) { --x: -64px; --y: -34px; transition-delay: 0.2s; animation-duration: 3.4s; }
+.ember-ring span:nth-child(2) { --x: 60px; --y: -38px; transition-delay: 0.29s; animation-duration: 4.1s; }
+.ember-ring span:nth-child(3) { --x: 72px; --y: 32px; transition-delay: 0.38s; animation-duration: 3.7s; }
+.ember-ring span:nth-child(4) { --x: -70px; --y: 40px; transition-delay: 0.47s; animation-duration: 4.4s; }
+.ember-ring span:nth-child(5) { --x: 2px; --y: 70px; transition-delay: 0.56s; animation-duration: 3.9s; }
 
 /* Glimt feature: frost wipe over the placeholder (one-shot on .show) */
 .frost-wipe { position: absolute; inset: 0; background: linear-gradient(120deg, transparent 30%, rgba(140, 203, 255, 0.22) 50%, transparent 70%); transform: translateX(-110%); }
-.show .frost-wipe { animation: wipe 1.6s ease 0.3s both; }
-@keyframes wipe { to { transform: translateX(110%); } }
+.show .frost-wipe { animation: wipe 5s ease-in-out 0.5s infinite; }
+@keyframes wipe { 0% { transform: translateX(-110%); } 26% { transform: translateX(110%); } 100% { transform: translateX(110%); } }
 
 /* Privat feature: encrypt shimmer + lock */
-.lock-motif { font-size: 2.4rem; color: var(--ice); opacity: 0.5; }
-.show .lock-motif { animation: lockin 1.2s ease 0.3s both; }
-@keyframes lockin { 0% { opacity: 0; transform: scale(0.8); } 60% { opacity: 1; text-shadow: 0 0 22px var(--ice-glow); } 100% { opacity: 0.7; text-shadow: 0 0 10px var(--ice-glow); } }
+/* Lock that clicks shut on a loop: open briefly, then locked (with a glow) most of the cycle. */
+.lock-loop { position: relative; width: 2.6rem; height: 2.6rem; }
+.lock-loop i { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; color: var(--ice); }
+.lock-open { opacity: 1; }
+.lock-closed { opacity: 0; }
+.show .lock-open { animation: lockOpen 5s ease-in-out 0.6s infinite; }
+.show .lock-closed { animation: lockClosed 5s ease-in-out 0.6s infinite; }
+@keyframes lockOpen { 0%, 16% { opacity: 1; } 32%, 88% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes lockClosed { 0%, 16% { opacity: 0; text-shadow: none; } 38%, 84% { opacity: 1; text-shadow: 0 0 16px var(--ice-glow); } 100% { opacity: 0; text-shadow: none; } }
 
 /* ---------- ICEBERG DIVIDER (the melting spine) ---------- */
 /* ---------- STORY ---------- */
@@ -249,8 +259,11 @@ body.glimt-page {
   .app-resting { animation: none !important; }
   .show .fire-glow, .show .flame.outer, .show .flame.inner { animation: none !important; }
   .show .ember-ring span { animation: none !important; transition: none; opacity: 0.85; transform: translate(var(--x), var(--y)); }
-  .show .frost-wipe, .show .lock-motif { animation: none !important; }
-  .lock-motif { opacity: 0.7; }
+  .app-bear-img { animation: none !important; }
+  .show .frost-wipe { animation: none !important; }
+  .show .lock-open, .show .lock-closed { animation: none !important; }
+  .lock-open { opacity: 0; }
+  .lock-closed { opacity: 1; }
   .reveal-up { opacity: 1 !important; transform: none !important; transition: none !important; }
   .values-grid li { opacity: 1 !important; transform: none !important; transition: none !important; border-top-color: var(--ice); }
   .waitlist button { transition: none !important; }
