@@ -189,15 +189,15 @@ body.glimt-page {
 .lock-svg { width: 58px; height: 72px; overflow: visible; }
 .lock-svg .lock-body { fill: var(--ice); }
 .lock-svg .lock-hole { fill: var(--polar); }
-/* The shackle is HINGED on the left leg and swings open on the right, like a real padlock,
-   not lifting straight off both sides. */
-.lock-svg .lock-shackle { fill: none; stroke: var(--ice); stroke-width: 6; stroke-linecap: round; transform-box: fill-box; transform-origin: 12% 100%; transform: rotate(0deg); }
+/* The shackle lifts straight up; the left leg is longer so it stays seated in the body (the
+   hinge), while the short right leg clears the body. Reads as a real padlock unlocking. */
+.lock-svg .lock-shackle { fill: none; stroke: var(--ice); stroke-width: 6; stroke-linecap: round; transform: translateY(0); }
 .show .lock-svg .lock-shackle { animation: shackle 4.8s cubic-bezier(0.65, 0, 0.35, 1) 0.6s infinite; }
-/* swings open, holds, then swings shut for most of the cycle */
+/* lifts open, holds, then glides shut for most of the cycle */
 @keyframes shackle {
-  0%, 14% { transform: rotate(-34deg); }
-  34%, 86% { transform: rotate(0deg); }
-  100% { transform: rotate(-34deg); }
+  0%, 14% { transform: translateY(-12px); }
+  34%, 86% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
 }
 .show .lock-svg { animation: lockclick 4.8s ease 0.6s infinite; }
 /* a soft glow blooms at the moment it clicks shut */
@@ -209,13 +209,15 @@ body.glimt-page {
 
 /* ---------- ICEBERG DIVIDER (the melting spine) ---------- */
 /* ---------- STORY ---------- */
-.glimt-story { padding: 6rem 0; max-width: 46rem; margin: 0 auto; text-align: center; }
+/* Frosted "ice glass" panel (matches the app), so text stays readable over the bright aurora. */
+.glimt-story { max-width: 44rem; margin: var(--section) auto; text-align: center; padding: 2.4rem 2.2rem; background: rgba(13, 19, 26, 0.5); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 22px; }
 .glimt-story p { font-size: clamp(1.4rem, 3.2vw, 2.1rem); line-height: 1.5; letter-spacing: -0.01em; margin: 0; }
 
 /* ---------- FEATURES ---------- */
 .glimt-features { padding: 1rem 0; display: flex; flex-direction: column; gap: 5rem; }
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .feature--reverse .feature-text { order: 2; }
+.feature-text { background: rgba(13, 19, 26, 0.5); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 1.8rem 1.9rem; }
 .feature-kicker { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ice); margin-bottom: 0.6rem; }
 .feature-text h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin: 0 0 0.8rem; letter-spacing: -0.02em; }
 .feature-text p { color: var(--fog); font-size: 1.1rem; line-height: 1.6; max-width: 28rem; }
@@ -276,7 +278,7 @@ body.glimt-page {
   .app-bear-img { animation: none !important; }
   .show .frost-wipe { animation: none !important; }
   .show .lock-svg, .show .lock-svg .lock-shackle { animation: none !important; }
-  .lock-svg .lock-shackle { transform: rotate(0deg); }
+  .lock-svg .lock-shackle { transform: translateY(0); }
   .reveal-up { opacity: 1 !important; transform: none !important; transition: none !important; }
   .values-grid li { opacity: 1 !important; transform: none !important; transition: none !important; border-top-color: var(--ice); }
   .waitlist button { transition: none !important; }
