@@ -168,16 +168,19 @@ body.glimt-page {
 .phone-screen--capture .phone-shot { filter: sepia(0.28) saturate(1.15) contrast(0.96) brightness(1.04); }
 .phone-screen--capture::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 80% at 70% 22%, rgba(232, 185, 138, 0.28), transparent 60%); }
 .capture-ui { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-.capture-ui::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 16%; background: linear-gradient(180deg, rgba(11, 17, 23, 0.35), transparent); }
-.cap-top { position: absolute; top: 9px; left: 11px; right: 11px; display: flex; justify-content: space-between; align-items: center; }
-.cap-top .mdi { color: rgba(255, 255, 255, 0.92); font-size: 13px; }
-.capture-lens { position: absolute; bottom: 80px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; }
-.capture-pill { width: 17px; height: 17px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 7px; color: rgba(255, 255, 255, 0.85); }
-.capture-pill--active { background: var(--ice); border-color: var(--ice); color: #0b1117; }
-.cap-shutter-row { position: absolute; bottom: 40px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; }
+.cap-top { position: absolute; top: 10px; left: 11px; right: 11px; display: flex; justify-content: space-between; align-items: center; }
+.cap-logo { width: 17px; height: 17px; }
+.cap-top-right { display: flex; align-items: center; gap: 9px; }
+.cap-top-right .mdi { color: rgba(255, 255, 255, 0.92); font-size: 13px; }
+/* Zoom bar (matches the app: one glass pill with .5x/1x/2x/4x/8x, the active a filled ice circle). */
+.capture-lens { position: absolute; bottom: 86px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 3px 5px; border-radius: 12px; background: rgba(13, 19, 26, 0.4); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.cap-zoom { font-family: var(--font-mono); font-size: 6.5px; color: rgba(255, 255, 255, 0.8); padding: 0 3px; }
+.cap-zoom--active { width: 15px; height: 15px; padding: 0; border-radius: 50%; background: var(--ice); color: #0b1117; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+/* Shutter (white ring + thin ice-blue inner ring, matching the app). */
+.cap-shutter-row { position: absolute; bottom: 42px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; }
 .capture-shutter { width: 40px; height: 40px; border-radius: 50%; border: 2.5px solid #fff; display: flex; align-items: center; justify-content: center; }
 .capture-shutter-inner { width: 31px; height: 31px; border-radius: 50%; border: 1px solid rgba(140, 203, 255, 0.9); }
-.cap-flip { position: absolute; right: 26px; color: rgba(255, 255, 255, 0.92); font-size: 17px; }
+/* Bottom glass tab bar with the app's 4 tabs (camera active). */
 .cap-tabbar { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; padding: 6px 13px; border-radius: 16px; background: rgba(13, 19, 26, 0.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--glass-border); }
 .cap-tabbar .mdi { color: rgba(255, 255, 255, 0.45); font-size: 13px; }
 .cap-tabbar .cap-tab-active { color: var(--ice); }
