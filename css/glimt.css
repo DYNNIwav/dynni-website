@@ -142,9 +142,21 @@ body.glimt-page {
 }
 .film-grain {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background-image: var(--grain); background-size: 170px;
+  background-image: var(--grain); background-size: 130px;
   opacity: 0.5; mix-blend-mode: overlay;
 }
+/* Film-look showcase: two full-image cards (Glør warm, Kol B&W) so both looks read at a glance the
+   onboarding way (whole image + our grain), not a cropped phone screenshot. */
+.film-looks { display: flex; gap: 1rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+.film-look-card { flex: 1 1 0; min-width: 130px; max-width: 190px; text-align: center; margin: 0; }
+.film-frame { position: relative; aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
+.film-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.film-frame::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.film-frame--glor img { filter: sepia(0.3) saturate(1.15) contrast(0.96) brightness(1.05); }
+.film-frame--glor::after { background: radial-gradient(120% 80% at 70% 22%, rgba(232, 185, 138, 0.32), transparent 60%); }
+.film-frame--kol img { filter: grayscale(1) contrast(1.22) brightness(1.02); }
+.film-frame--kol::after { background: radial-gradient(120% 80% at 70% 22%, rgba(255, 255, 255, 0.14), transparent 60%); }
+.film-look-card figcaption { margin-top: 0.55rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ice); }
 /* Hero phone shows the app at rest, not a placeholder label. */
 .app-resting { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 1; animation: settle 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both; }
 .app-bear { font-size: 2.6rem; filter: drop-shadow(0 0 14px var(--ice-glow)); }
