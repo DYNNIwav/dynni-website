@@ -148,7 +148,7 @@ body.glimt-page {
 /* Film-look showcase: two full-image cards (Glør warm, Kol B&W) so both looks read at a glance the
    onboarding way (whole image + our grain), not a cropped phone screenshot. */
 .film-looks { display: flex; gap: 1rem; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
-.film-look-card { flex: 1 1 0; min-width: 130px; max-width: 190px; text-align: center; margin: 0; }
+.film-look-card { flex: 1 1 0; min-width: 160px; max-width: 260px; text-align: center; margin: 0; }
 .film-frame { position: relative; aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
 .film-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .film-frame::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; }
