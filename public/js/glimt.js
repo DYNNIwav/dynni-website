@@ -192,7 +192,9 @@
     initAurora();
     initReveals();
     initMagnetic();
-    initPhoneTilt();
+    // Hero phone stays STATIC on purpose, the mouse-tracking tilt felt laggy and pulled focus from
+    // the look. initPhoneTilt() left in place but not called, so it's easy to bring back if wanted.
+    // initPhoneTilt();
     var hero = document.querySelector('.hero-dawn');
     if (hero) requestAnimationFrame(function () { hero.classList.add('lit'); });
   });
