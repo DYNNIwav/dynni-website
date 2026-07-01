@@ -1,0 +1,12 @@
+# main is the live static site. These are Astro-rewrite / tooling artifacts that live in the shared
+# working tree (from the `astro` branch) and must NOT be committed here.
+node_modules/
+dist/
+.astro/
+package.json
+package-lock.json
+bun.lock
+astro.config.mjs
+tsconfig.json
+.vercel/
+.DS_Store
