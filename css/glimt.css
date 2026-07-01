@@ -169,7 +169,7 @@ body.glimt-page {
 .phone-screen--capture::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 80% at 70% 22%, rgba(232, 185, 138, 0.28), transparent 60%); }
 .capture-ui { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .cap-top { position: absolute; top: 10px; left: 11px; right: 11px; display: flex; justify-content: space-between; align-items: center; }
-.cap-logo { width: 17px; height: 17px; }
+.cap-logo { width: 21px; height: 21px; margin-top: -2px; }
 .cap-top-right { display: flex; align-items: center; gap: 9px; }
 .cap-top-right .mdi { color: rgba(255, 255, 255, 0.92); font-size: 13px; }
 /* Zoom bar (matches the app: one glass pill with .5x/1x/2x/4x/8x, the active a filled ice circle). */
