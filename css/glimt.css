@@ -133,6 +133,18 @@ body.glimt-page {
   -webkit-mask-image: radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 75%);
   mask-image: radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 75%);
 }
+/* The "Film" feature screen literally shows the look: a warm split-tone frame, a halation glow on the
+   highlights, and real grain (reuses the runtime --grain noise), plus the shared scanline sheen above. */
+.phone-screen--film { background: linear-gradient(160deg, #3a2f28 0%, #2a2622 45%, #16202a 100%); }
+.phone-screen--film::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(120% 80% at 68% 22%, rgba(232, 185, 138, 0.32), transparent 58%);
+}
+.film-grain {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background-image: var(--grain); background-size: 170px;
+  opacity: 0.5; mix-blend-mode: overlay;
+}
 /* Hero phone shows the app at rest, not a placeholder label. */
 .app-resting { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 1; animation: settle 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both; }
 .app-bear { font-size: 2.6rem; filter: drop-shadow(0 0 14px var(--ice-glow)); }

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="nn">
+    <head>
+        <meta charset="utf-8" />
+        <script>document.documentElement.classList.add('js')</script>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+
+        <title>Kva er OSINT, og kvifor bør du bry deg? | DYNNI</title>
+        <meta name="title" content="Kva er OSINT, og kvifor bør du bry deg? | DYNNI" />
+        <meta
+            name="description"
+            content="OSINT (Open Source Intelligence) er metoden politi, media og etterforskingsselskap brukar for å finne informasjon. Her er korleis det fungerer."
+        />
+        <meta name="author" content="Pål Omland Eilevstjønn" />
+        <meta name="robots" content="index, follow" />
+
+        <link rel="canonical" href="https://dynni.no/blogg/kva-er-osint" />
+        <link rel="alternate" hreflang="nn" href="https://dynni.no/blogg/kva-er-osint" />
+        <link rel="alternate" hreflang="en" href="https://dynni.no/en/blog/what-is-osint" />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://dynni.no/blogg/kva-er-osint" />
+        <meta property="og:title" content="Kva er OSINT, og kvifor bør du bry deg?" />
+        <meta property="og:description" content="OSINT er metoden politi og media brukar for å finne informasjon. Her er korleis det fungerer." />
+        <meta property="og:locale" content="nn_NO" />
+        <meta property="og:site_name" content="DYNNI" />
+        <meta property="article:published_time" content="2026-04-07" />
+        <meta property="article:author" content="Pål Omland Eilevstjønn" />
+        <meta property="article:section" content="OSINT" />
+
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content="Kva er OSINT, og kvifor bør du bry deg?" />
+        <meta property="twitter:description" content="OSINT er metoden politi og media brukar for å finne informasjon." />
+
+        <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
+        <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
+        <meta name="theme-color" content="#000000" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../css/styles.css" />
+        <link rel="stylesheet" href="../css/blogg.css" />
+
+        <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
+        <script src="../scripts.js"></script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Kva er OSINT, og kvifor bør du bry deg?",
+                "description": "OSINT (Open Source Intelligence) er metoden politi, media og etterforskingsselskap brukar for å finne informasjon.",
+                "author": {
+                    "@type": "Person",
+                    "name": "Pål Omland Eilevstjønn",
+                    "url": "https://dynni.no/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "DYNNI",
+                    "url": "https://dynni.no/"
+                },
+                "datePublished": "2026-04-07",
+                "mainEntityOfPage": "https://dynni.no/blogg/kva-er-osint"
+            }
+        </script>
+    </head>
+    <body>
+        <div class="reading-progress"></div>
+
+        <header class="site-header">
+            <nav class="nav">
+                <a class="logo" href="../"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+                <ul class="nav-links-main">
+                    <li><a href="../om-meg">Om meg</a></li>
+                    <li><a href="../lyd">Lyd</a></li>
+                    <li><a href="../apps">Apps</a></li>
+                    <li><a href="../tjenester">Sjekk</a></li>
+                    <li><a href="../blogg">Blogg</a></li>
+                    <li><a href="../kontakt">Kontakt</a></li>
+                </ul>
+                <span class="sidebar-text">&copy; DYNNI 2026</span>
+                <ul class="nav-links-social">
+                    <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+                <div class="lang-switch">
+                    <a href="../blogg/kva-er-osint" class="active">NO</a>
+                    <a href="../en/blog/what-is-osint">EN</a>
+                </div>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+                <label for="menu-toggle" class="hamburger-btn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </label>
+                <div class="mobile-nav-overlay">
+                    <nav class="mobile-nav">
+                        <div class="mobile-nav-content">
+                            <a class="logo" href="../"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+                            <ul class="nav-links-main">
+                                <li><a href="../om-meg">Om meg</a></li>
+                                <li><a href="../lyd">Lyd</a></li>
+                                <li><a href="../apps">Apps</a></li>
+                                <li><a href="../tjenester">Sjekk</a></li>
+                                <li><a href="../blogg">Blogg</a></li>
+                                <li><a href="../kontakt">Kontakt</a></li>
+                            </ul>
+                            <span class="sidebar-text">&copy; DYNNI 2026</span>
+                            <ul class="nav-links-social">
+                                <li><a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                            <div class="lang-switch">
+                                <a href="../blogg/kva-er-osint" class="active">NO</a>
+                                <a href="../en/blog/what-is-osint">EN</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="background"></div>
+
+            <section class="article-hero">
+                <div class="article-hero-content">
+                    <a href="../blogg" class="article-back">&larr; Alle artiklar</a>
+                    <div class="post-meta">
+                        <span class="post-category">OSINT</span>
+                        <span class="post-date">7. april 2026</span>
+                        <span class="post-reading-time">5 min</span>
+                    </div>
+                    <h1>Kva er OSINT, og kvifor bør du bry deg?</h1>
+                    <p class="article-excerpt">
+                        OSINT (Open Source Intelligence) er metoden politi, journalistar og
+                        etterforskingsselskap brukar for å finne informasjon. Her er korleis det fungerer,
+                        og kva det betyr for deg.
+                    </p>
+                </div>
+            </section>
+
+            <article class="article-body">
+
+                <p>
+                    Du har kanskje sett omgrepet OSINT i nyheitene, spesielt i samband med konfliktar
+                    og kriminaletterforsking. Men kva er det eigentleg, og kvifor er det relevant for vanlege folk?
+                </p>
+
+                <h2>OSINT i korte trekk</h2>
+
+                <p>
+                    OSINT står for <strong>Open Source Intelligence</strong>, altså etterretning basert
+                    på opne kjelder. Det betyr å samle, analysere og kryss-sjekke informasjon frå
+                    offentleg tilgjengelege kjelder for å bygge eit bilete av ein person, eit selskap
+                    eller ein situasjon.
+                </p>
+
+                <p>
+                    "Opne kjelder" betyr ikkje "hacka data" eller "hemmeleg informasjon". Det betyr:
+                </p>
+
+                <ul>
+                    <li>Offentlege register (Brønnøysund, Kartverket, skattelister)</li>
+                    <li>Sosiale medium (Facebook, Instagram, LinkedIn)</li>
+                    <li>Nyheitsarkiv og aviser</li>
+                    <li>Rettsavgjerder og domstoler</li>
+                    <li>Telefonkatalogar og adresseregister</li>
+                    <li>Fritt tilgjengelege databasar og nettsider</li>
+                </ul>
+
+                <h2>Kven brukar OSINT?</h2>
+
+                <p>
+                    OSINT er ikkje berre for spionar og hackarar. Det vert brukt dagleg av:
+                </p>
+
+                <ul>
+                    <li><strong>Politi og etterretning:</strong> Kartlegge nettverk, finne sakna personar, etterforske kriminalitet</li>
+                    <li><strong>Journalistar:</strong> Avdekke korrupsjon, verifisere kjelder, grave i saker</li>
+                    <li><strong>Bedrifter:</strong> Due diligence før fusjonar, bakgrunnssjekk av partnarar, compliance</li>
+                    <li><strong>Rekrutterarar:</strong> Sjekke kandidatar utover CV-en</li>
+                    <li><strong>Privatpersonar:</strong> Sjekke utleigarar, datingpartnarar, eller sitt eige fotavtrykk</li>
+                </ul>
+
+                <blockquote>
+                    <p>
+                        Bellingcat, den verdskjende OSINT-gruppa, brukte opne kjelder til å
+                        bevise kven som skaut ned MH17 over Ukraina. Same metode, berre
+                        i mykje større skala.
+                    </p>
+                </blockquote>
+
+                <h2>Korleis fungerer det i praksis?</h2>
+
+                <p>
+                    Ein typisk OSINT-analyse følgjer eit mønster:
+                </p>
+
+                <ol>
+                    <li><strong>Innsamling:</strong> Søk i titals register og kjelder parallelt. Namn, adresse, selskap, rettsleg historikk, media, sosiale medium.</li>
+                    <li><strong>Kryss-sjekking:</strong> Verifiser kvar opplysning mot minst to uavhengige kjelder. Ein Instagram-profil med rett namn er ikkje nok. Den må også matche stad, alder, eller arbeidsgjevar.</li>
+                    <li><strong>Analyse:</strong> Bygg eit samanhengande bilete. Kven er personen? Kva er nettverket? Finst det raude flagg?</li>
+                    <li><strong>Rapportering:</strong> Presentér funna med kjeldehendvisingar og konfidensgradering.</li>
+                </ol>
+
+                <h2>Er det lovleg?</h2>
+
+                <p>
+                    Ja. OSINT baserer seg utelukkande på lovleg, offentleg tilgjengeleg informasjon.
+                    Det er ingen hacking, ingen ulovleg spaning, ingen innbrot i system.
+                </p>
+
+                <p>
+                    I Noreg har vi eit spesielt ope samfunn: skattelister, eigedomsregister,
+                    selskapsregister og rettsavgjerder er alle tilgjengelege for publikum.
+                    OSINT utnyttar denne openheita, men alltid innanfor lovens rammer.
+                </p>
+
+                <p>
+                    For profesjonelle tenester gjeld GDPR artikkel 6(1)(f): <strong>beretiga interesse</strong>.
+                    Det betyr at oppdragsgjevar må ha ein sakleg grunn, til dømes risikovurdering
+                    før tilsetting, utleige eller forretningssamarbeid.
+                </p>
+
+                <h2>Kva betyr det for deg?</h2>
+
+                <p>
+                    OSINT viser kor mykje som er tilgjengeleg om deg, sjølv utan at du veit det.
+                    Det har to konsekvensar:
+                </p>
+
+                <ul>
+                    <li><strong>Du kan bruke det:</strong> Sjekk kven du har med å gjere før du inngår ein avtale, leiger ut bustaden din, eller møter nokon frå ein app.</li>
+                    <li><strong>Andre brukar det på deg:</strong> Arbeidsgjevarar, utleigarar og forretningspartnarar sjekkar deg sannsynlegvis allereie. Veit du kva dei finn?</li>
+                </ul>
+
+                <hr />
+
+                <p>
+                    Nysgjerrig på kva som finst om deg? Bestill ein
+                    <a href="../tjenester">digital fotavtrykk-analyse</a> og finn ut nøyaktig
+                    kva andre kan sjå. Eller treng du å sjekke nokon andre?
+                    Ein <a href="../tjenester">bakgrunnssjekk</a> gir deg svara.
+                </p>
+
+            </article>
+
+            <section class="article-cta">
+                <h2>// Klar til å ta kontroll?</h2>
+                <a class="btn primary" href="../kontakt">Ta kontakt</a>
+            </section>
+        </main>
+    </body>
+</html>
