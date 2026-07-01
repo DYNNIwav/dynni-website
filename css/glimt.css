@@ -119,6 +119,10 @@ body.glimt-page {
 @keyframes floatup { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .phone--sm { width: 210px; }
 .phone-notch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 96px; height: 22px; border-radius: 999px; background: #000; z-index: 2; }
+/* A real app screenshot shown whole (no crop): exact iPhone aspect + thin bezel border, since the shot
+   already has the status bar + Dynamic Island + UI baked in. */
+.glimt-shot { width: 210px; aspect-ratio: 9 / 19.5; border-radius: 34px; overflow: hidden; border: 3px solid #10151b; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); }
+.glimt-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .phone-screen {
   position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
