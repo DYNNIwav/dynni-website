@@ -167,22 +167,27 @@ body.glimt-page {
    ACTUAL camera UI recreated with the same Material Design Icons the app uses (mdi-*). */
 .phone-screen--capture .phone-shot { filter: sepia(0.28) saturate(1.15) contrast(0.96) brightness(1.04); }
 .phone-screen--capture::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(120% 80% at 70% 22%, rgba(232, 185, 138, 0.28), transparent 60%); }
-.capture-ui { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-.cap-top { position: absolute; top: 10px; left: 11px; right: 11px; display: flex; justify-content: space-between; align-items: center; }
+.capture-ui { position: absolute; inset: 0; z-index: 3; pointer-events: none; color: #eaf2fa; }
+/* iPhone status bar (clock left, signal/wifi/battery right), flanking the Dynamic Island. */
+.cap-statusbar { position: absolute; top: 5px; left: 13px; right: 13px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 7.5px; font-weight: 700; }
+.cap-sys { display: flex; align-items: center; gap: 3px; }
+.cap-sys .mdi { font-size: 9px; }
+/* App controls sit BELOW the Dynamic Island. */
+.cap-top { position: absolute; top: 28px; left: 11px; right: 11px; display: flex; justify-content: space-between; align-items: center; }
 .cap-logo { width: 21px; height: 21px; margin-top: -2px; }
 .cap-top-right { display: flex; align-items: center; gap: 9px; }
-.cap-top-right .mdi { color: rgba(255, 255, 255, 0.92); font-size: 13px; }
-/* Zoom bar (matches the app: one glass pill with .5x/1x/2x/4x/8x, the active a filled ice circle). */
-.capture-lens { position: absolute; bottom: 86px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 2px; padding: 3px 5px; border-radius: 12px; background: rgba(13, 19, 26, 0.4); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.cap-zoom { font-family: var(--font-mono); font-size: 6.5px; color: rgba(255, 255, 255, 0.8); padding: 0 3px; }
-.cap-zoom--active { width: 15px; height: 15px; padding: 0; border-radius: 50%; background: var(--ice); color: #0b1117; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.cap-top-right .mdi { color: #eaf2fa; font-size: 13px; }
+/* Zoom row: NO background bar (matches the app), just labels + the active 1x as a filled ice circle. */
+.capture-lens { position: absolute; bottom: 88px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 6px; }
+.cap-zoom { font-family: var(--font-mono); font-size: 7px; color: rgba(234, 242, 250, 0.85); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+.cap-zoom--active { width: 15px; height: 15px; border-radius: 50%; background: #8ccbff; color: #06223b; font-weight: 700; display: flex; align-items: center; justify-content: center; text-shadow: none; }
 /* Shutter (white ring + thin ice-blue inner ring, matching the app). */
 .cap-shutter-row { position: absolute; bottom: 42px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; }
 .capture-shutter { width: 40px; height: 40px; border-radius: 50%; border: 2.5px solid #fff; display: flex; align-items: center; justify-content: center; }
 .capture-shutter-inner { width: 31px; height: 31px; border-radius: 50%; border: 1px solid rgba(140, 203, 255, 0.9); }
-/* Bottom glass tab bar with the app's 4 tabs (camera active). */
-.cap-tabbar { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; padding: 6px 13px; border-radius: 16px; background: rgba(13, 19, 26, 0.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--glass-border); }
-.cap-tabbar .mdi { color: rgba(255, 255, 255, 0.45); font-size: 13px; }
+/* Bottom glass tab bar, the app's 4 tabs (camera active = accent icon, inactive = frost 60%). */
+.cap-tabbar { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); display: flex; gap: 15px; padding: 7px 14px; border-radius: 22px; background: rgba(22, 31, 42, 0.62); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(234, 242, 250, 0.1); }
+.cap-tabbar .mdi { color: rgba(234, 242, 250, 0.6); font-size: 13px; }
 .cap-tabbar .cap-tab-active { color: var(--ice); }
 /* Hero phone shows the app at rest, not a placeholder label. */
 .app-resting { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 1; animation: settle 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both; }
