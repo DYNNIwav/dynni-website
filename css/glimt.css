@@ -68,6 +68,9 @@ body.glimt-page {
   display: inline-block; margin-bottom: 0.9rem; padding: 0.5rem 0.95rem; border-radius: 999px;
   background: var(--ice-soft); border: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--fog);
 }
+/* Only appears for invite links (JS drops [hidden] when ?ref=<username> is present); a normal visitor
+   never sees it. Needed because the base .invite-banner display would otherwise override [hidden]. */
+.invite-banner[hidden] { display: none; }
 .invite-banner strong { color: var(--ice); }
 .glimt-badge {
   display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600;
@@ -126,8 +129,10 @@ body.glimt-page {
 .phone-notch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 96px; height: 22px; border-radius: 999px; background: #000; z-index: 2; }
 /* A real app screenshot shown whole (no crop): exact iPhone aspect + thin bezel border, since the shot
    already has the status bar + Dynamic Island + UI baked in. */
-.glimt-shot { width: 210px; aspect-ratio: 9 / 19.5; border-radius: 34px; overflow: hidden; border: 3px solid #10151b; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); }
-.glimt-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Match the .phone frame EXACTLY (10px bezel, same body + radius), so a real-screenshot mockup has the
+   identical edge thickness as every drawn mockup , they read as the same device. */
+.glimt-shot { width: 210px; aspect-ratio: 9 / 19.5; border-radius: 38px; overflow: hidden; padding: 10px; background: linear-gradient(160deg, #1a1f26, #0c0f13); border: 1px solid var(--glass-border); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); }
+.glimt-shot img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
 .phone-screen {
   position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
