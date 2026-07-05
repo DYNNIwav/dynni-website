@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "2WDPP87T4V.com.dynni.glimt",
+        "paths": ["/glimt", "/glimt/*", "/en/glimt", "/en/glimt/*"]
+      }
+    ]
+  }
+}
