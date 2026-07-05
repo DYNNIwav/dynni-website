@@ -64,6 +64,11 @@ body.glimt-page {
 .hero-dawn.lit > *:nth-child(4) { transition-delay: 0.44s; }
 .hero-dawn.lit > *:nth-child(5) { transition-delay: 0.57s; }
 
+.invite-banner {
+  display: inline-block; margin-bottom: 0.9rem; padding: 0.5rem 0.95rem; border-radius: 999px;
+  background: var(--ice-soft); border: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--fog);
+}
+.invite-banner strong { color: var(--ice); }
 .glimt-badge {
   display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600;
   letter-spacing: 0.02em; padding: 0.35rem 0.7rem 0.35rem 0.4rem; border: 1px solid var(--glass-border);

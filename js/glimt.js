@@ -3,6 +3,21 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---- Invite personalisation: the app's "gather your campfire" share links here with ?ref=<username>,
+  // so an invited person sees a warm "X invited you" line above the hero. Sanitised, best-effort. ----
+  try {
+    var ref = new URLSearchParams(window.location.search).get('ref');
+    if (ref) {
+      var name = ref.replace(/[<>"'&]/g, '').trim().slice(0, 40);
+      var banner = document.getElementById('invite-banner');
+      var nameEl = document.getElementById('invite-name');
+      if (name && banner && nameEl) {
+        nameEl.textContent = name;
+        banner.hidden = false;
+      }
+    }
+  } catch (e) {}
+
   // ---- Grain: 128px static noise -> dataURL onto .grain-layer (decorative) ----
   function initGrain() {
     var layer = document.querySelector('.grain-layer');
