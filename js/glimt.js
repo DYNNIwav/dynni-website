@@ -206,7 +206,9 @@
     initGrain();
     initAurora();
     initReveals();
-    initMagnetic();
+    // initMagnetic() removed on purpose: the cursor-following "magnetic" translate felt gimmicky, and buttons
+    // sliding toward the pointer reads cheap, not premium. They now lift gently straight up on hover via CSS
+    // (.waitlist button:hover), which feels crafted and calm. Function left defined below in case it's wanted.
     // Hero phone stays STATIC on purpose, the mouse-tracking tilt felt laggy and pulled focus from
     // the look. initPhoneTilt() left defined but not called, so it's easy to bring back if wanted.
     // initPhoneTilt();

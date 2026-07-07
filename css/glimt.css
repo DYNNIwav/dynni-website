@@ -102,7 +102,7 @@ body.glimt-page {
   font-family: var(--font-body); font-weight: 700; font-size: 1rem; cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
-.waitlist button:hover { box-shadow: 0 8px 28px var(--ice-glow); filter: brightness(1.05); }
+.waitlist button:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--ice-glow); filter: brightness(1.05); }
 .waitlist button:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
 .waitlist button:active { transform: translateY(1px); }
 .waitlist.busy button { opacity: 0.6; pointer-events: none; }
@@ -114,6 +114,13 @@ body.glimt-page {
   font-size: 0.8rem; color: var(--fog); border: 1px solid var(--glass-border); border-radius: 8px;
   padding: 0.5rem 0.8rem; display: inline-flex; gap: 0.5rem; align-items: center;
 }
+/* The one live call to action: iOS beta is open, so it reads as an active button (accent fill, gentle lift)
+   while the store badges stay muted "coming soon". */
+.store-badge.beta {
+  color: #00203a; background: var(--ice); border-color: transparent; font-weight: 700; text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.store-badge.beta:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--ice-glow); }
 
 /* ---------- PHONE MOCK ---------- */
 .glimt-hero-phone { display: flex; justify-content: center; transform-style: preserve-3d; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
