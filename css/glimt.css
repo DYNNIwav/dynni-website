@@ -139,28 +139,7 @@ body.glimt-page {
 /* Match the .phone frame EXACTLY (10px bezel, same body + radius), so a real-screenshot mockup has the
    identical edge thickness as every drawn mockup , they read as the same device. */
 .glimt-shot { width: 210px; aspect-ratio: 9 / 19.5; border-radius: 38px; overflow: hidden; padding: 10px; background: linear-gradient(160deg, #1a1f26, #0c0f13); border: 1px solid var(--glass-border); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); }
-.glimt-shot img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
-/* Camera-UI mockup recreated in HTML/CSS (mdi icons) over the real Fjord-look photo, matching the current app:
-   bear top-left, timer/grid/flip top-right, zoom pills, shutter, and the bottom nav with the bear as its own
-   tab (badge). Crisp + resolution-independent, no baked screenshot, so it never goes stale or shows emulator UI. */
-.glimt-shot--cam { position: relative; }
-.cam-ui { position: absolute; inset: 10px; border-radius: 28px; overflow: hidden; z-index: 2; pointer-events: none; color: #eaf2fa; }
-.cam-ui::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 20%, transparent 60%, rgba(0, 0, 0, 0.45) 100%); }
-.cam-top { position: absolute; top: 13px; left: 14px; right: 14px; display: flex; align-items: center; justify-content: space-between; }
-.cam-bear { width: 22px; height: 22px; }
-.cam-icons { display: flex; gap: 12px; font-size: 16px; }
-.cam-icons .mdi { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-.cam-bottom { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; flex-direction: column; align-items: center; gap: 9px; }
-.cam-zoom { display: flex; gap: 7px; }
-.cam-zoom span { width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; font-weight: 700; background: rgba(0, 0, 0, 0.4); }
-.cam-zoom .on { background: #8ccbff; color: #0b1117; }
-.cam-shutter { width: 50px; height: 50px; border-radius: 50%; border: 3px solid #fff; background: rgba(255, 255, 255, 0.12); box-shadow: 0 0 0 2px rgba(140, 203, 255, 0.7) inset; }
-.cam-nav { display: flex; align-items: center; gap: 15px; background: rgba(11, 17, 23, 0.55); border: 1px solid rgba(255, 255, 255, 0.12); padding: 7px 15px; border-radius: 999px; font-size: 17px; backdrop-filter: blur(6px); }
-.cam-nav .mdi { color: #cfe0ee; }
-.cam-nav .on { color: #8ccbff; }
-.cam-nav-bear { position: relative; display: flex; }
-.cam-nav-bear img { width: 20px; height: 20px; display: block; }
-.cam-nav-bear b { position: absolute; top: -6px; right: -9px; background: #8ccbff; color: #0b1117; font-family: var(--font-mono); font-size: 9px; font-weight: 700; min-width: 14px; height: 14px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0 3px; }
+.glimt-shot > img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
 .phone-screen {
   position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
