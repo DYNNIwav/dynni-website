@@ -168,7 +168,25 @@
             <p>Share a little glimt from your day. It shows once, then it's gone. No feed to scroll, no likes to chase, no pressure to perform.</p>
           </div>
           <div class="feature-phone">
-            <div class="glimt-shot"><img src="/assets/img/glimt-moment.jpg" alt="A glimt about to be captured in the Glimt app" /></div>
+            <div class="glimt-shot glimt-shot--cam">
+              <img src="/assets/img/onboarding-fjord.jpg" alt="A glimt about to be captured in the Glimt app, with the Fjord look" />
+              <div class="cam-ui" aria-hidden="true">
+                <div class="cam-top">
+                  <img class="cam-bear" src="../../assets/img/apps/glimt.png" alt="" />
+                  <div class="cam-icons"><i class="mdi mdi-timer-outline"></i><i class="mdi mdi-grid"></i><i class="mdi mdi-camera-flip-outline"></i></div>
+                </div>
+                <div class="cam-bottom">
+                  <div class="cam-zoom"><span class="on">1×</span><span>2×</span></div>
+                  <div class="cam-shutter"></div>
+                  <div class="cam-nav">
+                    <i class="mdi mdi-account-multiple"></i>
+                    <i class="mdi mdi-camera on"></i>
+                    <span class="cam-nav-bear"><img src="../../assets/img/apps/glimt.png" alt="" /><b>4</b></span>
+                    <i class="mdi mdi-campfire"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -201,20 +219,41 @@
             <h2>A real film look, not a filter</h2>
             <p>Phone cameras are too clean and clinical. Glimt gives your photos and videos a warm, analog film look with real film grain, baked right in as you shoot. What you see is what you get, like a real film camera. And you're always in control: pick your look, or shoot completely clean.</p>
           </div>
-          <div class="film-looks">
-            <figure class="film-look-card">
-              <div class="film-frame film-frame--raw"><img src="/assets/img/film-loen.jpg" alt="Raw, no look" /></div>
-              <figcaption>Raw</figcaption>
-            </figure>
-            <figure class="film-look-card">
-              <div class="film-frame film-frame--glor"><img src="/assets/img/film-loen.jpg" alt="The Glør look" /><span class="film-grain" aria-hidden="true"></span></div>
-              <figcaption>Glør</figcaption>
-            </figure>
-            <figure class="film-look-card">
-              <div class="film-frame film-frame--kol"><img src="/assets/img/film-loen.jpg" alt="The Kol look" /><span class="film-grain" aria-hidden="true"></span></div>
-              <figcaption>Kol</figcaption>
-            </figure>
+          <div class="film-slider">
+            <div class="film-stage">
+              <img class="film-after" src="/assets/img/film-loen-fjord.jpg" alt="With the Fjord look" />
+              <div class="film-before"><img src="/assets/img/film-loen-raw.jpg" alt="Raw, no look" /></div>
+              <div class="film-line" aria-hidden="true"><span class="film-knob"></span></div>
+              <span class="film-tag film-tag--l">Raw</span>
+              <span class="film-tag film-tag--r">Fjord</span>
+              <input class="film-range" type="range" min="0" max="100" value="52" aria-label="Drag to compare raw and look" />
+            </div>
+            <div class="film-pills">
+              <button class="film-pill is-active" type="button" data-look="fjord" data-name="Fjord">Fjord</button>
+              <button class="film-pill" type="button" data-look="glor" data-name="Glør">Glør</button>
+              <button class="film-pill" type="button" data-look="kol" data-name="Kol">Kol</button>
+            </div>
           </div>
+          <script>
+            (function () {
+              var s = document.querySelector('.film-slider'); if (!s) return;
+              var range = s.querySelector('.film-range'), before = s.querySelector('.film-before'),
+                  line = s.querySelector('.film-line'), after = s.querySelector('.film-after'),
+                  tagR = s.querySelector('.film-tag--r'), pills = s.querySelectorAll('.film-pill');
+              function setPos(v) { before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; line.style.left = v + '%'; }
+              range.addEventListener('input', function () { setPos(+range.value); });
+              setPos(+range.value);
+              pills.forEach(function (p) {
+                p.addEventListener('click', function () {
+                  pills.forEach(function (q) { q.classList.remove('is-active'); });
+                  p.classList.add('is-active');
+                  after.src = '/assets/img/film-loen-' + p.dataset.look + '.jpg';
+                  after.alt = 'With the ' + p.dataset.name + ' look';
+                  tagR.textContent = p.dataset.name;
+                });
+              });
+            })();
+          </script>
         </article>
       </section>
 
