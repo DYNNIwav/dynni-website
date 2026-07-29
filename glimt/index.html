@@ -291,7 +291,20 @@
             <p>Kvar veke er det eit tema, det same for alle bål i verda. «Noko som fekk deg til å smile.» «Utsikta di akkurat no.» Du treng ikkje følgje det, og du treng ikkje dele. Bålet brenn vidare uansett.</p>
           </div>
           <div class="feature-phone">
-            <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><div class="campfire" aria-hidden="true"><span class="fire-glow"></span><span class="flame outer"></span><span class="flame inner"></span><span class="logs"></span></div><span class="ember-ring" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div></div>
+            <!-- Her stod ein teikna animasjon av eit bål, som viste akkurat ingenting av appen. Ein
+                 sekstenåring kalla det ein peis-skjermsparar, og hadde rett: det sterkaste avsnittet
+                 på sida var illustrert med pynt. No er det staden sjølv som står her, med folk i: fire
+                 som sit rundt bålet, temaet for veka, og knappen som viser at du kan dele eit glimt ved
+                 bålet når som helst, ikkje berre på den dagen de har valt. Varmen er ikkje borte, han
+                 ligg bak ramma som lys. Same storleik og same ramme som skjermbiletet i toppen, så dei
+                 to ser ut som den same telefonen. -->
+            <span class="fire-glow" aria-hidden="true"></span>
+            <div class="glimt-shot glimt-shot--bal">
+              <picture>
+                <source type="image/webp" srcset="/assets/img/glimt-bal-640.webp" />
+                <img src="/assets/img/glimt-bal-640.jpg" alt="Skjermbilete frå appen: bålet Familien, med fire teikna profilbilete rundt, kortet med temaet for veka, og knappen for å dele eit glimt ved bålet" width="640" height="1391" loading="lazy" decoding="async" />
+              </picture>
+            </div>
           </div>
         </article>
 
@@ -322,9 +335,9 @@
           </div>
 
           <div class="ritual-card ritual-card--wide">
-            <h3>Tek du vekeglimtet med stemma, blir orda skrivne ned</h3>
+            <h3>Tek du vekeglimtet med stemma på norsk, blir orda skrivne ned</h3>
             <p>Ein som høyrer dårleg, eller ingenting, får med seg kvart ord. Teksten er berre der når vekeglimtet kjem, forsegla saman med lyden, og du kan rette ei linje før du deler.</p>
-            <p>Det skjer på sjølve telefonen, med NB-Whisper frå Nasjonalbiblioteket, trena på 22 000 timar norsk. Ingenting blir sendt ut av telefonen for å bli tolka. Det verkar på både iPhone og Android.</p>
+            <p>Det skjer på sjølve telefonen, med NB-Whisper frå Nasjonalbiblioteket, trena på 22 000 timar norsk, og det er difor berre norsk som blir skrive ned. Ingenting blir sendt ut av telefonen for å bli tolka. Det verkar på både iPhone og Android.</p>
           </div>
         </div>
 
@@ -397,7 +410,7 @@
           <h2>Ein student i Oslo</h2>
           <p>Eg heiter Pål. Eg går andre året på frontend-utvikling, er frå Vinje i Telemark og bur i Oslo. Glimt er ikkje eit selskap, det er meg, ein kveld om gongen.</p>
           <p>Eg starta fordi vi aldri har vore meir «kopla saman», og likevel meir åleine. Eg sakna ein liten stad der ein kunne halde fast på nokre få menneske utan å bli målt, telt eller seld vidare. Så eg prøvde å lage han.</p>
-          <p>Det er òg grunnen til at eg tør å love at ingen kjøper deg her: det finst ingen andre å svare til. Appen finst på nynorsk og engelsk.</p>
+          <p>Det er òg grunnen til at eg tør å love at ingen kjøper deg her: det finst ingen andre å svare til. Appen er på nynorsk og engelsk, og følgjer språket på telefonen din. Er telefonen sett til noko anna, får du engelsk.</p>
           <p>Lurer du på noko, eller vil du seie frå om noko som ikkje verkar, så skriv til <a href="mailto:paal@dynni.no">paal@dynni.no</a>. Eg les alt sjølv. <a href="/om-meg">Meir om meg</a>.</p>
         </div>
       </section>
@@ -461,10 +474,6 @@
           <p class="waitlist-status" role="status" aria-live="polite"></p>
         </form>
         <p class="waitlist-note" id="waitlist-note">Alle som er med før lanseringa, får Glimt+ gratis for alltid. Eg sender ein e-post når Glimt opnar, og ikkje noko anna. Det lovar eg.</p>
-        <div class="store-badges">
-          <span class="store-badge soon"><i class="fab fa-apple" aria-hidden="true"></i> App Store · kjem snart</span>
-          <span class="store-badge soon"><i class="fab fa-google-play" aria-hidden="true"></i> Google Play · kjem snart</span>
-        </div>
       </section>
     </main>
 

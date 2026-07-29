@@ -252,85 +252,55 @@ body.glimt-page {
 }
 .waitlist-status:empty { display: none; }
 
-.store-badges { display: flex; gap: 0.3rem 1.2rem; flex-wrap: wrap; margin-top: 1.4rem; justify-content: center; }
-/* Deliberately not button-shaped. These are spans with nowhere to go, and as bordered pills with
-   icons they read as two tappable store buttons at the exact point where intent is highest. */
-.store-badge {
-  font-size: 0.78rem; color: var(--fog); border: 0; border-radius: 0; padding: 0; background: none;
-  display: inline-flex; gap: 0.45rem; align-items: center; font-family: var(--font-prose);
-}
+/* The two "App Store / Google Play, coming soon" captions used to sit here. Gone, markup and all: they
+   were the last thing anyone read, directly under a heading that says the beta is open now, so the page
+   ended on "not yet" twice at the point where intent is highest. Everything they said is said better
+   above them, the heading names the open iOS beta and points Android at the list. */
 
-/* ---------- PHONE MOCK ---------- */
+/* ---------- PHONE FRAME ---------- */
 .glimt-hero-phone { display: flex; justify-content: center; transform-style: preserve-3d; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
-.phone {
-  position: relative; width: 250px; aspect-ratio: 9 / 19.5; border-radius: 38px;
-  background: linear-gradient(160deg, #1a1f26, #0c0f13); border: 1px solid var(--glass-border);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); padding: 10px;
-}
 /* One-shot entrance only, then the phone comes to rest (an endless float reads restless, not calm).
    No delay: with `both` fill a 0.5s delay held the screenshot at opacity 0, so the first paint of the
-   one thing above the fold was deliberately blank. */
-.hero-dawn.lit .phone, .glimt-hero-phone .glimt-shot { animation: floatup 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+   one thing above the fold was deliberately blank. Hero only. The bål shot further down is inside a
+   [data-reveal] block and is lit by that, so giving it this animation too would fade it in twice. */
+.glimt-hero-phone .glimt-shot { animation: floatup 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
 @keyframes floatup { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-.phone--sm { width: 210px; }
-.phone-notch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 96px; height: 22px; border-radius: 999px; background: #000; z-index: 2; }
-/* A real app screenshot shown whole (no crop). Matches the .phone frame EXACTLY (10px bezel, same body
-   + radius), so a real-screenshot mockup has the identical edge thickness as every drawn mockup: they
-   read as the same device. The shot already has the status bar + Dynamic Island + UI baked in. */
+/* Real app screenshots, shown whole (no crop). Both of them use this one frame (10px bezel, same body
+   and radius), so the hero and the bål read as the same device held twice, not as two mockups from two
+   places. The shots already carry the status bar, the Dynamic Island and the UI, which is why the frame
+   draws no notch of its own: the drawn phone that used to need one is gone. */
 .glimt-shot { width: 210px; aspect-ratio: 9 / 19.5; border-radius: 38px; overflow: hidden; padding: 10px; background: linear-gradient(160deg, #1a1f26, #0c0f13); border: 1px solid var(--glass-border); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); }
 .glimt-shot--lg { width: 260px; }
 /* Descendant, not child: the image is wrapped in a <picture> for the WebP/JPEG pair. */
 .glimt-shot picture { display: block; width: 100%; height: 100%; }
 .glimt-shot img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
-.phone-screen {
-  position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  background: radial-gradient(120% 80% at 50% 0%, rgba(140, 203, 255, 0.18), transparent 60%), linear-gradient(180deg, #0e141b, #060a0e);
-}
-.phone-screen::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(115deg, transparent 0 14px, rgba(140, 203, 255, 0.035) 14px 28px);
-  -webkit-mask-image: radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 75%);
-  mask-image: radial-gradient(120% 80% at 50% 0%, #000 30%, transparent 75%);
-}
 
-/* Bål campfire (primary signature), lives inside a .phone-screen. The one warm thing against
-   the cold polar palette: a little fire with crossed logs, flickering flames and a soft glow,
-   ringed by glacier-blue friend dots leaning in. */
-.campfire { position: absolute; top: 50%; left: 50%; width: 120px; height: 120px; transform: translate(-50%, -50%); opacity: 0; }
-.show .campfire { opacity: 1; transition: opacity 0.7s ease 0.3s; }
-.fire-glow { position: absolute; left: 50%; bottom: 6px; width: 150px; height: 150px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(255, 178, 102, 0.5), rgba(232, 150, 90, 0.16) 42%, transparent 70%); filter: blur(8px); }
+/* ---------- BÅL: THE FIRELIGHT ---------- */
+/* This slot held a drawn campfire with flames, logs and five blue dots for friends. It is gone, because
+   an empty fireplace was standing in for the one section people said was the strongest on the page. The
+   screenshot shows the same thing for real, so all the fire has to do now is light it.
+   Same 260px as the hero shot on purpose: same frame, same size, same device.
+   position: relative so this frame paints ON TOP of the glow. They are siblings, the glow is absolute
+   and comes first in the DOM, and an absolutely positioned box otherwise paints over an unpositioned
+   one no matter what the source order says. No z-index needed once both are positioned.
+   The halo is ember instead of ice here, which is what --ember was declared for and never used on. Two
+   warm layers of the same hue read as one light; ice around a fire reads as two lights fighting. */
+.glimt-shot--bal { width: 260px; position: relative; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px var(--ember); }
+/* The fire is out of frame, below and behind the phone, and only its light reaches us. Kept the old
+   .fire-glow name and the old gradient: it is still the glow of the same fire, just no longer drawn
+   sitting on a screen. min(480px, 100%) rather than a flat 480px so it can never be wider than the
+   column: an absolutely positioned box that sticks out past its container is a horizontal scrollbar on
+   a phone, and this one is centred with a transform, which is the version people forget to check. */
+.fire-glow {
+  position: absolute; left: 50%; bottom: -60px; width: min(480px, 100%); aspect-ratio: 1;
+  transform: translateX(-50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 178, 102, 0.5), rgba(232, 150, 90, 0.16) 42%, transparent 70%);
+  filter: blur(18px);
+}
+/* Breathes rather than flickers. A flicker was right for a drawn flame; against a real screenshot it
+   would read as the page misbehaving. Four seconds is slow enough to notice only if you stop. */
 .show .fire-glow { animation: fireglow 4s ease-in-out 0.7s infinite; }
 @keyframes fireglow { 0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.1); } }
-.logs { position: absolute; bottom: 12px; left: 50%; width: 64px; height: 12px; transform: translateX(-50%); }
-.logs::before, .logs::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 60px; height: 9px; border-radius: 5px; background: linear-gradient(#5a3d2b, #34221597); box-shadow: inset 0 1px 0 rgba(255, 180, 120, 0.25); }
-.logs::before { transform: translateX(-50%) rotate(17deg); }
-.logs::after { transform: translateX(-50%) rotate(-17deg); }
-.flame { position: absolute; bottom: 16px; left: 50%; border-radius: 0 50% 50% 50%; }
-.flame.outer { width: 46px; height: 46px; transform: translateX(-50%) rotate(45deg); background: linear-gradient(135deg, #ff7a2d, #ffb74d); box-shadow: 0 0 20px rgba(255, 150, 80, 0.6); }
-.flame.inner { width: 26px; height: 26px; bottom: 26px; transform: translateX(-50%) rotate(45deg); background: linear-gradient(135deg, #ffd27a, #fff2c0); }
-.show .flame.outer { animation: flicker 1.7s ease-in-out 0.7s infinite; }
-.show .flame.inner { animation: flicker 1.2s ease-in-out 0.8s infinite; }
-@keyframes flicker {
-  0%, 100% { transform: translateX(-50%) rotate(45deg) scale(1); }
-  25% { transform: translateX(-53%) rotate(45deg) scale(1.06, 0.95); }
-  50% { transform: translateX(-50%) rotate(45deg) scale(0.96, 1.05); }
-  75% { transform: translateX(-47%) rotate(45deg) scale(1.04, 0.97); }
-}
-.ember-ring { position: absolute; inset: 0; }
-.ember-ring span {
-  position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; border-radius: 50%;
-  background: var(--ice); box-shadow: 0 0 8px var(--ice-glow); opacity: 0; transform: translate(-50%, -50%) scale(0.4);
-}
-.show .ember-ring span { opacity: 0.85; transform: translate(var(--x), var(--y)) scale(1); transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); animation: dotbreathe 3.6s ease-in-out 1.4s infinite; }
-/* breathe keeps each dot's place (--x/--y) and just gently pulses, so they read as living
-   presences leaning toward the fire. Different durations desync them naturally. */
-@keyframes dotbreathe { 0%, 100% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0.8; } 50% { transform: translate(var(--x), var(--y)) scale(1.22); opacity: 1; } }
-.ember-ring span:nth-child(1) { --x: -64px; --y: -34px; transition-delay: 0.2s; animation-duration: 3.4s; }
-.ember-ring span:nth-child(2) { --x: 60px; --y: -38px; transition-delay: 0.29s; animation-duration: 4.1s; }
-.ember-ring span:nth-child(3) { --x: 72px; --y: 32px; transition-delay: 0.38s; animation-duration: 3.7s; }
-.ember-ring span:nth-child(4) { --x: -70px; --y: 40px; transition-delay: 0.47s; animation-duration: 4.4s; }
-.ember-ring span:nth-child(5) { --x: 2px; --y: 70px; transition-delay: 0.56s; animation-duration: 3.9s; }
 
 /* ---------- SECTION FURNITURE ---------- */
 .glimt-page section > h2 { font-size: clamp(1.7rem, 3.8vw, 2.4rem); margin: 0 0 0.9rem; letter-spacing: -0.02em; line-height: 1.15; text-wrap: balance; }
@@ -367,7 +337,9 @@ body.glimt-page {
 .feature-text h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 0 0 0.8rem; letter-spacing: -0.02em; line-height: 1.15; }
 .feature-text p { color: var(--fog); font-size: 1.05rem; line-height: 1.6; max-width: 32rem; }
 .feature-text p + p { margin-top: 0.9rem; }
-.feature-phone { display: flex; justify-content: center; }
+/* position: relative because the bål firelight is absolutely positioned against this box, and it has to
+   be measured from the phone's own column, not from the whole page. */
+.feature-phone { display: flex; justify-content: center; position: relative; }
 /* reveal */
 .reveal-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
 .reveal-up.show { opacity: 1; transform: none; }
@@ -537,17 +509,14 @@ body.glimt-page {
    .js on <html>, so its absence means "no JS": settle everything into its final state. */
 html:not(.js) .hero-dawn > *,
 html:not(.js) .reveal-up { opacity: 1; transform: none; }
-html:not(.js) .campfire { opacity: 1; }
-html:not(.js) .ember-ring span { opacity: 0.85; transform: translate(var(--x), var(--y)); }
 html:not(.js) .glimt-hero-phone .glimt-shot { animation: none; opacity: 1; }
 
 /* ---------- REDUCED MOTION: everything static, every meaning preserved ---------- */
 @media (prefers-reduced-motion: reduce) {
   .hero-dawn > * { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .hero-dawn.lit h1 .ice, .hero-dawn.lit .phone, .glimt-hero-phone .glimt-shot { animation: none !important; opacity: 1 !important; }
-  .campfire { opacity: 1; }
-  .show .fire-glow, .show .flame.outer, .show .flame.inner { animation: none !important; }
-  .show .ember-ring span { animation: none !important; transition: none; opacity: 0.85; transform: translate(var(--x), var(--y)); }
+  .hero-dawn.lit h1 .ice, .glimt-hero-phone .glimt-shot { animation: none !important; opacity: 1 !important; }
+  /* The firelight stays, it just stops breathing. Warmth is the meaning, movement was only the flourish. */
+  .show .fire-glow { animation: none !important; }
   .reveal-up { opacity: 1 !important; transform: none !important; transition: none !important; }
   .waitlist button, .btn-primary { transition: none !important; }
 }

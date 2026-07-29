@@ -226,7 +226,7 @@
           <li>
             <span class="step-n" aria-hidden="true">2</span>
             <h3>It goes to the people you chose</h3>
-            <p>A friend, a bål, or just yourself, all in one send. Three seconds to undo. On bad signal the app keeps trying, for a whole week if it has to.</p>
+            <p>A friend, a bål of your closest people gathered around one campfire, or just yourself, all in one send. Three seconds to undo. On bad signal the app keeps trying, for a whole week if it has to.</p>
           </li>
           <li>
             <span class="step-n" aria-hidden="true">3</span>
@@ -291,7 +291,20 @@
             <p>Every week there is a theme, the same one for every bål in the world. "Something that made you smile." "Your view right now." You do not have to follow it, and you do not have to share. The fire keeps burning either way.</p>
           </div>
           <div class="feature-phone">
-            <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><div class="campfire" aria-hidden="true"><span class="fire-glow"></span><span class="flame outer"></span><span class="flame inner"></span><span class="logs"></span></div><span class="ember-ring" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div></div>
+            <!-- A drawn campfire animation used to stand here, showing exactly nothing of the app. A
+                 sixteen-year-old called it a fireplace screensaver, and was right: the strongest
+                 section on the page was illustrated with decoration. Now the place itself is here,
+                 with people in it: four sitting around the fire, this week's theme, and the button
+                 that shows you can share a glimt by the fire any time, not only on the chosen day.
+                 The warmth is not gone, it sits behind the frame as light. Same size and same frame
+                 as the shot at the top, so the two read as the same phone. -->
+            <span class="fire-glow" aria-hidden="true"></span>
+            <div class="glimt-shot glimt-shot--bal">
+              <picture>
+                <source type="image/webp" srcset="/assets/img/glimt-bal-640.webp" />
+                <img src="/assets/img/glimt-bal-640.jpg" alt="Screenshot from the app: the bål Familien, with four hand-drawn avatars around it, the card with this week's theme, and the button to share a glimt by the fire" width="640" height="1391" loading="lazy" decoding="async" />
+              </picture>
+            </div>
           </div>
         </article>
 
@@ -322,9 +335,9 @@
           </div>
 
           <div class="ritual-card ritual-card--wide">
-            <h3>Record a vekeglimt with your voice, and the words get written down</h3>
+            <h3>Record a vekeglimt with your voice in Norwegian, and the words get written down</h3>
             <p>Someone who hears poorly, or not at all, gets every word. The text is simply there when the vekeglimt arrives, sealed together with the audio, and you can fix a line before you share.</p>
-            <p>It happens on the phone itself, with NB-Whisper from the National Library of Norway, trained on 22,000 hours of Norwegian. Nothing leaves the phone to be understood. It works on both iPhone and Android.</p>
+            <p>It happens on the phone itself, with NB-Whisper from the National Library of Norway, trained on 22,000 hours of Norwegian, which is why Norwegian is the only language it can write down. Nothing leaves the phone to be understood. It works on both iPhone and Android.</p>
           </div>
         </div>
 
@@ -397,7 +410,7 @@
           <h2>A student in Oslo</h2>
           <p>My name is Pål. I am in my second year of front-end development, I am from Vinje in Telemark and I live in Oslo. Glimt is not a company, it is me, one evening at a time.</p>
           <p>I started because we have never been more "connected", and never more alone. I missed a small place where you could hold on to a few people without being measured, counted or sold on. So I tried to build one.</p>
-          <p>That is also why I dare to promise nobody is buying you here: there is no one else to answer to. The app is available in Norwegian and English.</p>
+          <p>That is also why I dare to promise nobody is buying you here: there is no one else to answer to. The app is in Norwegian and English, and follows the language on your phone. If the phone is set to anything else, you get English.</p>
           <p>If you are wondering about something, or want to tell me something is broken, write to <a href="mailto:paal@dynni.no">paal@dynni.no</a>. I read all of it myself. <a href="/en/about">More about me</a>.</p>
         </div>
       </section>
@@ -407,7 +420,7 @@
         <span class="feature-kicker">Pricing</span>
         <h2>What it costs</h2>
         <p>Glimt is free. The camera, the film simulations, sending, the bål, the vekeglimt, the encryption, all of it. And it stays that way.</p>
-        <p>Later comes <b>Glimt+</b>, a small extra you can buy if you want. The only thing in it today is keeping a glimt somebody sent you, and the Minne shelf it sits on. <strong class="ice">Join before launch and Glimt+ is yours, free, for good.</strong> You do not have to do anything for it.</p>
+        <p>Later comes <b>Glimt+</b>, a small extra you can buy if you want. The only thing in it today is keeping a glimt somebody sent you, and the Memories shelf it sits on. <strong class="ice">Join before launch and Glimt+ is yours, free, for good.</strong> You do not have to do anything for it.</p>
         <p>If Glimt ever makes money, it will be because someone pays for the app, not because someone pays for you.</p>
       </section>
 
@@ -461,10 +474,6 @@
           <p class="waitlist-status" role="status" aria-live="polite"></p>
         </form>
         <p class="waitlist-note" id="waitlist-note">Everyone who joins before launch gets Glimt+ free, for good. I'll send one email when Glimt opens, and nothing else. That I promise.</p>
-        <div class="store-badges">
-          <span class="store-badge soon"><i class="fab fa-apple" aria-hidden="true"></i> App Store · coming soon</span>
-          <span class="store-badge soon"><i class="fab fa-google-play" aria-hidden="true"></i> Google Play · coming soon</span>
-        </div>
       </section>
     </main>
 
