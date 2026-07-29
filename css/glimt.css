@@ -308,6 +308,9 @@ body.glimt-page {
 .ritual-card p { color: var(--fog); font-size: 0.95rem; line-height: 1.6; margin: 0; }
 .ritual-card p + p { margin-top: 0.8rem; }
 .modes { list-style: none; margin: 0 0 0.9rem; padding: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+/* A scoping line sits above the mode list ("once a week you pick the shape"), so the list needs the same
+   breathing room after a paragraph that a paragraph gets after a paragraph. */
+.ritual-card p + .modes { margin-top: 0.8rem; }
 .modes li { color: var(--fog); font-family: var(--font-prose); font-size: 0.95rem; }
 .modes b { color: var(--frost); font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.03em; margin-right: 0.5rem; }
 

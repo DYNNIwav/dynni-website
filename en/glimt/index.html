@@ -7,7 +7,7 @@
 
     <title>Glimt, a calm and private alternative to Snapchat | DYNNI</title>
     <meta name="title" content="Glimt, a calm and private alternative to Snapchat | DYNNI" />
-    <meta name="description" content="Glimt is a calm, private alternative to Snapchat. You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
+    <meta name="description" content="Glimt is a calm, private alternative to Snapchat. You can only receive a glimt from people you said yes to yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
     <meta name="keywords" content="Glimt, Snapchat alternative, private, safe for kids, end-to-end encrypted, app, iOS, Android, DYNNI, Pål Omland Eilevstjønn" />
     <meta name="author" content="Pål Omland Eilevstjønn" />
     <meta name="robots" content="index, follow" />
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dynni.no/en/glimt" />
     <meta property="og:title" content="Glimt, a calm and private alternative to Snapchat" />
-    <meta property="og:description" content="You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
+    <meta property="og:description" content="You can only receive a glimt from people you said yes to yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
     <!-- Share image: the app icon is square (1024x1024), so the cards have to ask for the square
          format. Switch to twitter:card=summary_large_image the day a 1200x630 asset exists. -->
     <meta property="og:image" content="https://dynni.no/assets/img/apps/glimt.png" />
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="DYNNI" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Glimt, a calm and private alternative to Snapchat" />
-    <meta name="twitter:description" content="You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers." />
+    <meta name="twitter:description" content="You can only receive a glimt from people you said yes to yourself. No feed, no algorithm, no strangers." />
     <meta name="twitter:image" content="https://dynni.no/assets/img/apps/glimt.png" />
 
     <link rel="icon" type="image/svg+xml" href="../../assets/img/logo/dynni-logo.svg" />
@@ -55,7 +55,7 @@
         "name": "Glimt",
         "operatingSystem": "iOS, Android",
         "applicationCategory": "SocialNetworkingApplication",
-        "description": "A calm, private alternative to Snapchat. You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers.",
+        "description": "A calm, private alternative to Snapchat. You can only receive a glimt from people you said yes to yourself. No feed, no algorithm, no strangers.",
         "author": { "@type": "Person", "name": "Pål Omland Eilevstjønn", "alternateName": "DYNNI" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NOK" }
       }
@@ -68,12 +68,12 @@
           {
             "@type": "Question",
             "name": "Who can see my child's glimt?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Only the friends your child added and accepted. Nobody else, not me either. Every glimt is encrypted on the phone before it is sent." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Only the people your child said yes to: friends they accepted, and the people at a bål your child accepted an invitation to join. Nobody else, not me either. Every glimt is encrypted on the phone before it is sent." }
           },
           {
             "@type": "Question",
             "name": "Can strangers get in touch?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. There is no feed, no discovery and no recommendations. Someone has to know the exact username, and the other person has to accept the friend request." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No. There is no feed, no discovery and no recommendations. Someone has to know your exact username, and you have to say yes, either to the friend request or to an invitation into a bål." }
           },
           {
             "@type": "Question",
@@ -166,7 +166,9 @@
       <section class="glimt-hero">
         <div class="glimt-hero-inner">
           <div class="glimt-hero-copy hero-dawn">
-            <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> invited you to their bål</div>
+            <!-- The wording follows the app's own string (friends.inviteConfirmTitle, "{{name}} invited you").
+                 The link does not carry a bål invitation: it asks whether to add the sharer as a friend. -->
+            <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> invited you to Glimt</div>
             <div class="glimt-badge"><img src="../../assets/img/apps/glimt.png" alt="" width="22" height="22" /> Glimt</div>
             <!-- The space between the two spans is deliberate: both are display:block so it never shows,
                  but without it a screen reader reads the heading as one run-on word. -->
@@ -225,12 +227,12 @@
 
         <ul class="safe-grid">
           <li>
-            <h3>Friends only</h3>
-            <p>You can only receive a glimt from someone whose friend request you accepted. There are no messages from strangers.</p>
+            <h3>Only the people you said yes to</h3>
+            <p>A glimt can reach you two ways: from a friend whose request you accepted, or from someone sitting at a bål you accepted an invitation to join. Both take a yes from you. There are no messages from strangers.</p>
           </li>
           <li>
             <h3>No feed, no discovery</h3>
-            <p>Nobody can browse their way to your child, get them recommended, or stumble across them. People are found by exact username only, by someone who already knows what they are called.</p>
+            <p>Nobody can browse their way to your child, get them recommended, or stumble across them. People are found by exact username only, by someone who already knows what they are called. And you can only invite your own friends into a bål.</p>
           </li>
           <li>
             <h3>13 and up</h3>
@@ -238,7 +240,7 @@
           </li>
           <li>
             <h3>Report, and get an answer</h3>
-            <p>Anything can be reported inside the app, with four reasons to pick from. I answer within 24 hours, and repeated reports hide an account immediately.</p>
+            <p>Anything can be reported inside the app, with four reasons to pick from. Every report reaches me straight away and I look at it well within 24 hours. If three different people report an account, it can no longer post anything new, automatically and without waiting for me.</p>
           </li>
           <li>
             <h3>Blocking that holds</h3>
@@ -262,7 +264,7 @@
             <span class="feature-kicker">Bål</span>
             <h2>One campfire, once a week</h2>
             <p>A bål is a little group you give a name and invite your closest people into. You pick a day of the week. On that day everyone shares a vekeglimt, a small glimpse of the week that was.</p>
-            <p>Every bål in the world gets the same theme in the same week. "Something that made you smile." "Your view right now." Plus themes of their own for Christmas, New Year, the 17th of May and midsummer. You do not have to answer the theme, and you do not have to share at all. The fire keeps burning either way.</p>
+            <p>The vekeglimt has a theme, and every bål in the world gets the same one in the same week. "Something that made you smile." "Your view right now." Plus themes of their own for Christmas, New Year, the 17th of May and midsummer. You do not have to follow the theme, and you do not have to share at all. The fire keeps burning either way.</p>
           </div>
           <div class="feature-phone">
             <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><div class="campfire" aria-hidden="true"><span class="fire-glow"></span><span class="flame outer"></span><span class="flame inner"></span><span class="logs"></span></div><span class="ember-ring" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div></div>
@@ -271,7 +273,8 @@
 
         <div class="ritual-notes" data-reveal>
           <div class="ritual-card">
-            <h3>Five ways to answer, all equally good</h3>
+            <h3>A vekeglimt can be five things, all equally good</h3>
+            <p>Once a week you pick the shape of your own vekeglimt:</p>
             <ul class="modes">
               <li><b>Film</b> a short video</li>
               <li><b>Photo</b> a single picture</li>
@@ -280,11 +283,13 @@
               <li><b>Draw</b> with your finger</li>
             </ul>
             <p>The last two are there on purpose. A seven-year-old, or a shy fifteen-year-old, should be able to take part without showing their face.</p>
+            <p>An ordinary glimt is always the camera, and you answer one with an emoji or a short word, not with one of these five shapes. If you want to say more, swipe up and send a glimt back.</p>
           </div>
 
           <div class="ritual-card">
             <h3>No streaks, no leaderboard</h3>
-            <p>Reactions are visible, you see who reacted with what, but they are never counted or ranked. You lose nothing by skipping a week. The only number in the app is how many glimt you have shared, drawn as a polar bear that changes a little at 5, 30, 150 and 750. And you can draw your own avatar with your finger.</p>
+            <p>At a bål, reactions are visible, you see who reacted with what, but they are never counted or ranked. Send a glimt to one person and their reaction comes only to you, and it goes away once you have seen it. You lose nothing by skipping a week.</p>
+            <p>The only number that adds up anywhere is how many glimt you and one friend have shared with each other. It is drawn as a polar bear that changes a little at 5, 30, 150 and 750, and it belongs to that one friendship, not to a list of everyone. And you can draw your own avatar with your finger.</p>
           </div>
 
           <div class="ritual-card">
@@ -293,9 +298,9 @@
           </div>
 
           <div class="ritual-card ritual-card--wide">
-            <h3>Say it out loud, and it gets written down</h3>
-            <p>Record your vekeglimt with your voice and the phone writes down what you said. On the phone itself, with NB-Whisper, the National Library of Norway's model, trained on 22,000 hours of Norwegian. Nothing leaves the phone to be understood.</p>
-            <p>The text is sealed and travels with the audio. So someone who hears poorly, or not at all, needs no model, no supported language and no capable phone: the words are simply there when the glimt arrives. It works on both iPhone and Android, and you can tap any line to fix it.</p>
+            <h3>Record a vekeglimt with your voice, and the words get written down</h3>
+            <p>It happens on the phone itself, with NB-Whisper, the National Library of Norway's model, trained on 22,000 hours of Norwegian. Nothing leaves the phone to be understood. For Norwegian your phone fetches the model once, 55 MB, and it asks you first.</p>
+            <p>The text is sealed and travels with the audio. So someone who hears poorly, or not at all, needs no model, no supported language and no capable phone: the words are simply there when the vekeglimt arrives. It works on both iPhone and Android, and you can tap any line to fix it before you share.</p>
           </div>
         </div>
 
@@ -305,7 +310,7 @@
             <span class="feature-kicker">Camera</span>
             <h2>A real film look, not a filter</h2>
             <p>Phone cameras have become too clean. Glimt has three film simulations: <b>Fjord</b>, bright and airy. <b>Glør</b>, warm and golden. <b>Kol</b>, black and white. They were not downloaded from anywhere, I derived them from my own RAW and JPEG pairs out of a Fujifilm X100VI.</p>
-            <p>The look is on screen while you shoot, and it is exactly that look that lands in the file. On both iPhone and Android, on stills and on every single frame of a video. If you do not want the colour, you can switch it off and keep the grain and the glow in the highlights, or shoot completely clean.</p>
+            <p>The look is on screen while you shoot, and it is exactly that look that lands in the file. On both iPhone and Android, on stills and on every single frame of a video, and on a vekeglimt just as much as on an ordinary glimt. If you do not want the colour, you can switch it off and keep the grain and the glow in the highlights, or shoot completely clean.</p>
           </div>
           <div class="film-slider" data-alt-template="The same picture with the {look} look">
             <div class="film-stage">
@@ -344,7 +349,8 @@
           </div>
           <div class="priv-card">
             <h3>Keep a glimt and it becomes yours</h3>
-            <p>There is no Glimt cloud. If you choose to keep a glimt, it is saved into a "Glimt" album in your phone's own photos. If you have iCloud Photos or Google Photos on, it gets backed up there, with you, not with me. The sender's name is written into the photo file itself (EXIF), so you know who it was from, long afterwards. And the sender is told you kept it, exactly like a screenshot.</p>
+            <p>There is no Glimt cloud. If you choose to keep a glimt, it is saved into a "Glimt" album in your phone's own photos. If you have iCloud Photos or Google Photos on, it gets backed up there, with you, not with me. On a photo, the sender's name is written into the file itself (EXIF), so you know who it was from, long afterwards.</p>
+            <p>Keep a glimt somebody sent you and they are told, exactly like a screenshot. Your own, the one you just took with the camera, you save without anyone being told.</p>
           </div>
           <div class="priv-card">
             <h3>No tracking, no ads, in Europe</h3>
@@ -366,6 +372,7 @@
           <span class="feature-kicker">Who is behind it</span>
           <h2>A student in Oslo</h2>
           <p>My name is Pål. I am in my second year of front-end development, I am from Vinje in Telemark and I live in Oslo. Glimt is not a company, it is me, one evening at a time.</p>
+          <p>I started because we have never been more "connected", and never more alone. I missed a small place where you could hold on to a few people without being measured, counted or sold on. So I tried to build one.</p>
           <p>That is also why I dare to promise nobody is buying you here: there is no one else to answer to. The app is available in Norwegian and English.</p>
           <p>If you are wondering about something, or want to tell me something is broken, write to <a href="mailto:paal@dynni.no">paal@dynni.no</a>. I read all of it myself. <a href="/en/about">More about me</a>.</p>
         </div>
@@ -386,11 +393,11 @@
         <div class="faq-grid">
           <div class="faq-item">
             <h3>Who can see my child's glimt?</h3>
-            <p>Only the friends your child added and accepted. Nobody else, not me either. Every glimt is encrypted on the phone before it is sent.</p>
+            <p>Only the people your child said yes to: friends they accepted, and the people at a bål your child accepted an invitation to join. Nobody else, not me either. Every glimt is encrypted on the phone before it is sent.</p>
           </div>
           <div class="faq-item">
             <h3>Can strangers get in touch?</h3>
-            <p>No. There is no feed, no discovery and no recommendations. Someone has to know the exact username, and the other person has to accept the friend request.</p>
+            <p>No. There is no feed, no discovery and no recommendations. Someone has to know your exact username, and you have to say yes, either to the friend request or to an invitation into a bål.</p>
           </div>
           <div class="faq-item">
             <h3>What happens to the pictures?</h3>

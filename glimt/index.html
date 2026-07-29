@@ -7,7 +7,7 @@
 
     <title>Glimt, eit roleg og privat alternativ til Snapchat | DYNNI</title>
     <meta name="title" content="Glimt, eit roleg og privat alternativ til Snapchat | DYNNI" />
-    <meta name="description" content="Glimt er eit roleg, privat alternativ til Snapchat. Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
+    <meta name="description" content="Glimt er eit roleg, privat alternativ til Snapchat. Du kan berre få glimt frå folk du sjølv har sagt ja til. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
     <meta name="keywords" content="Glimt, Snapchat-alternativ, privat, trygt for born, ende-til-ende-kryptert, app, iOS, Android, DYNNI, Pål Omland Eilevstjønn" />
     <meta name="author" content="Pål Omland Eilevstjønn" />
     <meta name="robots" content="index, follow" />
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dynni.no/glimt" />
     <meta property="og:title" content="Glimt, eit roleg og privat alternativ til Snapchat" />
-    <meta property="og:description" content="Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
+    <meta property="og:description" content="Du kan berre få glimt frå folk du sjølv har sagt ja til. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
     <!-- Delingsbilete: appikonet er kvadratisk (1024x1024), så korta må be om det kvadratiske formatet.
          Byt til twitter:card=summary_large_image den dagen det finst eit 1200x630-bilete. -->
     <meta property="og:image" content="https://dynni.no/assets/img/apps/glimt.png" />
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="DYNNI" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Glimt, eit roleg og privat alternativ til Snapchat" />
-    <meta name="twitter:description" content="Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande." />
+    <meta name="twitter:description" content="Du kan berre få glimt frå folk du sjølv har sagt ja til. Ingen feed, ingen algoritme, ingen framande." />
     <meta name="twitter:image" content="https://dynni.no/assets/img/apps/glimt.png" />
 
     <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
@@ -55,7 +55,7 @@
         "name": "Glimt",
         "operatingSystem": "iOS, Android",
         "applicationCategory": "SocialNetworkingApplication",
-        "description": "Eit roleg, privat alternativ til Snapchat. Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande.",
+        "description": "Eit roleg, privat alternativ til Snapchat. Du kan berre få glimt frå folk du sjølv har sagt ja til. Ingen feed, ingen algoritme, ingen framande.",
         "author": { "@type": "Person", "name": "Pål Omland Eilevstjønn", "alternateName": "DYNNI" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NOK" }
       }
@@ -68,12 +68,12 @@
           {
             "@type": "Question",
             "name": "Kven kan sjå glimta til barnet mitt?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Berre dei barnet ditt har lagt til som vener, og som barnet sjølv har godteke. Ingen andre, ikkje eg heller. Kvart glimt blir kryptert på telefonen før det blir sendt." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Berre dei barnet sjølv har sagt ja til: vener det har godteke, og dei som sit ved eit bål barnet har takka ja til å bli med i. Ingen andre, ikkje eg heller. Kvart glimt blir kryptert på telefonen før det blir sendt." }
           },
           {
             "@type": "Question",
             "name": "Kan framande ta kontakt?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Nei. Det finst ingen feed, inga oppdaging og ingen tilrådingar. Ein må vite det nøyaktige brukarnamnet, og den andre må seie ja til venneførespurnaden." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Nei. Det finst ingen feed, inga oppdaging og ingen tilrådingar. Ein må vite det nøyaktige brukarnamnet ditt, og du må seie ja, anten til veneførespurnaden eller til invitasjonen inn i eit bål." }
           },
           {
             "@type": "Question",
@@ -166,7 +166,9 @@
       <section class="glimt-hero">
         <div class="glimt-hero-inner">
           <div class="glimt-hero-copy hero-dawn">
-            <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> inviterte deg til bålet sitt</div>
+            <!-- Ordlyden følgjer appen sin eigen streng (friends.inviteConfirmTitle, «{{name}} inviterte deg»).
+                 Lenkja ber ikkje ein bål-invitasjon: ho spør om du vil leggje til den som delte, som ven. -->
+            <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> inviterte deg til Glimt</div>
             <div class="glimt-badge"><img src="../assets/img/apps/glimt.png" alt="" width="22" height="22" /> Glimt</div>
             <!-- Mellomrommet mellom dei to spana er med vilje: begge er display:block, så det syner ikkje,
                  men utan det les skjermlesaren overskrifta som eitt samanklistra ord. -->
@@ -225,12 +227,12 @@
 
         <ul class="safe-grid">
           <li>
-            <h3>Berre vener</h3>
-            <p>Du kan berre få eit glimt frå nokon du har godteke venneførespurnaden til. Det finst ingen meldingar frå framande.</p>
+            <h3>Berre dei du har sagt ja til</h3>
+            <p>Eit glimt kan nå deg på to måtar: frå ein ven du har godteke veneførespurnaden til, eller frå nokon som sit ved eit bål du sjølv har takka ja til å bli med i. Begge krev eit ja frå deg. Det finst ingen meldingar frå framande.</p>
           </li>
           <li>
             <h3>Ingen feed, inga oppdaging</h3>
-            <p>Ingen kan bla seg fram til barnet ditt, få det tilrådd, eller snuble over det. Folk blir funne berre ved nøyaktig brukarnamn, av nokon som alt veit kva dei heiter.</p>
+            <p>Ingen kan bla seg fram til barnet ditt, få det tilrådd, eller snuble over det. Folk blir funne berre ved nøyaktig brukarnamn, av nokon som alt veit kva dei heiter. Og du kan berre invitere dine eigne vener inn i eit bål.</p>
           </li>
           <li>
             <h3>13 år</h3>
@@ -238,7 +240,7 @@
           </li>
           <li>
             <h3>Rapporter, og få svar</h3>
-            <p>Alt kan rapporterast inne i appen, med fire grunnar å velje mellom. Eg svarar innan 24 timar, og gjentekne rapportar gøymer ein konto med ein gong.</p>
+            <p>Alt kan rapporterast inne i appen, med fire grunnar å velje mellom. Kvar rapport varslar meg med ein gong, og eg ser på han godt innanfor 24 timar. Blir ein konto rapportert av tre ulike personar, kan han ikkje leggje ut noko nytt, automatisk og utan å vente på meg.</p>
           </li>
           <li>
             <h3>Blokkering som held</h3>
@@ -262,7 +264,7 @@
             <span class="feature-kicker">Bål</span>
             <h2>Eitt bål, éin gong i veka</h2>
             <p>Eit bål er ei lita gruppe du gir eit namn og inviterer dei næraste inn i. De vel ein dag i veka. Den dagen deler alle eit vekeglimt, eit lite glimt av veka som var.</p>
-            <p>Alle bål i verda får det same temaet den same veka. «Noko som fekk deg til å smile.» «Utsikta di akkurat no.» Og eigne tema til jul, nyttår, 17. mai og sankthans. Du treng ikkje svare på temaet, og du treng ikkje dele i det heile. Bålet brenn vidare uansett.</p>
+            <p>Vekeglimtet har eit tema, og alle bål i verda får det same temaet den same veka. «Noko som fekk deg til å smile.» «Utsikta di akkurat no.» Og eigne tema til jul, nyttår, 17. mai og sankthans. Du treng ikkje følgje temaet, og du treng ikkje dele i det heile. Bålet brenn vidare uansett.</p>
           </div>
           <div class="feature-phone">
             <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><div class="campfire" aria-hidden="true"><span class="fire-glow"></span><span class="flame outer"></span><span class="flame inner"></span><span class="logs"></span></div><span class="ember-ring" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div></div>
@@ -271,7 +273,8 @@
 
         <div class="ritual-notes" data-reveal>
           <div class="ritual-card">
-            <h3>Fem måtar å svare på, alle like gode</h3>
+            <h3>Vekeglimtet kan vere fem ting, alle like gode</h3>
+            <p>Éin gong i veka vel du sjølv forma på vekeglimtet ditt:</p>
             <ul class="modes">
               <li><b>Film</b> ein liten video</li>
               <li><b>Foto</b> eitt bilete</li>
@@ -280,11 +283,13 @@
               <li><b>Teikn</b> med fingeren</li>
             </ul>
             <p>Dei to siste er der med vilje. Ein sjuåring eller ein sjenert femtenåring skal kunne vere med utan å vise andletet sitt.</p>
+            <p>Eit vanleg glimt er alltid kamera, og du svarar på det med ein emoji eller eit kort ord, ikkje med ei av desse fem formene. Vil du seie meir, sveiper du opp og sender eit glimt tilbake.</p>
           </div>
 
           <div class="ritual-card">
             <h3>Ingen streaks, ingen toppliste</h3>
-            <p>Reaksjonar er synlege, du ser kven som reagerte med kva, men dei blir aldri talde eller rangerte. Du mistar ingenting om du hoppar over ei veke. Det einaste talet i appen er kor mange glimt de har delt, vist som ein isbjørn som endrar seg litt ved 5, 30, 150 og 750. Og du kan teikne din eigen avatar med fingeren.</p>
+            <p>Ved bålet er reaksjonar synlege, du ser kven som reagerte med kva, men dei blir aldri talde eller rangerte. Sender du eit glimt til éin person, går reaksjonen deira berre til deg, og forsvinn når du har sett han. Du mistar ingenting om du hoppar over ei veke.</p>
+            <p>Det einaste talet som samlar seg opp nokon stad, er kor mange glimt du og éin ven har delt med kvarandre. Det er teikna som ein isbjørn som endrar seg litt ved 5, 30, 150 og 750, og han høyrer til det eine venskapet, ikkje til ei liste over alle. Og du kan teikne din eigen avatar med fingeren.</p>
           </div>
 
           <div class="ritual-card">
@@ -293,9 +298,9 @@
           </div>
 
           <div class="ritual-card ritual-card--wide">
-            <h3>Seier du det høgt, blir det skrive ned</h3>
-            <p>Tek du vekeglimtet med stemma, skriv telefonen ned det du sa. På sjølve telefonen, med NB-Whisper, modellen til Nasjonalbiblioteket, trena på 22 000 timar norsk. Ingenting blir sendt ut av telefonen for å bli tolka.</p>
-            <p>Teksten blir forsegla og følgjer lyden. Så ein som høyrer dårleg eller ingenting, treng verken modell, språkstøtte eller ein kraftig telefon: orda er berre der når glimtet kjem. Det verkar på både iPhone og Android, og du kan trykkje på ei linje og rette henne.</p>
+            <h3>Tek du vekeglimtet med stemma, blir orda skrivne ned</h3>
+            <p>Det skjer på sjølve telefonen, med NB-Whisper, modellen til Nasjonalbiblioteket, trena på 22 000 timar norsk. Ingenting blir sendt ut av telefonen for å bli tolka. For norsk må telefonen hente modellen éin gong, 55 MB, og du blir spurd fyrst.</p>
+            <p>Teksten blir forsegla og følgjer lyden. Så ein som høyrer dårleg eller ingenting, treng verken modell, språkstøtte eller ein kraftig telefon: orda er berre der når vekeglimtet kjem. Det verkar på både iPhone og Android, og du kan trykkje på ei linje og rette henne før du deler.</p>
           </div>
         </div>
 
@@ -305,7 +310,7 @@
             <span class="feature-kicker">Kamera</span>
             <h2>Ein ekte filmlook, ikkje eit filter</h2>
             <p>Mobilkamera har blitt for reine. Glimt har tre filmsimuleringar: <b>Fjord</b>, lys og luftig. <b>Glør</b>, varm og gyllen. <b>Kol</b>, svartkvit. Dei er ikkje lasta ned nokon stad, eg rekna dei ut frå mine eigne RAW- og JPEG-par frå eit Fujifilm X100VI.</p>
-            <p>Looken ligg på skjermen medan du filmar, og det er nøyaktig den same looken som hamnar i fila. På både iPhone og Android, på bilete og på kvar einaste ramme av ein video. Vil du ikkje ha fargen, kan du slå han av og halde på kornet og gløden i høglysa, eller filme heilt reint.</p>
+            <p>Looken ligg på skjermen medan du filmar, og det er nøyaktig den same looken som hamnar i fila. På både iPhone og Android, på bilete og på kvar einaste ramme av ein video, og på vekeglimtet like mykje som på eit vanleg glimt. Vil du ikkje ha fargen, kan du slå han av og halde på kornet og gløden i høglysa, eller filme heilt reint.</p>
           </div>
           <div class="film-slider" data-alt-template="Same biletet med {look}-looken">
             <div class="film-stage">
@@ -344,7 +349,8 @@
           </div>
           <div class="priv-card">
             <h3>Tek du vare på eit glimt, blir det ditt</h3>
-            <p>Det finst ingen Glimt-sky. Vel du å ta vare på eit glimt, blir det lagra i eit «Glimt»-album i bileta på telefonen din. Har du iCloud-bilder eller Google Foto på, blir det sikkerheitskopiert der, hjå deg, ikkje hjå meg. Namnet på den som sende det, blir skrive inn i sjølve biletfila (EXIF), så du veit kven det var frå, lenge etterpå. Og den som sende det, får vite at du tok vare på det, akkurat som med eit skjermbilete.</p>
+            <p>Det finst ingen Glimt-sky. Vel du å ta vare på eit glimt, blir det lagra i eit «Glimt»-album i bileta på telefonen din. Har du iCloud-bilder eller Google Foto på, blir det sikkerheitskopiert der, hjå deg, ikkje hjå meg. Er det eit foto, blir namnet på den som sende det skrive inn i sjølve biletfila (EXIF), så du veit kven det var frå, lenge etterpå.</p>
+            <p>Tek du vare på eit glimt nokon andre sende deg, får dei vite det, akkurat som med eit skjermbilete. Ditt eige, det du nettopp tok med kameraet, kan du lagre utan at nokon får beskjed.</p>
           </div>
           <div class="priv-card">
             <h3>Inga sporing, ingen reklame, i Europa</h3>
@@ -366,6 +372,7 @@
           <span class="feature-kicker">Kven står bak</span>
           <h2>Ein student i Oslo</h2>
           <p>Eg heiter Pål. Eg går andre året på frontend-utvikling, er frå Vinje i Telemark og bur i Oslo. Glimt er ikkje eit selskap, det er meg, ein kveld om gongen.</p>
+          <p>Eg starta fordi vi aldri har vore meir «kopla saman», og likevel meir åleine. Eg sakna ein liten stad der ein kunne halde fast på nokre få menneske utan å bli målt, telt eller seld vidare. Så eg prøvde å lage han.</p>
           <p>Det er òg grunnen til at eg tør å love at ingen kjøper deg her: det finst ingen andre å svare til. Appen finst på nynorsk og engelsk.</p>
           <p>Lurer du på noko, eller vil du seie frå om noko som ikkje verkar, så skriv til <a href="mailto:paal@dynni.no">paal@dynni.no</a>. Eg les alt sjølv. <a href="/om-meg">Meir om meg</a>.</p>
         </div>
@@ -386,11 +393,11 @@
         <div class="faq-grid">
           <div class="faq-item">
             <h3>Kven kan sjå glimta til barnet mitt?</h3>
-            <p>Berre dei barnet ditt har lagt til som vener, og som barnet sjølv har godteke. Ingen andre, ikkje eg heller. Kvart glimt blir kryptert på telefonen før det blir sendt.</p>
+            <p>Berre dei barnet sjølv har sagt ja til: vener det har godteke, og dei som sit ved eit bål barnet har takka ja til å bli med i. Ingen andre, ikkje eg heller. Kvart glimt blir kryptert på telefonen før det blir sendt.</p>
           </div>
           <div class="faq-item">
             <h3>Kan framande ta kontakt?</h3>
-            <p>Nei. Det finst ingen feed, inga oppdaging og ingen tilrådingar. Ein må vite det nøyaktige brukarnamnet, og den andre må seie ja til venneførespurnaden.</p>
+            <p>Nei. Det finst ingen feed, inga oppdaging og ingen tilrådingar. Ein må vite det nøyaktige brukarnamnet ditt, og du må seie ja, anten til veneførespurnaden eller til invitasjonen inn i eit bål.</p>
           </div>
           <div class="faq-item">
             <h3>Kva skjer med bileta?</h3>
