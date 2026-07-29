@@ -44,15 +44,32 @@ body.glimt-page {
 .note,
 .waitlist-note { font-family: var(--font-prose); text-shadow: 0 1px 14px rgba(8, 13, 18, 0.55); }
 
-/* Fixed full-bleed background layers (behind everything, never over interactive UI). */
-.aurora-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -3; pointer-events: none; }
+/* Fixed full-bleed background layers (behind everything, never over interactive UI).
+   NOT `inset: 0`, and not `height: 100%`. A fixed element's percentage height resolves against the
+   fixed-position containing block, which on iOS Safari is the SMALL viewport, the one you have while
+   the toolbars are showing. Everything outside it is painted by the root element instead, so there
+   were two dead bands of flat --bg: one behind the status bar, one behind the URL bar. Anchoring top
+   and bottom both would force the height again, so only the top is anchored and the height is the
+   LARGE viewport. 100vh first as the fallback for anything that does not know lvh.
+   Bonus, and the reason it is worth doing properly: iOS Safari tints its toolbars from the colours at
+   the very top and bottom of the page, so once the aurora reaches there, the browser chrome follows
+   the aurora too. viewport-fit=cover is already on the meta tag. */
+.aurora-canvas,
+.grain-layer,
+.vignette {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 100vh;
+  height: 100lvh;
+  pointer-events: none;
+}
+.aurora-canvas { width: 100%; z-index: -3; }
 .grain-layer {
-  position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  z-index: -2;
   background-image: var(--grain); background-size: 128px 128px;
   opacity: 0.045; mix-blend-mode: screen;
 }
 .vignette {
-  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  z-index: -1;
   background: radial-gradient(120% 90% at 50% 28%, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
 }
 
@@ -113,6 +130,8 @@ body.glimt-page {
 .glimt-hero { padding: 5.5rem 0 4rem; }
 .glimt-hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; perspective: 1100px; }
 .glimt-hero-copy { border-radius: 24px; padding: 2rem 2.2rem; }
+/* Badge on the left, language on the right, one row. */
+.hero-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 
 /* Dawn reveal: children start hidden, .lit (added on load) settles them in, staggered. */
 .hero-dawn > * { opacity: 0; transform: translateY(16px); }
@@ -139,6 +158,20 @@ body.glimt-page {
 }
 .glimt-badge img { width: 22px; height: 22px; border-radius: 6px; }
 
+/* On-page language control. The sidebar switch is translated off screen on a phone, so NO/EN existed
+   only at the bottom of the hamburger drawer: an English speaker who was sent /glimt could not get to
+   /en/glimt at all. Keeps the .lang-switch class so the site-wide click handler still stores the choice.
+   Three classes on purpose: the shared .lang-switch sizing further down this file has the same
+   specificity and would otherwise win on source order, capping this at 24px. */
+.glimt-page .lang-switch.hero-lang { flex: 0 0 auto; font-size: 0.78rem; }
+.glimt-page .lang-switch.hero-lang a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 52px; min-height: 44px; padding: 0 0.7rem;
+  border: 1px solid var(--glass-border); border-radius: 999px;
+  background: var(--ice-soft); color: var(--frost); letter-spacing: 0.06em;
+}
+.glimt-page .lang-switch.hero-lang a:hover { color: var(--ice); border-color: var(--ice); }
+
 .glimt-hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.08; margin: 1.4rem 0 1.2rem; letter-spacing: -0.025em; }
 .glimt-hero h1 .h1-line { display: block; text-wrap: balance; }
 .hero-dawn.lit h1 .ice { animation: bloom 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both; }
@@ -163,8 +196,23 @@ body.glimt-page {
 .btn-ghost {
   color: var(--ice); font-size: 0.9rem; text-decoration: none;
   border-bottom: 1px solid var(--ice-soft); padding-bottom: 2px;
+  /* The visible line stays hairline-thin, but the thing you can hit is 44px tall. This is the whole
+     Android path on an iOS-only beta, and it was a ~24px target. */
+  position: relative; display: inline-block;
 }
+.btn-ghost::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%;
+  transform: translateY(-50%); height: 44px; min-height: 100%;
+}
+/* [hidden] has to win over the display above, or JS cannot put it away (same trap as .invite-banner). */
+.btn-ghost[hidden] { display: none; }
 .btn-ghost:hover { border-bottom-color: var(--ice); }
+
+/* Non-iOS: the waitlist becomes the primary action and its field is cloned into this slot, so an
+   Android visitor never has to walk into TestFlight or scroll twenty screens to reach an input. */
+.hero-waitlist-slot { flex: 1 1 100%; width: 100%; }
+.hero-waitlist-slot:empty { display: none; }
+.hero-waitlist-slot .waitlist { margin-top: 0; max-width: 26rem; }
 .hero-note { color: var(--fog); font-size: 0.85rem; margin-top: 1.2rem; font-family: var(--font-prose); }
 .hero-note a { color: var(--ice); }
 
@@ -182,14 +230,34 @@ body.glimt-page {
 }
 .waitlist button:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--ice-glow); filter: brightness(1.05); }
 .waitlist button:active { transform: translateY(1px); }
-.waitlist.busy button { opacity: 0.6; pointer-events: none; }
+/* Busy state without a word: the button keeps its label and grows a spinner. The JS also really
+   disables it, rather than relying on pointer-events:none, which Enter walks straight past. */
+.waitlist.busy button { opacity: 0.6; pointer-events: none; position: relative; padding-right: 2.6rem; }
 .waitlist.done input, .waitlist.done button { opacity: 0.5; }
+.waitlist.busy button::after {
+  content: ""; position: absolute; right: 1.1rem; top: 50%; width: 14px; height: 14px; margin-top: -7px;
+  border: 2px solid rgba(0, 32, 58, 0.35); border-top-color: #00203a; border-radius: 50%;
+  animation: waitspin 0.7s linear infinite;
+}
+@keyframes waitspin { to { transform: rotate(360deg); } }
+.waitlist button[disabled] { cursor: default; }
 .waitlist-note { color: var(--fog); font-size: 0.85rem; margin-top: 0.9rem; min-height: 1.2em; }
+/* Replies live here, not in .waitlist-note. The note holds the "one e-mail and nothing else, I
+   promise" line, and writing the confirmation into it deleted the promise at the exact moment it
+   was made. Full-width row inside the form, and it takes no space at all until there is something
+   to say, so nothing below it moves on load. */
+.waitlist-status {
+  flex: 1 1 100%; margin: 0; color: var(--ice); font-size: 0.9rem; line-height: 1.45;
+  font-family: var(--font-prose);
+}
+.waitlist-status:empty { display: none; }
 
-.store-badges { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.6rem; justify-content: center; }
+.store-badges { display: flex; gap: 0.3rem 1.2rem; flex-wrap: wrap; margin-top: 1.4rem; justify-content: center; }
+/* Deliberately not button-shaped. These are spans with nowhere to go, and as bordered pills with
+   icons they read as two tappable store buttons at the exact point where intent is highest. */
 .store-badge {
-  font-size: 0.8rem; color: var(--fog); border: 1px solid var(--glass-border); border-radius: 8px;
-  padding: 0.5rem 0.8rem; display: inline-flex; gap: 0.5rem; align-items: center;
+  font-size: 0.78rem; color: var(--fog); border: 0; border-radius: 0; padding: 0; background: none;
+  display: inline-flex; gap: 0.45rem; align-items: center; font-family: var(--font-prose);
 }
 
 /* ---------- PHONE MOCK ---------- */
@@ -199,8 +267,10 @@ body.glimt-page {
   background: linear-gradient(160deg, #1a1f26, #0c0f13); border: 1px solid var(--glass-border);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); padding: 10px;
 }
-/* One-shot entrance only, then the phone comes to rest (an endless float reads restless, not calm). */
-.hero-dawn.lit .phone, .glimt-hero-phone .glimt-shot { animation: floatup 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+/* One-shot entrance only, then the phone comes to rest (an endless float reads restless, not calm).
+   No delay: with `both` fill a 0.5s delay held the screenshot at opacity 0, so the first paint of the
+   one thing above the fold was deliberately blank. */
+.hero-dawn.lit .phone, .glimt-hero-phone .glimt-shot { animation: floatup 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
 @keyframes floatup { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .phone--sm { width: 210px; }
 .phone-notch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 96px; height: 22px; border-radius: 999px; background: #000; z-index: 2; }
@@ -209,7 +279,9 @@ body.glimt-page {
    read as the same device. The shot already has the status bar + Dynamic Island + UI baked in. */
 .glimt-shot { width: 210px; aspect-ratio: 9 / 19.5; border-radius: 38px; overflow: hidden; padding: 10px; background: linear-gradient(160deg, #1a1f26, #0c0f13); border: 1px solid var(--glass-border); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px var(--ice-soft); }
 .glimt-shot--lg { width: 260px; }
-.glimt-shot > img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
+/* Descendant, not child: the image is wrapped in a <picture> for the WebP/JPEG pair. */
+.glimt-shot picture { display: block; width: 100%; height: 100%; }
+.glimt-shot img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
 .phone-screen {
   position: relative; width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
@@ -354,7 +426,8 @@ body.glimt-page {
 .film-tag--l { left: 12px; }
 .film-tag--r { right: 12px; }
 .film-pills { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
-.film-pill { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ice); background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; transition: background 0.15s, color 0.15s; }
+/* 44px minimum: these were 66x32. */
+.film-pill { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ice); background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; transition: background 0.15s, color 0.15s; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
 .film-pill.is-active { background: var(--ice); color: #0b1117; border-color: var(--ice); }
 
 /* ---------- DITT, IKKJE VÅRT ---------- */
@@ -395,9 +468,32 @@ body.glimt-page {
 .glimt-cta .waitlist { margin: 1.4rem auto 0; justify-content: center; }
 .glimt-cta .waitlist-note { text-align: center; max-width: 30rem; margin-left: auto; margin-right: auto; }
 
-.glimt-footer-links { margin-top: 0.5rem; font-size: 0.85rem; }
-.glimt-footer-links a { color: var(--fog); }
+/* Four legal links on one line, ~20px tall, separated by a middle dot: "Barnetryggleik" and
+   "Slett konto" sat a few pixels apart. Each one is its own 44px-tall target now. */
+.glimt-footer-links { margin-top: 0.5rem; font-size: 0.85rem; line-height: 1; }
+.glimt-footer-links a {
+  color: var(--fog); display: inline-flex; align-items: center;
+  min-height: 44px; min-width: 44px; justify-content: center; padding: 0 0.4rem;
+}
 .glimt-footer-links a:hover { color: var(--ice); }
+
+/* ---------- TAP TARGETS IN THE SHARED HEADER (scoped to this page only) ---------- */
+/* The language pills were ~25x20 and the drawer links ~24px tall. header.css is shared with every
+   other page, so both fixes live here, behind .glimt-page. */
+.glimt-page .lang-switch { gap: 0; }
+.glimt-page .lang-switch a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; min-height: 24px;
+}
+@media (max-width: 768px) {
+  /* Taller drawer rows make the drawer taller, so let it scroll on short phones. */
+  .glimt-page .mobile-nav { overflow-y: auto; }
+  .glimt-page .mobile-nav-content .nav-links-main { gap: 2px; }
+  .glimt-page .mobile-nav-content .nav-links-main a {
+    display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 0.6rem;
+  }
+  .glimt-page .mobile-nav-content .lang-switch a { min-width: 44px; min-height: 44px; }
+}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 980px) {
@@ -405,8 +501,16 @@ body.glimt-page {
   .ritual-card--wide { grid-column: 1 / -1; }
 }
 @media (max-width: 860px) {
-  .glimt-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .glimt-hero-phone { order: -1; }
+  /* The site-wide body padding is 24px a side, and main adds 1.5rem on top of it: 48px a side of
+     gutter on the narrowest column on the site. main's own gutter is enough here, and the 48px
+     handed back is what stops the mono H1 wrapping to six lines. */
+  body.glimt-page { padding-left: 0; padding-right: 0; }
+  /* 5.5rem of nothing used to sit above the fold. Keep just enough to clear the fixed 44px
+     hamburger button, which starts 24px from the top. */
+  .glimt-hero { padding: 3.25rem 0 2.5rem; }
+  .glimt-hero-inner { grid-template-columns: 1fr; gap: 2.25rem; }
+  /* The screenshot no longer comes first. A photo in a phone frame was the whole first screen, so
+     the page opened looking like a camera app and the headline started below the fold. */
   .feature { grid-template-columns: 1fr; gap: 1.5rem; }
   .feature-phone { order: -1; }
   .priv-grid, .faq-grid { grid-template-columns: 1fr; }
@@ -416,7 +520,15 @@ body.glimt-page {
 @media (max-width: 620px) {
   .steps, .safe-grid, .ritual-notes { grid-template-columns: 1fr; }
   .glimt-steps, .glimt-safety, .glimt-privacy, .glimt-price, .glimt-faq, .glimt-cta, .glimt-hero-copy { padding: 1.8rem 1.4rem; }
-  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions > .btn-primary, .hero-actions > .btn-ghost { align-self: flex-start; }
+  /* 260px at 9/19.5 is a 563px-tall block. Capped so the copy, the lede and both actions fit on
+     the first screen with the screenshot still visible under them. */
+  .glimt-shot--lg { width: 200px; }
+  /* 33.6px in a mono face is ~12 characters a line in this column: a two-sentence H1 became six
+     lines and 218px of the first screen. */
+  .glimt-hero h1 { font-size: 1.55rem; margin: 1.1rem 0 0.9rem; }
+  .glimt-hero .lede { font-size: 1.05rem; }
 }
 
 /* ---------- NO JAVASCRIPT: show everything at rest ---------- */

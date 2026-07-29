@@ -1,6 +1,13 @@
 // always start at top of page
-if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-window.scrollTo(0, 0);
+// Every page here opens with a typewriter intro that has to begin at the top, so this stays as it was.
+// The two Glimt landing pages are the exception: they are twenty screens of document, where "manual"
+// means Back from the privacy policy dumps you at the top again, and the scrollTo also swallows an
+// incoming #fragment, so a shared /glimt#bli-med link never landed on the form. Nothing else changes:
+// the test matches those two URLs only, not /glimt/privacy and not any other page.
+if (!/^\/(en\/)?glimt(\/|\/index\.html)?$/.test(window.location.pathname)) {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+}
 
 // lang redirect - check before page renders
 (function () {
@@ -23,6 +30,11 @@ window.scrollTo(0, 0);
       "/tjenester.html": "/en/services.html",
       "/blogg": "/en/blog",
       "/blogg.html": "/en/blog.html",
+      // The Glimt landing pages were missing, so someone with English stored who was sent /glimt
+      // silently stayed on the nynorsk page. Both spellings: the live site serves /glimt (cleanUrls),
+      // a directory index serves /glimt/.
+      "/glimt": "/en/glimt",
+      "/glimt/": "/en/glimt/",
     },
     en: {
       "/en/": "/",
@@ -39,6 +51,8 @@ window.scrollTo(0, 0);
       "/en/services.html": "/tjenester.html",
       "/en/blog": "/blogg",
       "/en/blog.html": "/blogg.html",
+      "/en/glimt": "/glimt",
+      "/en/glimt/": "/glimt/",
     },
   };
 

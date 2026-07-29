@@ -20,21 +20,24 @@
     <meta property="og:url" content="https://dynni.no/en/glimt" />
     <meta property="og:title" content="Glimt, a calm and private alternative to Snapchat" />
     <meta property="og:description" content="You can only receive a glimt from people you said yes to yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
-    <!-- Share image: the app icon is square (1024x1024), so the cards have to ask for the square
-         format. Switch to twitter:card=summary_large_image the day a 1200x630 asset exists. -->
-    <meta property="og:image" content="https://dynni.no/assets/img/apps/glimt.png" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:alt" content="The Glimt icon, a polar bear" />
+    <!-- Share image: 1200x630, the wide format Facebook, LinkedIn and X actually render. The square
+         app icon was being centre-cropped straight through the bear. The card is the icon, the name
+         and the screenshot, with no sentence baked into it, so it does not go stale. -->
+    <meta property="og:image" content="https://dynni.no/assets/img/glimt-og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Glimt icon, a polar bear, next to the camera in the app" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="DYNNI" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Glimt, a calm and private alternative to Snapchat" />
     <meta name="twitter:description" content="You can only receive a glimt from people you said yes to yourself. No feed, no algorithm, no strangers." />
-    <meta name="twitter:image" content="https://dynni.no/assets/img/apps/glimt.png" />
+    <meta name="twitter:image" content="https://dynni.no/assets/img/glimt-og.jpg" />
 
     <link rel="icon" type="image/svg+xml" href="../../assets/img/logo/dynni-logo.svg" />
-    <link rel="apple-touch-icon" href="../../assets/img/logo/dynni-logo.svg" />
+    <!-- iOS does not accept SVG here: Add to Home Screen produced an icon made out of a screenshot.
+         180x180 PNG is what iOS asks for. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apps/glimt-180.png" />
     <meta name="theme-color" content="#0B1117" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,8 +47,12 @@
     <link rel="stylesheet" href="../../css/styles.css" />
     <link rel="stylesheet" href="../../css/glimt.css" />
 
-    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
-    <script src="../../scripts.js" defer></script>
+    <!-- defer: four icons are not worth a third-party script that blocks the whole page from painting. -->
+    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous" defer></script>
+    <!-- scripts.js is NOT deferred, same as every other page on the site: the language redirect inside
+         it has to run before the page paints, otherwise the wrong language flashes up first. The file
+         touches no DOM before DOMContentLoaded. -->
+    <script src="../../scripts.js"></script>
     <script src="../../js/glimt.js" defer></script>
 
     <script type="application/ld+json">
@@ -169,7 +176,15 @@
             <!-- The wording follows the app's own string (friends.inviteConfirmTitle, "{{name}} invited you").
                  The link does not carry a bål invitation: it asks whether to add the sharer as a friend. -->
             <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> invited you to Glimt</div>
-            <div class="glimt-badge"><img src="../../assets/img/apps/glimt.png" alt="" width="22" height="22" /> Glimt</div>
+            <div class="hero-top">
+              <!-- The small file, not the 1024x1024 icon: this badge is 22px, and the original cost
+                   65 kB above the fold for a 22 pixel image. -->
+              <div class="glimt-badge"><img src="../../assets/img/apps/glimt-180.png" alt="" width="22" height="22" /> Glimt</div>
+              <!-- The sidebar language switch is translated off screen on a phone, so NO/EN only
+                   existed at the bottom of the hamburger drawer. Same control, on the page itself. The
+                   .lang-switch class is here because that is what scripts.js listens on to store the choice. -->
+              <div class="lang-switch hero-lang"><a href="/glimt" hreflang="nn" lang="nn">NO</a></div>
+            </div>
             <!-- The space between the two spans is deliberate: both are display:block so it never shows,
                  but without it a screen reader reads the heading as one run-on word. -->
             <h1><span class="h1-line">A calm alternative to Snapchat.</span> <span class="h1-line ice">For the people you love.</span></h1>
@@ -177,14 +192,23 @@
               You take a glimt, it goes to the people you chose, and then it gets to disappear. No feed, no algorithm, no strangers.
             </p>
             <div class="hero-actions">
-              <a class="btn-primary" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Join the iOS beta</a>
-              <a class="btn-ghost" href="#join">On Android, or just curious? Join the list</a>
+              <a class="btn-primary hero-cta-ios" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Join the iOS beta</a>
+              <a class="btn-ghost hero-cta-list" href="#join">On Android, or just curious? Join the list</a>
+              <!-- Empty on purpose. On anything that is not iOS, js/glimt.js puts a copy of the e-mail
+                   field from the bottom of the page in here and swaps which action is the primary one.
+                   A copy, not a second form, so Norwegian and English cannot drift apart. -->
+              <div class="hero-waitlist-slot" id="hero-waitlist-slot"></div>
             </div>
             <p class="hero-note">Glimt is free, and stays free. The optional <a href="#pricing">Glimt+</a> comes later, and if you join before launch it is yours for good.</p>
           </div>
           <div class="glimt-hero-phone">
             <div class="glimt-shot glimt-shot--lg">
-              <img src="/assets/img/glimt-moment.jpg" alt="The camera in the Glimt app: a city scene in evening light with the film look on, ready to send" width="1206" height="2622" fetchpriority="high" />
+              <!-- 640px wide is plenty: the frame is 200-260px, so 2.5-3x on a phone screen. The
+                   original (1206x2622, 698 kB) is still in assets, other pages use it. -->
+              <picture>
+                <source type="image/webp" srcset="/assets/img/glimt-moment-640.webp" />
+                <img src="/assets/img/glimt-moment-640.jpg" alt="The camera in the Glimt app: a city scene in evening light with the film look on, ready to send" width="640" height="1391" fetchpriority="high" decoding="async" />
+              </picture>
             </div>
           </div>
         </div>
@@ -432,6 +456,9 @@
           <label class="sr-only" for="waitlist-email">Your email</label>
           <input type="email" id="waitlist-email" placeholder="Your email" required autocomplete="email" />
           <button type="submit">Put me on the list</button>
+          <!-- Replies from the form belong here, not in the .waitlist-note below: that is where the
+                promise of one e-mail and nothing else lives, and it was being overwritten by "Thanks!" -->
+          <p class="waitlist-status" role="status" aria-live="polite"></p>
         </form>
         <p class="waitlist-note" id="waitlist-note">Everyone who joins before launch gets Glimt+ free, for good. I'll send one email when Glimt opens, and nothing else. That I promise.</p>
         <div class="store-badges">

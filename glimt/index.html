@@ -20,21 +20,24 @@
     <meta property="og:url" content="https://dynni.no/glimt" />
     <meta property="og:title" content="Glimt, eit roleg og privat alternativ til Snapchat" />
     <meta property="og:description" content="Du kan berre få glimt frå folk du sjølv har sagt ja til. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
-    <!-- Delingsbilete: appikonet er kvadratisk (1024x1024), så korta må be om det kvadratiske formatet.
-         Byt til twitter:card=summary_large_image den dagen det finst eit 1200x630-bilete. -->
-    <meta property="og:image" content="https://dynni.no/assets/img/apps/glimt.png" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:alt" content="Glimt-ikonet, ein isbjørn" />
+    <!-- Delingsbilete: 1200x630, altså det breie formatet Facebook, LinkedIn og X faktisk viser. Det
+         kvadratiske appikonet blei skore midt gjennom isbjørnen. Kortet er sett saman av ikonet,
+         namnet og skjermbiletet, og har ingen tekst utover namnet, så det held seg. -->
+    <meta property="og:image" content="https://dynni.no/assets/img/glimt-og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Glimt-ikonet, ein isbjørn, ved sida av kameraet i appen" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:site_name" content="DYNNI" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Glimt, eit roleg og privat alternativ til Snapchat" />
     <meta name="twitter:description" content="Du kan berre få glimt frå folk du sjølv har sagt ja til. Ingen feed, ingen algoritme, ingen framande." />
-    <meta name="twitter:image" content="https://dynni.no/assets/img/apps/glimt.png" />
+    <meta name="twitter:image" content="https://dynni.no/assets/img/glimt-og.jpg" />
 
     <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
-    <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
+    <!-- iOS godtek ikkje SVG her: «Legg til på Heimeskjerm» laga eit ikon av eit skjermbilete i staden.
+         180x180 PNG er formatet iOS ber om. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apps/glimt-180.png" />
     <meta name="theme-color" content="#0B1117" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,8 +47,12 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/glimt.css" />
 
-    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
-    <script src="../scripts.js" defer></script>
+    <!-- defer: fire ikon er ikkje verdt eit tredjepartsskript som stoppar heile sida frå å bli teikna. -->
+    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous" defer></script>
+    <!-- scripts.js er IKKJE defer, som på alle dei andre sidene: språkomdirigeringa der inne må skje
+         før sida blir teikna, elles ser ein feil språk blinke først. Fila rører ikkje DOM-en før
+         DOMContentLoaded. -->
+    <script src="../scripts.js"></script>
     <script src="../js/glimt.js" defer></script>
 
     <script type="application/ld+json">
@@ -169,7 +176,15 @@
             <!-- Ordlyden følgjer appen sin eigen streng (friends.inviteConfirmTitle, «{{name}} inviterte deg»).
                  Lenkja ber ikkje ein bål-invitasjon: ho spør om du vil leggje til den som delte, som ven. -->
             <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> inviterte deg til Glimt</div>
-            <div class="glimt-badge"><img src="../assets/img/apps/glimt.png" alt="" width="22" height="22" /> Glimt</div>
+            <div class="hero-top">
+              <!-- Den vesle fila, ikkje 1024x1024-ikonet: dette merket er 22px, og originalen kosta
+                   65 kB på fyrste skjerm for eit bilete på 22 piksel. -->
+              <div class="glimt-badge"><img src="../assets/img/apps/glimt-180.png" alt="" width="22" height="22" /> Glimt</div>
+              <!-- Språkbytet i sidestolpen ligg utanfor skjermen på telefon, så NO/EN fanst berre
+                   nedst i hamburgarmenyen. Same kontroll, på sjølve sida. Klassen .lang-switch er med
+                   fordi det er han scripts.js lyttar på for å hugse valet. -->
+              <div class="lang-switch hero-lang"><a href="/en/glimt" hreflang="en" lang="en">EN</a></div>
+            </div>
             <!-- Mellomrommet mellom dei to spana er med vilje: begge er display:block, så det syner ikkje,
                  men utan det les skjermlesaren overskrifta som eitt samanklistra ord. -->
             <h1><span class="h1-line">Eit roleg alternativ til Snapchat.</span> <span class="h1-line ice">For dei du er glad i.</span></h1>
@@ -177,14 +192,23 @@
               Du tek eit glimt, det går til dei du har valt, og så får det forsvinne. Ingen feed, ingen algoritme, ingen framande.
             </p>
             <div class="hero-actions">
-              <a class="btn-primary" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Bli med i iOS-betaen</a>
-              <a class="btn-ghost" href="#bli-med">Android, eller berre nysgjerrig? Skriv deg på lista</a>
+              <a class="btn-primary hero-cta-ios" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Bli med i iOS-betaen</a>
+              <a class="btn-ghost hero-cta-list" href="#bli-med">Android, eller berre nysgjerrig? Skriv deg på lista</a>
+              <!-- Tom med vilje. På alt som ikkje er iOS legg js/glimt.js ein kopi av e-postfeltet nedst
+                   på sida inn her, og byter om på kva som er hovudknappen. Ein kopi, ikkje eit nytt
+                   skjema, så nynorsk og engelsk ikkje kan drive frå kvarandre. -->
+              <div class="hero-waitlist-slot" id="hero-waitlist-slot"></div>
             </div>
             <p class="hero-note">Glimt er gratis, og blir verande gratis. Det valfrie <a href="#kva-det-kostar">Glimt+</a> kjem seinare, og er du med før lanseringa, er det ditt for alltid.</p>
           </div>
           <div class="glimt-hero-phone">
             <div class="glimt-shot glimt-shot--lg">
-              <img src="/assets/img/glimt-moment.jpg" alt="Kameraet i Glimt-appen: eit bybilete i kveldslys med filmlooken på, klart til å bli sendt" width="1206" height="2622" fetchpriority="high" />
+              <!-- 640px brei er nok: ramma er 200-260px, altså 2.5-3x på ein telefonskjerm. Originalen
+                   (1206x2622, 698 kB) ligg framleis i assets, andre sider brukar han. -->
+              <picture>
+                <source type="image/webp" srcset="/assets/img/glimt-moment-640.webp" />
+                <img src="/assets/img/glimt-moment-640.jpg" alt="Kameraet i Glimt-appen: eit bybilete i kveldslys med filmlooken på, klart til å bli sendt" width="640" height="1391" fetchpriority="high" decoding="async" />
+              </picture>
             </div>
           </div>
         </div>
@@ -432,6 +456,9 @@
           <label class="sr-only" for="waitlist-email">E-posten din</label>
           <input type="email" id="waitlist-email" placeholder="E-posten din" required autocomplete="email" />
           <button type="submit">Skriv meg på lista</button>
+          <!-- Svar frå skjemaet høyrer hit, ikkje i .waitlist-note under: der står lovnaden om éin
+                e-post og ingenting anna, og han blei overskriven av «Takk! Du er på lista.» -->
+          <p class="waitlist-status" role="status" aria-live="polite"></p>
         </form>
         <p class="waitlist-note" id="waitlist-note">Alle som er med før lanseringa, får Glimt+ gratis for alltid. Eg sender ein e-post når Glimt opnar, og ikkje noko anna. Det lovar eg.</p>
         <div class="store-badges">

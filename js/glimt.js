@@ -40,6 +40,28 @@
     layer.style.setProperty('--grain', 'url(' + c.toDataURL() + ')');
   }
 
+  // ---- When the aurora is allowed to run ----
+  // The canvas is position:fixed and fills the viewport, so it always intersects it: the observer here
+  // could never once report a non-intersecting entry while the tab was visible, and a five-octave fbm
+  // shader ran at 30fps for the entire visit. Under a fixed grain layer with mix-blend-mode:screen and
+  // ten backdrop-filter panels, that is a full-viewport recomposite every frame, on a page that is
+  // twenty screens of scrolling. So: nothing animates while a finger is moving, and past the hero the
+  // last frame just stays on screen (it is a slow, soft thing, frozen reads as painted).
+  // Both renderers share this, so they cannot drift apart.
+  function drive(canvas, frame) {
+    var last = 0, running = false, raf = 0, idle = 0;
+    function loop(t) { if (!running) return; if (t - last >= 33) { frame(t); last = t; } raf = requestAnimationFrame(loop); }
+    function start() { if (!running) { running = true; raf = requestAnimationFrame(loop); } }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+    function wanted() {
+      return !document.hidden && (window.scrollY || 0) < (window.innerHeight || 0) * 1.2;
+    }
+    function settle() { clearTimeout(idle); idle = setTimeout(function () { wanted() ? start() : stop(); }, 220); }
+    new IntersectionObserver(function (es) { es[0].isIntersecting && wanted() ? start() : stop(); }).observe(canvas);
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : settle(); });
+    window.addEventListener('scroll', function () { stop(); settle(); }, { passive: true });
+  }
+
   // ---- WebGL aurora: real-time fbm-noise curtains. The "video-like" look, generated on the GPU.
   var FRAG = [
     'precision highp float;',
@@ -89,9 +111,15 @@
     var dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1 : 1.5);
 
     function size() {
-      var w = Math.round(window.innerWidth * dpr), h = Math.round(window.innerHeight * dpr);
+      // Measured off the element, never off the window. CSS lays the canvas out at 100lvh so it
+      // reaches behind Safari's toolbars, and window.innerHeight is the small viewport while those
+      // toolbars are showing: sizing from it, or writing a pixel height back onto the element, is what
+      // left dead bands at the top and bottom. The buffer is a little taller as a result, which is one
+      // more reason the pause policy above matters.
+      var cw = canvas.clientWidth || window.innerWidth;
+      var ch = canvas.clientHeight || window.innerHeight;
+      var w = Math.round(cw * dpr), h = Math.round(ch * dpr);
       canvas.width = w; canvas.height = h;
-      canvas.style.width = window.innerWidth + 'px'; canvas.style.height = window.innerHeight + 'px';
       gl.viewport(0, 0, w, h); gl.uniform2f(uRes, w, h);
     }
     function frame(ms) {
@@ -103,12 +131,7 @@
     size();
     if (reduce) { frame(3200); return true; }
 
-    var last = 0, running = false, raf = 0;
-    function loop(t) { if (!running) return; if (t - last >= 33) { frame(t); last = t; } raf = requestAnimationFrame(loop); }
-    function start() { if (!running) { running = true; raf = requestAnimationFrame(loop); } }
-    function stop() { running = false; cancelAnimationFrame(raf); }
-    new IntersectionObserver(function (es) { es[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(canvas);
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    drive(canvas, frame);
     var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 200); }, { passive: true });
     return true;
   }
@@ -124,9 +147,12 @@
     ];
     var W, H, SCALE = 0.32;
     function size() {
-      W = canvas.width = Math.max(2, Math.round(window.innerWidth * SCALE));
-      H = canvas.height = Math.max(2, Math.round(window.innerHeight * SCALE));
-      canvas.style.width = window.innerWidth + 'px'; canvas.style.height = window.innerHeight + 'px';
+      // Same as the WebGL path: the element's own size, so the low-res buffer covers the large
+      // viewport and the fallback does not letterbox where the shader does not.
+      var cw = canvas.clientWidth || window.innerWidth;
+      var ch = canvas.clientHeight || window.innerHeight;
+      W = canvas.width = Math.max(2, Math.round(cw * SCALE));
+      H = canvas.height = Math.max(2, Math.round(ch * SCALE));
     }
     function frame(t) {
       ctx.clearRect(0, 0, W, H); ctx.globalCompositeOperation = 'lighter';
@@ -150,12 +176,7 @@
     }
     size();
     if (reduce) { frame(3000); return; }
-    var last = 0, running = false, raf = 0;
-    function loop(t) { if (!running) return; if (t - last >= 33) { frame(t); last = t; } raf = requestAnimationFrame(loop); }
-    function start() { if (!running) { running = true; raf = requestAnimationFrame(loop); } }
-    function stop() { running = false; cancelAnimationFrame(raf); }
-    new IntersectionObserver(function (es) { es[0].isIntersecting && !document.hidden ? start() : stop(); }).observe(canvas);
-    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    drive(canvas, frame);
     var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(size, 200); }, { passive: true });
   }
 
@@ -167,6 +188,83 @@
     // can leave the element uncontextable for 2D, so swap in a clone.)
     var twin = canvas.cloneNode(false); canvas.parentNode.replaceChild(twin, canvas);
     initAurora2D(twin);
+  }
+
+  // ---- Which action is the primary one ----
+  // The beta is iOS-only, so on Android the filled blue button was a dead end and the only way onto the
+  // waitlist was a hairline text link. Android is most of the phones in Norway, so the weight was
+  // exactly inverted. On anything that is not iOS the waitlist becomes the primary action, with the
+  // field itself right here (the anchor pointed thirteen thousand pixels down the page), and the
+  // TestFlight link stays, demoted.
+  function isIOS() {
+    var ua = navigator.userAgent || '';
+    if (/iPad|iPhone|iPod/.test(ua)) return true;
+    // iPadOS 13+ reports itself as a Mac; the touch count is the classic way to tell them apart.
+    return /Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) > 1;
+  }
+
+  // Phones and tablets that are not iOS. Desktop is left exactly as it is: someone on a laptop who
+  // owns an iPhone still wants the TestFlight link to be the obvious thing.
+  function isMobileNonIOS() {
+    if (isIOS()) return false;
+    if (/Android/i.test(navigator.userAgent || '')) return true;
+    return (navigator.maxTouchPoints || 0) > 0 && window.matchMedia('(pointer: coarse)').matches;
+  }
+
+  function initPlatform() {
+    if (!isMobileNonIOS()) return;
+    var actions = document.querySelector('.hero-actions');
+    var slot = document.getElementById('hero-waitlist-slot');
+    var src = document.getElementById('waitlist-form');
+    if (!actions || !slot || !src) return;
+
+    // Cloned, not written twice: every string (placeholder, button, the three data-msg-*) has exactly
+    // one home in each language's markup.
+    var clone = src.cloneNode(true);
+    clone.id = 'hero-waitlist-form';
+    clone.classList.add('waitlist--hero');
+    var input = clone.querySelector('input[type="email"]');
+    var label = clone.querySelector('label[for]');
+    if (input) {
+      input.id = 'hero-waitlist-email';
+      if (label) label.setAttribute('for', input.id);
+    }
+    var status = clone.querySelector('.waitlist-status');
+    if (status) status.textContent = '';
+    slot.appendChild(clone);
+    // Moved in the DOM rather than reordered with CSS, so the tab order matches what the eye sees.
+    actions.insertBefore(slot, actions.firstChild);
+
+    var ios = actions.querySelector('.hero-cta-ios');
+    if (ios) { ios.classList.remove('btn-primary'); ios.classList.add('btn-ghost'); }
+    // The link said "or just curious? Join the list". The list is now a field two lines up.
+    var list = actions.querySelector('.hero-cta-list');
+    if (list) list.hidden = true;
+  }
+
+  // ---- In-page jumps land instantly ----
+  // html { scroll-behavior: smooth } over a ~13,500px page turned one tap into a multi-second animated
+  // flight through twenty screens, which reads as a hang. Jump, then put the caret in the field the
+  // person was going to. The skip link is left alone: its native behaviour also moves focus.
+  function initJumps() {
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a || a.classList.contains('skip-link')) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      // Overriding scroll-behavior on the element itself beats the stylesheet, and works in browsers
+      // that never shipped scrollIntoView({ behavior: 'instant' }).
+      var root = document.documentElement;
+      var prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      target.scrollIntoView({ block: 'start' });
+      root.style.scrollBehavior = prev;
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+      var field = target.querySelector('input[type="email"]');
+      if (field) { try { field.focus({ preventScroll: true }); } catch (err) { field.focus(); } }
+    });
   }
 
   // ---- One-shot reveals: add .show then unobserve ----
@@ -194,16 +292,32 @@
     function setPos(v) { before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; line.style.left = v + '%'; }
     range.addEventListener('input', function () { setPos(+range.value); });
     setPos(+range.value);
+    function file(look) { return '/assets/img/film-loen-' + look + '.jpg'; }
     pills.forEach(function (p) {
       p.addEventListener('click', function () {
         pills.forEach(function (q) { q.classList.remove('is-active'); q.setAttribute('aria-pressed', 'false'); });
         p.classList.add('is-active');
         p.setAttribute('aria-pressed', 'true');
-        after.src = '/assets/img/film-loen-' + p.dataset.look + '.jpg';
+        after.src = file(p.dataset.look);
         after.alt = tpl.replace('{look}', p.dataset.name);
         if (tagR) tagR.textContent = p.dataset.name;
       });
     });
+
+    // Glør and Kol are ~150KB each and were fetched on the tap itself, so the first tap on either
+    // showed nothing for as long as the network took. Warm them once the page is done loading, so they
+    // never compete with anything above the fold. Kept in an array so they are not collected early.
+    var warm = [];
+    function warmLooks() {
+      pills.forEach(function (p) {
+        if (p.classList.contains('is-active')) return;
+        var img = new Image();
+        img.src = file(p.dataset.look);
+        warm.push(img);
+      });
+    }
+    if (document.readyState === 'complete') setTimeout(warmLooks, 400);
+    else window.addEventListener('load', function () { setTimeout(warmLooks, 400); });
   }
 
   // ---- Waitlist ----
@@ -212,21 +326,45 @@
   var SUPABASE_URL = 'https://khhjqjtmhybwfrkhttoa.supabase.co';
   var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoaGpxanRtaHlid2Zya2h0dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE5NDA4NjYsImV4cCI6MjA5NzUxNjg2Nn0.Xu1UKzzJzg2dO-4BdENCpVNQ4jJFUw9Iz4qOLb1NMCQ';
 
+  // Every .waitlist form on the page, because on Android there are two: this one and the clone in the
+  // hero. Both talk to the same table and read their copy from their own data-msg-* attributes.
   function initWaitlist() {
-    var form = document.getElementById('waitlist-form');
-    if (!form) return;
-    var note = document.getElementById('waitlist-note');
-    var input = form.querySelector('input[type="email"]');
+    var forms = document.querySelectorAll('form.waitlist');
+    for (var i = 0; i < forms.length; i++) setupWaitlist(forms[i]);
+  }
 
-    function say(msg) { if (note) note.textContent = msg; }
+  function setupWaitlist(form) {
+    var input = form.querySelector('input[type="email"]');
+    var button = form.querySelector('button[type="submit"]');
+    // Replies go in the form's own live region. They used to be written into #waitlist-note, which is
+    // the paragraph that promises "one e-mail and nothing else, I promise", so the moment somebody
+    // signed up, the promise they had just been given was deleted in front of them.
+    var status = form.querySelector('.waitlist-status');
+
+    function say(msg) { if (status) status.textContent = msg || ''; }
+    function busy(on) {
+      form.classList.toggle('busy', on);
+      form.setAttribute('aria-busy', on ? 'true' : 'false');
+      // Really disabled, not just pointer-events:none, which Enter walks straight past.
+      if (button) button.disabled = on;
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var email = ((input && input.value) || '').trim();
+      if (form.classList.contains('busy') || form.classList.contains('done')) return;
+      // Lowercased: Pal@Dynni.no and pal@dynni.no are one person, and the table has a unique index.
+      var email = ((input && input.value) || '').trim().toLowerCase();
       if (!email) return;
-      form.classList.add('busy');
+      say('');
+      busy(true);
+
+      // No timeout meant a hung request left the form spinning for as long as the person waited.
+      var ctl = 'AbortController' in window ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 12000);
+
       fetch(SUPABASE_URL + '/rest/v1/waitlist', {
         method: 'POST',
+        signal: ctl ? ctl.signal : undefined,
         headers: {
           'apikey': SUPABASE_ANON,
           'Authorization': 'Bearer ' + SUPABASE_ANON,
@@ -235,18 +373,21 @@
         },
         body: JSON.stringify({ email: email })
       }).then(function (res) {
-        form.classList.remove('busy');
+        clearTimeout(timer);
+        busy(false);
         if (res.ok) {
           form.classList.add('done');
+          if (button) button.disabled = true;
           say(form.dataset.msgOk);
-          if (input) input.value = '';
+          if (input) { input.value = ''; input.readOnly = true; }
         } else if (res.status === 409) {
           say(form.dataset.msgDupe);
         } else {
           say(form.dataset.msgError);
         }
       }).catch(function () {
-        form.classList.remove('busy');
+        clearTimeout(timer);
+        busy(false);
         say(form.dataset.msgError);
       });
     });
@@ -286,7 +427,10 @@
     initAurora();
     initReveals();
     initFilmSlider();
+    // Before initWaitlist: on Android this puts a second form on the page, and it needs wiring too.
+    initPlatform();
     initWaitlist();
+    initJumps();
     // initMagnetic() removed on purpose: the cursor-following "magnetic" translate felt gimmicky, and buttons
     // sliding toward the pointer reads cheap, not premium. They now lift gently straight up on hover via CSS
     // (.waitlist button:hover), which feels crafted and calm. Function left defined above in case it's wanted.
