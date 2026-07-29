@@ -35,6 +35,18 @@ if (!/^\/(en\/)?glimt(\/|\/index\.html)?$/.test(window.location.pathname)) {
       // a directory index serves /glimt/.
       "/glimt": "/en/glimt",
       "/glimt/": "/en/glimt/",
+      // The four Glimt policy pages. These are the URLs the App Store and Play listings link to, so a reviewer
+      // with English stored who lands on a nynorsk privacy policy is a bad first impression of a page whose
+      // whole job is being clear. See the click handler below: the entries and the handler fix have to ship
+      // together, or these pages trap you in one language.
+      "/glimt/privacy": "/en/glimt/privacy",
+      "/glimt/privacy.html": "/en/glimt/privacy.html",
+      "/glimt/terms": "/en/glimt/terms",
+      "/glimt/terms.html": "/en/glimt/terms.html",
+      "/glimt/child-safety": "/en/glimt/child-safety",
+      "/glimt/child-safety.html": "/en/glimt/child-safety.html",
+      "/glimt/delete-account": "/en/glimt/delete-account",
+      "/glimt/delete-account.html": "/en/glimt/delete-account.html",
     },
     en: {
       "/en/": "/",
@@ -53,6 +65,14 @@ if (!/^\/(en\/)?glimt(\/|\/index\.html)?$/.test(window.location.pathname)) {
       "/en/blog.html": "/blogg.html",
       "/en/glimt": "/glimt",
       "/en/glimt/": "/glimt/",
+      "/en/glimt/privacy": "/glimt/privacy",
+      "/en/glimt/privacy.html": "/glimt/privacy.html",
+      "/en/glimt/terms": "/glimt/terms",
+      "/en/glimt/terms.html": "/glimt/terms.html",
+      "/en/glimt/child-safety": "/glimt/child-safety",
+      "/en/glimt/child-safety.html": "/glimt/child-safety.html",
+      "/en/glimt/delete-account": "/glimt/delete-account",
+      "/en/glimt/delete-account.html": "/glimt/delete-account.html",
     },
   };
 
@@ -65,14 +85,23 @@ if (!/^\/(en\/)?glimt(\/|\/index\.html)?$/.test(window.location.pathname)) {
     }
   }
 
-  // save choice when switching
+  // Save the choice when switching. Keyed off the HREF, and matching the Glimt policy pages' .lang-toggle as
+  // well as the site-wide .lang-switch.
+  //
+  // Both of those were bugs sitting quietly until the langMap gained the Glimt policy pages below. The old rule
+  // asked whether the link's own text said "EN", which is true of the sidebar pill and false of every prose
+  // link: the policy pages say "English version" and "Norsk versjon", so a click there either stored nothing at
+  // all (wrong class) or stored nn for a link going to English (wrong test).
+  //
+  // Add the langMap entries without fixing this and those pages become inescapable. A reader with en stored
+  // clicks «Norsk versjon», lands on the nynorsk page, and the redirect above sends them straight back, every
+  // time. Those are also the exact URLs the App Store and Play listings point at, so it would be a language
+  // trap on the four pages a reviewer is most likely to open.
   document.addEventListener("click", function (e) {
-    const link = e.target.closest(".lang-switch a");
+    const link = e.target.closest(".lang-switch a, .lang-toggle a");
     if (link) {
-      localStorage.setItem(
-        "lang",
-        link.textContent.trim() === "EN" ? "en" : "nn",
-      );
+      const href = link.getAttribute("href") || "";
+      localStorage.setItem("lang", href.startsWith("/en/") || href === "/en" ? "en" : "nn");
     }
   });
 })();
