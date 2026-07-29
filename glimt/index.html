@@ -5,10 +5,10 @@
     <script>document.documentElement.classList.add('js')</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <title>Glimt — Hald fast på kvarandre | DYNNI</title>
-    <meta name="title" content="Glimt — Hald fast på kvarandre | DYNNI" />
-    <meta name="description" content="Glimt er eit roleg, privat alternativ til Snapchat. Del glimt som forsvinn, samle dei næraste rundt eit bål kvar veke. Ende-til-ende-kryptert, ingen reklame, ingen algoritme." />
-    <meta name="keywords" content="Glimt, Snapchat-alternativ, privat, ende-til-ende-kryptert, app, iOS, Android, DYNNI, Pål Omland Eilevstjønn" />
+    <title>Glimt, eit roleg og privat alternativ til Snapchat | DYNNI</title>
+    <meta name="title" content="Glimt, eit roleg og privat alternativ til Snapchat | DYNNI" />
+    <meta name="description" content="Glimt er eit roleg, privat alternativ til Snapchat. Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
+    <meta name="keywords" content="Glimt, Snapchat-alternativ, privat, trygt for born, ende-til-ende-kryptert, app, iOS, Android, DYNNI, Pål Omland Eilevstjønn" />
     <meta name="author" content="Pål Omland Eilevstjønn" />
     <meta name="robots" content="index, follow" />
 
@@ -18,11 +18,20 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dynni.no/glimt" />
-    <meta property="og:title" content="Glimt — Hald fast på kvarandre" />
-    <meta property="og:description" content="Eit roleg, privat alternativ til Snapchat. Glimt som forsvinn, bål kvar veke, ende-til-ende-kryptert." />
+    <meta property="og:title" content="Glimt, eit roleg og privat alternativ til Snapchat" />
+    <meta property="og:description" content="Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande. Ende-til-ende-kryptert, bygd i Noreg." />
+    <!-- Delingsbilete: appikonet er kvadratisk (1024x1024), så korta må be om det kvadratiske formatet.
+         Byt til twitter:card=summary_large_image den dagen det finst eit 1200x630-bilete. -->
     <meta property="og:image" content="https://dynni.no/assets/img/apps/glimt.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Glimt-ikonet, ein isbjørn" />
     <meta property="og:locale" content="nn_NO" />
     <meta property="og:site_name" content="DYNNI" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Glimt, eit roleg og privat alternativ til Snapchat" />
+    <meta name="twitter:description" content="Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande." />
+    <meta name="twitter:image" content="https://dynni.no/assets/img/apps/glimt.png" />
 
     <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
     <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
@@ -36,10 +45,8 @@
     <link rel="stylesheet" href="../css/glimt.css" />
 
     <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
-    <!-- Material Design Icons: the exact icon set the app uses (MaterialCommunityIcons), for the camera mockup UI. -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
-    <script src="../scripts.js"></script>
-    <script src="../js/glimt.js"></script>
+    <script src="../scripts.js" defer></script>
+    <script src="../js/glimt.js" defer></script>
 
     <script type="application/ld+json">
       {
@@ -48,20 +55,59 @@
         "name": "Glimt",
         "operatingSystem": "iOS, Android",
         "applicationCategory": "SocialNetworkingApplication",
-        "description": "Eit roleg, privat alternativ til Snapchat. Glimt som forsvinn, bål kvar veke, ende-til-ende-kryptert.",
+        "description": "Eit roleg, privat alternativ til Snapchat. Du kan berre få glimt frå vener du sjølv har godteke. Ingen feed, ingen algoritme, ingen framande.",
         "author": { "@type": "Person", "name": "Pål Omland Eilevstjønn", "alternateName": "DYNNI" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NOK" }
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Kven kan sjå glimta til barnet mitt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Berre dei barnet ditt har lagt til som vener, og som barnet sjølv har godteke. Ingen andre, ikkje eg heller. Kvart glimt blir kryptert på telefonen før det blir sendt." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan framande ta kontakt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nei. Det finst ingen feed, inga oppdaging og ingen tilrådingar. Ein må vite det nøyaktige brukarnamnet, og den andre må seie ja til venneførespurnaden." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kva skjer med bileta?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dei fleste forsvinn når dei er sette. Vel nokon å ta vare på eitt, blir det lagra i bileta på deira eigen telefon, og den som sende det får beskjed, akkurat som med eit skjermbilete." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kva alder er Glimt for?",
+            "acceptedAnswer": { "@type": "Answer", "text": "13 år og oppover. Du må oppgi fødselsdato når du lagar konto, og er du yngre, blir kontoen aldri laga." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kva om telefonen blir borte?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vel du eit passord i appen, kjem glimta tilbake på ein ny telefon. Gjer du ingenting, ber iCloud-nøkkelringen eller Google Block Store nøkkelen over av seg sjølv." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kva kostar Glimt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ingenting no. Nokre ting blir seinare ein del av Glimt+, men alle som er med før lanseringa får dei gratis for alltid." }
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="glimt-page">
+    <a class="skip-link" href="#innhald">Hopp til innhaldet</a>
     <canvas class="aurora-canvas" aria-hidden="true"></canvas>
     <div class="grain-layer" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
 
     <header class="site-header">
       <nav class="nav">
-        <a class="logo" href="../"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+        <a class="logo" href="../"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" width="140" height="200" /></a>
         <ul class="nav-links-main">
           <li><a href="../om-meg">Om meg</a></li>
           <li><a href="../lyd">Lyd</a></li>
@@ -91,7 +137,7 @@
         <div class="mobile-nav-overlay">
           <nav class="mobile-nav">
             <div class="mobile-nav-content">
-              <a class="logo" href="../"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+              <a class="logo" href="../"><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" width="140" height="200" /></a>
               <ul class="nav-links-main">
                 <li><a href="../om-meg">Om meg</a></li>
                 <li><a href="../lyd">Lyd</a></li>
@@ -115,160 +161,282 @@
       </div>
     </header>
 
-    <main>
+    <main id="innhald">
       <!-- HERO -->
       <section class="glimt-hero">
         <div class="glimt-hero-inner">
           <div class="glimt-hero-copy hero-dawn">
             <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> inviterte deg til bålet sitt</div>
-            <div class="glimt-badge"><img src="../assets/img/apps/glimt.png" alt="Glimt" /> Glimt</div>
-            <h1><span class="h1-line">Livet går fort.</span><span class="h1-line ice">Hald fast på kvarandre.</span></h1>
+            <div class="glimt-badge"><img src="../assets/img/apps/glimt.png" alt="" width="22" height="22" /> Glimt</div>
+            <!-- Mellomrommet mellom dei to spana er med vilje: begge er display:block, så det syner ikkje,
+                 men utan det les skjermlesaren overskrifta som eitt samanklistra ord. -->
+            <h1><span class="h1-line">Eit roleg alternativ til Snapchat.</span> <span class="h1-line ice">For dei du er glad i.</span></h1>
             <p class="lede">
-              År for år er det lett å skli frå dei som betyr mest. Ikkje med vilje, livet berre tek over. Glimt er ein roleg liten stad for å vere ein del av kvarandre sine dagar igjen.
+              Du tek eit glimt, det går til dei du har valt, og så får det forsvinne. Ingen algoritme, ingen feed, ingen framande. Berre dei du sjølv har sagt ja til.
             </p>
-            <form class="waitlist" id="waitlist-form">
-              <input type="email" id="waitlist-email" placeholder="E-posten din" required autocomplete="email" />
-              <button type="submit"><span class="label">Bli med på ventelista</span></button>
-            </form>
-            <div>
-              <p class="waitlist-note" id="waitlist-note">Vi sender deg ein invitasjon når Glimt opnar. Ingen spam, lovnad.</p>
-              <div class="store-badges">
-                <a class="store-badge beta" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple"></i> Bli med i iOS-beta</a>
-                <span class="store-badge soon"><i class="fab fa-apple"></i> App Store · kjem snart</span>
-                <span class="store-badge soon"><i class="fab fa-google-play"></i> Google Play · kjem snart</span>
-              </div>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Bli med i iOS-betaen</a>
+              <a class="btn-ghost" href="#bli-med">Android, eller berre nysgjerrig? Skriv deg på lista</a>
             </div>
+            <p class="hero-note">Gratis medan Glimt er i beta, og <a href="#kva-det-kostar">gratis for alltid</a> for deg som er med før lanseringa.</p>
           </div>
           <div class="glimt-hero-phone">
-            <div class="phone">
-              <div class="phone-notch"></div>
-              <div class="phone-screen phone-screen--hero">
-                <div class="app-resting" aria-hidden="true">
-                  <img class="app-bear-img" src="../assets/img/apps/glimt.png" alt="Glimt" />
-                  <span class="app-word">Glimt</span>
-                  <span class="app-hint">eit roleg lite glimt ventar</span>
-                </div>
-              </div>
+            <div class="glimt-shot glimt-shot--lg">
+              <img src="/assets/img/glimt-moment.jpg" alt="Kameraet i Glimt-appen: eit bybilete i kveldslys med filmlooken på, klart til å bli sendt" width="1206" height="2622" fetchpriority="high" />
             </div>
           </div>
         </div>
       </section>
 
+      <!-- SLIK FUNGERER DET -->
+      <section class="glimt-steps" data-reveal>
+        <h2>Glimt på tjue sekund</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-n" aria-hidden="true">1</span>
+            <h3>Du tek eit glimt</h3>
+            <p>Med kameraet i appen. Du kan ikkje sende eit gammalt bilete frå kamerarullen, og det er med vilje. Eit glimt er noko som skjer no.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">2</span>
+            <h3>Det går til dei du har valt</h3>
+            <p>Ein ven, eit bål, eller berre deg sjølv, alt i éi sending. Du har tre sekund på å angre. Og har du ikkje nett, held appen fram med å prøve, ei heil veke om det trengst, og seier ærleg frå om han gir opp.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">3</span>
+            <h3>Så forsvinn det</h3>
+            <p>Med mindre du tek vare på det. Glimtet opnar seg éin gong, men det tel ikkje ned medan du ser: det blir ståande til du trykkjer det bort, så du rekk å vise det til den som sit ved sida av deg.</p>
+          </li>
+        </ol>
+      </section>
 
-      <!-- STORY -->
-      <section class="glimt-story" data-reveal>
-        <p>
-          Vi har aldri vore meir «kopla saman», og likevel meir åleine. Feeden er full av framande, men dei næraste blir borte i støyen. Glimt snur det: <span class="ice">ingen algoritme, ingen feed, ingen framande.</span> Berre venene du faktisk har valt, og små augneblinkar som får forsvinne, eller bli verande, akkurat som du vil.
+      <!-- TRYGT FOR BORN OG UNGE -->
+      <section class="glimt-safety" data-reveal>
+        <span class="feature-kicker">Tryggleik</span>
+        <h2>Trygt for born og unge</h2>
+        <p class="section-lede">
+          Vernet her er ikkje ei innstilling ein forelder må finne fram til. Det er måten appen er bygd på: Glimt har ingen stad der framande kan møte barnet ditt.
+        </p>
+
+        <blockquote class="pull-quote">
+          <p>«Det finst ingen måte for ein overgripar å nå eit barn dei ikkje alt kjenner.»</p>
+          <cite>Frå <a href="/glimt/child-safety">retningslinjene for barnetryggleik</a></cite>
+        </blockquote>
+
+        <ul class="safe-grid">
+          <li>
+            <h3>Berre vener</h3>
+            <p>Du kan berre få eit glimt frå nokon du har godteke venneførespurnaden til. Det finst ingen meldingar frå framande.</p>
+          </li>
+          <li>
+            <h3>Ingen feed, inga oppdaging</h3>
+            <p>Ingen kan bla seg fram til barnet ditt, få det tilrådd, eller snuble over det. Folk blir funne berre ved nøyaktig brukarnamn, av nokon som alt veit kva dei heiter.</p>
+          </li>
+          <li>
+            <h3>13 år</h3>
+            <p>Du må oppgi fødselsdato når du lagar konto. Er du yngre, blir kontoen aldri laga.</p>
+          </li>
+          <li>
+            <h3>Rapporter, og få svar</h3>
+            <p>Alt kan rapporterast inne i appen, med fire grunnar å velje mellom. Eg svarar innan 24 timar, og gjentekne rapportar gøymer ein konto med ein gong.</p>
+          </li>
+          <li>
+            <h3>Blokkering som held</h3>
+            <p>Ei blokkering gjeld begge vegar og blir handheva i databasen, ikkje berre gøymd i appen. Varsla stoppar òg.</p>
+          </li>
+          <li>
+            <h3>Lås, og slett</h3>
+            <p>Du kan låse appen med Face ID eller fingeravtrykk, og du kan slette heile kontoen sjølv, frå Innstillingar.</p>
+          </li>
+        </ul>
+
+        <p class="note">
+          Ærleg om det som ikkje er ferdig: Glimt kan sløre nakenbilete automatisk på telefonen, men det verkar berre på iPhone, og berre med Apple si varsling for sensitivt innhald slått på i iOS-innstillingane. På Android kjem det seinare. Betre at du høyrer det frå meg enn at du oppdagar det sjølv.
         </p>
       </section>
 
-      <!-- FEATURES -->
+      <!-- BÅL OG VEKEGLIMT -->
       <section class="glimt-features">
         <article class="feature reveal-up" data-reveal>
           <div class="feature-text">
-            <span class="feature-kicker">Glimt</span>
-            <h2>Flyktige, men dine å behalde</h2>
-            <p>Del eit lite glimt frå dagen din. Dei fleste får forsvinne så snart dei er sett, men dei du er glad i tek du vare på, i din eigen sky. Ingen feed å scrolle, ingen likes å jage, ingen press om å prestere.</p>
-          </div>
-          <div class="feature-phone">
-            <div class="glimt-shot"><img src="/assets/img/glimt-moment.jpg" alt="Eit glimt på veg til å bli fanga i Glimt-appen, med Fjord-looken" /></div>
-          </div>
-        </article>
-
-
-        <article class="feature feature--reverse reveal-up" data-reveal>
-          <div class="feature-text">
             <span class="feature-kicker">Bål</span>
-            <h2>Samle dei næraste rundt bålet</h2>
-            <p>Éin gong i veka deler du eit lite vekeglimt med dei aller næraste. Eit roleg ritual, så de held fram med å vere ein del av kvarandre sine veker, ikkje berre kvarandre sine minne.</p>
+            <h2>Eitt bål, éin gong i veka</h2>
+            <p>Eit bål er ei lita gruppe du gir eit namn og inviterer dei næraste inn i. De vel ein dag i veka. Den dagen deler alle eit vekeglimt, eit lite glimt av veka som var.</p>
+            <p>Alle bål i verda får det same temaet den same veka. «Noko som fekk deg til å smile.» «Utsikta di akkurat no.» Og eigne tema til jul, nyttår, 17. mai og sankthans. Du treng ikkje svare på temaet, og du treng ikkje dele i det heile. Bålet brenn vidare uansett.</p>
           </div>
           <div class="feature-phone">
             <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><div class="campfire" aria-hidden="true"><span class="fire-glow"></span><span class="flame outer"></span><span class="flame inner"></span><span class="logs"></span></div><span class="ember-ring" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div></div>
           </div>
         </article>
 
-        <article class="feature reveal-up" data-reveal>
-          <div class="feature-text">
-            <span class="feature-kicker">Privat</span>
-            <h2>Ende-til-ende-kryptert. På ekte.</h2>
-            <p>Kvart glimt blir kryptert på telefonen din før det blir sendt. Berre venen din kan opne det, ikkje vi, ikkje nokon andre. Det vi lagrar er uleseleg for oss.</p>
+        <div class="ritual-notes" data-reveal>
+          <div class="ritual-card">
+            <h3>Fem måtar å svare på, alle like gode</h3>
+            <ul class="modes">
+              <li><b>Film</b> ein liten video</li>
+              <li><b>Foto</b> eitt bilete</li>
+              <li><b>Ord</b> nokre setningar</li>
+              <li><b>Stemme</b> sei det høgt</li>
+              <li><b>Teikn</b> med fingeren</li>
+            </ul>
+            <p>Dei to siste er der med vilje. Ein sjuåring eller ein sjenert femtenåring skal kunne vere med utan å vise andletet sitt.</p>
           </div>
-          <div class="feature-phone">
-            <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><svg class="lock-svg" viewBox="0 0 64 80" aria-hidden="true"><path class="lock-shackle" d="M20 58 V30 a12 12 0 0 1 24 0 V42" /><rect class="lock-body" x="14" y="40" width="36" height="30" rx="7" /><circle class="lock-hole" cx="32" cy="52" r="3.5" /><rect class="lock-hole" x="30.3" y="52" width="3.4" height="9" rx="1.7" /></svg></div></div>
-          </div>
-        </article>
 
+          <div class="ritual-card">
+            <h3>Ingen streaks, ingen toppliste</h3>
+            <p>Reaksjonar er synlege, du ser kven som reagerte med kva, men dei blir aldri talde eller rangerte. Du mistar ingenting om du hoppar over ei veke. Det einaste talet i appen er kor mange glimt de har delt, vist som ein isbjørn som endrar seg litt ved 5, 30, 150 og 750. Og du kan teikne din eigen avatar med fingeren.</p>
+          </div>
+
+          <div class="ritual-card">
+            <h3>Bålet lyser opp dei som sit der no</h3>
+            <p>Er du inne i bålet, ser dei andre at du sit der. Går du ut, er du borte. Ingenting blir skrive ned, ingen «var her for fem minutt sidan», og ingen grøn prikk nokon stad i appen. Det går begge vegar, så du kan ikkje sjå andre utan at dei ser deg, og du får aldri eit varsel om at nokon er der.</p>
+          </div>
+
+          <div class="ritual-card ritual-card--wide">
+            <h3>Seier du det høgt, blir det skrive ned</h3>
+            <p>Tek du vekeglimtet med stemma, skriv telefonen ned det du sa. På sjølve telefonen, med NB-Whisper, modellen til Nasjonalbiblioteket, trena på 22 000 timar norsk. Ingenting blir sendt ut av telefonen for å bli tolka.</p>
+            <p>Teksten blir forsegla og følgjer lyden. Så ein som høyrer dårleg eller ingenting, treng verken modell, språkstøtte eller ein kraftig telefon: orda er berre der når glimtet kjem. Det verkar på både iPhone og Android, og du kan trykkje på ei linje og rette henne.</p>
+          </div>
+        </div>
+
+        <!-- FILMLOOKEN -->
         <article class="feature feature--film reveal-up" data-reveal>
           <div class="feature-text">
-            <span class="feature-kicker">Film</span>
-            <h2>Ekte filmlook, ikkje eit filter</h2>
-            <p>Telefonkamera er for reine og perfekte. Glimt gir bileta og videoane dine ein varm, analog filmlook med ekte filmkorn, baka rett inn medan du filmar. Det du ser er det du får, som eit ekte filmkamera. Og du har alltid kontrollen: vel looken din, eller film heilt reint.</p>
+            <span class="feature-kicker">Kamera</span>
+            <h2>Ein ekte filmlook, ikkje eit filter</h2>
+            <p>Mobilkamera har blitt for reine. Glimt har tre filmsimuleringar: <b>Fjord</b>, lys og luftig. <b>Glør</b>, varm og gyllen. <b>Kol</b>, svartkvit. Dei er ikkje lasta ned nokon stad, eg rekna dei ut frå mine eigne RAW- og JPEG-par frå eit Fujifilm X100VI.</p>
+            <p>Looken ligg på skjermen medan du filmar, og det er nøyaktig den same looken som hamnar i fila. På både iPhone og Android, på bilete og på kvar einaste ramme av ein video. Vil du ikkje ha fargen, kan du slå han av og halde på kornet og gløden i høglysa, eller filme heilt reint.</p>
           </div>
-          <div class="film-slider">
+          <div class="film-slider" data-alt-template="Same biletet med {look}-looken">
             <div class="film-stage">
-              <img class="film-after" src="/assets/img/film-loen-fjord.jpg" alt="Med Fjord-look" />
-              <div class="film-before"><img src="/assets/img/film-loen-raw.jpg" alt="Rå, utan look" /></div>
+              <img class="film-after" src="/assets/img/film-loen-fjord.jpg" alt="Same biletet med Fjord-looken" width="800" height="1200" loading="lazy" />
+              <div class="film-before"><img src="/assets/img/film-loen-raw.jpg" alt="Rått bilete frå kameraet, utan look" width="800" height="1200" loading="lazy" /></div>
               <div class="film-line" aria-hidden="true"><span class="film-knob"></span></div>
               <span class="film-tag film-tag--l">Rå</span>
               <span class="film-tag film-tag--r">Fjord</span>
-              <input class="film-range" type="range" min="0" max="100" value="52" aria-label="Dra for å samanlikne rå og look" />
+              <input class="film-range" type="range" min="0" max="100" value="52" aria-label="Dra for å samanlikne rått bilete og look" />
             </div>
             <div class="film-pills">
-              <button class="film-pill is-active" type="button" data-look="fjord" data-name="Fjord">Fjord</button>
-              <button class="film-pill" type="button" data-look="glor" data-name="Glør">Glør</button>
-              <button class="film-pill" type="button" data-look="kol" data-name="Kol">Kol</button>
+              <button class="film-pill is-active" type="button" aria-pressed="true" data-look="fjord" data-name="Fjord">Fjord</button>
+              <button class="film-pill" type="button" aria-pressed="false" data-look="glor" data-name="Glør">Glør</button>
+              <button class="film-pill" type="button" aria-pressed="false" data-look="kol" data-name="Kol">Kol</button>
             </div>
           </div>
-          <script>
-            (function () {
-              var s = document.querySelector('.film-slider'); if (!s) return;
-              var range = s.querySelector('.film-range'), before = s.querySelector('.film-before'),
-                  line = s.querySelector('.film-line'), after = s.querySelector('.film-after'),
-                  tagR = s.querySelector('.film-tag--r'), pills = s.querySelectorAll('.film-pill');
-              function setPos(v) { before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; line.style.left = v + '%'; }
-              range.addEventListener('input', function () { setPos(+range.value); });
-              setPos(+range.value);
-              pills.forEach(function (p) {
-                p.addEventListener('click', function () {
-                  pills.forEach(function (q) { q.classList.remove('is-active'); });
-                  p.classList.add('is-active');
-                  after.src = '/assets/img/film-loen-' + p.dataset.look + '.jpg';
-                  after.alt = 'Med ' + p.dataset.name + '-look';
-                  tagR.textContent = p.dataset.name;
-                });
-              });
-            })();
-          </script>
         </article>
       </section>
 
+      <!-- DITT, IKKJE VÅRT -->
+      <section class="glimt-privacy" data-reveal>
+        <span class="feature-kicker">Personvern</span>
+        <h2>Ditt, ikkje vårt</h2>
+        <p class="section-lede">
+          Glimta dine, tekstane du skriv på dei og vekeglimta er ende-til-ende-krypterte. Kvart glimt blir kryptert på telefonen din før det blir sendt, og forsegla for kvar einaste eining venen din har. X25519 og XSalsa20-Poly1305. Eg kan ikkje opne dei.
+        </p>
 
-      <!-- VALUES -->
-      <section class="glimt-values">
-        <h2>Bygd for deg, ikkje for annonsørar</h2>
-        <ul class="values-grid" data-reveal>
-          <li><i class="fa-solid fa-eye-slash"></i><h3>Inga sporing</h3><p>Vi sporar deg ikkje på tvers av appar eller nett. Aldri.</p></li>
-          <li><i class="fa-solid fa-ban"></i><h3>Ingen reklame</h3><p>Ingen reklame, ingen algoritme som styrer kva du ser.</p></li>
-          <li><i class="fa-solid fa-lock"></i><h3>Ende-til-ende</h3><p>Innhaldet ditt er kryptert. Vi kan ikkje lese det.</p></li>
-          <li><i class="fa-solid fa-earth-europe"></i><h3>Europeisk</h3><p>Bygd i Noreg, GDPR i ryggrada, sel aldri dataa dine.</p></li>
-        </ul>
+        <div class="priv-grid">
+          <div class="priv-card">
+            <h3>Og du mistar dei ikkje</h3>
+            <p>Kryptering pleier å bety at alt er borte om telefonen er borte. Ikkje her. Vel eit passord, så følgjer glimta med til den neste telefonen. Eller gjer ingenting: iCloud-nøkkelringen og Google Block Store ber nøkkelen over for deg, utan at du merkar det. Eg kan framleis ikkje lese noko av det.</p>
+          </div>
+          <div class="priv-card">
+            <h3>Får ein ven ny telefon, seier appen frå</h3>
+            <p>Byter nokon telefon eller installerer på nytt, får du beskjed om at nøkkelen deira er ny, så du kan sjekke med dei at det verkeleg er dei. Signal gjer det same. Snapchat og BeReal gjer det ikkje.</p>
+          </div>
+          <div class="priv-card">
+            <h3>Tek du vare på eit glimt, blir det ditt</h3>
+            <p>Det finst ingen Glimt-sky. Vel du å ta vare på eit glimt, blir det lagra i eit «Glimt»-album i bileta på telefonen din. Har du iCloud-bilder eller Google Foto på, blir det sikkerheitskopiert der, hjå deg, ikkje hjå meg. Namnet på den som sende det, blir skrive inn i sjølve biletfila (EXIF), så du veit kven det var frå, lenge etterpå. Og den som sende det, får vite at du tok vare på det, akkurat som med eit skjermbilete.</p>
+          </div>
+          <div class="priv-card">
+            <h3>Inga sporing, ingen reklame, i Europa</h3>
+            <p>Det finst ikkje eit einaste analyse- eller reklameverktøy i prosjektet. Ikkje avslått, ikkje der. Alt ligg i Europa, i Norden, hjå Supabase. Bygd i Noreg.</p>
+          </div>
+        </div>
+
+        <p class="note">
+          Presist sagt: reaksjonar og dei korte ordsvara ligg lagra som vanleg tekst, resten er forsegla. Det står òg i <a href="/glimt/privacy">personvernerklæringa</a>.
+        </p>
       </section>
 
-      <!-- FINAL CTA -->
-      <section class="glimt-cta">
+      <!-- KVEN STÅR BAK -->
+      <section class="glimt-maker" data-reveal>
+        <div class="maker-photo">
+          <img src="/assets/img/Pål-bjønnef.jpg" alt="Pål Omland Eilevstjønn, som lagar Glimt" width="1200" height="2130" loading="lazy" />
+        </div>
+        <div class="maker-text">
+          <span class="feature-kicker">Kven står bak</span>
+          <h2>Ein student i Oslo</h2>
+          <p>Eg heiter Pål. Eg går andre året på frontend-utvikling, er frå Vinje i Telemark og bur i Oslo. Glimt er ikkje eit selskap, det er meg, ein kveld om gongen.</p>
+          <p>Det er òg grunnen til at eg tør å love at ingen kjøper deg her: det finst ingen andre å svare til. Appen finst på nynorsk og engelsk.</p>
+          <p>Lurer du på noko, eller vil du seie frå om noko som ikkje verkar, så skriv til <a href="mailto:paal@dynni.no">paal@dynni.no</a>. Eg les alt sjølv. <a href="/om-meg">Meir om meg</a>.</p>
+        </div>
+      </section>
+
+      <!-- KVA DET KOSTAR -->
+      <section class="glimt-price" id="kva-det-kostar" data-reveal>
+        <span class="feature-kicker">Pris</span>
+        <h2>Kva det kostar</h2>
+        <p>Ingenting, akkurat no. Alt i appen er gratis medan Glimt er i beta.</p>
+        <p>Seinare blir nokre ting, mellom anna det å ta vare på glimt, ein del av <b>Glimt+</b>, som kjem til å koste pengar. <strong class="ice">Er du med før lanseringa, har du dei tinga gratis, for alltid.</strong> Du treng ikkje gjere noko for det, og du treng ikkje hugse det.</p>
+        <p>Eg seier det no, og ikkje etterpå, fordi ein lovnad du får på førehand og ein funksjon som blir teken frå deg, kjennest som to heilt ulike ting. Skilnaden er berre om nokon sa frå i tide. Og skal Glimt ein gong tene pengar, blir det på at nokon betaler for appen, ikkje på at nokon betaler for deg.</p>
+      </section>
+
+      <!-- OFTE SPURT -->
+      <section class="glimt-faq" data-reveal>
+        <h2>Ofte spurt</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Kven kan sjå glimta til barnet mitt?</h3>
+            <p>Berre dei barnet ditt har lagt til som vener, og som barnet sjølv har godteke. Ingen andre, ikkje eg heller. Kvart glimt blir kryptert på telefonen før det blir sendt.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Kan framande ta kontakt?</h3>
+            <p>Nei. Det finst ingen feed, inga oppdaging og ingen tilrådingar. Ein må vite det nøyaktige brukarnamnet, og den andre må seie ja til venneførespurnaden.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Kva skjer med bileta?</h3>
+            <p>Dei fleste forsvinn når dei er sette. Vel nokon å ta vare på eitt, blir det lagra i bileta på deira eigen telefon, og den som sende det får beskjed, akkurat som med eit skjermbilete.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Kva alder er Glimt for?</h3>
+            <p>13 år og oppover. Du må oppgi fødselsdato når du lagar konto, og er du yngre, blir kontoen aldri laga.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Kva om telefonen blir borte?</h3>
+            <p>Vel du eit passord i appen, kjem glimta tilbake på ein ny telefon. Gjer du ingenting, ber iCloud-nøkkelringen eller Google Block Store nøkkelen over av seg sjølv.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Kva kostar det?</h3>
+            <p>Ingenting no. Nokre ting blir seinare ein del av Glimt+, men alle som er med før lanseringa får dei gratis for alltid.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLI MED -->
+      <section class="glimt-cta" id="bli-med">
         <h2>Bli med frå starten</h2>
-        <p>Vi opnar Glimt for nokre få om gongen. Skriv deg på, så er du blant dei første.</p>
-        <form class="waitlist" id="waitlist-form-2">
-          <input type="email" id="waitlist-email-2" placeholder="E-posten din" required autocomplete="email" />
-          <button type="submit"><span class="label">Bli med på ventelista</span></button>
+        <p>iOS-betaen er open no. Er du på Android, eller vil du berre vente litt, så skriv deg på lista.</p>
+        <p class="cta-actions">
+          <a class="btn-primary" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Bli med i iOS-betaen</a>
+        </p>
+        <form class="waitlist" id="waitlist-form"
+              data-msg-ok="Takk! Du er på lista. Eg seier frå når Glimt opnar. 🐻‍❄️"
+              data-msg-dupe="Du er alt på lista. Takk! 🐻‍❄️"
+              data-msg-error="Noko gjekk gale. Prøv igjen, eller send ein e-post til paal@dynni.no.">
+          <label class="sr-only" for="waitlist-email">E-posten din</label>
+          <input type="email" id="waitlist-email" placeholder="E-posten din" required autocomplete="email" />
+          <button type="submit">Skriv meg på lista</button>
         </form>
-        <p class="waitlist-note" id="waitlist-note-2"></p>
+        <p class="waitlist-note" id="waitlist-note">Alle som er med før lanseringa, får dei betalte funksjonane gratis for alltid. Eg sender ein e-post når Glimt opnar, og ikkje noko anna. Det lovar eg.</p>
+        <div class="store-badges">
+          <span class="store-badge soon"><i class="fab fa-apple" aria-hidden="true"></i> App Store · kjem snart</span>
+          <span class="store-badge soon"><i class="fab fa-google-play" aria-hidden="true"></i> Google Play · kjem snart</span>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="footer-content">
-        <p class="copyright">© DYNNI 2026 — <a href="/kontakt">Kontakt</a></p>
+        <p class="copyright">© DYNNI 2026 · <a href="/kontakt">Kontakt</a></p>
         <p class="glimt-footer-links">
           <a href="/glimt/privacy">Personvern</a> ·
           <a href="/glimt/terms">Vilkår</a> ·
@@ -277,56 +445,5 @@
         </p>
       </div>
     </footer>
-
-    <script>
-      (function () {
-        var SUPABASE_URL = 'https://khhjqjtmhybwfrkhttoa.supabase.co';
-        var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoaGpxanRtaHlid2Zya2h0dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE5NDA4NjYsImV4cCI6MjA5NzUxNjg2Nn0.Xu1UKzzJzg2dO-4BdENCpVNQ4jJFUw9Iz4qOLb1NMCQ';
-
-        function join(email) {
-          return fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-            method: 'POST',
-            headers: {
-              'apikey': SUPABASE_ANON,
-              'Authorization': 'Bearer ' + SUPABASE_ANON,
-              'Content-Type': 'application/json',
-              'Prefer': 'return=minimal'
-            },
-            body: JSON.stringify({ email: email })
-          });
-        }
-
-        function wire(formId, noteId) {
-          var form = document.getElementById(formId);
-          if (!form) return;
-          var note = document.getElementById(noteId);
-          form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var input = form.querySelector('input[type="email"]');
-            var email = (input.value || '').trim();
-            if (!email) return;
-            form.classList.add('busy');
-            join(email).then(function (res) {
-              form.classList.remove('busy');
-              if (res.ok) {
-                form.classList.add('done');
-                if (note) note.textContent = 'Takk! Du er på lista. Vi seier frå når Glimt opnar. 🐻‍❄️';
-                input.value = '';
-              } else if (res.status === 409) {
-                if (note) note.textContent = 'Du er allereie på lista. Takk! 🐻‍❄️';
-              } else {
-                if (note) note.textContent = 'Noko gjekk gale. Prøv igjen, eller send ein e-post til paal@dynni.no.';
-              }
-            }).catch(function () {
-              form.classList.remove('busy');
-              if (note) note.textContent = 'Noko gjekk gale. Prøv igjen, eller send ein e-post til paal@dynni.no.';
-            });
-          });
-        }
-
-        wire('waitlist-form', 'waitlist-note');
-        wire('waitlist-form-2', 'waitlist-note-2');
-      })();
-    </script>
   </body>
 </html>

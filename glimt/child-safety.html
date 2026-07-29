@@ -62,39 +62,64 @@
       </nav>
     </header>
 
+    <!--
+      MIRROR, NOT SOURCE. The canonical Glimt child safety standards are docs/child-safety-policy.md in
+      the glimt-native repo, because that copy ships in the app and in App Store / Google Play metadata.
+      Edit the markdown first, then mirror it here AND in en/glimt/child-safety.html (English). All three
+      carry the same version below, so a drift is visible with one grep.
+      Policy version: 2026-07-29
+
+      This page must stay structurally identical to en/glimt/child-safety.html: same sections, same order.
+    -->
     <main class="privacy-content">
       <h1>Glimt — Barnetryggleik</h1>
-      <p class="last-updated">Sist oppdatert: 22. juni 2026</p>
+      <p class="last-updated">Sist oppdatert: 29. juli 2026 · Versjon: 2026-07-29</p>
 
-      <p>Glimt har <strong>null toleranse</strong> for seksuelle overgrep mot og utnytting av born (CSAE), og for all bruk av appen til å sende upassande innhald til mindreårige. Denne sida skildrar tiltaka vi har, slik App Store og Google Play krev.</p>
+      <p>Glimt har <strong>null toleranse</strong> for seksuelle overgrep mot og utnytting av born (CSAE), og for all bruk av appen til å sende upassande innhald til mindreårige. Denne sida skildrar standardane og tiltaka vi har, slik App Store og Google Play krev.</p>
+      <p>Alt under skildrar det appen faktisk gjer i dag. Der eit vern er delvis, eller framleis under arbeid, står det like tydeleg som det som er ferdig. Ei publisert retningslinje som overdriv sitt eige produkt, er verre enn ei som vedgår eit hol. Ein forelder som stolar på henne, kan då ikkje vite kva setningar som held.</p>
 
       <h2>Det strukturelle vernet: ingen kontakt med framande</h2>
       <p>Det mest effektive vernet er bygd inn i korleis Glimt fungerer:</p>
       <ul>
-        <li><strong>Berre vener.</strong> Du kan berre få eit glimt frå nokon du har godteke venneførespurnaden til. Det finst ingen meldingar frå framande.</li>
-        <li><strong>Inga oppdaging, ingen open feed, ingen algoritme.</strong> Ingen kan bla seg fram til, bli tilrådd, eller kontakte tilfeldige brukarar. Det finst ingen måte for ein overgripar å nå eit barn dei ikkje alt kjenner og som ikkje har godteke dei.</li>
+        <li><strong>Berre vener.</strong> Du kan berre få eit glimt frå nokon du har godteke veneførespurnaden til. Det finst ingen meldingar frå framande.</li>
+        <li><strong>Inga oppdaging, ingen open feed, ingen algoritme.</strong> Ingen kan bla seg fram til, bli tilrådd, eller kontakte tilfeldige brukarar. Det finst ingen måte for ein overgripar å nå eit barn som ikkje alt kjenner han og ikkje har godteke han.</li>
         <li><strong>Ingen opne profilar.</strong> Brukarar blir funne berre via nøyaktig brukarnamn, ved at folk legg kvarandre til.</li>
       </ul>
       <p>Dette fjernar den fremste grooming-vegen som finst på opne sosiale plattformer.</p>
 
       <h2>Aldersgrense</h2>
-      <p>Brukarar må oppgi fødselsdato ved registrering og vere minst 13 år (eller høgare der lokal lov krev det, t.d. 16 i nokre land). For unge registreringar blir blokkerte før ein konto blir laga.</p>
+      <ul>
+        <li>Brukarar må oppgi fødselsdato ved registrering og vere minst <strong>13 år</strong> (og oppfylle ei høgare lokal grense der det trengst, t.d. 16 der det er kravet, som i Australia).</li>
+        <li>For å vere nøyaktig om rekkjefølgja: innlogging lagar fyrst ei autentiseringsoppføring, og alderssjekken skjer i steget rett etter, før ein <strong>profil</strong> blir laga. Ein fødselsdato under grensa stoppar profilen, så personen får aldri eit brukarnamn. Utan brukarnamn kan kontoen ikkje søkjast opp, kan korkje sende eller godta ein veneførespurnad, og kan ikkje sende eller ta imot noko som helst. Eit for ungt svar blir difor aldri ein brukande konto, men vi skildrar heller mekanismen enn å påstå at ingenting i det heile blir laga.</li>
+      </ul>
 
       <h2>Rapportering og blokkering</h2>
       <ul>
-        <li>Kvar brukar kan <strong>blokkere</strong> og <strong>rapportere</strong> ein annan brukar eller eit konkret glimt inne i appen.</li>
-        <li>Sidan innhaldet er ende-til-ende-kryptert, legg ein rapport <strong>ved det dekrypterte innhaldet som bevis</strong> (lasta opp av eininga til den som rapporterer, til ein privat moderasjons-lagerplass), så moderatorane våre faktisk kan vurdere det, utan å svekke krypteringa for andre.</li>
+        <li>Kvar brukar kan <strong>blokkere</strong> og <strong>rapportere</strong> ein annan brukar: frå venelista, frå innboksen, og frå medlemslista i kvart bål dei er med i.</li>
+        <li>Ei blokkering blir <strong>handheva av databasen</strong>, på kvar lesing og kvar skriving, så ein gamal eller endra app kjem ikkje utanom. Ho gjeld begge vegar og dekkjer alt dei to elles kunne nå kvarandre gjennom: ingen glimt, ingen delt bål-augneblink, ingen vekeglimt, ingen reaksjon, og <strong>ingen varsel</strong>, så namnet til den blokkerte kan aldri dukke opp på låseskjermen til den andre. Ho gjeld òg ting som alt er sendt og ikkje opna, og dei to kontoane kan ikkje bli vener att medan blokkeringa står.</li>
+        <li>Kva ei blokkering <strong>ikkje</strong> gjer, sagt rett ut av same grunn som utestenging-bolken under seier det: ho tek ingen av dei ut av eit bål dei begge høyrer til, og ho stoppar ikkje nokon av dei frå å dele med alle dei andre ved det bålet. Inne i det bålet sluttar kvar av dei rett og slett å eksistere for den andre: dei står ikkje i lista til den andre, dei er ikkje tende ved bålet, og ingenting dei legg ut når fram til den som blokkerte. Kven som helst av dei kan gå ut av bålet, og eigaren av bålet kan fjerne eit medlem.</li>
+        <li>Alt innhald ein brukar kan leggje ut, kan rapporterast frå skjermen det spelar på, ved å halde fingeren inne på det. Det dekkjer alle tre: glimtet mellom to, den delte bål-augneblinken (som opnar i same visaren), og vekeglimtet, anten det er ein video, eit foto, ei talemelding eller ein skriven refleksjon.</li>
+        <li>Sidan innhaldet er ende-til-ende-kryptert, legg ein rapport <strong>ved det dekrypterte innhaldet som bevis</strong> (lasta opp av eininga til den som rapporterer, til ein privat moderasjons-lagerplass), så moderatorane våre faktisk kan vurdere det, utan å svekke krypteringa for andre. Kvar rapport noterer òg kva slags innhald det gjaldt, så ein moderator finn samanhengen.</li>
       </ul>
 
       <h2>Moderering og respons</h2>
       <ul>
-        <li>Rapporterte kontoar blir <strong>gøymde automatisk</strong> når dei er rapporterte av fleire ulike brukarar, så skadeleg innhald blir fjerna frå omløp <strong>med ein gong</strong>, godt innanfor 24-timars-kravet.</li>
-        <li>Rapportar og bevis blir vurderte. Stadfesta CSAE fører til <strong>umiddelbar avslutting av kontoen</strong> og <strong>bevaring + melding til rette styresmakt</strong> (Kripos i Noreg, NCMEC i USA, og tilsvarande andre stader).</li>
+        <li>Kvar rapport <strong>varslar ein moderator med ein gong</strong>, på telefonen og i moderasjons-kanalen vår, så éin truverdig rapport kan handterast for hand godt innanfor dei 24 timane kravet set.</li>
+        <li>Ein konto som blir rapportert av <strong>tre ulike brukarar</strong>, blir utestengd automatisk, utan å vente på eit menneske. Utestenginga blir handheva av databasen på kvar skriving, så ein gamal eller endra app kjem ikkje utanom, og ho <strong>stoppar kontoen frå å leggje ut noko nytt</strong>: ingen glimt, ingen bål-augneblink, ingen vekeglimt.</li>
+        <li>Kva ei utestenging <strong>ikkje</strong> gjer i dag, sagt rett ut fordi det tel meir at dette er presist enn at det høyrest komplett ut: profilen til ein utestengd konto er framleis synleg for dei som alt har han som ven, han står framleis som medlem i bål han alt hadde blitt med i, og eit glimt han sende før utestenginga og som ingen har opna, kan framleis opnast. Automatisk utestenging stoppar det neste innhaldet, ikkje det som alt er undervegs. Å ta ein konto heilt ned, saman med innhaldet og det som ligg og ventar på å bli sendt, er eit steg ein moderator gjer for hand, og det er steget vi tek for alt som gjeld CSAE. Å få den automatiske utestenginga til å gjere alt dette i éin operasjon er arbeid vi held på med.</li>
+        <li>Rapportar og bevis blir vurderte med moderasjons-verktøya våre. Stadfesta CSAE fører til <strong>omgåande avslutting av kontoen</strong> og <strong>bevaring + melding til rette styresmakt</strong> (NCMEC i USA, Kripos i Noreg, og tilsvarande andre stader).</li>
         <li>Flyktig av design: glimt blir sletta etter visning og uopna innhald blir sletta automatisk, så materiale ikkje kan vare lenge.</li>
       </ul>
 
-      <h2>På-eininga-tryggleik (kjem)</h2>
-      <p>Vi legg til <strong>deteksjon av sensitivt innhald på sjølve eininga</strong> (Apple SensitiveContentAnalysis / tilsvarande på Android) for å sløre og åtvare mot nakenheit, særleg for mindreårige, heilt på eininga, så det vernar born <strong>utan</strong> å sende innhald til ein server eller bryte ende-til-ende-krypteringa.</p>
+      <h2>Tryggleik på eininga: sløring av nakenheit før eit barn ser det</h2>
+      <p><strong>Deteksjon av sensitivt innhald på sjølve eininga er live.</strong> Glimt sjekkar eit foto eller ein video for nakenheit på telefonen sjølv og slører det bak ei åtvaring som personen må velje å sjå forbi. Det vernar eit barn <strong>utan</strong> at innhaldet til nokon blir sendt til ein server, og utan å bryte ende-til-ende-krypteringa: ingenting blir lasta opp for sjekken, ingen resultat blir lagra, og ingenting om det når oss.</p>
+      <p>Sjekken køyrer på telefonen til den som <strong>tek imot</strong>, når glimtet blir opna. Det er med vilje, og det er regelen vi vernar om framfor alt anna på dette området: sjekken hos mottakaren er den einaste autoriteten, og det finst ingen veg der ein avsendar kan merke noko som alt sjekka og med det hoppe over sjekken.</p>
+      <p>Kvar det verkar, sagt nøyaktig:</p>
+      <ul>
+        <li><strong>iPhone: ja</strong>, på <strong>iOS 17 eller nyare</strong>, og berre når <strong>«Sensitive Content Warning» er slått på i iOS-innstillingane</strong>. Apple låser analysatoren sin bak den brytaren, så vi kan ikkje slå han på for deg. På telefonen til eit barn kan ein forelder slå han på gjennom Skjermtid, og på ein barnekonto er han som regel på frå før. Er brytaren av, slører ikkje Glimt.</li>
+        <li><strong>Android: ikkje enno.</strong> Dette er ein planlagd seinare fase, ikkje ein forgløymd detalj: det krev ein modell som ligg i appen og køyrer på eininga (TFLite), så Android får det same: alt skjer på eininga og ingenting forlèt telefonen, i staden for ein sjekk i skya som ville brote ende-til-ende-krypteringa. Til han er klar, slører eller åtvarar ikkje ein Android-telefon. Vi seier heller det rett ut enn å la ei vag setning gi inntrykk av eit vern som ikkje finst.</li>
+      </ul>
+      <p>Alt anna på denne sida, ikkje minst at du berre kan få glimt frå vener, vernar eit barn like godt på begge plattformene.</p>
 
       <h2>Kontakt</h2>
       <p>Bekymringar om barnetryggleik og førespurnader frå politi: <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>

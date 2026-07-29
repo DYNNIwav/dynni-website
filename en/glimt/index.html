@@ -5,10 +5,10 @@
     <script>document.documentElement.classList.add('js')</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <title>Glimt — Hold on to each other | DYNNI</title>
-    <meta name="title" content="Glimt — Hold on to each other | DYNNI" />
-    <meta name="description" content="Glimt is a calm, private alternative to Snapchat. Share glimt that disappear, gather your closest around a weekly bål. End-to-end encrypted, no ads, no algorithm." />
-    <meta name="keywords" content="Glimt, Snapchat alternative, private, end-to-end encrypted, app, iOS, Android, DYNNI, Pål Omland Eilevstjønn" />
+    <title>Glimt, a calm and private alternative to Snapchat | DYNNI</title>
+    <meta name="title" content="Glimt, a calm and private alternative to Snapchat | DYNNI" />
+    <meta name="description" content="Glimt is a calm, private alternative to Snapchat. You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
+    <meta name="keywords" content="Glimt, Snapchat alternative, private, safe for kids, end-to-end encrypted, app, iOS, Android, DYNNI, Pål Omland Eilevstjønn" />
     <meta name="author" content="Pål Omland Eilevstjønn" />
     <meta name="robots" content="index, follow" />
 
@@ -18,11 +18,20 @@
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dynni.no/en/glimt" />
-    <meta property="og:title" content="Glimt — Hold on to each other" />
-    <meta property="og:description" content="A calm, private alternative to Snapchat. Glimt that disappear, a weekly bål, end-to-end encrypted." />
+    <meta property="og:title" content="Glimt, a calm and private alternative to Snapchat" />
+    <meta property="og:description" content="You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers. End-to-end encrypted, built in Norway." />
+    <!-- Share image: the app icon is square (1024x1024), so the cards have to ask for the square
+         format. Switch to twitter:card=summary_large_image the day a 1200x630 asset exists. -->
     <meta property="og:image" content="https://dynni.no/assets/img/apps/glimt.png" />
-    <meta property="og:locale" content="en" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="The Glimt icon, a polar bear" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="DYNNI" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Glimt, a calm and private alternative to Snapchat" />
+    <meta name="twitter:description" content="You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers." />
+    <meta name="twitter:image" content="https://dynni.no/assets/img/apps/glimt.png" />
 
     <link rel="icon" type="image/svg+xml" href="../../assets/img/logo/dynni-logo.svg" />
     <link rel="apple-touch-icon" href="../../assets/img/logo/dynni-logo.svg" />
@@ -36,10 +45,8 @@
     <link rel="stylesheet" href="../../css/glimt.css" />
 
     <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
-    <!-- Material Design Icons: the exact icon set the app uses (MaterialCommunityIcons), for the camera mockup UI. -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" />
-    <script src="../../scripts.js"></script>
-    <script src="../../js/glimt.js"></script>
+    <script src="../../scripts.js" defer></script>
+    <script src="../../js/glimt.js" defer></script>
 
     <script type="application/ld+json">
       {
@@ -48,20 +55,59 @@
         "name": "Glimt",
         "operatingSystem": "iOS, Android",
         "applicationCategory": "SocialNetworkingApplication",
-        "description": "A calm, private alternative to Snapchat. Glimt that disappear, a weekly bål, end-to-end encrypted.",
+        "description": "A calm, private alternative to Snapchat. You can only receive a glimt from a friend you accepted yourself. No feed, no algorithm, no strangers.",
         "author": { "@type": "Person", "name": "Pål Omland Eilevstjønn", "alternateName": "DYNNI" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NOK" }
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who can see my child's glimt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Only the friends your child added and accepted. Nobody else, not me either. Every glimt is encrypted on the phone before it is sent." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can strangers get in touch?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. There is no feed, no discovery and no recommendations. Someone has to know the exact username, and the other person has to accept the friend request." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to the pictures?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Most of them disappear once they have been seen. If someone chooses to keep one, it is saved to the photos on their own phone, and the sender is told, exactly like a screenshot." }
+          },
+          {
+            "@type": "Question",
+            "name": "What age is Glimt for?",
+            "acceptedAnswer": { "@type": "Answer", "text": "13 and up. You have to give your date of birth when you create an account, and if you are younger the account is never created." }
+          },
+          {
+            "@type": "Question",
+            "name": "What if the phone is lost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pick a password in the app and your glimt come back on a new phone. Do nothing at all, and iCloud Keychain or Google Block Store carries the key over on its own." }
+          },
+          {
+            "@type": "Question",
+            "name": "What does Glimt cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nothing right now. Some things will later be part of Glimt+, but everyone who joins before launch keeps them for free, permanently." }
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="glimt-page">
+    <a class="skip-link" href="#content">Skip to content</a>
     <canvas class="aurora-canvas" aria-hidden="true"></canvas>
     <div class="grain-layer" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
 
     <header class="site-header">
       <nav class="nav">
-        <a class="logo" href="../"><img src="../../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+        <a class="logo" href="../"><img src="../../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" width="140" height="200" /></a>
         <ul class="nav-links-main">
           <li><a href="../about">About</a></li>
           <li><a href="../sound">Sound</a></li>
@@ -91,7 +137,7 @@
         <div class="mobile-nav-overlay">
           <nav class="mobile-nav">
             <div class="mobile-nav-content">
-              <a class="logo" href="../"><img src="../../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" /></a>
+              <a class="logo" href="../"><img src="../../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" width="140" height="200" /></a>
               <ul class="nav-links-main">
                 <li><a href="../about">About</a></li>
                 <li><a href="../sound">Sound</a></li>
@@ -115,155 +161,282 @@
       </div>
     </header>
 
-    <main>
+    <main id="content">
+      <!-- HERO -->
       <section class="glimt-hero">
         <div class="glimt-hero-inner">
           <div class="glimt-hero-copy hero-dawn">
-            <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> invited you to their campfire</div>
-            <div class="glimt-badge"><img src="../../assets/img/apps/glimt.png" alt="Glimt" /> Glimt</div>
-            <h1><span class="h1-line">Life moves fast.</span><span class="h1-line ice">Hold on to each other.</span></h1>
+            <div class="invite-banner" id="invite-banner" hidden>🔥 <strong id="invite-name"></strong> invited you to their bål</div>
+            <div class="glimt-badge"><img src="../../assets/img/apps/glimt.png" alt="" width="22" height="22" /> Glimt</div>
+            <!-- The space between the two spans is deliberate: both are display:block so it never shows,
+                 but without it a screen reader reads the heading as one run-on word. -->
+            <h1><span class="h1-line">A calm alternative to Snapchat.</span> <span class="h1-line ice">For the people you love.</span></h1>
             <p class="lede">
-              Year by year it's easy to drift from the people who matter most. Not on purpose, life just takes over. Glimt is a calm little place to be part of each other's days again.
+              You take a glimt, it goes to the people you chose, and then it gets to disappear. No algorithm, no feed, no strangers. Just the people you said yes to yourself.
             </p>
-            <form class="waitlist" id="waitlist-form">
-              <input type="email" id="waitlist-email" placeholder="Your email" required autocomplete="email" />
-              <button type="submit"><span class="label">Join the waitlist</span></button>
-            </form>
-            <div>
-              <p class="waitlist-note" id="waitlist-note">We'll send you an invite when Glimt opens. No spam, promise.</p>
-              <div class="store-badges">
-                <a class="store-badge beta" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple"></i> Join the iOS beta</a>
-                <span class="store-badge soon"><i class="fab fa-apple"></i> App Store · coming soon</span>
-                <span class="store-badge soon"><i class="fab fa-google-play"></i> Google Play · coming soon</span>
-              </div>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Join the iOS beta</a>
+              <a class="btn-ghost" href="#join">On Android, or just curious? Join the list</a>
             </div>
+            <p class="hero-note">Free while Glimt is in beta, and <a href="#pricing">free forever</a> for everyone who joins before launch.</p>
           </div>
           <div class="glimt-hero-phone">
-            <div class="phone">
-              <div class="phone-notch"></div>
-              <div class="phone-screen phone-screen--hero">
-                <div class="app-resting" aria-hidden="true">
-                  <img class="app-bear-img" src="../../assets/img/apps/glimt.png" alt="Glimt" />
-                  <span class="app-word">Glimt</span>
-                  <span class="app-hint">a quiet little glimt is waiting</span>
-                </div>
-              </div>
+            <div class="glimt-shot glimt-shot--lg">
+              <img src="/assets/img/glimt-moment.jpg" alt="The camera in the Glimt app: a city scene in evening light with the film look on, ready to send" width="1206" height="2622" fetchpriority="high" />
             </div>
           </div>
         </div>
       </section>
 
+      <!-- HOW IT WORKS -->
+      <section class="glimt-steps" data-reveal>
+        <h2>Glimt in twenty seconds</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-n" aria-hidden="true">1</span>
+            <h3>You take a glimt</h3>
+            <p>With the camera inside the app. You cannot send an old picture from your camera roll, and that is on purpose. A glimt is something happening now.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">2</span>
+            <h3>It goes to the people you chose</h3>
+            <p>A friend, a bål, or just yourself, all in one send. You get three seconds to undo. And if you have no signal, the app keeps trying, for a whole week if it has to, and tells you honestly if it gives up.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">3</span>
+            <h3>Then it disappears</h3>
+            <p>Unless you keep it. A glimt opens once, but there is no countdown while you watch: it stays on screen until you tap it away, so you have time to show it to whoever is sitting next to you.</p>
+          </li>
+        </ol>
+      </section>
 
-      <section class="glimt-story" data-reveal>
-        <p>
-          We've never been more «connected», yet never more alone. The feed is full of strangers, while the people closest to you get lost in the noise. Glimt flips it: <span class="ice">no algorithm, no feed, no strangers.</span> Just the friends you actually chose, and little moments that can fade, or stay, exactly as you like.
+      <!-- SAFE FOR CHILDREN AND TEENAGERS -->
+      <section class="glimt-safety" data-reveal>
+        <span class="feature-kicker">Safety</span>
+        <h2>Safe for children and teenagers</h2>
+        <p class="section-lede">
+          The protection here is not a setting a parent has to go and find. It is the way the app is built: Glimt has nowhere for a stranger to meet your child.
+        </p>
+
+        <blockquote class="pull-quote">
+          <p>"There is no way for a predator to reach a child they don't already know."</p>
+          <cite>From the <a href="/en/glimt/child-safety">child safety policy</a></cite>
+        </blockquote>
+
+        <ul class="safe-grid">
+          <li>
+            <h3>Friends only</h3>
+            <p>You can only receive a glimt from someone whose friend request you accepted. There are no messages from strangers.</p>
+          </li>
+          <li>
+            <h3>No feed, no discovery</h3>
+            <p>Nobody can browse their way to your child, get them recommended, or stumble across them. People are found by exact username only, by someone who already knows what they are called.</p>
+          </li>
+          <li>
+            <h3>13 and up</h3>
+            <p>You have to give your date of birth when you create an account. If you are younger, the account is never created.</p>
+          </li>
+          <li>
+            <h3>Report, and get an answer</h3>
+            <p>Anything can be reported inside the app, with four reasons to pick from. I answer within 24 hours, and repeated reports hide an account immediately.</p>
+          </li>
+          <li>
+            <h3>Blocking that holds</h3>
+            <p>A block works in both directions and is enforced in the database, not just hidden in the app. Notifications stop too.</p>
+          </li>
+          <li>
+            <h3>Lock it, and delete it</h3>
+            <p>You can lock the app with Face ID or a fingerprint, and you can delete your whole account yourself, from Settings.</p>
+          </li>
+        </ul>
+
+        <p class="note">
+          Honest about what is not finished: Glimt can blur nudity automatically on the phone, but it only works on iPhone, and only with Apple's Sensitive Content Warning switched on in iOS Settings. On Android it is coming later. Better you hear it from me than discover it yourself.
         </p>
       </section>
 
+      <!-- BÅL AND VEKEGLIMT -->
       <section class="glimt-features">
         <article class="feature reveal-up" data-reveal>
           <div class="feature-text">
-            <span class="feature-kicker">Glimt</span>
-            <h2>Fleeting, but yours to keep</h2>
-            <p>Share a little glimt from your day. Most fade the moment they're seen, but the ones you love are yours to keep, on your own cloud. No feed to scroll, no likes to chase, no pressure to perform.</p>
-          </div>
-          <div class="feature-phone">
-            <div class="glimt-shot"><img src="/assets/img/glimt-moment.jpg" alt="A glimt about to be captured in the Glimt app, with the Fjord look" /></div>
-          </div>
-        </article>
-
-
-        <article class="feature feature--reverse reveal-up" data-reveal>
-          <div class="feature-text">
             <span class="feature-kicker">Bål</span>
-            <h2>Gather your closest around the fire</h2>
-            <p>Once a week you share a little vekeglimt with your closest people. A calm ritual, so you stay part of each other's weeks, not just each other's memories.</p>
+            <h2>One campfire, once a week</h2>
+            <p>A bål is a little group you give a name and invite your closest people into. You pick a day of the week. On that day everyone shares a vekeglimt, a small glimpse of the week that was.</p>
+            <p>Every bål in the world gets the same theme in the same week. "Something that made you smile." "Your view right now." Plus themes of their own for Christmas, New Year, the 17th of May and midsummer. You do not have to answer the theme, and you do not have to share at all. The fire keeps burning either way.</p>
           </div>
           <div class="feature-phone">
             <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><div class="campfire" aria-hidden="true"><span class="fire-glow"></span><span class="flame outer"></span><span class="flame inner"></span><span class="logs"></span></div><span class="ember-ring" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div></div>
           </div>
         </article>
 
-        <article class="feature reveal-up" data-reveal>
-          <div class="feature-text">
-            <span class="feature-kicker">Private</span>
-            <h2>End-to-end encrypted. For real.</h2>
-            <p>Every glimt is encrypted on your phone before it's sent. Only your friend can open it, not us, not anyone else. What we store is unreadable to us.</p>
+        <div class="ritual-notes" data-reveal>
+          <div class="ritual-card">
+            <h3>Five ways to answer, all equally good</h3>
+            <ul class="modes">
+              <li><b>Film</b> a short video</li>
+              <li><b>Photo</b> a single picture</li>
+              <li><b>Words</b> a few sentences</li>
+              <li><b>Voice</b> say it out loud</li>
+              <li><b>Draw</b> with your finger</li>
+            </ul>
+            <p>The last two are there on purpose. A seven-year-old, or a shy fifteen-year-old, should be able to take part without showing their face.</p>
           </div>
-          <div class="feature-phone">
-            <div class="phone phone--sm"><div class="phone-notch"></div><div class="phone-screen"><svg class="lock-svg" viewBox="0 0 64 80" aria-hidden="true"><path class="lock-shackle" d="M20 58 V30 a12 12 0 0 1 24 0 V42" /><rect class="lock-body" x="14" y="40" width="36" height="30" rx="7" /><circle class="lock-hole" cx="32" cy="52" r="3.5" /><rect class="lock-hole" x="30.3" y="52" width="3.4" height="9" rx="1.7" /></svg></div></div>
-          </div>
-        </article>
 
+          <div class="ritual-card">
+            <h3>No streaks, no leaderboard</h3>
+            <p>Reactions are visible, you see who reacted with what, but they are never counted or ranked. You lose nothing by skipping a week. The only number in the app is how many glimt you have shared, drawn as a polar bear that changes a little at 5, 30, 150 and 750. And you can draw your own avatar with your finger.</p>
+          </div>
+
+          <div class="ritual-card">
+            <h3>The fire lights up whoever is sitting at it</h3>
+            <p>While you are inside the bål, the others can see you are there. Step out and you are gone. Nothing is written down, no "active 5 minutes ago", and no green dot anywhere in the app. It works both ways, so you cannot watch others without them seeing you, and you never get a notification that someone is there.</p>
+          </div>
+
+          <div class="ritual-card ritual-card--wide">
+            <h3>Say it out loud, and it gets written down</h3>
+            <p>Record your vekeglimt with your voice and the phone writes down what you said. On the phone itself, with NB-Whisper, the National Library of Norway's model, trained on 22,000 hours of Norwegian. Nothing leaves the phone to be understood.</p>
+            <p>The text is sealed and travels with the audio. So someone who hears poorly, or not at all, needs no model, no supported language and no capable phone: the words are simply there when the glimt arrives. It works on both iPhone and Android, and you can tap any line to fix it.</p>
+          </div>
+        </div>
+
+        <!-- THE FILM LOOK -->
         <article class="feature feature--film reveal-up" data-reveal>
           <div class="feature-text">
-            <span class="feature-kicker">Film</span>
+            <span class="feature-kicker">Camera</span>
             <h2>A real film look, not a filter</h2>
-            <p>Phone cameras are too clean and clinical. Glimt gives your photos and videos a warm, analog film look with real film grain, baked right in as you shoot. What you see is what you get, like a real film camera. And you're always in control: pick your look, or shoot completely clean.</p>
+            <p>Phone cameras have become too clean. Glimt has three film simulations: <b>Fjord</b>, bright and airy. <b>Glør</b>, warm and golden. <b>Kol</b>, black and white. They were not downloaded from anywhere, I derived them from my own RAW and JPEG pairs out of a Fujifilm X100VI.</p>
+            <p>The look is on screen while you shoot, and it is exactly that look that lands in the file. On both iPhone and Android, on stills and on every single frame of a video. If you do not want the colour, you can switch it off and keep the grain and the glow in the highlights, or shoot completely clean.</p>
           </div>
-          <div class="film-slider">
+          <div class="film-slider" data-alt-template="The same picture with the {look} look">
             <div class="film-stage">
-              <img class="film-after" src="/assets/img/film-loen-fjord.jpg" alt="With the Fjord look" />
-              <div class="film-before"><img src="/assets/img/film-loen-raw.jpg" alt="Raw, no look" /></div>
+              <img class="film-after" src="/assets/img/film-loen-fjord.jpg" alt="The same picture with the Fjord look" width="800" height="1200" loading="lazy" />
+              <div class="film-before"><img src="/assets/img/film-loen-raw.jpg" alt="Raw picture out of the camera, no look" width="800" height="1200" loading="lazy" /></div>
               <div class="film-line" aria-hidden="true"><span class="film-knob"></span></div>
               <span class="film-tag film-tag--l">Raw</span>
               <span class="film-tag film-tag--r">Fjord</span>
-              <input class="film-range" type="range" min="0" max="100" value="52" aria-label="Drag to compare raw and look" />
+              <input class="film-range" type="range" min="0" max="100" value="52" aria-label="Drag to compare the raw picture and the look" />
             </div>
             <div class="film-pills">
-              <button class="film-pill is-active" type="button" data-look="fjord" data-name="Fjord">Fjord</button>
-              <button class="film-pill" type="button" data-look="glor" data-name="Glør">Glør</button>
-              <button class="film-pill" type="button" data-look="kol" data-name="Kol">Kol</button>
+              <button class="film-pill is-active" type="button" aria-pressed="true" data-look="fjord" data-name="Fjord">Fjord</button>
+              <button class="film-pill" type="button" aria-pressed="false" data-look="glor" data-name="Glør">Glør</button>
+              <button class="film-pill" type="button" aria-pressed="false" data-look="kol" data-name="Kol">Kol</button>
             </div>
           </div>
-          <script>
-            (function () {
-              var s = document.querySelector('.film-slider'); if (!s) return;
-              var range = s.querySelector('.film-range'), before = s.querySelector('.film-before'),
-                  line = s.querySelector('.film-line'), after = s.querySelector('.film-after'),
-                  tagR = s.querySelector('.film-tag--r'), pills = s.querySelectorAll('.film-pill');
-              function setPos(v) { before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; line.style.left = v + '%'; }
-              range.addEventListener('input', function () { setPos(+range.value); });
-              setPos(+range.value);
-              pills.forEach(function (p) {
-                p.addEventListener('click', function () {
-                  pills.forEach(function (q) { q.classList.remove('is-active'); });
-                  p.classList.add('is-active');
-                  after.src = '/assets/img/film-loen-' + p.dataset.look + '.jpg';
-                  after.alt = 'With the ' + p.dataset.name + ' look';
-                  tagR.textContent = p.dataset.name;
-                });
-              });
-            })();
-          </script>
         </article>
       </section>
 
+      <!-- YOURS, NOT OURS -->
+      <section class="glimt-privacy" data-reveal>
+        <span class="feature-kicker">Privacy</span>
+        <h2>Yours, not ours</h2>
+        <p class="section-lede">
+          Your glimt, the text you write on them and your vekeglimt are end-to-end encrypted. Every glimt is encrypted on your phone before it is sent, and sealed separately for every single device your friend has. X25519 and XSalsa20-Poly1305. I cannot open them.
+        </p>
 
-      <section class="glimt-values">
-        <h2>Built for you, not for advertisers</h2>
-        <ul class="values-grid" data-reveal>
-          <li><i class="fa-solid fa-eye-slash"></i><h3>No tracking</h3><p>We don't track you across apps or the web. Ever.</p></li>
-          <li><i class="fa-solid fa-ban"></i><h3>No ads</h3><p>No ads, no algorithm deciding what you see.</p></li>
-          <li><i class="fa-solid fa-lock"></i><h3>End-to-end</h3><p>Your content is encrypted. We can't read it.</p></li>
-          <li><i class="fa-solid fa-earth-europe"></i><h3>European</h3><p>Built in Norway, GDPR at the core, we never sell your data.</p></li>
-        </ul>
+        <div class="priv-grid">
+          <div class="priv-card">
+            <h3>And you do not lose them</h3>
+            <p>Encryption usually means everything is gone once the phone is gone. Not here. Pick a password and your glimt follow you to the next phone. Or do nothing at all: iCloud Keychain and Google Block Store carry the key over for you, without you noticing. I still cannot read any of it.</p>
+          </div>
+          <div class="priv-card">
+            <h3>If a friend gets a new phone, the app says so</h3>
+            <p>When someone switches phone or reinstalls, you are told their key is new, so you can check with them that it really is them. Signal does the same. Snapchat and BeReal do not.</p>
+          </div>
+          <div class="priv-card">
+            <h3>Keep a glimt and it becomes yours</h3>
+            <p>There is no Glimt cloud. If you choose to keep a glimt, it is saved into a "Glimt" album in your phone's own photos. If you have iCloud Photos or Google Photos on, it gets backed up there, with you, not with me. The sender's name is written into the photo file itself (EXIF), so you know who it was from, long afterwards. And the sender is told you kept it, exactly like a screenshot.</p>
+          </div>
+          <div class="priv-card">
+            <h3>No tracking, no ads, in Europe</h3>
+            <p>There is not a single analytics or advertising tool in the project. Not turned off, not there. Everything is hosted in Europe, in the Nordics, on Supabase. Built in Norway.</p>
+          </div>
+        </div>
+
+        <p class="note">
+          To be precise: reactions and the short word replies are stored as ordinary text, everything else is sealed. It is in the <a href="/en/glimt/privacy">privacy policy</a> too.
+        </p>
       </section>
 
-      <section class="glimt-cta">
+      <!-- WHO IS BEHIND IT -->
+      <section class="glimt-maker" data-reveal>
+        <div class="maker-photo">
+          <img src="/assets/img/Pål-bjønnef.jpg" alt="Pål Omland Eilevstjønn, who makes Glimt" width="1200" height="2130" loading="lazy" />
+        </div>
+        <div class="maker-text">
+          <span class="feature-kicker">Who is behind it</span>
+          <h2>A student in Oslo</h2>
+          <p>My name is Pål. I am in my second year of front-end development, I am from Vinje in Telemark and I live in Oslo. Glimt is not a company, it is me, one evening at a time.</p>
+          <p>That is also why I dare to promise nobody is buying you here: there is no one else to answer to. The app is available in Norwegian and English.</p>
+          <p>If you are wondering about something, or want to tell me something is broken, write to <a href="mailto:paal@dynni.no">paal@dynni.no</a>. I read all of it myself. <a href="/en/about">More about me</a>.</p>
+        </div>
+      </section>
+
+      <!-- WHAT IT COSTS -->
+      <section class="glimt-price" id="pricing" data-reveal>
+        <span class="feature-kicker">Pricing</span>
+        <h2>What it costs</h2>
+        <p>Nothing, right now. Everything in the app is free while Glimt is in beta.</p>
+        <p>Later some things, keeping glimt among them, will become part of <b>Glimt+</b>, which will cost money. <strong class="ice">If you join before launch, you keep those things for free, permanently.</strong> You do not have to do anything for it, and you do not have to remember it.</p>
+        <p>I am saying this now, and not afterwards, because a promise made in advance and a feature taken away from you feel like two completely different things. The only difference is whether anyone said so in time. And if Glimt ever makes money, it will be because someone pays for the app, not because someone pays for you.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="glimt-faq" data-reveal>
+        <h2>Common questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Who can see my child's glimt?</h3>
+            <p>Only the friends your child added and accepted. Nobody else, not me either. Every glimt is encrypted on the phone before it is sent.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can strangers get in touch?</h3>
+            <p>No. There is no feed, no discovery and no recommendations. Someone has to know the exact username, and the other person has to accept the friend request.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What happens to the pictures?</h3>
+            <p>Most of them disappear once they have been seen. If someone chooses to keep one, it is saved to the photos on their own phone, and the sender is told, exactly like a screenshot.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What age is Glimt for?</h3>
+            <p>13 and up. You have to give your date of birth when you create an account, and if you are younger the account is never created.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What if the phone is lost?</h3>
+            <p>Pick a password in the app and your glimt come back on a new phone. Do nothing at all, and iCloud Keychain or Google Block Store carries the key over on its own.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What does it cost?</h3>
+            <p>Nothing right now. Some things will later be part of Glimt+, but everyone who joins before launch keeps them for free, permanently.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOIN -->
+      <section class="glimt-cta" id="join">
         <h2>Join from the start</h2>
-        <p>We open Glimt to a few at a time. Sign up to be among the first.</p>
-        <form class="waitlist" id="waitlist-form-2">
-          <input type="email" id="waitlist-email-2" placeholder="Your email" required autocomplete="email" />
-          <button type="submit"><span class="label">Join the waitlist</span></button>
+        <p>The iOS beta is open now. If you are on Android, or you would rather wait a bit, put yourself on the list.</p>
+        <p class="cta-actions">
+          <a class="btn-primary" href="https://testflight.apple.com/join/q91c6GTR" target="_blank" rel="noopener noreferrer"><i class="fab fa-apple" aria-hidden="true"></i> Join the iOS beta</a>
+        </p>
+        <form class="waitlist" id="waitlist-form"
+              data-msg-ok="Thanks! You're on the list. I'll let you know when Glimt opens. 🐻‍❄️"
+              data-msg-dupe="You're already on the list. Thanks! 🐻‍❄️"
+              data-msg-error="Something went wrong. Try again, or email paal@dynni.no.">
+          <label class="sr-only" for="waitlist-email">Your email</label>
+          <input type="email" id="waitlist-email" placeholder="Your email" required autocomplete="email" />
+          <button type="submit">Put me on the list</button>
         </form>
-        <p class="waitlist-note" id="waitlist-note-2"></p>
+        <p class="waitlist-note" id="waitlist-note">Everyone who joins before launch keeps the paid features for free, permanently. I'll send one email when Glimt opens, and nothing else. That I promise.</p>
+        <div class="store-badges">
+          <span class="store-badge soon"><i class="fab fa-apple" aria-hidden="true"></i> App Store · coming soon</span>
+          <span class="store-badge soon"><i class="fab fa-google-play" aria-hidden="true"></i> Google Play · coming soon</span>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="footer-content">
-        <p class="copyright">© DYNNI 2026 — <a href="/en/contact">Contact</a></p>
+        <p class="copyright">© DYNNI 2026 · <a href="/en/contact">Contact</a></p>
         <p class="glimt-footer-links">
           <a href="/en/glimt/privacy">Privacy</a> ·
           <a href="/en/glimt/terms">Terms</a> ·
@@ -272,39 +445,5 @@
         </p>
       </div>
     </footer>
-
-    <script>
-      (function () {
-        var SUPABASE_URL = 'https://khhjqjtmhybwfrkhttoa.supabase.co';
-        var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoaGpxanRtaHlid2Zya2h0dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE5NDA4NjYsImV4cCI6MjA5NzUxNjg2Nn0.Xu1UKzzJzg2dO-4BdENCpVNQ4jJFUw9Iz4qOLb1NMCQ';
-        function join(email) {
-          return fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-            method: 'POST',
-            headers: { 'apikey': SUPABASE_ANON, 'Authorization': 'Bearer ' + SUPABASE_ANON, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-            body: JSON.stringify({ email: email })
-          });
-        }
-        function wire(formId, noteId) {
-          var form = document.getElementById(formId);
-          if (!form) return;
-          var note = document.getElementById(noteId);
-          form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var input = form.querySelector('input[type="email"]');
-            var email = (input.value || '').trim();
-            if (!email) return;
-            form.classList.add('busy');
-            join(email).then(function (res) {
-              form.classList.remove('busy');
-              if (res.ok) { form.classList.add('done'); if (note) note.textContent = "Thanks! You're on the list. We'll let you know when Glimt opens. 🐻‍❄️"; input.value = ''; }
-              else if (res.status === 409) { if (note) note.textContent = "You're already on the list. Thanks! 🐻‍❄️"; }
-              else { if (note) note.textContent = 'Something went wrong. Try again, or email paal@dynni.no.'; }
-            }).catch(function () { form.classList.remove('busy'); if (note) note.textContent = 'Something went wrong. Try again, or email paal@dynni.no.'; });
-          });
-        }
-        wire('waitlist-form', 'waitlist-note');
-        wire('waitlist-form-2', 'waitlist-note-2');
-      })();
-    </script>
   </body>
 </html>

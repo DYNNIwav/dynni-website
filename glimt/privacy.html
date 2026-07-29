@@ -41,6 +41,10 @@
       .privacy-content p, .privacy-content li { margin-bottom: 0.6rem; }
       .privacy-content ul { padding-left: 1.4rem; margin-bottom: 1rem; }
       .privacy-content code { font-family: "JetBrains Mono", monospace; font-size: 0.9em; padding: 0.1em 0.3em; background: rgba(255,255,255,0.06); border-radius: 4px; }
+      .privacy-content .table-scroll { overflow-x: auto; margin-bottom: 1rem; }
+      .privacy-content table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.95rem; }
+      .privacy-content th, .privacy-content td { text-align: left; vertical-align: top; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid rgba(128,128,128,0.25); }
+      .privacy-content th { font-weight: 600; }
       .privacy-content .lang-toggle { margin-top: 1.5rem; font-size: 0.9rem; }
     </style>
   </head>
@@ -64,12 +68,40 @@
       </nav>
     </header>
 
+    <!--
+      MIRROR, NOT SOURCE. The canonical Glimt privacy policy is docs/privacy-policy.md in the
+      glimt-native repo, because that copy ships in the app and in App Store / Google Play metadata.
+      Edit the markdown first, then mirror it here AND in en/glimt/privacy.html (English). All three
+      carry the same version below, so a drift is visible with one grep.
+      Policy version: 2026-07-29
+
+      This page must stay structurally identical to en/glimt/privacy.html: same sections, same order,
+      so a future edit lands in both.
+    -->
     <main class="privacy-content">
       <h1>Glimt — Personvern</h1>
-      <p class="last-updated">Sist oppdatert: 22. juni 2026</p>
+      <p class="last-updated">Sist oppdatert: 29. juli 2026 · Versjon: 2026-07-29</p>
 
       <p>Glimt er bygd for å vere privat frå grunnen av. Denne erklæringa forklarar, i klartekst, kva lite data vi handterer, kvifor, og kva rettar du har. Glimt blir driven frå Noreg og følgjer personvernforordninga (GDPR) i EU/EØS.</p>
-      <p><strong>Behandlingsansvarleg:</strong> Glimt, kontakt <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+
+      <h2>Kven vi er</h2>
+
+      <!--
+        ART. 13(1)(a) GDPR krev identiteten til den behandlingsansvarlege. "Glimt" er eit produktnamn,
+        ikkje ein juridisk eller fysisk person: ingen kan skrive til, saksøkje eller halde "Glimt"
+        ansvarleg, og det er heile poenget med kravet. Ein enkeltpersonføretakseigar som opptrer under
+        sitt eige fulle namn er ein fullgod behandlingsansvarleg, eit registrert selskap er alternativet.
+
+        BERRE FORFATTAREN KAN FYLLE DESSE INN. Byt ut, i denne rekkjefølgja:
+          1. fullt juridisk namn på den behandlingsansvarlege (person eller selskap),
+          2. organisasjonsnummer om det finst eit registrert føretak, elles slett det leddet,
+          3. ei postadresse i Noreg som post faktisk kjem fram til.
+        Dei same tre verdiane står på /glimt/terms, /en/glimt/privacy, /en/glimt/terms og i
+        glimt-native-repoet i docs/privacy-policy.md og docs/terms-of-service.md. Endre alle seks samtidig.
+      -->
+      <p><strong>Behandlingsansvarleg:</strong> [FYLL INN: fullt juridisk namn på den behandlingsansvarlege], [FYLL INN: organisasjonsnummer, eller slett dette leddet om det ikkje finst eit registrert føretak], [FYLL INN: postadresse], Noreg.</p>
+      <p><strong>Kontakt:</strong> <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+      <p><strong>Personvernombod:</strong> det har vi ikkje. Vi meiner artikkel 37 ikkje krev det, sidan kjerneverksemda vår korkje er omfattande, jamleg og systematisk overvaking av folk eller omfattande behandling av særlege kategoriar av data. Skriv til adressa over, så når du eit menneske.</p>
 
       <h2>Kort fortalt</h2>
       <ul>
@@ -78,44 +110,112 @@
         <li>Det finst ingen algoritme og ingen open feed. Det du deler går berre til venene du valde.</li>
       </ul>
 
-      <h2>Kva vi samlar og kvifor</h2>
-      <ul>
-        <li><strong>E-postadresse</strong> — for å lage og sikre kontoen din, og for å logge deg inn.</li>
-        <li><strong>Brukarnamn og (valfri) avatar</strong> — så vener kan finne og kjenne att deg.</li>
-        <li><strong>Fødselsdato</strong> — for å stadfeste at du er gamal nok (sjå «Born»).</li>
-        <li><strong>Vener og bål-medlemskap</strong> — for å levere glimt til rett folk.</li>
-        <li><strong>Glimt og vekeglimt</strong> — sjølve tenesta. Lagra berre som <strong>kryptert chiffertekst</strong> vi ikkje kan lese.</li>
-        <li><strong>Leverings-metadata</strong> (kven som sende til kven, tidspunkt, lesestatus) — for å levere innhald og vise innboksen din.</li>
-        <li><strong>Push-token for eininga</strong> — for å varsle deg om nye glimt.</li>
-        <li><strong>Rapportar du sender, og bevis du legg ved</strong> — for å halde appen trygg og oppfylle pliktene våre.</li>
-      </ul>
+      <h2>Kva vi samlar, kvifor, og på kva rettsgrunnlag</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">Data</th><th scope="col">Kvifor</th><th scope="col">Rettsgrunnlag</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>E-postadresse</strong></td><td>For å lage og sikre kontoen din, og for å logge deg inn</td><td>Avtale, art. 6(1)(b)</td></tr>
+            <tr><td><strong>Brukarnamn og (valfri) avatar</strong></td><td>Så vener kan finne og kjenne att deg</td><td>Avtale, art. 6(1)(b)</td></tr>
+            <tr><td><strong>Fødselsdato</strong></td><td>For å stadfeste at du er gamal nok (sjå «Born»)</td><td>Rettsleg plikt, art. 6(1)(c), saman med plikta vår til å halde brukarar under aldersgrensa ute frå ei teneste som ikkje er laga for dei</td></tr>
+            <tr><td><strong>Vener og bål-medlemskap</strong></td><td>For å levere glimt til rett folk</td><td>Avtale, art. 6(1)(b)</td></tr>
+            <tr><td><strong>Glimt og vekeglimt</strong></td><td>Sjølve tenesta. Lagra berre som <strong>kryptert chiffertekst</strong> vi ikkje kan lese</td><td>Avtale, art. 6(1)(b)</td></tr>
+            <tr><td><strong>Leverings-metadata</strong> (kven som sende til kven, tidspunkt, lesestatus)</td><td>For å levere innhald og vise innboksen din</td><td>Avtale, art. 6(1)(b)</td></tr>
+            <tr><td><strong>Push-token for eininga</strong></td><td>For å varsle deg om nye glimt</td><td>Samtykke, art. 6(1)(a), gitt når du seier ja til varsel</td></tr>
+            <tr><td><strong>Ein backup av krypteringsnøkkelen din</strong>, forsegla med eit passord berre du kjenner</td><td>Så glimta dine kjem tilbake om du mistar, nullstiller eller byter telefon</td><td>Samtykke, art. 6(1)(a), gitt når du vel eit gjenopprettingspassord</td></tr>
+            <tr><td><strong>Rapportar du sender, og bevis du legg ved</strong></td><td>For å halde folk trygge og oppfylle pliktene våre som plattform</td><td>Rettsleg plikt, art. 6(1)(c), og rettkomen interesse, art. 6(1)(f). Interessa er å verne brukarane våre, born aller mest, mot overgrep, og i det heile kunne gjere noko med ulovleg innhald, som ende-til-ende-kryptering elles gjer umogleg</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>Vi samlar <strong>ikkje</strong> kontaktane dine, posisjonen din, reklame-id-ar eller nettlesar-åtferd.</p>
 
-      <h2>Ende-til-ende-kryptering</h2>
-      <p>Kvart glimt blir kryptert på eininga di med vennen sin offentlege nøkkel før det blir lasta opp. Berre eininga til den rette mottakaren kan dekryptere det. Den private nøkkelen din ligg i den sikre maskinvara på eininga (iOS Keychain / Android Keystore) og forlèt aldri telefonen. Det tyder at vi, og kven som helst som måtte få tilgang til serverane våre, berre ser uleseleg chiffertekst.</p>
-      <p>Ein konsekvens av ekte ende-til-ende-kryptering: misser du eininga og nøkkelen, kan ikkje gamle glimt hentast attende. Sjølve kontoen er framleis trygg og knytt til e-posten din.</p>
+      <h2>Må du gi oss dette?</h2>
+      <p>E-postadressa, brukarnamnet, fødselsdatoen og venelista er det ein konto er laga av. Utan dei finst det ingenting å logge inn på og ingen å levere eit glimt til, så vi kan ikkje levere tenesta og du kan ikkje bruke Glimt.</p>
+      <p>Alt anna er valfritt, og seier du nei, mistar du berre den funksjonen det høyrer til:</p>
+      <ul>
+        <li><strong>Varsel.</strong> Sei nei, og Glimt verkar framleis, du finn berre nye glimt når du opnar appen sjølv.</li>
+        <li><strong>Nøkkel-backupen.</strong> Sei nei, og Glimt verkar framleis, men mistar du telefonen, kan ikkje dei gamle glimta dine hentast fram att, korkje av deg eller av oss.</li>
+        <li><strong>Kamera, mikrofon, bilete.</strong> Dette er løyve du gir appen på di eiga eining, ikkje data du gir oss. Seier du nei til eitt av dei, stoppar funksjonen som treng det. Ingenting anna endrar seg, og du kan ombestemme deg når som helst i innstillingane på telefonen.</li>
+      </ul>
+
+      <h2>Krypteringsnøkkelen din, og korleis du får han att</h2>
+      <p>Kvart glimt blir kryptert på eininga di med venen sin offentlege nøkkel før det blir lasta opp. Berre eininga til den rette mottakaren kan dekryptere det. Vi, og kven som helst som måtte få tilgang til serverane våre, ser berre uleseleg chiffertekst.</p>
+      <p>Den private nøkkelen din ligg i den sikre maskinvara på eininga (iOS Keychain / Android Keystore). I vanleg bruk forlèt han aldri telefonen. Det finst to måtar å hente han fram att på om telefonen mistar han, og begge er verdt å vite om, for begge tyder at nøkkelen din finst ein annan stad enn på akkurat den eine eininga:</p>
+      <ul>
+        <li><strong>Ein backup på serverane våre, forsegla med passordet ditt.</strong> Når du vel eit gjenopprettingspassord, lagar telefonen ein nøkkel av passordet (Argon2id), forseglar den private nøkkelen din med han (XSalsa20-Poly1305) og legg den forsegla backupen på serverane våre, éi rad per konto. Passordet blir aldri sendt til oss, og vi ser det aldri. Det vi har, er ein backup som er ubrukeleg for oss og for kven som helst som skulle ta databasen vår. Det finst inga nullstilling: gløymer du passordet, kan ingen opne backupen, heller ikkje vi.</li>
+        <li><strong>Nøkkellageret til plattforma di.</strong> På iOS blir nøkkelen din òg lagra som eit synkroniserande iCloud Keychain-element, på Android i Google Block Store. Dette er same mekanismen som iMessage brukar. Apple og Google har materialet, men det er ende-til-ende-kryptert av operativsystemet, og dei kan ikkje lese det. Oppføringa høyrer til kontoen din og den eine eininga, så ho hentar nøkkelen tilbake til nettopp den telefonen, ho kopierer han ikkje over på ein annan.</li>
+      </ul>
+      <p><strong>Å miste telefonen tyder difor ikkje lenger å miste glimta.</strong> Vel eit gjenopprettingspassord, så loggar du inn på ein ny telefon, skriv passordet, og glimta dine er leselege att. Har du aldri valt eit, og den automatiske gjenopprettinga ikkje gjeld, blir eldre glimt verande uleselege, for vi kan verkeleg ikkje opne dei for deg.</p>
+      <p>Du kan slette backupen på serveren når som helst frå Innstillingar, og slettar du kontoen, blir han sletta saman med alt anna.</p>
+
+      <h2>Det som skjer på eininga di og aldri når oss</h2>
+      <p>Noko av det nyttigaste Glimt gjer, skjer berre på telefonen din. Vi nemner det her fordi det høyrest ut som noko som må gå via ein server, og det gjer det ikkje.</p>
+      <ul>
+        <li><strong>Sløring av sensitivt innhald.</strong> Glimt sjekkar eit foto eller ein video for nakenheit på sjølve eininga og slører det bak ei åtvaring. Ingenting blir lasta opp for denne sjekken, ingen resultat blir lagra, og ingenting blir sendt til oss. Dette verkar på iPhone i dag, på <strong>iOS 17 eller nyare</strong>, og berre når <strong>«Sensitive Content Warning» er slått på i iOS-innstillingane</strong>, for Apple låser analysatoren bak den brytaren. På Android finst det ikkje enno: vi byggjer ein modell som kan køyre på eininga, og til han er klar, slører eller åtvarar ikkje ein Android-telefon. Vi seier heller det rett ut enn å la ei vag setning gi inntrykk av eit vern som ikkje finst.</li>
+        <li><strong>Å skrive ned det du seier.</strong> Eit tale-glimt kan få tekst, så nokon som ikkje høyrer det, kan lese det. Det går føre seg på telefonen din, og lyden forlèt han aldri.</li>
+        <li><strong>Biletbiblioteket ditt.</strong> Å velje eit bilete å sende, eller å lagre eit glimt du fekk, er eit løyve du gir appen på eininga di. Vi får aldri biletbiblioteket ditt, berre det eine krypterte glimtet du valde å sende.</li>
+      </ul>
 
       <h2>Kor lenge vi tek vare på ting</h2>
       <ul>
         <li>Glimt blir sletta etter at dei er sett, og uopna glimt blir sletta automatisk etter omtrent 30 dagar.</li>
         <li>Vekeglimt blir fjerna etter rundt tre veker.</li>
         <li>Kontodata (e-post, brukarnamn, vener) blir teke vare på til du slettar kontoen.</li>
-        <li>Rapport-bevis blir berre teke vare på så lenge vi treng for å vurdere og handle på rapporten, så sletta.</li>
+        <li>Den forsegla nøkkel-backupen din blir teken vare på til du slår han av eller slettar kontoen.</li>
+        <li>Push-tokenet ditt blir teke vare på til du slår av varsel eller slettar kontoen.</li>
+        <li>Rapport-bevis blir berre teke vare på så lenge vi treng for å vurdere og handle på rapporten, så sletta. Materiale som må takast vare på av omsyn til ei rettsleg plikt knytt til tryggleik eller etterforsking, blir teke vare på så lenge den plikta krev.</li>
       </ul>
 
       <h2>Kven vi deler data med</h2>
-      <p>Vi brukar nokre få databehandlarar berre for å drive tenesta, under databehandlar-avtalar:</p>
+      <p>Vi brukar nokre få databehandlarar berre for å drive tenesta, under databehandlar-avtalar. Vi deler aldri data med annonsørar eller datameklarar, og vi sel dei ikkje.</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">Kven</th><th scope="col">Kva dei handterer</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Supabase</strong></td><td>Database, fillagring, innlogging, serverfunksjonar. Har kontodataa dine, leverings-metadataa dine, det krypterte innhaldet ditt og den forsegla nøkkel-backupen din. Prosjektet vårt ligg i Europa, i Norden</td></tr>
+            <tr><td><strong>Expo</strong>, og gjennom Expo <strong>Apple Push Notification service</strong> og <strong>Google Firebase Cloud Messaging</strong></td><td>Levering av push-varsel: push-tokenet til eininga di og teksten i varselet</td></tr>
+            <tr><td><strong>Apple iCloud Keychain</strong> og <strong>Google Block Store</strong></td><td>Plattform-oppbevaringa av nøkkelen som er skildra over, ende-til-ende-kryptert av operativsystemet</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Ein ærleg detalj om varsel: teksten som reiser gjennom Expo, Apple og Google, seier kven som sende deg noko, og for eit bål kva bål det var. Han inneheld aldri innhaldet i eit glimt. Vil du helst at ingenting i det heile skal reise den vegen, så slå av varsel.</p>
+
+      <h2>Overføring ut av EØS</h2>
+      <!--
+        MÅ SJEKKAST FØR LANSERING, og sjekken må gjerast om att, for grunnlaget ein databehandlar brukar
+        kan endre seg: stadfest kva grunnlag kvar databehandlar faktisk brukar i den gjeldande DPA-en
+        deira, og for DPF mot dataprivacyframework.gov/s/participant-search. Skriv ned kva du fann.
+        Teksten under er med vilje skriven slik at han ikkje hevdar ein sertifiseringsstatus per selskap
+        som vi ikkje har stadfesta.
+      -->
+      <p>Kontodataa dine og det krypterte innhaldet ditt blir lagra i Europa. Supabase-prosjektet vårt ligg i Norden, så det er der databasen og fillagringa fysisk står.</p>
+      <p>Nokre av databehandlarane våre er amerikanske selskap, så noko data hamnar faktisk i USA:</p>
       <ul>
-        <li><strong>Supabase</strong> (database, lagring, innlogging) i EU-region, GDPR-konform.</li>
-        <li><strong>Expo / Apple / Google</strong> leverer push-varsel.</li>
+        <li><strong>Supabase Inc.</strong> er eit amerikansk selskap sjølv om prosjektet vårt ligg i Europa, så støtte- og drifts-tilgang kan skje frå stader utanfor EØS. Databehandlaravtalen deira inneheld EU-kommisjonen sine standard personvernvilkår (SCC, avgjerd 2021/914).</li>
+        <li><strong>Expo, Apple og Google</strong> får push-tokenet til eininga di og varsel-teksten så eit varsel kan leverast, og Apple og Google har nøkkelmaterialet som er skildra over. Desse overføringane kviler på EU–USA-rammeverket for personvern (Data Privacy Framework) der mottakaren er sertifisert under det, og elles på standard personvernvilkåra til kommisjonen.</li>
       </ul>
-      <p>Vi deler aldri data med annonsørar eller datameklarar.</p>
+      <p>Det tiltaket som faktisk betyr noko her, er korleis appen er bygd, ikkje ein paragraf i ein kontrakt: innhaldet i eit glimt er ende-til-ende-kryptert og forlèt aldri venekrinsen din i lesbar form, nøkkel-backupen vi lagrar er forsegla med eit passord vi aldri får, og plattform-oppbevaringa er kryptert av operativsystemet. Det som kryssar ei grense, er anten eit token, eit namn i eit varsel, eller ein klump mottakaren ikkje kan opne.</p>
+
+      <h2>Automatiserte avgjerder</h2>
+      <p>Det finst <strong>ingen</strong> automatiserte avgjerder som har rettsverknad for deg eller påverkar deg tilsvarande i tydinga i artikkel 22.</p>
+      <p>To ting skjer likevel automatisk, og det bør du vite:</p>
+      <ul>
+        <li>Ein konto som blir rapportert av <strong>tre ulike personar</strong>, blir utestengd automatisk, utan å vente på eit menneske. Utestenginga stoppar den kontoen frå å leggje ut noko nytt. Ho slettar ikkje kontoen, og å ta ein konto heilt ned er eit steg eit menneske gjer for hand.</li>
+        <li>Medan ein rapport blir vurdert, kan ein rapportert konto bli gøymd.</li>
+      </ul>
+      <p>Begge er der for å verne, begge kan gjerast om, og eit menneske vurderer kvar einaste rapport. Meiner du at ein av dei råka deg feil, så skriv til <a href="mailto:paal@dynni.no">paal@dynni.no</a>, så svarar eit menneske, ikkje ei maskin. <a href="./terms">Vilkåra våre</a> forklarar kva vi fortel deg når vi gjer noko, og korleis du kan klage.</p>
 
       <h2>Rettane dine</h2>
-      <p>Etter GDPR kan du få innsyn i, rette, eksportere eller slette dataa dine, og protestere mot eller avgrense behandling. Du kan <strong>slette heile kontoen</strong> når som helst frå Innstillingar, som fjernar konto, vener, bål og snaps for godt. For andre førespurnader, send e-post til <a href="mailto:paal@dynni.no">paal@dynni.no</a>, så svarar vi innan 30 dagar. Du kan òg klage til Datatilsynet.</p>
+      <p>Etter GDPR kan du be om innsyn i dataa dine, få dei retta, få dei sletta, få dei i eit format du kan ta med deg, avgrense korleis vi brukar dei, og protestere mot behandling som byggjer på rettkomen interesse. Der vi byggjer på samtykket ditt, kan du <strong>trekkje det tilbake når som helst</strong>, og det gjer ikkje det vi gjorde før, ulovleg: slå av varsel i innstillingane på telefonen, eller slå av nøkkel-backupen i Innstillingar.</p>
+      <p>Du kan <strong>slette heile kontoen</strong> når som helst frå Innstillingar, som fjernar konto, vener, bål, glimt og nøkkel-backup for godt. For andre førespurnader, send e-post til <a href="mailto:paal@dynni.no">paal@dynni.no</a>, så svarar vi innan 30 dagar.</p>
+      <p>Meiner du vi har gjort noko gale, kan du klage til tilsynsstyresmakta for personvern i det EU- eller EØS-landet du bur i, arbeider i, eller der problemet skjedde. I Noreg er det Datatilsynet.</p>
 
       <h2>Born</h2>
-      <p>Glimt er ikkje for born under 13 år (eller høgare der lokal lov krev det, t.d. 16 i nokre land). Vi spør om fødselsdato ved registrering og blokkerer for unge kontoar. Sjå <a href="./child-safety">retningslinjene våre for barnetryggleik</a>. Trur du eit barn under aldersgrensa har ein konto, kontakt <a href="mailto:paal@dynni.no">paal@dynni.no</a>.</p>
+      <p>Glimt er ikkje for born under 13 år (eller høgare der lokal lov krev det, t.d. 16 i nokre land). Vi spør om fødselsdato ved registrering og blokkerer registreringar under aldersgrensa. Sjå <a href="./child-safety">retningslinjene våre for barnetryggleik</a>. Trur du eit barn under aldersgrensa har ein konto, kontakt <a href="mailto:paal@dynni.no">paal@dynni.no</a>.</p>
 
       <h2>Endringar</h2>
       <p>Endrar vi denne erklæringa, oppdaterer vi datoen over, og ved vesentlege endringar varslar vi deg i appen.</p>

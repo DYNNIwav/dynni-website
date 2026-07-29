@@ -3,8 +3,30 @@
     "apps": [],
     "details": [
       {
-        "appID": "2WDPP87T4V.com.dynni.glimt",
-        "paths": ["/glimt", "/glimt/*", "/en/glimt", "/en/glimt/*"]
+        "appIDs": ["2WDPP87T4V.com.dynni.glimt"],
+        "components": [
+          {
+            "/": "/glimt",
+            "?": { "ref": "?*" },
+            "comment": "Invite link ONLY: dynni.no/glimt?ref=<username>. Everything else under /glimt stays a web page, which is required: /glimt/privacy and /glimt/delete-account must be reachable in a browser for Apple and Google review, and a plain /glimt link has to be able to show the marketing page even to someone who already has the app."
+          },
+          {
+            "/": "/glimt/",
+            "?": { "ref": "?*" },
+            "comment": "Same invite link with a trailing slash."
+          },
+          {
+            "/": "/en/glimt",
+            "?": { "ref": "?*" },
+            "comment": "English invite link."
+          },
+          {
+            "/": "/en/glimt/",
+            "?": { "ref": "?*" },
+            "comment": "English invite link with a trailing slash."
+          }
+        ],
+        "paths": ["/glimt", "/en/glimt"]
       }
     ]
   }

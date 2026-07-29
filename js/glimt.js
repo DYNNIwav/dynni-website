@@ -1,13 +1,18 @@
-// Glimt landing — "Isbre" motion. Pure vanilla, no libs. Degrades to static under
+// Glimt landing, "Isbre" motion. Pure vanilla, no libs. Degrades to static under
 // prefers-reduced-motion, and the heavy bits pause when off-screen / tab hidden.
+//
+// Loaded with `defer`, so the DOM is parsed before anything here runs. That matters: the invite
+// banner below reads elements at call time, and while this file sat in <head> without defer it
+// always found null and the banner never appeared for anyone.
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- Invite personalisation: the app's "gather your campfire" share links here with ?ref=<username>,
   // so an invited person sees a warm "X invited you" line above the hero. Sanitised, best-effort. ----
-  try {
-    var ref = new URLSearchParams(window.location.search).get('ref');
-    if (ref) {
+  function initInvite() {
+    try {
+      var ref = new URLSearchParams(window.location.search).get('ref');
+      if (!ref) return;
       var name = ref.replace(/[<>"'&]/g, '').trim().slice(0, 40);
       var banner = document.getElementById('invite-banner');
       var nameEl = document.getElementById('invite-name');
@@ -15,8 +20,8 @@
         nameEl.textContent = name;
         banner.hidden = false;
       }
-    }
-  } catch (e) {}
+    } catch (e) {}
+  }
 
   // ---- Grain: 128px static noise -> dataURL onto .grain-layer (decorative) ----
   function initGrain() {
@@ -174,6 +179,79 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
+  // ---- Film before/after slider ----
+  // Lives here rather than inline in both pages, so nn and en cannot drift apart. The only
+  // language-specific bit is the alt text, which comes from data-alt-template on the slider
+  // (the alt genuinely changes with the look, so a screen reader is told which look is showing).
+  function initFilmSlider() {
+    var s = document.querySelector('.film-slider');
+    if (!s) return;
+    var range = s.querySelector('.film-range'), before = s.querySelector('.film-before'),
+        line = s.querySelector('.film-line'), after = s.querySelector('.film-after'),
+        tagR = s.querySelector('.film-tag--r'), pills = s.querySelectorAll('.film-pill');
+    if (!range || !before || !line || !after) return;
+    var tpl = s.dataset.altTemplate || '{look}';
+    function setPos(v) { before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; line.style.left = v + '%'; }
+    range.addEventListener('input', function () { setPos(+range.value); });
+    setPos(+range.value);
+    pills.forEach(function (p) {
+      p.addEventListener('click', function () {
+        pills.forEach(function (q) { q.classList.remove('is-active'); q.setAttribute('aria-pressed', 'false'); });
+        p.classList.add('is-active');
+        p.setAttribute('aria-pressed', 'true');
+        after.src = '/assets/img/film-loen-' + p.dataset.look + '.jpg';
+        after.alt = tpl.replace('{look}', p.dataset.name);
+        if (tagR) tagR.textContent = p.dataset.name;
+      });
+    });
+  }
+
+  // ---- Waitlist ----
+  // Also shared by both pages; the copy comes from data-msg-* on the form so nn and en stay in sync
+  // without two copies of the logic. The anon key is the public, row-level-secured one.
+  var SUPABASE_URL = 'https://khhjqjtmhybwfrkhttoa.supabase.co';
+  var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoaGpxanRtaHlid2Zya2h0dG9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE5NDA4NjYsImV4cCI6MjA5NzUxNjg2Nn0.Xu1UKzzJzg2dO-4BdENCpVNQ4jJFUw9Iz4qOLb1NMCQ';
+
+  function initWaitlist() {
+    var form = document.getElementById('waitlist-form');
+    if (!form) return;
+    var note = document.getElementById('waitlist-note');
+    var input = form.querySelector('input[type="email"]');
+
+    function say(msg) { if (note) note.textContent = msg; }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = ((input && input.value) || '').trim();
+      if (!email) return;
+      form.classList.add('busy');
+      fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email: email })
+      }).then(function (res) {
+        form.classList.remove('busy');
+        if (res.ok) {
+          form.classList.add('done');
+          say(form.dataset.msgOk);
+          if (input) input.value = '';
+        } else if (res.status === 409) {
+          say(form.dataset.msgDupe);
+        } else {
+          say(form.dataset.msgError);
+        }
+      }).catch(function () {
+        form.classList.remove('busy');
+        say(form.dataset.msgError);
+      });
+    });
+  }
+
   // ---- Magnetic CTA: fine-pointer + motion-ok only, tiny offset ----
   function initMagnetic() {
     if (reduce || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -203,12 +281,15 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    initInvite();
     initGrain();
     initAurora();
     initReveals();
+    initFilmSlider();
+    initWaitlist();
     // initMagnetic() removed on purpose: the cursor-following "magnetic" translate felt gimmicky, and buttons
     // sliding toward the pointer reads cheap, not premium. They now lift gently straight up on hover via CSS
-    // (.waitlist button:hover), which feels crafted and calm. Function left defined below in case it's wanted.
+    // (.waitlist button:hover), which feels crafted and calm. Function left defined above in case it's wanted.
     // Hero phone stays STATIC on purpose, the mouse-tracking tilt felt laggy and pulled focus from
     // the look. initPhoneTilt() left defined but not called, so it's easy to bring back if wanted.
     // initPhoneTilt();

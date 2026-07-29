@@ -62,11 +62,20 @@
       </nav>
     </header>
 
+    <!--
+      MIRROR, NOT SOURCE. The canonical Glimt child safety standards are docs/child-safety-policy.md in
+      the glimt-native repo, because that copy ships in the app and in App Store / Google Play metadata.
+      Edit the markdown first, then mirror it here AND in glimt/child-safety.html (nynorsk). All three
+      carry the same "Policy version" line below, so a drift is visible with one grep.
+
+      The nynorsk page must stay structurally identical to this one: same sections, same order.
+    -->
     <main class="privacy-content">
       <h1>Glimt — Child Safety</h1>
-      <p class="last-updated">Last updated: 23 June 2026</p>
+      <p class="last-updated">Last updated: 29 July 2026 · Policy version: 2026-07-29</p>
 
-      <p>Glimt has <strong>zero tolerance</strong> for child sexual abuse and exploitation (CSAE), and for any use of the app to send inappropriate content to minors. This page describes the measures we have in place, as required by the Apple App Store and Google Play child-safety policies.</p>
+      <p>Glimt has <strong>zero tolerance</strong> for child sexual abuse and exploitation (CSAE), and for any use of the app to send inappropriate content to minors. This page describes the standards and measures we have in place, as required by the Apple App Store and Google Play child-safety policies.</p>
+      <p>Everything below describes what the app actually does today. Where a protection is partial, or still being built, it says so in the same detail as the parts that are finished. A published policy that overstates its own product is worse than one that admits a gap, because a parent who relies on it has no way to know which sentences to trust.</p>
 
       <h2>Our structural protection: no contact with strangers</h2>
       <p>The single most effective safeguard is built into how Glimt works:</p>
@@ -78,23 +87,38 @@
       <p>This removes the primary grooming vector that exists on open social platforms.</p>
 
       <h2>Age requirement</h2>
-      <p>Users must enter their date of birth at sign-up and be at least 13 years old (and meet any higher local minimum, e.g. 16 where required). Under-age sign-ups are blocked before an account is created.</p>
+      <ul>
+        <li>Users must enter their date of birth at sign-up and be at least <strong>13 years old</strong> (and meet any higher local minimum, e.g. 16 where required such as Australia).</li>
+        <li>To be exact about the order this happens in: signing in creates an authentication record first, and the age check runs at the very next step, before a <strong>profile</strong> is created. An under-age date of birth stops the profile, so the person never gets a username. Without a username the account cannot be searched for, cannot send or accept a friend request, and cannot send or receive anything at all. So an under-age answer never becomes a usable account, but we would rather describe the mechanism than claim that nothing whatsoever is created.</li>
+      </ul>
 
       <h2>Reporting and blocking</h2>
       <ul>
-        <li>Every user can <strong>block</strong> and <strong>report</strong> another user or a specific glimt from inside the app.</li>
-        <li>Because content is end-to-end encrypted, a report <strong>attaches the decrypted content as evidence</strong> (uploaded by the reporter's own device to a private moderation store) so our moderators can actually review it, without weakening encryption for anyone else.</li>
+        <li>Every user can <strong>block</strong> and <strong>report</strong> another user: from the friends list, from the inbox, and from the member list of any bål (group) they are part of.</li>
+        <li>A block is <strong>enforced by the database</strong>, on every read and every write, so an old or modified app cannot get around it. It works both ways round and covers everything the two people could otherwise reach each other through: no glimt, no shared bål moment, no weekly vekeglimt, no reaction, and <strong>no notification</strong>, so a blocked person's name can never appear on the other's lock screen. It also applies to things already sent and not yet opened, and the two accounts cannot become friends again while the block stands.</li>
+        <li>What a block does <strong>not</strong> do, said plainly for the same reason the ban section below says it: it does not remove either person from a bål they both belong to, and it does not stop either of them sharing with everyone else at that fire. Inside that bål each simply stops existing for the other: they are not in the other's roster, not lit at the fire, and nothing they post reaches the person who blocked them. Either of them can leave the bål, and its owner can remove a member.</li>
+        <li>Every kind of content a user can post can be reported from the screen it plays on, by pressing and holding on it. That covers all three: the 1-to-1 glimt, the shared bål moment (which opens in the same viewer), and the weekly vekeglimt, whether it is a video, a photo, a voice message or a written reflection.</li>
+        <li>Because content is end-to-end encrypted, a report <strong>attaches the decrypted media as evidence</strong> (uploaded by the reporter's own device to a private moderation store) so our moderators can actually review it, without weakening encryption for anyone else. Each report also records which kind of content it was about, so a moderator can find its context.</li>
       </ul>
 
       <h2>Moderation and response</h2>
       <ul>
-        <li>Reported accounts are <strong>auto-hidden</strong> once reported by multiple distinct users, so harmful content is removed from circulation <strong>immediately</strong>, well within the required 24 hours.</li>
-        <li>Reports and evidence are reviewed. Confirmed CSAE results in <strong>immediate account termination</strong> and <strong>preservation + reporting to the relevant authority</strong> (Kripos in Norway, NCMEC in the US, and equivalents elsewhere).</li>
+        <li>Every report <strong>alerts a moderator immediately</strong>, on their phone and in our moderation channel, so a single credible report can be acted on by hand well inside the required 24 hours.</li>
+        <li>An account reported by <strong>three distinct users</strong> is banned automatically, with no wait for a human. The ban is enforced by the database on every write, so an old or modified app cannot get around it, and it <strong>stops that account posting anything new</strong>: no glimt, no bål moment, no weekly vekeglimt.</li>
+        <li>What a ban does <strong>not</strong> do today, stated plainly because it matters more that this is accurate than that it sounds complete: a banned account's profile is still visible to people who already have them as a friend, they stay a member of any bål they had already joined, and a glimt they sent before the ban that nobody has opened yet can still be opened. Automatic banning stops the next piece of content, not the ones already in flight. Taking an account down completely, along with its content and its pending sends, is a manual step a moderator performs, and it is the step we take for anything CSAE-related. Making the automatic ban do all of this in one action is work in progress.</li>
+        <li>Reports and evidence are reviewed via our moderation tooling. Confirmed CSAE results in <strong>immediate account termination</strong> and <strong>preservation + reporting to the relevant authority</strong> (NCMEC in the US, Kripos in Norway, and equivalents elsewhere).</li>
         <li>Ephemeral by design: glimt are deleted after viewing and unopened content is auto-deleted, limiting how long any material can persist.</li>
       </ul>
 
-      <h2>On-device safety (rolling out)</h2>
-      <p>We are adding <strong>on-device sensitive-content detection</strong> (Apple SensitiveContentAnalysis / Android equivalents) to blur and warn on nudity, especially for minors, entirely on the device, so it protects children <strong>without</strong> sending anyone's content to a server or breaking end-to-end encryption.</p>
+      <h2>On-device safety: blurring nudity before a child sees it</h2>
+      <p><strong>On-device sensitive-content detection is live.</strong> Glimt checks a photo or video for nudity on the phone itself and blurs it behind a warning the person has to choose to look past. It protects a child <strong>without</strong> sending anyone's content to a server and without breaking end-to-end encryption: no image is uploaded for the check, no result is stored, and nothing about it reaches us.</p>
+      <p>The check runs on the <strong>receiving</strong> phone, on open. That is deliberate and it is the invariant we protect above everything else in this area: the receiver's own check is the sole authority, and there is no path by which a sender can mark something as already checked and skip it.</p>
+      <p>Where it works, stated exactly:</p>
+      <ul>
+        <li><strong>iPhone: yes</strong>, on <strong>iOS 17 or later</strong>, and only when <strong>"Sensitive Content Warning" is switched on in iOS Settings</strong>. Apple gates its analyser behind that switch, so we cannot turn it on for you. For a child's device a parent can set it through Screen Time, and on a child account it is usually on by default. If the switch is off, Glimt does not blur.</li>
+        <li><strong>Android: not yet.</strong> This is a planned later phase, not an oversight: it needs a bundled on-device model (TFLite) so that Android gets the same privacy-first, nothing-leaves-the-phone behaviour rather than a cloud check that would break end-to-end encryption. Until that ships, an Android phone does not blur or warn. We would rather say that plainly than let a vague sentence imply a protection that is not there.</li>
+      </ul>
+      <p>Everything else on this page, the friend-only structure above all, protects a child on both platforms equally.</p>
 
       <h2>Contact</h2>
       <p>Child-safety concerns and law-enforcement requests: <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>

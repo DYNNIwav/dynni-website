@@ -39,6 +39,10 @@
       .privacy-content h2 { margin-top: 2.5rem; margin-bottom: 0.75rem; font-size: 1.4rem; }
       .privacy-content p, .privacy-content li { margin-bottom: 0.6rem; }
       .privacy-content ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+      .privacy-content .table-scroll { overflow-x: auto; margin-bottom: 1rem; }
+      .privacy-content table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.95rem; }
+      .privacy-content th, .privacy-content td { text-align: left; vertical-align: top; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid rgba(128,128,128,0.25); }
+      .privacy-content th { font-weight: 600; }
       .privacy-content .lang-toggle { margin-top: 1.5rem; font-size: 0.9rem; }
     </style>
   </head>
@@ -62,12 +66,39 @@
       </nav>
     </header>
 
+    <!--
+      MIRROR, NOT SOURCE. The canonical Glimt privacy policy is docs/privacy-policy.md in the
+      glimt-native repo, because that copy ships in the app and in App Store / Google Play metadata.
+      Edit the markdown first, then mirror it here AND in glimt/privacy.html (nynorsk). All three
+      carry the same "Policy version" line below, so a drift is visible with one grep.
+
+      The nynorsk page must stay structurally identical to this one: same sections, same order, so a
+      future edit lands in both.
+    -->
     <main class="privacy-content">
       <h1>Glimt — Privacy</h1>
-      <p class="last-updated">Last updated: 23 June 2026</p>
+      <p class="last-updated">Last updated: 29 July 2026 · Policy version: 2026-07-29</p>
 
       <p>Glimt is built to be private by default. This policy explains, in plain language, what little data we handle, why, and the rights you have over it. Glimt is operated from Norway and follows the EU/EEA General Data Protection Regulation (GDPR).</p>
-      <p><strong>Data controller:</strong> Glimt, contact <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+
+      <h2>Who we are</h2>
+
+      <!--
+        ART. 13(1)(a) GDPR requires the identity of the controller. "Glimt" is a product name, not a
+        legal or natural person: nothing called "Glimt" can be written to, served with a claim, or held
+        responsible, which is the whole point of the requirement. A sole trader operating under their
+        own full legal name is a perfectly valid controller, a registered company is the alternative.
+
+        ONLY THE AUTHOR CAN FILL THESE IN. Replace, in order:
+          1. the full legal name of the controller (person or company),
+          2. the organisation number if there is a registered enterprise, otherwise delete that clause,
+          3. a postal address in Norway that post can actually be delivered to.
+        The same three values appear on /glimt/privacy, /glimt/terms, /en/glimt/terms and in the
+        glimt-native repo at docs/privacy-policy.md and docs/terms-of-service.md. Change all six in one pass.
+      -->
+      <p><strong>Data controller:</strong> [FILL IN: full legal name of the controller], [FILL IN: organisation number, or delete this clause if there is no registered enterprise], [FILL IN: postal address], Norway.</p>
+      <p><strong>Contact:</strong> <a href="mailto:paal@dynni.no">paal@dynni.no</a></p>
+      <p><strong>Data protection officer:</strong> we have not appointed one. We do not believe Article 37 requires it, because our core activity is not large-scale regular and systematic monitoring of people and not large-scale processing of special categories of data. Write to the address above and you reach a person.</p>
 
       <h2>The short version</h2>
       <ul>
@@ -76,41 +107,108 @@
         <li>There is no algorithm and no public feed. What you share goes only to the friends you chose.</li>
       </ul>
 
-      <h2>What we collect and why</h2>
-      <ul>
-        <li><strong>Email address</strong> — to create and secure your account, and to sign you in.</li>
-        <li><strong>Username and (optional) avatar</strong> — so friends can find and recognise you.</li>
-        <li><strong>Date of birth</strong> — to confirm you meet the minimum age (see "Children").</li>
-        <li><strong>Friends and bål membership</strong> — to deliver glimt to the right people.</li>
-        <li><strong>Glimt and vekeglimt</strong> — the core service. Stored only as <strong>encrypted ciphertext</strong> we cannot read.</li>
-        <li><strong>Delivery metadata</strong> (who sent to whom, timestamps, read status) — to deliver content and show your inbox.</li>
-        <li><strong>Device push token</strong> — to notify you of new glimt.</li>
-        <li><strong>Reports you file, and evidence attached to them</strong> — to keep the community safe and meet our legal duties.</li>
-      </ul>
+      <h2>What we collect, why, and on what legal basis</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">Data</th><th scope="col">Why</th><th scope="col">Legal basis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Email address</strong></td><td>To create and secure your account, and to sign you in</td><td>Contract, Art. 6(1)(b)</td></tr>
+            <tr><td><strong>Username and (optional) avatar</strong></td><td>So friends can find and recognise you</td><td>Contract, Art. 6(1)(b)</td></tr>
+            <tr><td><strong>Date of birth</strong></td><td>To confirm you meet the minimum age (see "Children")</td><td>Legal obligation, Art. 6(1)(c), together with our duty of care to keep under-age users off a service not built for them</td></tr>
+            <tr><td><strong>Friends and bål membership</strong></td><td>To deliver glimt to the right people</td><td>Contract, Art. 6(1)(b)</td></tr>
+            <tr><td><strong>Glimt and vekeglimt</strong></td><td>The core service. Stored only as <strong>encrypted ciphertext</strong> we cannot read</td><td>Contract, Art. 6(1)(b)</td></tr>
+            <tr><td><strong>Delivery metadata</strong> (who sent to whom, timestamps, read status)</td><td>To deliver content and show your inbox</td><td>Contract, Art. 6(1)(b)</td></tr>
+            <tr><td><strong>Device push token</strong></td><td>To notify you of new glimt</td><td>Consent, Art. 6(1)(a), given when you allow notifications</td></tr>
+            <tr><td><strong>A backup of your encryption key</strong>, sealed with a password only you know</td><td>So your glimt come back if you lose, reset or replace your phone</td><td>Consent, Art. 6(1)(a), given when you choose a recovery password</td></tr>
+            <tr><td><strong>Reports you file, and the evidence attached to them</strong></td><td>To keep people safe and to meet our duties as a platform</td><td>Legal obligation, Art. 6(1)(c), and legitimate interest, Art. 6(1)(f). The interest is protecting our users, children above all, from abuse, and being able to act on illegal content at all, which end-to-end encryption otherwise makes impossible</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>We do <strong>not</strong> collect your contacts, your location, advertising identifiers, or browsing behaviour.</p>
 
-      <h2>End-to-end encryption</h2>
-      <p>Each glimt is encrypted on your device with your friend's public key before it is uploaded. Only the intended recipient's device can decrypt it. Your private key is stored in your device's secure hardware keystore (iOS Keychain / Android Keystore) and never leaves your device. This means we, and anyone who might access our servers, only ever see unreadable ciphertext.</p>
-      <p>A consequence of real end-to-end encryption: if you lose your device and your key, past glimt cannot be recovered. Your account itself stays safe and tied to your email.</p>
+      <h2>Do you have to give us this?</h2>
+      <p>Your email address, username, date of birth and friend list are what an account is made of. Without them there is nothing to sign in to and nothing to deliver a glimt to, so we cannot provide the service and you cannot use Glimt.</p>
+      <p>Everything else is optional and refusing costs you only the feature it belongs to:</p>
+      <ul>
+        <li><strong>Notifications.</strong> Say no and Glimt still works, you just find new glimt when you open the app.</li>
+        <li><strong>The key backup.</strong> Say no and Glimt still works, but if you lose your phone your old glimt cannot be brought back, by you or by us.</li>
+        <li><strong>Camera, microphone, photos.</strong> These are permissions you give the app on your own device, not data you give us. Refuse one and the feature that needs it stops. Nothing else changes, and you can change your mind at any time in your device settings.</li>
+      </ul>
+
+      <h2>Your encryption key, and how you get it back</h2>
+      <p>Each glimt is encrypted on your device with your friend's public key before it is uploaded. Only the intended recipient's device can decrypt it. We, and anyone who might access our servers, only ever see unreadable ciphertext.</p>
+      <p>Your private key lives in your device's secure hardware keystore (iOS Keychain / Android Keystore). In normal use it never leaves the phone. There are two ways it can be brought back if the phone loses it, and both are worth knowing about because both mean your key exists somewhere other than that one device:</p>
+      <ul>
+        <li><strong>A backup on our servers, sealed with your password.</strong> When you choose a recovery password, your phone derives a key from it (Argon2id), seals your private key with that (XSalsa20-Poly1305), and stores the sealed blob on our servers, one row per account. The password is never sent to us and we never see it. What we hold is a blob that is useless to us and useless to anyone who takes our database. There is no reset: if you forget the password, nobody, including us, can open it.</li>
+        <li><strong>Your platform's own key store.</strong> On iOS your key is also kept as a synchronising iCloud Keychain item; on Android in Google Block Store. This is the same mechanism iMessage uses. Apple and Google hold the material but it is end-to-end encrypted by the operating system and they cannot read it. The entry is scoped to your account and to that one device, so it recovers that device, it does not copy your key onto another one.</li>
+      </ul>
+      <p><strong>So losing your phone no longer means losing your glimt.</strong> Set a recovery password, and on a new phone you sign in, type the password, and your glimt are readable again. If you never set one and the automatic recovery does not apply, older glimt stay unreadable, because we genuinely cannot open them for you.</p>
+      <p>You can delete the server-side backup at any time from Settings, and deleting your account deletes it with everything else.</p>
+
+      <h2>What happens on your device and never reaches us</h2>
+      <p>Some of the most useful things Glimt does happen entirely on your phone. We mention them here because they sound like they should involve a server and they do not.</p>
+      <ul>
+        <li><strong>Sensitive-content blurring.</strong> Glimt checks a photo or video for nudity on the device itself and blurs it behind a warning. No image is uploaded for this, no result is stored, and nothing is sent to us. This is live on iPhone, on <strong>iOS 17 or later</strong>, and only when <strong>"Sensitive Content Warning" is switched on in iOS Settings</strong>, because Apple gates the analyser behind that switch. On Android it is not there yet: we are building an on-device model for it, and until that ships an Android phone does not blur or warn. We would rather say that plainly than let a vague sentence imply a protection that is not there.</li>
+        <li><strong>Writing down what you say.</strong> A voice glimt can be transcribed so someone who cannot hear it can read it. That runs on your phone and the audio never leaves it.</li>
+        <li><strong>Your photo library.</strong> Picking a photo to send, or saving a glimt you received, is a permission you give the app on your device. We never receive your photo library, only the single encrypted glimt you chose to send.</li>
+      </ul>
 
       <h2>How long we keep things</h2>
       <ul>
         <li>Glimt are deleted after they are viewed, and unopened glimt are automatically deleted after about 30 days.</li>
         <li>Vekeglimt are removed after roughly three weeks.</li>
         <li>Account data (email, username, friends) is kept until you delete your account.</li>
-        <li>Report evidence is kept only as long as needed to review and act on the report, then deleted.</li>
+        <li>Your sealed key backup is kept until you turn it off or delete your account.</li>
+        <li>Your push token is kept until you turn notifications off or delete your account.</li>
+        <li>Report evidence is kept only as long as needed to review and act on the report, then deleted. Material that has to be preserved for a law-enforcement or child-protection obligation is kept for as long as that obligation requires.</li>
       </ul>
 
       <h2>Who we share data with</h2>
-      <p>We use a small number of processors purely to run the service, under data-processing terms:</p>
+      <p>We use a small number of processors purely to run the service, under data-processing terms. We never share your data with advertisers or data brokers, and we do not sell it.</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">Who</th><th scope="col">What they handle</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Supabase</strong></td><td>Database, file storage, sign-in, server functions. Holds your account data, your delivery metadata, your encrypted content and your sealed key backup. Our project is hosted in Europe, in the Nordics</td></tr>
+            <tr><td><strong>Expo</strong>, and through it <strong>Apple Push Notification service</strong> and <strong>Google Firebase Cloud Messaging</strong></td><td>Delivering push notifications: your device token and the text of the notification</td></tr>
+            <tr><td><strong>Apple iCloud Keychain</strong> and <strong>Google Block Store</strong></td><td>The platform key escrow described above, end-to-end encrypted by the operating system</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>One honest detail about notifications: the text that travels through Expo, Apple and Google says who sent you something, and for a bål which fire it was. It never contains the content of a glimt. If you would rather nothing at all travelled that way, turn notifications off.</p>
+
+      <h2>Transfers outside the EEA</h2>
+      <!--
+        NEEDS A CHECK BEFORE LAUNCH, and the check has to be repeated, because a processor's transfer
+        mechanism can change: confirm each processor's current basis in their live DPA and, for the DPF,
+        against dataprivacyframework.gov/s/participant-search. Record the outcome. The text below is
+        deliberately written not to assert a certification status per company that we have not verified.
+      -->
+      <p>Your account data and your encrypted content are stored in Europe. Our Supabase project is hosted in the Nordics, so that is where the database and the file storage physically sit.</p>
+      <p>Some of our processors are United States companies, so some data does reach the US:</p>
       <ul>
-        <li><strong>Supabase</strong> (database, storage, authentication) in an EU region, GDPR-compliant.</li>
-        <li><strong>Expo / Apple / Google</strong> deliver push notifications.</li>
+        <li><strong>Supabase Inc.</strong> is a US company even though our project is hosted in Europe, so support and operations access can happen from outside the EEA. Their data processing agreement incorporates the European Commission's Standard Contractual Clauses (Decision 2021/914).</li>
+        <li><strong>Expo, Apple and Google</strong> receive your device push token and the notification text so a notification can be delivered, and Apple and Google hold the platform-escrowed key material described above. These transfers rest on the EU-US Data Privacy Framework where the recipient is certified under it, and otherwise on the Commission's Standard Contractual Clauses.</li>
       </ul>
-      <p>We never share your data with advertisers or data brokers.</p>
+      <p>The supplementary measure that actually matters here is the design of the app rather than a clause in a contract: the content of a glimt is end-to-end encrypted and never leaves your circle of friends in readable form, the key backup we store is sealed with a password we never receive, and the platform escrow is encrypted by the operating system. What crosses a border is either a token, a name in a notification, or a blob that the recipient cannot open.</p>
+
+      <h2>Automated decision-making</h2>
+      <p>There is <strong>no</strong> automated decision-making that produces legal effects for you or similarly significantly affects you in the sense of Article 22.</p>
+      <p>Two things do happen automatically, and you should know about them:</p>
+      <ul>
+        <li>An account reported by <strong>three different people</strong> is banned automatically, without waiting for a human. The ban stops that account posting anything new. It does not delete the account, and taking an account down completely is a step a person performs by hand.</li>
+        <li>While a report is being looked at, a reported account can be hidden.</li>
+      </ul>
+      <p>Both are protective, both are reversible, and a person reviews every report. If you think one of them hit you wrongly, write to <a href="mailto:paal@dynni.no">paal@dynni.no</a> and a person, not a machine, will answer. Our <a href="./terms">Terms</a> explain what we tell you when we act, and how to contest it.</p>
 
       <h2>Your rights</h2>
-      <p>Under the GDPR you can access, correct, export, or delete your data, and object to or restrict processing. You can <strong>delete your entire account</strong> at any time from Settings, which permanently removes your account, friends, bål and glimt. For any other request, email <a href="mailto:paal@dynni.no">paal@dynni.no</a> and we will respond within 30 days. You may also complain to your local data protection authority (in Norway, Datatilsynet).</p>
+      <p>Under the GDPR you can ask for access to your data, correct it, have it erased, get it in a portable form, restrict how we use it, and object to processing based on legitimate interest. Where we rely on your consent, you can <strong>withdraw it at any time</strong>, and withdrawing it does not make what we did before unlawful: turn notifications off in your device settings, or turn the key backup off in Settings.</p>
+      <p>You can <strong>delete your entire account</strong> at any time from Settings, which permanently removes your account, friends, bål, glimt and key backup. For any other request, email <a href="mailto:paal@dynni.no">paal@dynni.no</a> and we will respond within 30 days.</p>
+      <p>If you think we have got something wrong, you can complain to the data protection authority in the EU or EEA country where you live, where you work, or where the problem happened. In Norway that is Datatilsynet.</p>
 
       <h2>Children</h2>
       <p>Glimt is not for children under 13 (or a higher age where local law requires, such as 16 in some countries). We ask for date of birth at sign-up and block under-age accounts. See our <a href="./child-safety">Child Safety Standards</a>. If you believe a child under the minimum age has an account, contact <a href="mailto:paal@dynni.no">paal@dynni.no</a>.</p>

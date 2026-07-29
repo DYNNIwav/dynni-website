@@ -62,11 +62,33 @@
       </nav>
     </header>
 
+    <!--
+      MIRROR, NOT SOURCE. The canonical Glimt terms of service is docs/terms-of-service.md in the
+      glimt-native repo, because that copy ships in the app and in App Store / Google Play metadata.
+      Edit the markdown first, then mirror it here AND in glimt/terms.html (nynorsk). All three carry
+      the same "Policy version" line below, so a drift is visible with one grep.
+
+      The nynorsk page must stay structurally identical to this one: same sections, same order.
+    -->
     <main class="privacy-content">
       <h1>Glimt — Terms</h1>
-      <p class="last-updated">Last updated: 23 June 2026</p>
+      <p class="last-updated">Last updated: 29 July 2026 · Policy version: 2026-07-29</p>
 
       <p>Welcome to Glimt. By creating an account or using the app, you agree to these terms. If you do not agree, please don't use Glimt.</p>
+
+      <h2>Who you are agreeing with</h2>
+      <!--
+        A contract needs an identifiable counterparty for the same reason a privacy policy needs an
+        identifiable controller: "Glimt" is a product name and cannot be a party to anything.
+
+        ONLY THE AUTHOR CAN FILL THESE IN. Replace, in order:
+          1. the full legal name of the provider (person or company),
+          2. the organisation number if there is a registered enterprise, otherwise delete that clause,
+          3. a postal address in Norway that post can actually be delivered to.
+        Use exactly the same three values as /glimt/privacy, /glimt/terms, /en/glimt/privacy and the
+        glimt-native repo's docs/privacy-policy.md and docs/terms-of-service.md.
+      -->
+      <p>Glimt is provided by [FILL IN: full legal name of the provider], [FILL IN: organisation number, or delete this clause if there is no registered enterprise], [FILL IN: postal address], Norway. Contact: <a href="mailto:paal@dynni.no">paal@dynni.no</a>. In these terms "we" and "us" mean that provider.</p>
 
       <h2>Who can use Glimt</h2>
       <p>You must be at least 13 years old (or older where your country requires it). By using Glimt you confirm you meet this requirement.</p>
@@ -82,17 +104,44 @@
         <li>share content that is illegal, hateful, violent, or sexually explicit;</li>
         <li>send spam or attempt to harm, reverse engineer, or disrupt the service.</li>
       </ul>
-      <p><strong>Reporting and blocking.</strong> You can block any user and report any glimt or user from inside the app. Because content is end-to-end encrypted, reporting a glimt attaches a copy of that content to the report so our moderators can review it. We review reports and <strong>act within 24 hours</strong>, removing content and ejecting users who violate these terms. Accounts that are reported by multiple people are hidden automatically while we review.</p>
+      <p><strong>Reporting and blocking.</strong> You can block any user and report any glimt or user from inside the app. Because content is end-to-end encrypted, reporting a glimt attaches a copy of that content to the report so our moderators can review it. Every report alerts a moderator immediately, so a single credible report can be acted on by hand well inside 24 hours. An account reported by <strong>three different people</strong> is banned automatically, which stops it posting anything new while we look at it.</p>
       <p>By using Glimt you consent to this moderation process, which exists to keep everyone safe.</p>
 
       <h2>Your content</h2>
       <p>You own the content you create. You grant us only the limited, technical permission needed to store and deliver your encrypted content to the recipients you choose. Since content is end-to-end encrypted, we cannot access it; we act on it only when you attach it to a report.</p>
 
+      <h2>Illegal content, and what we tell you when we act</h2>
+      <p>These are our duties under the EU Digital Services Act, and what we do in practice.</p>
+      <p><strong>Telling us about something (Article 16).</strong> Anyone, whether or not they use Glimt, can report illegal content to us, from inside the app or by writing to <a href="mailto:paal@dynni.no">paal@dynni.no</a>. Say what the content is, where it is, and why you think it is illegal, and give us a way to reach you if you want an answer. We confirm we got it and we tell you what we decided.</p>
+      <p><strong>Telling you why we acted (Article 17).</strong> If we remove your content, restrict or ban your account, or stop delivering something you sent, we tell you: what we did, whether it was because of the law or because of these terms, which rule it was, the facts we relied on, whether an automatic tool was involved in the decision, and how to contest it. You get that in the app or by email at the address on your account.</p>
+      <p><strong>Contesting a decision.</strong> Write to <a href="mailto:paal@dynni.no">paal@dynni.no</a>. A person reads it and answers, and if we got it wrong we undo it.</p>
+      <p><strong>On the formal complaint systems (Articles 19, 20 and 21).</strong> Glimt is a micro enterprise as defined in Commission Recommendation 2003/361/EC. Article 19 of the Digital Services Act exempts micro and small enterprises from Section 3 of Chapter III, which is where the formal internal complaint-handling system (Article 20) and certified out-of-court dispute settlement bodies (Article 21) live, so we do not operate those. What we do instead is answer every complaint by hand, which at our size is the honest equivalent, and we will build the formal versions if we outgrow the exemption. The duties that are not exempted still apply to us and we follow them, including notice and action (Article 16), the statement of reasons above (Article 17), and Article 24(3).</p>
+      <p><strong>Point of contact (Articles 11 and 12).</strong> For authorities and for you alike, the single point of contact is <a href="mailto:paal@dynni.no">paal@dynni.no</a>, in Norwegian or English. It is read by a person.</p>
+
       <h2>The service</h2>
-      <p>Glimt is provided "as is". We work hard to keep it running and private, but we can't guarantee it will always be available or error-free. Glimt is ephemeral by design: content is meant to disappear, and we are not a backup service. To the extent permitted by law, we are not liable for lost content or indirect damages.</p>
+      <p>Glimt is provided "as is", to the extent the law allows. We work hard to keep it running and private, but we can't guarantee it will always be available or error-free. Glimt is ephemeral by design: content is meant to disappear, and we are not a backup service. To the extent permitted by law, we are not liable for lost content or indirect damages.</p>
+      <p><strong>Your consumer rights are untouched.</strong> Nothing in this section, and nothing anywhere in these terms, limits or removes a right you have as a consumer under mandatory law, including Norwegian consumer legislation and the EU rules on digital content and digital services. Where such a rule gives you a right, it applies whatever this section says.</p>
 
       <h2>Ending your use</h2>
       <p>You can delete your account at any time from Settings. We may suspend or terminate accounts that violate these terms, especially the zero-tolerance rules above.</p>
+
+      <h2>Governing law and where a dispute is heard</h2>
+      <!--
+        SAME PLACEHOLDER RULE AS ABOVE. The venue follows from the provider's address, which only the
+        author can supply. Fill it in together with the three values under "Who you are agreeing with".
+      -->
+      <p>These terms are governed by Norwegian law. Disputes go before the ordinary Norwegian courts, and unless the law says otherwise the agreed venue is [FILL IN: the district court for the provider's address above, e.g. Oslo tingrett].</p>
+      <p>If you are a consumer, that does not take anything away from you: you keep the protection of the mandatory rules of the country you live in, and you can bring a case in your own country's courts wherever the law gives you that right.</p>
+
+      <h2>If you got Glimt from the App Store</h2>
+      <p>These terms are between you and us, not Apple, and Apple is not responsible for Glimt or for its content. Specifically:</p>
+      <ul>
+        <li>Apple has no obligation to provide any maintenance or support for Glimt.</li>
+        <li>If Glimt fails to conform to any applicable warranty, you may tell Apple and Apple will refund any purchase price you paid for it. To the maximum extent permitted by law, Apple has no other warranty obligation at all for Glimt.</li>
+        <li>We, not Apple, are responsible for handling any claim about Glimt: product liability, a failure to meet a legal requirement, a consumer-protection claim, or a claim that Glimt infringes someone else's intellectual property.</li>
+        <li>You confirm you are not in a country under a US Government embargo or designated as "terrorist-supporting", and that you are not on any US Government list of prohibited or restricted parties.</li>
+        <li>Apple and Apple's subsidiaries are third-party beneficiaries of these terms, and when you accept these terms Apple has the right, and is deemed to have accepted the right, to enforce them against you as a third-party beneficiary.</li>
+      </ul>
 
       <h2>Changes</h2>
       <p>We may update these terms; we'll update the date above and notify you in the app of significant changes. Continued use after a change means you accept the updated terms.</p>
