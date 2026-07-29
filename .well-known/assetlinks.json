@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.dynni.glimt",
+      "sha256_cert_fingerprints": [
+        "94:0B:EB:FE:AC:65:AB:87:E4:E1:E9:F5:6B:89:9A:AF:63:C8:AE:A6:99:8D:A5:F1:4D:F4:2C:7E:61:18:67:2E"
+      ]
+    }
+  }
+]
