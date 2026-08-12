@@ -179,7 +179,8 @@
             <tr><th scope="col">Kven</th><th scope="col">Kva dei handterer</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Supabase</strong></td><td>Database, fillagring, innlogging, serverfunksjonar. Har kontodataa dine, leverings-metadataa dine, det krypterte innhaldet ditt og den forsegla nøkkel-backupen din. Prosjektet vårt ligg i Europa, i Norden</td></tr>
+            <tr><td><strong>Supabase</strong></td><td>Database, innlogging, serverfunksjonar. Har kontodataa dine, leverings-metadataa dine og den forsegla nøkkel-backupen din. Prosjektet vårt ligg i Europa, i Norden</td></tr>
+            <tr><td><strong>Cloudflare R2</strong></td><td>Sjølve fila: bileta, videoane og lydopptaka dine, i kryptert form. Berre bytea. Nøkkelen som opnar dei ligg i databasen hjå Supabase, forsegla til eininga di, så Cloudflare har ein klump dei ikkje kan opne. Bøtta vår står i EU-jurisdiksjon</td></tr>
             <tr><td><strong>Expo</strong>, og gjennom Expo <strong>Apple Push Notification service</strong> og <strong>Google Firebase Cloud Messaging</strong></td><td>Levering av push-varsel: push-tokenet til eininga di og teksten i varselet</td></tr>
             <tr><td><strong>Apple iCloud Keychain</strong> og <strong>Google Block Store</strong></td><td>Plattform-oppbevaringa av nøkkelen som er skildra over, ende-til-ende-kryptert av operativsystemet</td></tr>
           </tbody>
@@ -195,10 +196,11 @@
         Teksten under er med vilje skriven slik at han ikkje hevdar ein sertifiseringsstatus per selskap
         som vi ikkje har stadfesta.
       -->
-      <p>Kontodataa dine og det krypterte innhaldet ditt blir lagra i Europa. Supabase-prosjektet vårt ligg i Norden, så det er der databasen og fillagringa fysisk står.</p>
+      <p>Kontodataa dine og det krypterte innhaldet ditt blir lagra i Europa. Supabase-prosjektet vårt ligg i Norden, så det er der databasen fysisk står. Sjølve mediefilene ligg hjå Cloudflare R2 med EU-jurisdiksjon, som tyder at dei ikkje blir lagra utanfor EU.</p>
       <p>Nokre av databehandlarane våre er amerikanske selskap, så noko data hamnar faktisk i USA:</p>
       <ul>
         <li><strong>Supabase Inc.</strong> er eit amerikansk selskap sjølv om prosjektet vårt ligg i Europa, så støtte- og drifts-tilgang kan skje frå stader utanfor EØS. Databehandlaravtalen deira inneheld EU-kommisjonen sine standard personvernvilkår (SCC, avgjerd 2021/914).</li>
+        <li><strong>Cloudflare, Inc.</strong> er eit amerikansk selskap sjølv om bøtta vår er sett til EU-jurisdiksjon, så støtte- og drifts-tilgang kan skje frå stader utanfor EØS. Databehandlaravtalen deira inneheld standard personvernvilkåra til kommisjonen. Det dei har, er kryptert innhald utan nøkkelen.</li>
         <li><strong>Expo, Apple og Google</strong> får push-tokenet til eininga di og varsel-teksten så eit varsel kan leverast, og Apple og Google har nøkkelmaterialet som er skildra over. Desse overføringane kviler på EU–USA-rammeverket for personvern (Data Privacy Framework) der mottakaren er sertifisert under det, og elles på standard personvernvilkåra til kommisjonen.</li>
       </ul>
       <p>Det tiltaket som faktisk betyr noko her, er korleis appen er bygd, ikkje ein paragraf i ein kontrakt: innhaldet i eit glimt er ende-til-ende-kryptert og forlèt aldri venekrinsen din i lesbar form, nøkkel-backupen vi lagrar er forsegla med eit passord vi aldri får, og plattform-oppbevaringa er kryptert av operativsystemet. Det som kryssar ei grense, er anten eit token, eit namn i eit varsel, eller ein klump mottakaren ikkje kan opne.</p>
