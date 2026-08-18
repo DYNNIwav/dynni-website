@@ -138,6 +138,15 @@ main {
     }
 }
 
+/* SIKRINGSNETT MOT SIDEVEGS SCROLL. `clip` og ikkje `hidden`: `overflow-x: hidden` gjer elementet til ein
+ * scroll-container og bryt `position: sticky` inni, medan `clip` berre klipper. Ei innglidings-animasjon som
+ * startar utanfor skjermen kan dermed ikkje lenger gjere sida breiare enn viewporten, som er det som fekk
+ * `.background` til å slutte å dekkje (han er `position: fixed` og følgjer ikkje med sidevegs). */
+html,
+body {
+    overflow-x: clip;
+}
+
 .background {
     position: fixed;
     top: calc(-1 * env(safe-area-inset-top, 0px));
@@ -158,6 +167,15 @@ main {
     opacity: 0.08;
     filter: blur(0.5px) contrast(1.2);
     pointer-events: none;
+}
+
+/* GRAIN BERRE PÅ DESKTOP. På ein liten skjerm blir kornet støy i staden for tekstur, og reint svart les
+ * roleg. Glimt-landingssida har sitt eige `.grain-layer` i glimt.css og brukar ikkje `.background` i det
+ * heile, så nordlyset hennar er urørt av dette. */
+@media (max-width: 768px) {
+    .background::after {
+        display: none;
+    }
 }
 
 /* backdrop-filter fix for Safari */

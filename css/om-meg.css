@@ -348,3 +348,24 @@ blockquote footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* INNGLIDING FRÅ SIDA LAGA SIDEVEGS SCROLL PÅ MOBIL, og det er heile «viewport-bakgrunn»-problemet.
+ *
+ * `.about-image` startar på translateX(-200px) og `.about-content` på translateX(200px). På ein 390px-skjerm
+ * er 200px over HALVE breidda, så eit element som allereie fyller rada blir skuve 200px ut på høgresida.
+ * Sida blir breiare enn viewporten, du kan scrolle sidevegs, og `.background` er `position: fixed`, så han
+ * følgjer ikkje med. Difor såg terminalvindauget avkutta ut og bakgrunnen feil.
+ *
+ * Rørsla er ikkje problemet, RETNINGA er det. Vertikalt kan aldri lage vassrett overflyt, uansett skjerm.
+ * Behaldt på desktop, der det er plass til han og der han ser bra ut. */
+@media (max-width: 768px) {
+    .js .about-image,
+    .js .about-content {
+        transform: translateY(24px);
+    }
+
+    .about-image.show,
+    .about-content.show {
+        transform: translateY(0);
+    }
+}
