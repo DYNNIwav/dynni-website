@@ -93,3 +93,63 @@ html {
     flex-direction: column;
   }
 }
+
+/* PROSJEKTSTRIPA.
+ *
+ * Forsida sa «Eg byggjer appar, verktøy og nettsider» og lenkja så til ingenting. Påstanden var sann og
+ * beviset låg tre klikk unna, som er den svakaste forma ein påstand kan ha: lesaren må ta han på ordet.
+ *
+ * To kort, ikkje fem. Dei to som er ferdige og som nokon kan prøve i dag står her; resten ligg på appsida der
+ * dei høyrer heime. Ei stripe som listar alt blir ein katalog, og ein katalog blir ikkje lesen.
+ *
+ * Ingen nye fargar eller storleikar: --glass, --glass-border, --radius og --font-mono finst frå før, så stripa
+ * arvar sida i staden for å lage sin eigen stil ved sida av henne.
+ */
+.hero-work {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  opacity: 0;
+  animation: fade-in-full 0.4s ease 4.4s forwards;
+}
+
+.hero-work a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.hero-work a:hover {
+  background: var(--glass-strong);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.hero-work .work-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hero-work .work-what {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* Stripa skal stå på FULL styrke. `fade-in` endar på 0.7 fordi han er skriven for terminal-spøken, som er
+ * pynt; dette er beviset, og eit bevis skal ikkje vere nedtona. */
+@keyframes fade-in-full {
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .hero-work a { flex: 1 1 100%; }
+}
