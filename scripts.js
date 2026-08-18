@@ -388,11 +388,18 @@ function initScrollAnimations() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
+        if (!entry.isIntersecting) return;
+        // AVSLØR ÉIN GONG, OG SLUTT Å SJÅ ETTER.
+        //
+        // Denne fjerna `show` igjen når kortet gjekk ut av synsfeltet, så `.js .app-card { opacity: 0 }` slo
+        // inn på nytt og korta blinka tilbake til usynlege medan ein scrolla. På eit høgt kort, som Paneless
+        // etter at skildringa blei fyldigare, betyr det at toppen kan vere avslørt medan botnen er på veg ut,
+        // og då står kortet att med ramme og ikon og utan tekst.
+        //
+        // Ein avsløring er ei hending og ikkje ein tilstand: har du fyrst sett kortet, skal det bli ståande.
+        // `unobserve` gjer det billegare òg, sidan observaren sluttar å følgje det som er ferdig.
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
       });
     },
     { rootMargin: "0px 0px 200px 0px" },

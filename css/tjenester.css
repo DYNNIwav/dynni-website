@@ -414,10 +414,18 @@
   color: var(--text-secondary);
 }
 
-.svc-proof a {
+/* `:not(.btn)`, fordi understrekinga er for LENKJER I BRØDTEKST og ikkje for knappar. Utan henne fekk
+ * «Ta kontakt» og «Sjå kva eg har bygd» strek under, som ingen andre knappar på nettstaden har. */
+.svc-proof p a:not(.btn) {
   color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* Ikonet i knappen treng eit mellomrom. `.btn` er `inline-flex`, så mellomromet i HTML-en kollapsar, og
+ * «Ta kontakt» blei ståande klistra til pila. Same gap som knappane på dei andre sidene har. */
+.svc-proof .btn {
+  gap: var(--space-xs);
 }
 
 .svc-note {
@@ -430,4 +438,12 @@
   display: flex;
   gap: var(--space-xs);
   flex-wrap: wrap;
+}
+
+/* Overskrifta på den parkerte sida. Ho brukte typewriter-3, som er bunden til «cat om-meg.txt» i scripts.js,
+ * så ho skreiv feil filnamn. Ei parkert side treng ingen animasjon. */
+.services-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: var(--text);
 }
