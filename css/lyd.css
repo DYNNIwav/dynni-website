@@ -123,3 +123,26 @@
         min-width: auto;
     }
 }
+
+/* Introen til produksjonslista. Sida hadde ingen: ein besøkjande møtte ei Pro Tools-etterlikning med 18 spor
+ * og måtte telje kanalane sjølv for å skjøne at det er riksdekkjande kringkastarar. Dette er den einaste sida
+ * med betalt yrkeserfaring, og ho var den einaste utan introparagraf. */
+.lyd-intro {
+  max-width: 720px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-md);
+}
+
+.lyd-intro h2 {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.lyd-intro p {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}

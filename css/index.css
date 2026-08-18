@@ -1,6 +1,7 @@
-html {
-  overflow-y: hidden;
-}
+/* `overflow-y: hidden` stod her og gjorde alt under folden UMOGLEG å nå, ikkje berre lite synleg. Det gjekk
+ * så lenge sida var ein hero og ingenting meir. I det prosjektstripa kom, var beviset uråd å scrolle til på
+ * ein kort laptop eller ein telefon i landskap. Ei side scrollar berre når innhaldet ikkje får plass, så
+ * utsjånaden er uendra når det får plass. */
 
 .typed-text {
   margin: 0;
@@ -69,7 +70,7 @@ html {
   font-size: 0.75rem;
   color: var(--text-secondary);
   opacity: 0;
-  animation: fade-in 0.4s ease 3s forwards;
+  animation: fade-in 0.4s ease 2.4s forwards;
 }
 
 .hero-terminal .prompt-prefix {
@@ -81,7 +82,7 @@ html {
   color: var(--text-secondary);
   margin-top: 2px;
   opacity: 0;
-  animation: fade-in 0.4s ease 4s forwards;
+  animation: fade-in 0.4s ease 3s forwards;
 }
 
 @keyframes fade-in {
@@ -111,7 +112,7 @@ html {
   gap: var(--space-xs);
   margin-top: var(--space-md);
   opacity: 0;
-  animation: fade-in-full 0.4s ease 4.4s forwards;
+  animation: fade-in-full 0.4s ease 0.8s forwards;
 }
 
 .hero-work a {

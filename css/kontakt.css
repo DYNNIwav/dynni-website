@@ -1,8 +1,5 @@
-@media (min-width: 769px) {
-  html {
-    overflow-y: hidden;
-  }
-}
+/* Same som i index.css: låsen er fjerna så sida kan vekse. `.contact-hero` har framleis `min-height: 100svh`,
+ * så ho fyller skjermen akkurat som før når det ikkje er meir innhald. */
 
 .contact-hero {
   min-height: 100vh;
@@ -21,10 +18,6 @@
 
 
 @media (max-width: 768px) {
-  html {
-    overflow-y: hidden;
-  }
-
   .contact-hero {
     padding: 0 var(--space-sm);
     min-height: calc(100svh - var(--space-md) * 2);
