@@ -150,7 +150,7 @@
       <h2>What happens on your device and never reaches us</h2>
       <p>Some of the most useful things Glimt does happen entirely on your phone. We mention them here because they sound like they should involve a server and they do not.</p>
       <ul>
-        <li><strong>Sensitive-content blurring.</strong> Glimt checks a photo or video for nudity on the device itself and blurs it behind a warning. No image is uploaded for this, no result is stored, and nothing is sent to us. This is live on iPhone, on <strong>iOS 17 or later</strong>, and only when <strong>"Sensitive Content Warning" is switched on in iOS Settings</strong>, because Apple gates the analyser behind that switch. On Android it is not there yet: we are building an on-device model for it, and until that ships an Android phone does not blur or warn. We would rather say that plainly than let a vague sentence imply a protection that is not there.</li>
+        <li><strong>Sensitive-content blurring.</strong> Glimt checks a photo or video for nudity on the device itself and blurs it behind a warning. No image is uploaded for this and the picture never leaves your phone. When you share a moment at a bål, a yes/no flag travels with it saying the content is sensitive, so the other phones know to blur before showing anything. The flag sits in our database; the picture never does. This is live on iPhone, on <strong>iOS 17 or later</strong>, and only when <strong>"Sensitive Content Warning" is switched on in iOS Settings</strong>, because Apple gates the analyser behind that switch. On Android it is not there yet: we are building an on-device model for it, and until that ships an Android phone does not blur or warn. We would rather say that plainly than let a vague sentence imply a protection that is not there.</li>
         <li><strong>Writing down what you say.</strong> A voice glimt can be transcribed so someone who cannot hear it can read it. That runs on your phone and the audio never leaves it.</li>
         <li><strong>Your photo library.</strong> Picking a photo to send, or saving a glimt you received, is a permission you give the app on your device. We never receive your photo library, only the single encrypted glimt you chose to send.</li>
       </ul>
@@ -173,7 +173,8 @@
             <tr><th scope="col">Who</th><th scope="col">What they handle</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Supabase</strong></td><td>Database, file storage, sign-in, server functions. Holds your account data, your delivery metadata, your encrypted content and your sealed key backup. Our project is hosted in Europe, in the Nordics</td></tr>
+            <tr><td><strong>Supabase</strong></td><td>Database, sign-in, server functions and some file storage. Holds your account data, your delivery metadata, your sealed key backup, your rendered avatar image, and any evidence you attach to a report. If R2 is unreachable, the glimt file itself lands here instead. Our project is hosted in Europe, in the Nordics</td></tr>
+            <tr><td><strong>Cloudflare R2</strong></td><td>The files themselves: your photos, videos and voice recordings, in encrypted form. Bytes only. The key that opens them sits in the database at Supabase, sealed to your device, so Cloudflare holds a blob it cannot open. Our bucket is set to EU jurisdiction</td></tr>
             <tr><td><strong>Expo</strong>, and through it <strong>Apple Push Notification service</strong> and <strong>Google Firebase Cloud Messaging</strong></td><td>Delivering push notifications: your device token and the text of the notification</td></tr>
             <tr><td><strong>Apple iCloud Keychain</strong> and <strong>Google Block Store</strong></td><td>The platform key escrow described above, end-to-end encrypted by the operating system</td></tr>
           </tbody>
@@ -188,10 +189,11 @@
         against dataprivacyframework.gov/s/participant-search. Record the outcome. The text below is
         deliberately written not to assert a certification status per company that we have not verified.
       -->
-      <p>Your account data and your encrypted content are stored in Europe. Our Supabase project is hosted in the Nordics, so that is where the database and the file storage physically sit.</p>
+      <p>Your account data and your encrypted content are stored in Europe. Our Supabase project is hosted in the Nordics, so that is where the database physically sits. The media files themselves sit at Cloudflare R2 under EU jurisdiction, which means they are not stored outside the EU.</p>
       <p>Some of our processors are United States companies, so some data does reach the US:</p>
       <ul>
         <li><strong>Supabase Inc.</strong> is a US company even though our project is hosted in Europe, so support and operations access can happen from outside the EEA. Their data processing agreement incorporates the European Commission's Standard Contractual Clauses (Decision 2021/914).</li>
+        <li><strong>Cloudflare, Inc.</strong> is a US company even though our bucket is set to EU jurisdiction, so support and operations access can happen from outside the EEA. Their data processing agreement incorporates the Commission's Standard Contractual Clauses. What they hold is encrypted content without the key.</li>
         <li><strong>Expo, Apple and Google</strong> receive your device push token and the notification text so a notification can be delivered, and Apple and Google hold the platform-escrowed key material described above. These transfers rest on the EU-US Data Privacy Framework where the recipient is certified under it, and otherwise on the Commission's Standard Contractual Clauses.</li>
       </ul>
       <p>The supplementary measure that actually matters here is the design of the app rather than a clause in a contract: the content of a glimt is end-to-end encrypted and never leaves your circle of friends in readable form, the key backup we store is sealed with a password we never receive, and the platform escrow is encrypted by the operating system. What crosses a border is either a token, a name in a notification, or a blob that the recipient cannot open.</p>

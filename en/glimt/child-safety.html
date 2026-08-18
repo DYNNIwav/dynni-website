@@ -111,7 +111,7 @@
       </ul>
 
       <h2>On-device safety: blurring nudity before a child sees it</h2>
-      <p><strong>On-device sensitive-content detection is live.</strong> Glimt checks a photo or video for nudity on the phone itself and blurs it behind a warning the person has to choose to look past. It protects a child <strong>without</strong> sending anyone's content to a server and without breaking end-to-end encryption: no image is uploaded for the check, no result is stored, and nothing about it reaches us.</p>
+      <p><strong>On-device sensitive-content detection is live.</strong> Glimt checks a photo or video for nudity on the phone itself and blurs it behind a warning the person has to choose to look past. It protects a child <strong>without</strong> sending anyone's content to a server and without breaking end-to-end encryption: no image is uploaded for the check and the picture never leaves the phone. At a bål a yes/no flag travels with it saying the content is sensitive, so the other phones know to blur before showing anything. The flag sits in our database; the picture never does.</p>
       <p>The check runs on the <strong>receiving</strong> phone, on open. That is deliberate and it is the invariant we protect above everything else in this area: the receiver's own check is the sole authority, and there is no path by which a sender can mark something as already checked and skip it.</p>
       <p>Where it works, stated exactly:</p>
       <ul>
