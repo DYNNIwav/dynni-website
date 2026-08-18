@@ -326,3 +326,108 @@
         font-size: 1.2rem;
     }
 }
+
+/* UTVIKLAR-TENESTER. Sida var OSINT og selde bakgrunnssjekk; ho er skriven om fordi nettstaden mangla det
+ * viktigaste av alt, ei side som seier kva han faktisk tilbyr som utviklar. Ein portefølje utan eit tilbod
+ * gjer at ein kunde må gjette, og dei fleste gjettar at svaret er nei.
+ *
+ * Arvar tokens frå variables.css i staden for å finne opp ein stil ved sida av. */
+.svc-what,
+.svc-how,
+.svc-proof {
+  max-width: 900px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+.svc-what h2,
+.svc-how h2,
+.svc-proof h2 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-sm);
+}
+
+.svc-card {
+  padding: var(--space-md);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+}
+
+.svc-card h3 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.svc-card p,
+.svc-proof p {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.svc-steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.svc-steps li {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.svc-step-n {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--blue);
+  padding-top: 3px;
+  min-width: 28px;
+}
+
+.svc-steps h3 {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.svc-steps p {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.svc-proof a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.svc-note {
+  margin-top: var(--space-sm);
+  opacity: 0.75;
+}
+
+.svc-proof .cta {
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
