@@ -221,8 +221,14 @@
       <section class="hero" aria-label="Intro">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 class="typewriter">
-            <span class="typed-text"></span>
+          <!-- `data-static-text` OG innhald i spennet, og begge trengst.
+               Forsida var den einaste sida utan fallback, og det gjorde H1-en hennar TOM i to tilfelle: for
+               alle med Reduce Motion på (scripts.js set `dataset.staticText || ""`, altså tom streng her), og
+               for kva som helst som les HTML utan å køyre JS. Om meg, Apps og Kontakt hadde han alt.
+               Innhaldet i spennet blir skrive over av skrivemaskina med ein gong ho startar, så animasjonen er
+               uendra; det er berre kva som står der FØR og UTAN henne som blir retta. -->
+          <h1 class="typewriter" data-static-text="Hei! Eg heiter Pål.">
+            <span class="typed-text">Hei! Eg heiter Pål.</span>
           </h1>
           <p>Eg byggjer appar, verktøy og nettsider.<br />Ikkje ein mal. Ikkje eit tema. Ditt.</p>
           <div class="cta">

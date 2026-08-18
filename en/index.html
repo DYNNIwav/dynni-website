@@ -221,8 +221,10 @@
       <section class="hero" aria-label="Intro">
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 class="typewriter">
-            <span class="typed-text"></span>
+          <!-- Sjå kommentaren i den norske: forsida var einaste sida utan fallback, så H1-en var tom både
+               med Reduce Motion og utan JS. -->
+          <h1 class="typewriter" data-static-text="Hi! I&#39;m Pål.">
+            <span class="typed-text">Hi! I&#39;m Pål.</span>
           </h1>
           <p>I build apps, tools and websites.<br />Not a template. Not a theme. Yours.</p>
           <div class="cta">
