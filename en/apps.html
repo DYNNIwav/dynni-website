@@ -248,12 +248,15 @@
                   <span class="platform"><i class="fab fa-apple"></i> macOS</span> · Developer
                 </p>
                 <p class="description">
-                  Tiling window manager for macOS, written in Swift. Virtual workspaces, configurable keyboard shortcuts and animated window moves. Signed and notarised by Apple, installable with Homebrew.
+                  Tiling window manager for macOS, written in Swift. Virtual workspaces, configurable keyboard shortcuts and animated window moves. Signed and notarised by Apple. Install with Homebrew, or download and drag it to Applications.
                 </p>
                 <button class="install-cmd" onclick="event.preventDefault();event.stopPropagation();navigator.clipboard.writeText('brew install --cask DYNNIwav/paneless/paneless');this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),1500)">
                   <span>brew install --cask DYNNIwav/paneless/paneless</span>
                   <i class="fa-regular fa-copy"></i>
                 </button>
+                <a class="install-alt" href="https://github.com/DYNNIwav/paneless/releases/latest/download/Paneless.app.zip" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+                  <i class="fa-solid fa-download"></i> Or download directly
+                </a>
               </div>
             </a>
           </li>

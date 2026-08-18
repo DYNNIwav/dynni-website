@@ -253,6 +253,21 @@
     position: relative;
 }
 
+.install-alt {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--space-xs);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.install-alt:hover {
+    color: var(--blue);
+}
+
 .install-cmd:hover {
     background: rgba(0, 122, 255, 0.15);
 }
