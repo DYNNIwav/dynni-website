@@ -38,6 +38,30 @@ main {
     padding-bottom: 20px;
 }
 
+/* INNHALDET GLEID UNDER NAVIGASJONEN PÅ VANLEGE LAPTOP-BREIDDER.
+ *
+ * Sidebaren er `position: fixed` og ligg utanfor flyten, medan `main` er 1200px sentrert i HEILE viewporten.
+ * Venstrekanten hans er difor `(vw - 1200) / 2`, som er mindre enn dei 100px sidebaren tek heilt til vw når
+ * 1400:
+ *
+ *     vw 1200 -> 0px      vw 1300 -> 50px     vw 1400 -> 100px
+ *
+ * Under 1400 låg altså fyrste teiknet i teksten under menyen. På om-meg synte det seg som at `~` i
+ * `~ $ cat om-meg.txt` hamna inni logoen. Det råkar dei fleste laptopar.
+ *
+ * Ei venstre-polstring på `body` og ikkje ein margin på `main`: da held `margin: 0 auto` fram med å sentrere,
+ * berre i plassen som faktisk er ledig. `.background` er `position: fixed` og dekkjer framleis heile
+ * viewporten, inkludert under sidebaren.
+ *
+ * Berre over 768px, for der under er navigasjonen ein hamburgar og tek ingen breidd. */
+@media (min-width: 769px) {
+    body {
+        /* Sidebaren PLUSS det same pusterommet dei andre sidene har. Berre `100px` ville lagt teksten klistra
+           inntil menyen, sidan denne regelen erstattar venstre-delen av `padding: var(--space-md)` over. */
+        padding-left: calc(100px + var(--space-md));
+    }
+}
+
 .hero {
     position: relative;
     min-height: 100vh;
