@@ -447,3 +447,30 @@
   font-size: clamp(1.6rem, 4vw, 2.6rem);
   color: var(--text);
 }
+
+/* DET TEKNISKE SOM KVITTERING, IKKJE SOM PORT.
+ *
+ * Eigaren ville ha eit «du kan hoppe over dette»-skilt før dei tekniske avsnitta, for dei som ikkje er
+ * tekniske. Problemet med eit slikt skilt er at det seier til lesaren at han ikkje høyrer til, OG at det ber
+ * folk hoppe over nettopp det som beviser at han er god. På ei side der kunden godt kan vere ikkje-teknisk er
+ * det å skippe beviset feil veg.
+ *
+ * Same effekt utan prisen: vanleg norsk FØRST, det tekniske under som ei kvittering. Da treng ingen å hoppe
+ * over noko. Den ikkje-tekniske lesaren skjøner alt av det fyrste avsnittet og kan slutte der; den tekniske
+ * les vidare og får det som er verdt å heve augebryna av.
+ *
+ * `//` fordi sida alt brukar det som overskriftsmarkør, så det les som ein kommentar i kode og ikkje som ei
+ * åtvaring. Dempa, men ikkje gøymd: han skal vere lett å hoppe over med auget og lett å finne om du vil. */
+.tech-aside {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--glass-border);
+  opacity: 0.72;
+}
+
+.tech-aside-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--blue);
+  font-size: 0.72rem;
+}
