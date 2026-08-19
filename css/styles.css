@@ -94,9 +94,17 @@ main {
     padding: 0 var(--space-lg);
 }
 
-/* Kontaktsida stablar innhaldet sitt, men skal sentrerast likt som dei andre. */
+/* Kontaktsida stablar innhaldet sitt, og då byter `align-items` betydning.
+ *
+ * I ein RAD-container (dei fem andre) styrer `align-items` den vertikale aksen, som er akkurat sentreringa vi
+ * vil ha. I ein KOLONNE-container styrer han den vassrette, så den same linja sentrerte kontaktsida sitt
+ * innhald midt på skjermen medan alle dei andre stod til venstre.
+ *
+ * `flex-start` gir teksten tilbake til venstrekanten, og `justify-content: center` tek over den vertikale
+ * jobben. Same resultat som dei andre, gjennom dei aksene ein kolonne faktisk har. */
 .contact-hero {
     flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
     gap: var(--space-xl);
 }
