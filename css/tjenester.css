@@ -1,12 +1,3 @@
-/* Hero - fullscreen centered like sound-hero / contact-hero */
-.services-hero {
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    padding: 0 var(--space-lg);
-}
-
 /* Content section - hidden until typewriter completes */
 .services-section {
     padding: var(--space-xl) var(--space-md);

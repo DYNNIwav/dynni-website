@@ -1,12 +1,3 @@
-/* Blog index hero */
-.blog-hero {
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    padding: 0 var(--space-lg);
-}
-
 /* Blog content - hidden until typewriter completes */
 .blog-section {
     padding: var(--space-xl) var(--space-md);

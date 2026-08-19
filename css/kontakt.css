@@ -1,16 +1,6 @@
 /* Same som i index.css: låsen er fjerna så sida kan vekse. `.contact-hero` har framleis `min-height: 100svh`,
  * så ho fyller skjermen akkurat som før når det ikkje er meir innhald. */
 
-.contact-hero {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 var(--space-lg);
-  gap: var(--space-xl);
-}
-
 .contact-actions {
   margin-top: var(--space-lg);
 }

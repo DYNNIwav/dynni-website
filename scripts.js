@@ -540,22 +540,19 @@ document.addEventListener("DOMContentLoaded", function () {
         onComplete: function () {
           setTimeout(() => {
             const isMobile = window.innerWidth <= 768;
-            const intro = document.querySelector(".services-intro");
             const section = document.querySelector(".services-section");
             if (section) {
               section.classList.add("reveal");
-              // Scroll til intro-teksten er sentrert i viewport
-              if (intro) {
-                intro.scrollIntoView({
-                  behavior: isMobile ? "instant" : "smooth",
-                  block: "center",
-                });
-              } else {
-                section.scrollIntoView({
-                  behavior: isMobile ? "instant" : "smooth",
-                  block: "start",
-                });
-              }
+              // `block: "start"` og ikkje "center", og det same over heile nettstaden.
+              //
+              // Desse to sidene sentrerte det avslørte innhaldet medan om-meg, lyd og apps la det på
+              // toppen, så `~ $ cat ...` landa ulik høgd frå side til side etter animasjonen. «start» er
+              // den naturlege rørsla (helsinga er lesen, innhaldet byrjar øvst) og det fleirtalet alt
+              // gjorde, så det er færrast sider som må endre seg.
+              section.scrollIntoView({
+                behavior: isMobile ? "instant" : "smooth",
+                block: "start",
+              });
             }
           }, 400);
         },
@@ -573,21 +570,19 @@ document.addEventListener("DOMContentLoaded", function () {
         onComplete: function () {
           setTimeout(() => {
             const isMobile = window.innerWidth <= 768;
-            const intro = document.querySelector(".blog-intro");
             const section = document.querySelector(".blog-section");
             if (section) {
               section.classList.add("reveal");
-              if (intro) {
-                intro.scrollIntoView({
-                  behavior: isMobile ? "instant" : "smooth",
-                  block: "center",
-                });
-              } else {
-                section.scrollIntoView({
-                  behavior: isMobile ? "instant" : "smooth",
-                  block: "start",
-                });
-              }
+              // `block: "start"` og ikkje "center", og det same over heile nettstaden.
+              //
+              // Desse to sidene sentrerte det avslørte innhaldet medan om-meg, lyd og apps la det på
+              // toppen, så `~ $ cat ...` landa ulik høgd frå side til side etter animasjonen. «start» er
+              // den naturlege rørsla (helsinga er lesen, innhaldet byrjar øvst) og det fleirtalet alt
+              // gjorde, så det er færrast sider som må endre seg.
+              section.scrollIntoView({
+                behavior: isMobile ? "instant" : "smooth",
+                block: "start",
+              });
             }
           }, 400);
         },

@@ -66,6 +66,41 @@ main {
     margin-top: var(--space-sm);
 }
 
+/* ÉIN HERO, IKKJE FEM KOPIAR.
+ *
+ * `.about-hero`, `.apps-hero`, `.blog-hero`, `.sound-hero`, `.services-hero` og `.contact-hero` hadde kvar
+ * sin definisjon i kvart sitt stilark, med nesten same innhald. Nesten er problemet: seks kopiar av same
+ * regel kan berre drive frå kvarandre, og det er nettopp det dei gjorde, så `~ $ cat ...` låg litt ulikt
+ * vertikalt frå side til side.
+ *
+ * Ein grupperte selektor her, og kopiane er sletta i side-arka. Da er dei ikkje «like», dei er DEN SAME
+ * regelen, og kan ikkje bli usamde igjen.
+ *
+ * `100svh` og ikkje `100vh`: navigasjonen er `position: fixed` og tek ingen vertikal plass, så heroen eig
+ * heile viewporten. `svh` er den LITLE viewporten, altså med nettlesarlinja framme, som er det som held
+ * innhaldet i ro når iOS Safari kollapsar linja si medan du scrollar. `100vh` står som fallback først for
+ * nettlesarar som ikkje kjenner svh.
+ */
+.about-hero,
+.apps-hero,
+.blog-hero,
+.sound-hero,
+.services-hero,
+.contact-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-lg);
+}
+
+/* Kontaktsida stablar innhaldet sitt, men skal sentrerast likt som dei andre. */
+.contact-hero {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-xl);
+}
+
 .hero-prompt {
     display: flex;
     align-items: baseline;
