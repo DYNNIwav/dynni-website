@@ -18,3 +18,18 @@
     gap: var(--space-sm);
   }
 }
+
+/* KONTAKT-TERMINALEN TRENG EI BREIDD, ELLES KRYMPAR HAN TIL INNHALDET.
+ *
+ * `.terminal-window` har inga breidd på desktop, så han blir akkurat så brei som den lengste linja. På om-meg
+ * er det fint, for der er linjene lange. Her er innhaldet ei e-postadresse og ei lenkje, så boksen blir ~315px
+ * i ein 1200px-kolonne.
+ *
+ * Med `align-items: center` var han smal men MIDTSTILT, og det las som eit val. Venstrestilt les den same
+ * smale boksen som stranda i hjørnet, og det var det som kjentest rart. Justeringa var ikkje feil, boksen var
+ * for smal til å bere ei heil side aleine.
+ *
+ * `min()` og ikkje `min-width` aleine, så han framleis kan krympe under 460px på små skjermar. */
+.contact-hero .terminal-window {
+  width: min(460px, 100%);
+}
