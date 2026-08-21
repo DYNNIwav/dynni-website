@@ -325,6 +325,7 @@
  * Arvar tokens frå variables.css i staden for å finne opp ein stil ved sida av. */
 .svc-what,
 .svc-how,
+.svc-prices,
 .svc-proof {
   max-width: 900px;
   margin: 0 auto var(--space-xl);
@@ -333,6 +334,7 @@
 
 .svc-what h2,
 .svc-how h2,
+.svc-prices h2,
 .svc-proof h2 {
   font-family: var(--font-mono);
   font-size: 1.1rem;
@@ -464,4 +466,66 @@
   margin-bottom: 4px;
   color: var(--blue);
   font-size: 0.72rem;
+}
+
+/* PRISAR.
+ *
+ * Ein kunde som ikkje finn eit tal, gjettar, og dei som gjettar for høgt spør aldri. Tala står difor på sida
+ * sjølv om omfanget avgjer resten, og dei er «frå» nettopp fordi omfanget avgjer resten.
+ *
+ * Namnet og talet ligg i same rad med `space-between`, så auget kan lese kolonna av tal loddrett utan å lese
+ * teksten. `flex-wrap` fordi talet skal falle under namnet på smale skjermar i staden for å klemme det. */
+.svc-price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.svc-price {
+  padding: var(--space-md);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+}
+
+.svc-price-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xs);
+}
+
+.svc-price h3 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.svc-price-tag {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.svc-price p {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Merknaden står utanfor korta, så han arvar ingen tekststil frå dei. */
+.svc-prices .svc-note {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-top: var(--space-md);
 }
