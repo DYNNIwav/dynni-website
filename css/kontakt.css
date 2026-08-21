@@ -33,3 +33,51 @@
 .contact-hero .terminal-window {
   width: min(460px, 100%);
 }
+
+
+/* KALENDEREN LIGG UNDER HELTEN, IKKJE INNI HAN.
+ *
+ * `.contact-hero` er ein kolonne med `min-height: 100svh` og innhaldet sentrert loddrett. Ein kalender inni
+ * den ville dytta e-postadressa opp og ut av midten, og heile poenget med heltebiletet er at det fyrste du
+ * ser er ei adresse du kan skrive til. Kalenderen er ein tyngre ting og får si eiga seksjon under.
+ *
+ * Same venstrekant og same `--space-lg`-padding som helten, så dei to boksane står i lodd med kvarandre. */
+.cal-section {
+  padding: 0 var(--space-lg) var(--space-xl);
+}
+
+.cal-heading {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+/* Breiare enn kontaktboksen sine 460px: månadsvisninga legg dato og klokkeslett side om side, og under
+ * ~700px stablar Cal dei i staden. 900px gir plass til begge kolonnane på desktop. */
+.cal-window {
+  max-width: 900px;
+}
+
+/* Cal teiknar i ein iframe som veks etter innhaldet. Utan ei minstehøgd er boksen 0px til skriptet svarar,
+ * og sida hoppar under føtene på den som alt har byrja å lese. */
+.cal-inline {
+  width: 100%;
+  min-height: 620px;
+  overflow: hidden;
+}
+
+.cal-fallback {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .cal-section {
+    padding: 0 var(--space-sm) var(--space-lg);
+  }
+
+  .cal-inline {
+    min-height: 540px;
+  }
+}

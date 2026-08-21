@@ -280,6 +280,94 @@
                     </div>
                 </div>
             </section>
+
+            <section class="cal-section" id="book">
+                <h2 class="cal-heading">// Book a meeting</h2>
+                <div class="terminal-window cal-window">
+                    <div class="terminal-chrome">
+                        <span class="terminal-dots"></span>
+                        <span class="terminal-title">cal.com/dynni</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div id="cal-inline" class="cal-inline"></div>
+                        <noscript>
+                            <p class="cal-fallback">
+                                The calendar needs JavaScript. You can book straight at
+                                <a href="https://cal.com/dynni" target="_blank" rel="noopener noreferrer">cal.com/dynni</a>,
+                                or send an email to
+                                <a href="mailto:paal@dynni.no">paal@dynni.no</a>.
+                            </p>
+                        </noscript>
+                    </div>
+                </div>
+            </section>
         </main>
+        <!-- Cal.com si kalenderwidget. Skriptet er tredjepart og lastar berre på denne sida. -->
+        <script>
+            (function (C, A, L) {
+                let p = function (a, ar) { a.q.push(ar); };
+                let d = C.document;
+                C.Cal = C.Cal || function () {
+                    let cal = C.Cal;
+                    let ar = arguments;
+                    if (!cal.loaded) {
+                        cal.ns = {};
+                        cal.q = cal.q || [];
+                        d.head.appendChild(d.createElement("script")).src = A;
+                        cal.loaded = true;
+                    }
+                    if (ar[0] === L) {
+                        const api = function () { p(api, arguments); };
+                        const namespace = ar[1];
+                        api.q = api.q || [];
+                        if (typeof namespace === "string") {
+                            cal.ns[namespace] = cal.ns[namespace] || api;
+                            p(cal.ns[namespace], ar);
+                            p(cal, ["initNamespace", namespace]);
+                        } else {
+                            p(cal, ar);
+                        }
+                        return;
+                    }
+                    p(cal, ar);
+                };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+
+            Cal("init", { origin: "https://app.cal.com" });
+
+            Cal("inline", {
+                elementOrSelector: "#cal-inline",
+                calLink: "dynni",
+                config: { layout: "month_view", theme: "dark" },
+            });
+
+            /* Nettstaden er berre mørk, så widgeten er låst til dark og fargane er dei same tokena som
+               variables.css brukar. Utan dette teiknar Cal ein kvit kalender midt i ei svart side. */
+            Cal("ui", {
+                theme: "dark",
+                layout: "month_view",
+                hideEventTypeDetails: false,
+                cssVarsPerTheme: {
+                    dark: {
+                        "cal-brand": "#007aff",
+                        "cal-brand-emphasis": "#3395ff",
+                        "cal-brand-text": "#ffffff",
+                        "cal-bg": "#000000",
+                        "cal-bg-emphasis": "#1c1c1e",
+                        "cal-bg-subtle": "#0e0e10",
+                        "cal-bg-muted": "#08080a",
+                        "cal-text": "#ffffff",
+                        "cal-text-emphasis": "#ffffff",
+                        "cal-text-subtle": "#8e8e93",
+                        "cal-text-muted": "#636366",
+                        "cal-border": "rgba(255, 255, 255, 0.15)",
+                        "cal-border-subtle": "rgba(255, 255, 255, 0.1)",
+                        "cal-border-emphasis": "rgba(255, 255, 255, 0.4)",
+                        "cal-border-booker": "transparent",
+                        "cal-border-booker-width": "0px",
+                    },
+                },
+            });
+        </script>
     </body>
 </html>
