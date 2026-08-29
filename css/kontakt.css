@@ -8,11 +8,6 @@
 
 
 @media (max-width: 768px) {
-  .contact-hero {
-    padding: 0 var(--space-sm);
-    min-height: calc(100svh - var(--space-md) * 2);
-  }
-
   .contact-actions {
     display: grid;
     gap: var(--space-sm);

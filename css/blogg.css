@@ -302,9 +302,6 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-    .blog-hero {
-        padding: 0 var(--space-sm);
-    }
     .blog-section {
         padding: var(--space-xl) var(--space-sm);
     }

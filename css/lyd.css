@@ -79,10 +79,6 @@
 }
 
 @media (max-width: 768px) {
-    .sound-hero {
-        padding: 0 var(--space-sm);
-    }
-
     #prosjekt {
         padding: 0 var(--space-sm);
         min-height: auto;

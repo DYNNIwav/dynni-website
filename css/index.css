@@ -30,12 +30,8 @@
   }
 }
 
-.cta {
-  display: flex;
-  gap: var(--space-md);
-  align-items: center;
-  margin-top: var(--space-lg);
-}
+/* `.cta` er flytta til styles.css. Han blei brukt på fjorten sider og budde i ei fil
+   som berre forsida lastar. */
 
 .btn i {
   display: inline-block;
@@ -139,7 +135,18 @@
  * såg ut som lenkjer i staden for som produkt. Eit app-ikon gjer den skilnaden med ein gong, utan at nokon må
  * klikke for å sjå det andre.
  *
- * Same glød-teknikk som app-korta på /apps, så forsida og appsida ser ut som same nettstad. */
+ * IKKJE same teknikk som app-korta på /apps, sjølv om denne linja påstod det i lang tid.
+ *
+ * Der er glødet eit `radial-gradient` i ein sirkel som ligg PÅ frå starten og veks på hover. Her er
+ * det ei avrunda flate med `inset: -6px` som er heilt gjennomsiktig i ro og tonar inn. Ulik form,
+ * ulik utgangstilstand, ulik uskarpleik.
+ *
+ * Skilnaden er forsvarleg: dette ikonet er 44px inne i ei tekstlinje, det andre er 100 til 140px
+ * midt i eit kort. Ein 20px uskarp sirkel rundt eit 44px ikon ville blitt ei tåke.
+ *
+ * Det som IKKJE var forsvarleg var å skrive at dei er like. Ein kommentar som lyg er verre enn ingen
+ * kommentar, fordi neste person endrar den eine og trur den andre følgjer etter. Same feilen som
+ * hero-regelen i styles.css og filhovudet i Paneless. */
 .hero-work .work-icon {
   position: relative;
   display: flex;

@@ -307,9 +307,6 @@
 
 /* Mobile responsive */
 @media (max-width: 768px) {
-    .services-hero {
-        padding: 0 var(--space-sm);
-    }
     .services-section {
         padding: var(--space-xl) var(--space-sm);
     }

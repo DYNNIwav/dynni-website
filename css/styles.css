@@ -113,10 +113,38 @@ main {
 .dev-hero,
 .contact-hero {
     min-height: 100vh;
-    min-height: 100svh;
+    /* `- var(--space-md) * 2` FORDI HEROEN LIGG INNI BODY SI POLSTRING.
+     *
+     * `body` har `padding: var(--space-md)`, altså 24px oppe og 24px nede. Ein hero på reine `100svh`
+     * blir difor 100svh PLUSS 48px, og kvar einaste side fekk ein liten scroll med ingenting under
+     * folden. Kontaktsida var den einaste som trekte frå, og ho var den einaste som var rett.
+     *
+     * Same mønster som resten av denne regelen: den eine sida som hadde løyst det, hadde løyst det
+     * i sitt eige ark, der ingen andre kunne arve det. */
+    min-height: calc(100svh - var(--space-md) * 2);
     display: flex;
     align-items: center;
     padding: 0 var(--space-lg);
+}
+
+/* Den VASSRETTE halvdelen av den same samlinga.
+ *
+ * Den vertikale delen over blei samla, men mobil-innrykkinga blei att i fem sidefiler, og TO sider
+ * hadde han aldri: `.apps-hero` og `.dev-hero`. Så `~ $ cat ...` byrja 40px frå venstrekanten på fem
+ * sider og 56px på to, på ein nettstad der den linja er det fyrste du ser på kvar einaste side.
+ *
+ * Kopiane i om-meg.css, lyd.css, tjenester.css, blogg.css og kontakt.css er sletta, av same grunn
+ * som står i kommentaren over: dei kan ikkje bli usamde når dei er den same regelen. */
+@media (max-width: 768px) {
+    .about-hero,
+    .apps-hero,
+    .blog-hero,
+    .sound-hero,
+    .services-hero,
+    .dev-hero,
+    .contact-hero {
+        padding: 0 var(--space-sm);
+    }
 }
 
 /* Kontaktsida stablar innhaldet sitt, og då byter `align-items` betydning.
@@ -294,6 +322,39 @@ blockquote {
 .btn.primary:hover {
     filter: brightness(1.1);
     box-shadow: 0 8px 32px var(--blue-glow);
+}
+
+/* `.secondary` blir brukt i markupen på seks sider og var ikkje definert nokon stad.
+ *
+ * Han SÅG likevel rett ut, fordi grunnstilen til `.btn` allereie ER sekundærutsjånaden: glas, tynn
+ * kant, hvit tekst. `.primary` er det som overstyrer til blått. Så klassen gjorde ingen skade, han
+ * var berre eit namn utan regel.
+ *
+ * Grunnen til å skrive han ut likevel: neste person som vil justere sekundærknappen leitar etter
+ * `.btn.secondary`, finn ingenting, og trur anten at han har misforstått eller at det er trygt å
+ * endre `.btn` sjølv. Det siste ville endra kvar einaste knapp på nettstaden.
+ *
+ * Ingen visuell endring. Regelen seier berre høgt det arva oppførsel gjorde stille. */
+.btn.secondary {
+    background: var(--glass);
+    border-color: var(--glass-border);
+    color: var(--text);
+}
+
+/* `.cta` LÅG I index.css, SOM BERRE FORSIDA LASTAR.
+ *
+ * Klassen blir brukt på apps, blogg, lyd, om-meg, sjekk, tenester og utviklar, pluss dei engelske
+ * tvillingane. På alle dei sidene fanst regelen aldri, så knapperada mista `margin-top` og la seg
+ * 24px under overskrifta i staden for 56. Tenester og utviklar slapp unna berre fordi dei hadde
+ * skrive sine eigne kopiar, med tre ulike avstandar for den same rada.
+ *
+ * Same feil som den grupperte hero-regelen over: ein delt ting som budde i ei fil som ikkje er delt. */
+.cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+    margin-top: var(--space-lg);
 }
 
 h1,

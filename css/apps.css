@@ -84,6 +84,16 @@
     background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
     filter: blur(20px);
     pointer-events: none;
+    /* GLØDET SNAPPA MEDAN IKONET EASA.
+     *
+     * Alle fire hover-reglane under endrar berre `width` og `height` på dette pseudoelementet, og
+     * det fanst ingen transition, så glødet hoppa frå 120 til 140 på éi ramme medan sjølve ikonet
+     * skalerte mjukt over 0.4s. To ting i den same gesten, i to ulike tempo.
+     *
+     * Same varigheit og kurve som ikonet like under, så dei rører seg som eitt objekt. */
+    transition:
+        width 0.4s ease,
+        height 0.4s ease;
 }
 
 .app-icon img {

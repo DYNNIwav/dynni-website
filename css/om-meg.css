@@ -320,10 +320,6 @@ blockquote footer {
         max-height: none;
     }
 
-    .about-hero {
-        padding: 0 var(--space-sm);
-    }
-
     .about-content {
         justify-self: center;
     }
