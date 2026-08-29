@@ -316,8 +316,20 @@
         font-size: 1rem;
     }
 
+    /* `min-width`/`min-height` ÅLEINE HOLDT IKKJE, FORDI SPRÅKPILLENE ER INLINE.
+     *
+     * `.nav-links-social a` er alt `display: flex` frå grunnregelen, så dei to tala verka der med
+     * ein gong. `.lang-switch a` har inga display og er difor inline, og på eit inline-element blir
+     * `min-height` ikkje til layout: bakgrunnen blei 44px høg medan teksten stod att på grunnlinja,
+     * så den aktive boksen hang nedanfor og til venstre for «NO».
+     *
+     * `inline-flex` med sentrering gjer boksen til det treffområdet han utgir seg for å vere, med
+     * teksten midt i. */
     .mobile-nav-content .nav-links-social a,
     .mobile-nav-content .lang-switch a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         min-width: 44px;
         min-height: 44px;
     }
