@@ -589,6 +589,36 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
     {
+      // Utviklarsida. Same form som typewriter-7: skriv linja, avslør seksjonen, scroll til toppen
+      // av han.
+      //
+      // NB: `onComplete` fyrer ALDRI når brukaren har «reduser rørsle» på, for da hoppar vi over
+      // heile skrivemaskina lenger nede i fila. Difor kan ikkje `.reveal` vere det einaste som gjer
+      // `.dev-section` synleg, og utviklar.css skjuler han berre når JS er på OG rørsle er greitt.
+      selector: ".typewriter-8",
+      texts: isEn ? ["cat developer.txt"] : ["cat utviklar.txt"],
+      options: {
+        typeSpeed: 80,
+        startDelay: 1000,
+        humanize: true,
+        loop: false,
+        sound: true,
+        onComplete: function () {
+          setTimeout(() => {
+            const isMobile = window.innerWidth <= 768;
+            const section = document.querySelector(".dev-section");
+            if (section) {
+              section.classList.add("reveal");
+              section.scrollIntoView({
+                behavior: isMobile ? "instant" : "smooth",
+                block: "start",
+              });
+            }
+          }, 400);
+        },
+      },
+    },
+    {
       selector: ".typewriter-5",
       texts: isEn ? ["ls apps/"] : ["ls apps/"],
       options: {

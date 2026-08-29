@@ -110,6 +110,7 @@ main {
 .blog-hero,
 .sound-hero,
 .services-hero,
+.dev-hero,
 .contact-hero {
     min-height: 100vh;
     min-height: 100svh;

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="nn">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Pål Omland Eilevstjønn - utviklar | Saker, målingar og det eg tok feil om
+    </title>
+    <meta
+      name="title"
+      content="Pål Omland Eilevstjønn - utviklar | Saker, målingar og det eg tok feil om"
+    />
+    <meta
+      name="description"
+      content="Utviklar. Glimt i open beta på iOS, Paneless ute for macOS. Fire saker i same form: problemet, kva eg målte, kva eg tok feil om, og kva som står i produksjon. Alle tal frå commit-historikken. Ser etter fast jobb."
+    />
+    <meta
+      name="keywords"
+      content="utviklar, jobbsøkjar, iOS, Android, macOS, Swift, Kotlin, Metal, React Native, Expo, Postgres, portefølje, Pål Omland Eilevstjønn, DYNNI, Oslo"
+    />
+    <meta name="author" content="Pål Omland Eilevstjønn" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dynni.no/utviklar" />
+    <link rel="alternate" hreflang="nn" href="https://dynni.no/utviklar" />
+    <link rel="alternate" hreflang="en" href="https://dynni.no/en/developer" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://dynni.no/utviklar" />
+    <meta
+      property="og:title"
+      content="Pål Omland Eilevstjønn - utviklar | Saker, målingar og det eg tok feil om"
+    />
+    <meta
+      property="og:description"
+      content="Utviklar. Glimt i open beta på iOS, Paneless ute for macOS. Fire saker i same form: problemet, kva eg målte, kva eg tok feil om, og kva som står i produksjon. Alle tal frå commit-historikken. Ser etter fast jobb."
+    />
+    <meta
+      property="og:image"
+      content="https://dynni.no/assets/img/og-dynni.jpg"
+    />
+    <meta property="og:locale" content="nn_NO" />
+    <meta property="og:site_name" content="DYNNI - Utviklar og designar" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://dynni.no/utviklar" />
+    <meta
+      property="twitter:title"
+      content="Pål Omland Eilevstjønn - utviklar | Saker, målingar og det eg tok feil om"
+    />
+    <meta
+      property="twitter:description"
+      content="Utviklar. Glimt i open beta på iOS, Paneless ute for macOS. Fire saker i same form: problemet, kva eg målte, kva eg tok feil om, og kva som står i produksjon. Alle tal frå commit-historikken. Ser etter fast jobb."
+    />
+    <meta
+      property="twitter:image"
+      content="https://dynni.no/assets/img/og-dynni.jpg"
+    />
+    <meta property="twitter:creator" content="@dynni_wav" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./assets/img/logo/dynni-logo.svg"
+    />
+    <link rel="apple-touch-icon" href="./assets/img/logo/dynni-logo.svg" />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#0e1110" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/utviklar.css" />
+
+    <!-- Scripts -->
+    <script
+      src="https://kit.fontawesome.com/0d42989d58.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Pål Omland Eilevstjønn",
+          "alternateName": "DYNNI",
+          "description": "Utviklar og designar frå Vinje, Telemark. Basert i Oslo.",
+          "url": "https://dynni.no/",
+          "image": "https://dynni.no/assets/img/og-dynni.jpg",
+          "sameAs": ["https://www.instagram.com/dynni.wav"],
+          "jobTitle": "Utviklar og designar",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Oslo",
+            "addressCountry": "NO"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="/"
+          ><img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
+        /></a>
+
+        <ul class="nav-links-main">
+          <li><a href="/om-meg">Om meg</a></li>
+          <li><a href="/utviklar">Utviklar</a></li>
+          <li><a href="/lyd">Lyd</a></li>
+          <li><a href="/apps">Apps</a></li>
+          <li><a href="/tjenester">Tenester</a></li>
+          <li><a href="/blogg">Blogg</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+
+        <span class="sidebar-text">© DYNNI 2026</span>
+
+        <ul class="nav-links-social">
+          <li>
+            <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="lang-switch">
+          <a href="/utviklar" class="active">NO</a>
+          <a href="/en/">EN</a>
+        </div>
+      </nav>
+      <!-- Mobile Hamburger Menu -->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger-btn">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </label>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+          <nav class="mobile-nav">
+            <div class="mobile-nav-content">
+              <a class="logo" href="/">
+                <img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
+              </a>
+
+              <ul class="nav-links-main">
+                <li><a href="/om-meg">Om meg</a></li>
+                <li><a href="/utviklar">Utviklar</a></li>
+                <li><a href="/lyd">Lyd</a></li>
+                <li><a href="/apps">Apps</a></li>
+                <li><a href="/tjenester">Tenester</a></li>
+                <li><a href="/blogg">Blogg</a></li>
+                <li><a href="/kontakt">Kontakt</a></li>
+              </ul>
+              <span class="sidebar-text">© DYNNI 2026</span>
+
+              <ul class="nav-links-social">
+                <li>
+                  <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+              </ul>
+              <div class="lang-switch">
+                <a href="/utviklar" class="active">NO</a>
+                <a href="/en/">EN</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="background"></div>
+
+      <section class="dev">
+        <div class="dev-hero">
+          <div class="hero-prompt">
+            <span class="prompt-prefix">~ $ </span>
+            <h1 class="typewriter-8" data-static-text="cat utviklar.txt">
+              <span class="typed-text">cat utviklar.txt</span
+              ><span class="terminal-cursor"></span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="dev-section">
+          <!-- INTRO -->
+          <div class="terminal-window dev-intro">
+            <div class="terminal-chrome">
+              <span class="terminal-dots"></span>
+              <span class="terminal-title">utviklar.txt</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line comment">// Utviklar. Ser etter fast jobb.</div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Glimt er i open beta på iOS og bygd for Android. Paneless er ute
+                for macOS. Kamerapipelinen i Glimt har eg skrive sjølv, i Swift og
+                Kotlin, med shaderar på begge plattformer, og målt meg fram til at
+                dei to gir det same biletet.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Eg går andre året på frontend-utvikling. Det meste under her står
+                ikkje i pensum. Eg lærte det fordi noko såg feil ut og eg ikkje
+                klarte å la det vere.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Før eg begynte å kode var eg lydteknikar. Studio, post-produksjon,
+                og opptakslyd på location. Det er derfrå eg har vanen med å måle i
+                staden for å tru.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line comment">
+                // Denne sida svarar på det du eigentleg lurer på: tenkjer han,
+                eller gjettar han?
+              </div>
+            </div>
+          </div>
+
+          <!-- SAKER -->
+          <div class="dev-cases-intro">
+            <h2>Fire saker</h2>
+            <p>
+              Alle fire har same form: kva som var problemet, kva eg målte, kva eg
+              tok feil om, og kva som står i produksjon no.
+            </p>
+            <p class="dev-note">
+              Den tredje delen er den eg er mest stolt av. Det er lett å liste opp
+              det som gjekk bra. Det som faktisk seier noko om korleis eg jobbar,
+              er kva eg gjorde då eg oppdaga at eg tok feil. Alle tala under står i
+              commit-historikken, og du kan be om å få sjå kva som helst av det.
+            </p>
+          </div>
+
+          <!-- SAK 01 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">01</span>
+              <h3>Eg bygde ei avgjerd på eit tal som ikkje kunne bere henne</h3>
+              <p class="case-stack">Fargevitskap · Metal · GLSL · SkSL</p>
+            </header>
+            <dl class="case-body">
+              <dt>Problemet</dt>
+              <dd>
+                Glimt har eigne filmsimuleringar. Fjord er tilpassa Fuji-oppskrifta
+                R-Superia. I varmt lys bomma vi, og eg hadde slått på eit
+                nøytraliseringssteg for å rette det.
+              </dd>
+
+              <dt>Det eg målte</dt>
+              <dd>
+                Gråkort under krysset, to lysoppsett, tre målingar side om side:
+                iPhone sin råframe, målet, og det Glimt faktisk leverte. I varmt
+                lys låg råframen alt <strong>1,2 % frå målet før vi rørte han</strong>.
+                Steget mitt dytta han 15 % for blå og 11 % for lite raud. I dagslys,
+                der steget nesten ikkje var på, landa vi 1,1 % frå målet.
+              </dd>
+
+              <dt class="wrong">Det eg tok feil om</dt>
+              <dd class="wrong">
+                Eg hadde slått på steget tre timar tidlegare, på grunnlag av ein
+                forteiknsanalyse eg fekk ved å invertere vår eiga kjede. Den
+                inverteringa var <em>degenerert</em>: R og B kom ut identiske til
+                fire siffer, og ein tredjedel av kuben var rangdefekt. Talet kunne
+                aldri ha svart på spørsmålet eg stilte det. Ei flate med kjend fasit
+                og éin avlesing gjorde det ein heil dag med utleiing ikkje klarte.
+              </dd>
+
+              <dt>I produksjon</dt>
+              <dd>
+                Steget er av, og graderinga blir generert inn i alle tre shaderane,
+                Metal, GLSL og SkSL, frå eitt skript, med ein
+                <code>--check</code> i testsuiten som feiler om ein av dei driv frå
+                dei andre. Og eg skreiv ein falsifiserbar prediksjon inn i commiten:
+                med steget av skulle Fjord lande rundt 0,74 mot målet 0,732, og
+                gjorde han ikkje det, så tok eg feil igjen.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- SAK 02 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">02</span>
+              <h3>Eg målte kostnaden og ikkje gevinsten</h3>
+              <p class="case-stack">iOS · Android · ISP-åtferd · produktval</p>
+            </header>
+            <dl class="case-body">
+              <dt>Problemet</dt>
+              <dd>
+                Panorer frå ein vegg til eit ansikt, og heile biletet blei varmare.
+                Det såg ut som eit av våre eigne hudsteg som oppførte seg dårleg, og
+                vi hadde tre kandidatar som alle rører hud og alle reagerer på ansikt.
+              </dd>
+
+              <dt>Det eg målte</dt>
+              <dd>
+                Den opplyste veggen las R/G 0,840 åleine og 1,161 med eit ansikt i
+                bildet. <strong>38 % relativ endring</strong>, på ein look utan eiga
+                kvitbalanseforskyving. Eg slo av alle tre av våre eigne hudsteg og
+                såg at skiftet overlevde. Då var det bevist: det skjer i telefonen
+                sin ISP, før vi får ein einaste piksel.
+              </dd>
+
+              <dt class="wrong">Det eg tok feil om</dt>
+              <dd class="wrong">
+                Diagnosen var riktig. Avgjerda var feil. Eg låste kvitbalansen, og
+                så sa nokon at ho syntest ho var stygg og oransje med looken vår.
+                <em>Målinga mi var på veggen, ikkje på motivet.</em> Når eit ansikt
+                er i bildet, så er ansiktet motivet, og at kameraet balanserer for
+                det betyr at huda blir rett. Veggen som blir varm er prisen. Eg
+                målte kostnaden og ikkje gevinsten, og konkluderte på halve
+                rekneskapen. Så rulla eg det tilbake.
+              </dd>
+
+              <dt>I produksjon</dt>
+              <dd>
+                Kameraet sin eigen ansiktsprioriterte kvitbalanse får stå. Diagnosen
+                står òg, i ein test som finst like mykje for å ta vare på
+                konklusjonen som for å vakte koden. Forsvinn dei linjene, må heile
+                utgreiinga gjerast på nytt.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- SAK 03 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">03</span>
+              <h3>Koden som melde suksess og gjorde ingenting</h3>
+              <p class="case-stack">Swift · Accessibility API · CVDisplayLink</p>
+            </header>
+            <dl class="case-body">
+              <dt>Problemet</dt>
+              <dd>
+                Flisleggjande vindaugsbehandlarar på macOS animerer ikkje, fordi du
+                må flytte andre appar sine vindauge gjennom Accessibility-API-et.
+                Filhovudet mitt påstod at eg hadde løyst det med
+                GPU-komposisjon.
+              </dd>
+
+              <dt>Det eg målte</dt>
+              <dd>
+                Fyrst kostnaden per ramme: 0,2 til 2 ms å flytte, 5 ms for Ghostty,
+                25 til 53 ms å endre storleik i Safari. Rammebudsjettet på 120 Hz er
+                8,33 ms for alle vindauge til saman. Så ein kontrollert test med to
+                prosessar, som viste at både <code>SLSSetWindowTransform</code> og
+                <code>CGSSetWindowAlpha</code> returnerer
+                <strong>CGError 0 og gjer absolutt ingenting</strong> med eit vindauge
+                ein annan prosess eig.
+              </dd>
+
+              <dt class="wrong">Det eg tok feil om</dt>
+              <dd class="wrong">
+                Filhovudet påstod det motsette av målinga, og eg hadde bygd tre
+                kodevegar oppå påstanden. <em>Kven som helst som las den fila, meg
+                sjølv same dag inkludert, ville rimeleg konkludert med at effektane
+                virka og bygd vidare på dei.</em> Det er verre enn ubrukeleg. Eg
+                sletta alt saman i staden for å halde det varmt.
+              </dd>
+
+              <dt>I produksjon</dt>
+              <dd>
+                Verifisert etterpå: eit vindauge som opnar inn i eit fullt rutenett
+                startar å røre seg etter 191 ms mot 236 ms før, og køyrer 27
+                rammer rein forflytting. Flytting kan i staden overlatast til appen
+                sjølv via <code>AXEnhancedUserInterface</code>, som gir rundt 110 fps
+                frå éi einaste melding. Storleiksendring blir verande hos Paneless,
+                fordi appar snappar storleik i staden for å ease han.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- SAK 04 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">04</span>
+              <h3>To feilmeldingar, éi årsak</h3>
+              <p class="case-stack">
+                Postgres · row-level security · Cloudflare R2 · ende-til-ende
+              </p>
+            </header>
+            <dl class="case-body">
+              <dt>Problemet</dt>
+              <dd>
+                Ei sendingstype feila. Brukaren såg to ulike feil, ein time frå
+                kvarandre, frå to ulike system:
+                <code>403 {"error":"not yours"}</code> frå fillageret, og
+                <code>new row violates row-level security policy</code> frå
+                databasen.
+              </dd>
+
+              <dt>Det eg målte</dt>
+              <dd>
+                «not yours» er lagerfunksjonen sin eigen streng for eit avslag. Den
+                funksjonen gir skriveløyve på nøyaktig to måtar: ei rad du eig,
+                eller ein intensjon du eig som namngir stien. På den haldbare vegen
+                er rada serveren sin å skrive, så intensjonen er den einaste som kan
+                finnast. Og koden bad om den signerte URL-en i steg 2, men skreiv
+                intensjonen i steg 3. <strong>Kvar einaste sending bad om løyve før
+                løyvet fanst.</strong>
+              </dd>
+
+              <dt class="wrong">Det eg tok feil om</dt>
+              <dd class="wrong">
+                Eg leste dei to feilmeldingane som to problem, fordi dei kom frå to
+                system og éin time frå kvarandre. Og feilen var <em>usynleg</em> for
+                den andre sendingstypen, fordi løyvefunksjonen har ein ekstra arm som
+                dekkjer akkurat den. Ein bug som berre viser seg for éin av to
+                funksjonar les som ein funksjonsfeil, ikkje som ein rekkjefølgjefeil.
+                Det var éi årsak heile vegen.
+              </dd>
+
+              <dt>I produksjon</dt>
+              <dd>
+                Intensjonen blir skriven før noko som helst blir spurt om løyve. Ein
+                intensjon som blir liggande igjen etter ein feila førespurnad er
+                harmlaus av same grunn som han alltid har vore. Media ligg i EU,
+                tilgangskontroll på radnivå i Postgres, og nøklane forlèt aldri
+                eininga.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- STACK -->
+          <div class="dev-stack">
+            <h2>Det eg brukar</h2>
+            <div class="stack-grid">
+              <div class="stack-col">
+                <h4>Dagleg</h4>
+                <p>TypeScript, React, React Native og Expo, Swift, Kotlin</p>
+              </div>
+              <div class="stack-col">
+                <h4>Også</h4>
+                <p>
+                  Metal og GLSL, Postgres med row-level security, Supabase,
+                  Cloudflare R2, ende-til-ende-kryptering, talegjenkjenning på
+                  eininga
+                </p>
+              </div>
+              <div class="stack-col">
+                <h4>Rundt koden</h4>
+                <p>
+                  Git, EAS, Xcode, Vercel, signering og notarisering på macOS,
+                  OTA-oppdateringar, App Store og Play Store
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ÆRLEG -->
+          <div class="terminal-window dev-honest">
+            <div class="terminal-chrome">
+              <span class="terminal-dots"></span>
+              <span class="terminal-title">det-eg-ikkje-kan.txt</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line comment">
+                // Sidan resten av sida er ærleg, så kan denne vere det òg.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Eg har ikkje jobba i eit team med kodegjennomgang, sprintar og
+                nokon som seier nei til meg. Det er den største luka mi, og det er
+                den einaste eg ikkje kan tette på eiga hand.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Eg har ikkje drifta noko med mange tusen brukarar. Eg kan ikkje
+                Java, C# eller Kubernetes.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Alt det vil eg lære, og det går fortare saman med nokon som kan det
+                frå før. Det er heile grunnen til at eg vil inn i eit team og ikkje
+                halde fram åleine.
+              </div>
+            </div>
+          </div>
+
+          <!-- BAKGRUNN -->
+          <div class="dev-bg">
+            <h2>Kort om meg</h2>
+            <p>
+              Frå Vinje i Telemark, bur i Oslo. Andre året på frontend-utvikling.
+            </p>
+            <p>
+              Før det var eg lydteknikar: studio, post-produksjon, og opptakslyd på
+              location for reality-TV, med miksar, bom og myggar. Det yrket lærte
+              meg to ting eg brukar kvar einaste dag. At du ikkje kan fikse i
+              etterkant det du ikkje fanga riktig. Og at øyra lyg, så du må måle.
+            </p>
+          </div>
+
+          <!-- CTA -->
+          <div class="dev-cta">
+            <h2>Ser de etter nokon?</h2>
+            <p>
+              Eg ser etter fast jobb, i Oslo eller på avstand. Ta kontakt, så går
+              eg gjerne gjennom koden bak kva som helst av det over.
+            </p>
+            <div class="cta">
+              <a class="btn primary" href="/kontakt"
+                ><i class="fa-solid fa-arrow-right"></i> Ta kontakt</a
+              >
+              <a
+                class="btn secondary"
+                href="https://github.com/DYNNIwav"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                class="btn secondary"
+                href="https://www.linkedin.com/in/dynni"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
