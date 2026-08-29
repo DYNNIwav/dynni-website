@@ -1,3 +1,24 @@
+/* UTDATA FRÅ EIN KOMMANDO SOM ENNO IKKJE HAR KØYRT.
+ *
+ * `.lyd-intro` («Produksjonar» og linja om TV2, NRK, Discovery+) er SØSKEN til `.daw-output` inni
+ * `#prosjekt`, men berre `.daw-output` hadde ei vakt. Så overskrifta og heile summeringa låg synleg
+ * medan skrivemaskina framleis skreiv `open DYNNI-Produksjonar.ptx` over dei.
+ *
+ * Det bryt heile grepet på nettstaden: du ser resultatet av ein kommando før prompten er ferdig.
+ * Apps-sida avslører heile `#prosjekt`, lyd-sida avslørte eit barn. Dette er den manglande halvdelen.
+ *
+ * Same vakt som `.daw-output` under, og han blir sett av det same `onComplete`-kallet. */
+.js .lyd-intro {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.lyd-intro.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .js .daw-output {
     opacity: 0;
     transform: translateY(30px);

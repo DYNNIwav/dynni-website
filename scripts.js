@@ -511,6 +511,12 @@ document.addEventListener("DOMContentLoaded", function () {
         sound: true,
         onComplete: function () {
           setTimeout(() => {
+            // `.lyd-intro` er søsken til `.daw-output` og hadde ingen vakt, så «Produksjonar» og
+            // linja om TV2/NRK/Discovery+ stod synlege medan kommandoen framleis blei skriven.
+            // Han blir avslørt før DAW-en, fordi han er overskrifta til det som kjem.
+            const intro = document.querySelector(".lyd-intro");
+            if (intro) intro.classList.add("reveal");
+
             const daw = document.querySelector(".daw-output");
             if (daw) {
               const isMobile = window.innerWidth <= 768;

@@ -357,3 +357,20 @@ blockquote footer {
         transform: translateY(0);
     }
 }
+
+/* EI LINJE SOM ALDRI KUNNE BLI SYNLEG.
+ *
+ * `// Folk seier det betre enn meg:` har klassen `terminal-line` fordi han skal ha kommentarfargen.
+ * Men `terminal.css` set `.js .terminal-line { opacity: 0 }`, og dei to tinga som nokon gong legg
+ * til `.visible` er `initTerminals()` (som ser etter `.terminal-window`) og skrivemaskina si
+ * `onComplete` (som ser i `.about-content .terminal-output`). Denne ligg i `#social-proof`, inni ein
+ * `<blockquote>`, og blir ikkje treft av nokon av dei.
+ *
+ * `.quotes.show` set opasitet på `<ul>`-en, men opasitet arvar ikkje ned til eit barn som har sin
+ * eigen. Så linja stod på null for alltid, og la likevel beslag på plassen sin: kortet opna med ei
+ * tom linje.
+ *
+ * Klassen blei brukt for FARGEN, ikkje for avsløringsmaskineriet. Regelen her seier det. */
+.quotes .terminal-line {
+    opacity: 1;
+}
