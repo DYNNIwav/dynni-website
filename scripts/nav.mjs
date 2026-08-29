@@ -51,6 +51,7 @@ const ITEMS = {
   ],
   en: [
     ['/en/about', 'About'],
+    ['/en/developer', 'Developer'],
     ['/en/sound', 'Sound'],
     ['/en/apps', 'Apps'],
     ['/en/services', 'Services'],

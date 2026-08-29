@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <!-- Primary Meta Tags -->
+    <title>Pål Omland Eilevstjønn - developer | Cases, measurements and what I got wrong</title>
+    <meta
+      name="title"
+      content="Pål Omland Eilevstjønn - developer | Cases, measurements and what I got wrong"
+    />
+    <meta
+      name="description"
+      content="Developer. Glimt in open beta on iOS, Paneless shipping for macOS. Four cases in one shape: the problem, what I measured, what I got wrong, and what runs in production. Every number from the commit history. Looking for a permanent job."
+    />
+    <meta
+      name="keywords"
+      content="developer, job seeker, iOS, Android, macOS, Swift, Kotlin, Metal, React Native, Expo, Postgres, portfolio, Pål Omland Eilevstjønn, DYNNI, Oslo"
+    />
+    <meta name="author" content="Pål Omland Eilevstjønn" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dynni.no/en/developer" />
+    <link rel="alternate" hreflang="nn" href="https://dynni.no/utviklar" />
+    <link rel="alternate" hreflang="en" href="https://dynni.no/en/developer" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://dynni.no/en/developer" />
+    <meta
+      property="og:title"
+      content="Pål Omland Eilevstjønn - developer | Cases, measurements and what I got wrong"
+    />
+    <meta
+      property="og:description"
+      content="Developer. Glimt in open beta on iOS, Paneless shipping for macOS. Four cases in one shape: the problem, what I measured, what I got wrong, and what runs in production. Every number from the commit history. Looking for a permanent job."
+    />
+    <meta
+      property="og:image"
+      content="https://dynni.no/assets/img/og-dynni-en.jpg"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="DYNNI - Utviklar og designar" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://dynni.no/en/developer" />
+    <meta
+      property="twitter:title"
+      content="Pål Omland Eilevstjønn - developer | Cases, measurements and what I got wrong"
+    />
+    <meta
+      property="twitter:description"
+      content="Developer. Glimt in open beta on iOS, Paneless shipping for macOS. Four cases in one shape: the problem, what I measured, what I got wrong, and what runs in production. Every number from the commit history. Looking for a permanent job."
+    />
+    <meta
+      property="twitter:image"
+      content="https://dynni.no/assets/img/og-dynni-en.jpg"
+    />
+    <meta property="twitter:creator" content="@dynni_wav" />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/img/logo/dynni-logo.svg"
+    />
+    <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#0e1110" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/utviklar.css" />
+
+    <!-- Scripts -->
+    <script
+      src="https://kit.fontawesome.com/0d42989d58.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../scripts.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Pål Omland Eilevstjønn",
+          "alternateName": "DYNNI",
+          "description": "Utviklar og designar frå Vinje, Telemark. Basert i Oslo.",
+          "url": "https://dynni.no/",
+          "image": "https://dynni.no/assets/img/og-dynni-en.jpg",
+          "sameAs": ["https://www.instagram.com/dynni.wav"],
+          "jobTitle": "Utviklar og designar",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Oslo",
+            "addressCountry": "NO"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <!-- NAV-BEGIN generert av scripts/nav.mjs, ikkje rediger for hand -->
+      <nav class="nav" aria-label="Main menu">
+        <a class="logo" href="/en/"
+          ><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
+        /></a>
+
+        <ul class="nav-links-main">
+          <li><a href="/en/about">About</a></li>
+          <li><a href="/en/developer" aria-current="page">Developer</a></li>
+          <li><a href="/en/sound">Sound</a></li>
+          <li><a href="/en/apps">Apps</a></li>
+          <li><a href="/en/services">Services</a></li>
+          <li><a href="/en/blog">Blog</a></li>
+          <li><a href="/en/contact">Contact</a></li>
+        </ul>
+
+        <span class="sidebar-text">© DYNNI 2026</span>
+
+        <ul class="nav-links-social">
+          <li>
+            <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="lang-switch">
+          <a href="/utviklar">NO</a>
+          <a href="/en/developer" class="active" aria-current="true">EN</a>
+        </div>
+      </nav>
+
+      <!-- HAMBURGAREN ER AVKRYSSINGSBOKSEN, IKKJE ETIKETTEN.
+           Boksen var «display: none», og eit element som ikkje blir rendra kan ikkje få fokus. Etiketten
+           er ikkje fokuserbar av seg sjølv og hadde korkje tekst, aria-label eller rolle, så det
+           tilgjengelege namnet var tomt. Ein tastaturbrukar på telefon tabba gjennom 13 usynlege lenker
+           og kunne så ikkje opne menyen i det heile.
+           No: boksen ligg synleg for maskina men gjennomsiktig oppå knappen, med sitt eige namn, og
+           etiketten er «aria-hidden» fordi han berre er dei tre strekane. Framleis null JavaScript. -->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Menu" />
+        <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </label>
+
+        <div class="mobile-nav-overlay">
+          <nav class="mobile-nav" aria-label="Main menu">
+            <div class="mobile-nav-content">
+              <a class="logo" href="/en/">
+                <img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
+              </a>
+
+              <ul class="nav-links-main">
+                <li><a href="/en/about">About</a></li>
+                <li><a href="/en/developer" aria-current="page">Developer</a></li>
+                <li><a href="/en/sound">Sound</a></li>
+                <li><a href="/en/apps">Apps</a></li>
+                <li><a href="/en/services">Services</a></li>
+                <li><a href="/en/blog">Blog</a></li>
+                <li><a href="/en/contact">Contact</a></li>
+              </ul>
+
+              <span class="sidebar-text">© DYNNI 2026</span>
+
+              <ul class="nav-links-social">
+                <li>
+                  <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+              </ul>
+              <div class="lang-switch">
+                <a href="/utviklar">NO</a>
+                <a href="/en/developer" class="active" aria-current="true">EN</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- NAV-END -->
+    </header>
+    <main>
+      <div class="background"></div>
+
+      <section class="dev">
+        <div class="dev-hero">
+          <div class="hero-prompt">
+            <span class="prompt-prefix">~ $ </span>
+            <h1 class="typewriter-8" data-static-text="cat developer.txt">
+              <span class="typed-text">cat developer.txt</span
+              ><span class="terminal-cursor"></span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="dev-section">
+          <!-- INTRO -->
+          <div class="terminal-window dev-intro">
+            <div class="terminal-chrome">
+              <span class="terminal-dots"></span>
+              <span class="terminal-title">developer.txt</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line comment">// Developer. Looking for a permanent job.</div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Glimt is in open beta on iOS and built for Android. Paneless ships
+                for macOS. I wrote Glimt's camera pipeline myself, in Swift and
+                Kotlin, with shaders on both platforms, and measured my way to the
+                two of them producing the same image.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                I am in my second year of frontend development. Most of what is below
+                is not on the syllabus. I learnt it because something looked wrong
+                and I could not leave it alone.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                Before I started coding I was a sound engineer. Studio, post
+                production, and location sound. That is where the habit of
+                measuring instead of believing comes from.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line comment">
+                // This page answers what you are actually wondering: does he think,
+                or does he guess?
+              </div>
+            </div>
+          </div>
+
+          <!-- SAKER -->
+          <div class="dev-cases-intro">
+            <h2>Four cases</h2>
+            <p>
+              All four are in one shape: what the problem was, what I measured, what
+              I got wrong, and what runs in production now.
+            </p>
+            <p class="dev-note">
+              The third part is the one I am proudest of. Listing what went well is
+              easy. What actually says something about how I work is what I did
+              when I found out I was wrong. Every number below is in the commit
+              history, and you can ask to see any of it.
+            </p>
+          </div>
+
+          <!-- SAK 01 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">01</span>
+              <h3>I built a decision on a number that could not carry it</h3>
+              <p class="case-stack">Colour science · Metal · GLSL · SkSL</p>
+            </header>
+            <dl class="case-body">
+              <dt>The problem</dt>
+              <dd>
+                Glimt has its own film simulations. Fjord is fitted to the Fuji recipe
+                R-Superia. In warm light we missed, and I had switched on a
+                neutralisation step to correct it.
+              </dd>
+
+              <dt>What I measured</dt>
+              <dd>
+                A grey card under the crossing, two lighting setups, three measurements
+                side by side: the iPhone raw frame, the target, and what Glimt
+                actually delivered. In warm light the raw frame was already
+                <strong>1.2% from the target before we touched it</strong>. My step
+                pushed it 15% too blue and 11% too little red. In daylight, where
+                the step was barely on, we landed 1.1% from the target.
+              </dd>
+
+              <dt class="wrong">What I got wrong</dt>
+              <dd class="wrong">
+                I had switched the step on three hours earlier, on the strength of a
+                sign analysis I got by inverting our own chain. That inversion was
+                <em>degenerate</em>: R and B came out identical to four digits, and
+                a third of the cube was rank deficient. The number could never have
+                answered the question I asked it. A surface with a known answer and
+                one reading did what a whole day of derivation could not.
+              </dd>
+
+              <dt>In production</dt>
+              <dd>
+                The step is off, and the grade is generated into all three shaders,
+                Metal, GLSL and SkSL, from one script, with a <code>--check</code>
+                in the test suite that fails if one of them drifts from the others.
+                And I wrote a falsifiable prediction into the commit: with the step
+                off, Fjord should land around 0.74 against a target of 0.732, and if
+                it did not, I was wrong again.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- SAK 02 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">02</span>
+              <h3>I measured the cost and not the benefit</h3>
+              <p class="case-stack">iOS · Android · ISP behaviour · product judgement</p>
+            </header>
+            <dl class="case-body">
+              <dt>The problem</dt>
+              <dd>
+                Pan from a wall to a face and the whole image got warmer. It looked
+                like one of our own skin steps misbehaving, and we had three
+                candidates that all touch skin and all react to faces.
+              </dd>
+
+              <dt>What I measured</dt>
+              <dd>
+                The lit wall read R/G 0.840 alone and 1.161 with a face in frame.
+                <strong>A 38% relative change</strong>, on a look with no white
+                balance shift of its own. I turned off all three of our own skin
+                steps and watched the shift survive. That proved it: it happens in
+                the phone's ISP, before we get a single pixel.
+              </dd>
+
+              <dt class="wrong">What I got wrong</dt>
+              <dd class="wrong">
+                The diagnosis was right. The decision was wrong. I locked white
+                balance, and then someone said she looked ugly and orange in our
+                look. <em>My measurement was on the wall, not on the subject.</em>
+                When a face is in frame, the face IS the subject, and the camera
+                balancing for it means the skin comes out right. The wall going warm
+                is the price. I measured the cost and not the benefit, and concluded
+                on half the books. Then I rolled it back.
+              </dd>
+
+              <dt>In production</dt>
+              <dd>
+                The camera's own face-prioritised white balance stays. So does the
+                diagnosis, in a test that exists as much to preserve the conclusion
+                as to guard the code. If those lines go, the whole investigation has
+                to be done again from scratch.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- SAK 03 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">03</span>
+              <h3>The code that reported success and did nothing</h3>
+              <p class="case-stack">Swift · Accessibility API · CVDisplayLink</p>
+            </header>
+            <dl class="case-body">
+              <dt>The problem</dt>
+              <dd>
+                Tiling window managers on macOS do not animate, because you have to
+                move other apps' windows through the Accessibility API. My own file
+                header claimed I had solved it with GPU compositing.
+              </dd>
+
+              <dt>What I measured</dt>
+              <dd>
+                First the cost per frame: 0.2 to 2 ms to move, 5 ms for Ghostty, 25 to
+                53 ms to resize in Safari. The frame budget at 120 Hz is 8.33 ms for
+                every window put together. Then a controlled two-process test, which
+                showed that both <code>SLSSetWindowTransform</code> and
+                <code>CGSSetWindowAlpha</code> return
+                <strong>CGError 0 and do absolutely nothing</strong> to a window
+                another process owns.
+              </dd>
+
+              <dt class="wrong">What I got wrong</dt>
+              <dd class="wrong">
+                The header asserted the opposite of the measurement, and I had built
+                three code paths on top of the assertion. <em>Anyone reading that
+                file, including me earlier the same day, would reasonably have
+                concluded the effects worked and built on them.</em> That is worse
+                than useless. I deleted the lot rather than keep it warm.
+              </dd>
+
+              <dt>In production</dt>
+              <dd>
+                Verified afterwards: a window opening into a full grid starts moving at
+                191 ms, down from 236 ms, and runs 27 frames of pure translation. A
+                move can instead be handed to the app itself via
+                <code>AXEnhancedUserInterface</code>, which gives around 110 fps from
+                a single message. Resizing stays with Paneless, because apps snap
+                size rather than ease it.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- SAK 04 -->
+          <article class="case">
+            <header class="case-head">
+              <span class="case-num">04</span>
+              <h3>Two error messages, one cause</h3>
+              <p class="case-stack">
+                Postgres · row-level security · Cloudflare R2 · end-to-end
+              </p>
+            </header>
+            <dl class="case-body">
+              <dt>The problem</dt>
+              <dd>
+                One kind of send failed. The user saw two different errors, an hour
+                apart, from two different systems:
+                <code>403 {"error":"not yours"}</code> from the file store, and
+                <code>new row violates row-level security policy</code> from the
+                database.
+              </dd>
+
+              <dt>What I measured</dt>
+              <dd>
+                "not yours" is the storage function's own string for a refusal. That
+                function grants a write in exactly two ways: a row you own, or an
+                intent you own naming the path. On the durable path the row is the
+                server's to write, so the intent is the only one that can exist. And
+                the code asked for the presigned URL at step 2 but wrote the intent
+                at step 3. <strong>Every single send asked for permission before the
+                permission existed.</strong>
+              </dd>
+
+              <dt class="wrong">What I got wrong</dt>
+              <dd class="wrong">
+                I read the two errors as two problems, because they came from two
+                systems an hour apart. And the bug was <em>invisible</em> for the
+                other kind of send, because the permission function has a second arm
+                that happens to cover it. A bug that shows up for only one of two
+                features reads as a feature fault, not an ordering fault. It was one
+                cause the whole way.
+              </dd>
+
+              <dt>In production</dt>
+              <dd>
+                The intent is written before anything asks for permission. An intent
+                left behind after a failed request is harmless for the same reason it
+                always was. Media sits in the EU, row-level access control in
+                Postgres, and the keys never leave the device.
+              </dd>
+            </dl>
+          </article>
+
+          <!-- STACK -->
+          <div class="dev-stack">
+            <h2>What I use</h2>
+            <div class="stack-grid">
+              <div class="stack-col">
+                <h4>Daily</h4>
+                <p>TypeScript, React, React Native and Expo, Swift, Kotlin</p>
+              </div>
+              <div class="stack-col">
+                <h4>Also</h4>
+                <p>
+                  Metal and GLSL, Postgres with row-level security, Supabase, Cloudflare
+                  R2, end-to-end encryption, on-device speech recognition
+                </p>
+              </div>
+              <div class="stack-col">
+                <h4>Around the code</h4>
+                <p>
+                  Git, EAS, Xcode, Vercel, code signing and notarisation on macOS, OTA
+                  updates, App Store and Play Store
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ÆRLEG -->
+          <div class="terminal-window dev-honest">
+            <div class="terminal-chrome">
+              <span class="terminal-dots"></span>
+              <span class="terminal-title">what-i-cannot-do.txt</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line comment">
+                // Since the rest of the page is honest, this can be too.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                I have not worked in a team with code review, sprints and someone who
+                tells me no. That is my biggest gap, and it is the only one I cannot
+                close on my own.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                I have not operated anything with many thousands of users. I do not
+                know Java, C# or Kubernetes.
+              </div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line">
+                I want to learn all of it, and that goes faster alongside people who
+                already know it. That is the whole reason I want to join a team
+                rather than carry on alone.
+              </div>
+            </div>
+          </div>
+
+          <!-- BAKGRUNN -->
+          <div class="dev-bg">
+            <h2>Briefly</h2>
+            <p>
+              From Vinje in Telemark, living in Oslo. Second year of frontend development.
+            </p>
+            <p>
+              Before that I was a sound engineer: studio, post production, and
+              location sound for unscripted television, with mixers, booms and lavs.
+              That trade taught me two things I use every single day. That you cannot
+              fix in post what you did not capture right. And that ears lie, so you
+              have to measure.
+            </p>
+          </div>
+
+          <!-- CTA -->
+          <div class="dev-cta">
+            <h2>Are you hiring?</h2>
+            <p>
+              I am looking for a permanent job, in Oslo or remote. Get in touch and I
+              will happily walk you through the code behind any of the above.
+            </p>
+            <div class="cta">
+              <a class="btn primary" href="/en/contact"
+                ><i class="fa-solid fa-arrow-right"></i> Get in touch</a
+              >
+              <a
+                class="btn secondary"
+                href="https://github.com/DYNNIwav"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+              <a
+                class="btn secondary"
+                href="https://www.linkedin.com/in/dynni"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
