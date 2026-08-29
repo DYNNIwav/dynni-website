@@ -106,6 +106,14 @@
     border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
+    /* Ei nøytral flis under bilete som ikkje er der (enno).
+     *
+     * Eit <img> som ikkje lastar viser alt-teksten i ein boks med ikonet for brote bilete, og i eit
+     * mørkt Pro Tools-vindauge ser det ut som ein feil i sida i staden for eit bilete som manglar.
+     * Med ei glasflate under blir det i staden ei tom rute, som er nøyaktig kva ein sesjon utan
+     * innlasta klipp ser ut som. */
+    background: var(--glass-strong);
+    border: 1px solid var(--glass-border);
 }
 
 .daw-track-thumb img {

@@ -502,7 +502,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       selector: ".typewriter-4",
-      texts: isEn ? ["open DYNNI-Productions.ptx"] : ["open DYNNI-Produksjonar.ptx"],
+      texts: isEn ? ["open credits.ptx"] : ["open produksjonar.ptx"],
       options: {
         typeSpeed: 60,
         startDelay: 1000,
