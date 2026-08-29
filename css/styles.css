@@ -58,7 +58,7 @@ main {
     body {
         /* Sidebaren PLUSS det same pusterommet dei andre sidene har. Berre `100px` ville lagt teksten klistra
            inntil menyen, sidan denne regelen erstattar venstre-delen av `padding: var(--space-md)` over. */
-        padding-left: calc(100px + var(--space-md));
+        padding-left: calc(var(--sidebar-width) + var(--space-md));
     }
 }
 
@@ -401,7 +401,9 @@ a:hover {
 
 #kontakt {
     min-height: 100vh;
-    min-height: 100svh;
+    /* Same grunn som dei sju heroane over: `100svh` inne i ein body med 24px polstring oppe og nede
+       gjer seksjonen 48px høgare enn viewporten. Denne blei gløymd i den runden. */
+    min-height: calc(100svh - var(--space-md) * 2);
     display: flex;
     flex-direction: column;
     justify-content: center;

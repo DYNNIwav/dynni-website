@@ -15,14 +15,25 @@
     --amber-border: rgba(254, 188, 46, 0.35);
 }
 
-/* INNHALDET MÅ VERE SYNLEG SJØLV OM ANIMASJONEN ALDRI KJEM.
+/* INNHALDET MÅ VERE SYNLEG SJØLV OM AVSLØRINGA ALDRI KJEM.
  *
- * `.reveal` blir sett av `onComplete` på skrivemaskina. Med «reduser rørsle» på køyrer skrivemaskina
- * aldri, så `onComplete` fyrer aldri, og då ville ei rein `opacity: 0` gjort heile CV-en usynleg for
- * nettopp dei brukarane. Same problem utan JS.
+ * RETTING. Her stod det at `onComplete` aldri fyrer under «reduser rørsle». Det er USANT, og eg
+ * skreiv det utan å sjekke. Skippet nedst i scripts.js stemplar berre `data-static-text` inn i
+ * `.typed-text` på `DOMContentLoaded`; det hindrar aldri at skrivemaskina blir konstruert, og ho
+ * startar frå ein tidlegare `DOMContentLoaded`-lyttar som køyrer FØRST. Innan 100ms er den statiske
+ * teksten overskriven, animasjonen går, og `onComplete` fyrer heilt som vanleg.
  *
- * Difor: skjul berre når JS ER på OG brukaren ikkje har bedt om mindre rørsle. Alle andre får
- * innhaldet med ein gong. */
+ * Vakta står likevel, av to grunnar som faktisk held:
+ *
+ *   1. Utan JS, eller om `scripts.js` ikkje lastar, blir `.reveal` aldri sett av nokon. Då er heile
+ *      CV-en usynleg på ei side som skal lesast av folk som vurderer å tilsetje meg. `.js`-klassen
+ *      blir sett av eit inline-skript i `<head>`, så han er PÅ sjølv når scripts.js manglar.
+ *   2. Den dagen nokon fikser reduser-rørsle-skippet ordentleg, slik han var meint, blir premissen
+ *      i den gamle kommentaren sann. Då er denne sida den einaste som overlever det.
+ *
+ * Merk kva som følgjer av punkt 2: `.terminal-output`, `.about-image`, `.about-content`,
+ * `.daw-output`, `.services-section` og `.blog-section` har INGEN slik vakt. Blir skippet fiksa,
+ * blir dei permanent usynlege for dei brukarane. Det er ei felle som ventar, ikkje ein bug i dag. */
 .js .dev-section {
     opacity: 0;
     transform: translateY(24px);
@@ -165,6 +176,18 @@
     margin-bottom: 0;
 }
 
+/* `nowrap` SKAR EIN FEILMELDING UT AV SKJERMEN, OG HAN KUNNE IKKJE HENTAST TILBAKE.
+ *
+ * Fire av dei fem snuttane på sida er identifikatorar utan mellomrom, og for dei er `nowrap` rett:
+ * `AXEnhancedUserInterface` skal ikkje delast over to linjer. Den femte er ei heil setning,
+ * `new row violates row-level security policy`, og `nowrap` hindrar broting på MELLOMROM òg. 42 teikn
+ * blei éin ubrytande sekvens på rundt 320px, i eit kort som er 244px innvendig på ein 390px skjerm.
+ *
+ * Det verste var ikkje at han stakk ut. `html, body` har `overflow-x: clip`, så dei siste teikna blei
+ * KLIPTE og det fanst ingen måte å scrolle til dei. Ei feilmelding som er poenget i saka, usynleg.
+ *
+ * `anywhere` og ikkje `nowrap`: dei fire identifikatorane får framleis stå heile så lenge det er
+ * plass, og bryt heller enn å forsvinne når det ikkje er det. */
 .case-body code {
     font-family: var(--font-mono);
     font-size: 0.85em;
@@ -172,7 +195,7 @@
     border: 1px solid var(--glass-border);
     border-radius: 4px;
     padding: 1px 5px;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
 }
 
 /* Den delen folk hugsar. Gul fordi det er signalfargen, ikkje raud fordi det ikkje er ein feil å skjule. */

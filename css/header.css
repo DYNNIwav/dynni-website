@@ -7,16 +7,28 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100px;
+    width: var(--sidebar-width);
     height: 100vh;
-    height: 100svh;
+    /* `dvh`: sidebaren skal fylle det som faktisk er synleg. Han blir skyvd bort under 769px, så
+       adresselinja på telefon er ikkje saka her, men einingar bør vere dei same i heile fila. */
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-md);
+    /* Smalare polstring i BREIDDA enn i høgda. Breidda er det knappe godet her: kvar px polstring
+       kostar to px av det feltet lenketeksten har å stå på. Høgda har vi nok av. */
+    padding: var(--space-md) var(--space-sm);
     background: var(--glass);
-    border: 2px solid var(--glass-strong);
+    /* 1px og `--glass-border`, som alle andre glasflater på nettstaden.
+     *
+     * Dette var den einaste 2px-kanten som finst, og han var teikna i `--glass-strong`, altså
+     * FYLL-tokenet brukt som kantfarge. To px av eit smalt budsjett, på tre kantar som ligg utanfor
+     * viewporten uansett. Og `backdrop-filter` mangla heilt, så den mest sette flata på nettstaden
+     * var den einaste glasflata utan glas. */
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
 
     z-index: 50;
 }
@@ -44,9 +56,28 @@
 
 .nav-links-main a {
     color: var(--text);
-    font-size: var(--space-sm);
+    /* `var(--space-sm)` stod her, altså AVSTANDS-tokenet brukt som skriftstorleik. Retunar du
+       spacing-skalaen, endrar du stille storleiken på hovudmenyen. 0.875rem er dessutan det som gjer
+       at «Utviklar» og «Tenester» får luft i den 116px breie kolonnen. */
+    font-size: 0.875rem;
     font-weight: 500;
+    /* Lenkene hadde ingen eigen hover og ingen synleg fokusring: einaste tilbakemelding var den
+       nettstadbreie `a:hover { opacity: .8 }`, som kvar lenke på sida får. */
+    display: block;
+    padding: 2px 4px;
+    border-radius: 4px;
     transition: var(--transition);
+}
+
+.nav-links-main a:hover {
+    background: var(--glass-strong);
+}
+
+.nav-links-main a:focus-visible,
+.nav-links-social a:focus-visible,
+.lang-switch a:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
 }
 
 .nav-links-social {
@@ -77,8 +108,9 @@
     text-orientation: upright;
     font-size: 11px;
     letter-spacing: 1px;
+    /* `opacity: 0.45` gjorde #8e8e93 til 2.03:1 mot svart. Grensa er 4.5:1, så linja var dekor som
+       utgav seg for tekst. Utan opasiteten er han 6.44:1 og passerer AA. */
     color: var(--text-secondary);
-    opacity: 0.45;
 }
 
 .lang-switch {
@@ -153,7 +185,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    height: 100svh;
+    /* `dvh` og ikkje `svh`: dette er eit fast overlegg som skal dekkje det som FAKTISK er synleg.
+       `svh` er den vesle viewporten, så når Safari har kollapsa adresselinja endar skuffa midt på
+       skjermen med ei udekt, ublurra stripe under seg. */
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(8px);
     z-index: 999;
@@ -168,7 +203,10 @@
     left: 0;
     width: 280px;
     height: 100vh;
-    height: 100svh;
+    /* `dvh` og ikkje `svh`: dette er eit fast overlegg som skal dekkje det som FAKTISK er synleg.
+       `svh` er den vesle viewporten, så når Safari har kollapsa adresselinja endar skuffa midt på
+       skjermen med ei udekt, ublurra stripe under seg. */
+    height: 100dvh;
     background: var(--glass);
     border-right: 1px solid var(--glass-border);
     transform: translateX(-100%);
@@ -204,6 +242,13 @@
     .mobile-nav-content {
         width: 100%;
         align-items: center;
+        /* SKUFFA KLIPTE I LANDSKAP OG DET FANST INGENTING Å SCROLLE MED.
+         *
+         * Målt på 667x375: innhaldet er 488px høgt i eit felt på 375px, og korkje `.mobile-nav` eller
+         * `.mobile-nav-content` hadde overflow. 113px av menyen låg under viewporten, så Kontakt, dei
+         * sosiale lenkene og språkbytaren var uråd å nå. Grensa går rundt 521px viewporthøgd. */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .mobile-nav-content .logo img {
@@ -211,10 +256,27 @@
         height: auto;
     }
 
-    /* LODDRETT SKRIFT HØYRER TIL I DEN 100px BREIE SIDEBAREN, IKKJE HER.
+    /* 19px høge treffområde var primærnavigasjonen på femten sider. glimt.css løyste dette for éi
+       side og forklarer diagnosen i sin eigen kommentar; her gjeld det alle. */
+    .mobile-nav-content .nav-links-main a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 var(--space-sm);
+        font-size: 1rem;
+    }
+
+    .mobile-nav-content .nav-links-social a,
+    .mobile-nav-content .lang-switch a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* LODDRETT SKRIFT HØYRER TIL I DEN SMALE SIDEBAREN, IKKJE HER.
      *
      * `.sidebar-text` har `writing-mode: vertical-rl` i grunnregelen, fordi han på desktop står i ein
-     * fast kolonne som er 100px brei og må lesast nedover. Mobilmenyen er ein heilt vanleg loddrett
+     * fast, smal kolonne og må lesast nedover. Mobilmenyen er ein heilt vanleg loddrett
      * flex-kolonne, så den same regelen ga eitt teikn per linje: © D Y N N I 2 0 2 6 nedover skjermen.
      *
      * Regelen som skjuler `.sidebar-text` ligg i `@media (min-width: 769px) and (max-height: 760px)`,
@@ -230,10 +292,6 @@
 
     .mobile-nav-content .nav-links-main {
         gap: var(--space-sm);
-    }
-
-    .mobile-nav-content .nav-links-main a {
-        font-size: 1rem;
     }
 
     .mobile-nav-content .nav-links-social {
@@ -268,10 +326,10 @@
     }
 }
 
-/* Site footer: centered under the content and clearing the fixed 100px sidebar, on every page (it was
+/* Site footer: centered under the content and clearing the fixed sidebar, on every page (it was
    unstyled → left-aligned and tucked under the glass sidebar). */
 .site-footer {
-    /* `margin-left: 100px` stod her for å klarere sidebaren. Body har den polstringa no, for HEILE sida, så
+    /* Ein `margin-left` på sidebarbreidda stod her for å klarere han. Body har den polstringa no, for HEILE sida, så
        ein eigen her ville blitt ei dobbel forskyving. */
     padding: 2.5rem 1.5rem 3.5rem;
     text-align: center;
@@ -294,7 +352,6 @@
 }
 @media (max-width: 768px) {
     .site-footer {
-        margin-left: 0;
         padding-bottom: 5rem;
     }
 }

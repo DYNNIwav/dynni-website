@@ -15,6 +15,21 @@
   --radius: 12px;
   --transition: all 0.3s ease;
 
+  /* BREIDDA PÅ SIDEBAREN, SOM TO FILER MÅ VERE SAMDE OM.
+   *
+   * `header.css` set breidda på `.nav`, og `styles.css` skyv `body` inn med den same breidda pluss
+   * pusterom, så teksten ikkje hamnar under menyen. Talet stod skrive for hand begge stader. Endra
+   * du det eine, la det andre teksten gli under menyen igjen, som er nøyaktig den bugen kommentaren
+   * i styles.css alt beskriv.
+   *
+   * 116 og ikkje 100: lista er ein shrink-to-fit flex-item, så det LENGSTE ordet set breidda på heile
+   * menyen. «Utviklar» og «Tenester» er åtte teikn, og i JetBrains Mono på 14px er det 67,2px. Med
+   * 1px kant og 16px polstring på kvar side blir innhaldsfeltet 82px, altså 7,4px luft på kvar side.
+   *
+   * På 100px med 16px skrift var det same ordet 76,8px i eit felt på 48px. Lista rann 14,4px ut på
+   * kvar side og åt 60 % av polstringa. Det var den «rare viewporten». */
+  --sidebar-width: 116px;
+
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Monaco,
     monospace;
   --font-display: var(--font-mono);

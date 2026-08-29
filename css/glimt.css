@@ -74,10 +74,10 @@ body.glimt-page {
 }
 
 .glimt-page main { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
-/* Keep content clear of the 100px fixed sidebar on narrow/medium desktop, where the centered
+/* Keep content clear of the fixed sidebar on narrow/medium desktop, where the centered
    1120px box would otherwise slide under it. Above ~1320px it clears naturally, so stay centered. */
 @media (min-width: 769px) and (max-width: 1320px) {
-  .glimt-page main { padding-left: calc(100px + 1.5rem); }
+  .glimt-page main { padding-left: calc(var(--sidebar-width) + 1.5rem); }
 }
 
 /* ---------- SKIP LINK + FOCUS ---------- */
