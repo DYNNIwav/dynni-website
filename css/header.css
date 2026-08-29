@@ -211,8 +211,21 @@
         height: auto;
     }
 
+    /* LODDRETT SKRIFT HØYRER TIL I DEN 100px BREIE SIDEBAREN, IKKJE HER.
+     *
+     * `.sidebar-text` har `writing-mode: vertical-rl` i grunnregelen, fordi han på desktop står i ein
+     * fast kolonne som er 100px brei og må lesast nedover. Mobilmenyen er ein heilt vanleg loddrett
+     * flex-kolonne, så den same regelen ga eitt teikn per linje: © D Y N N I 2 0 2 6 nedover skjermen.
+     *
+     * Regelen som skjuler `.sidebar-text` ligg i `@media (min-width: 769px) and (max-height: 760px)`,
+     * altså desktop med lågt vindauge. Han gjeld ikkje her, og det er difor ingenting fanga dette.
+     *
+     * `horizontal-tb` og ikkje `display: none`: linja høyrer til i menyen, ho stod berre feil veg. */
     .mobile-nav-content .sidebar-text {
         font-size: 10px;
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        letter-spacing: 1px;
     }
 
     .mobile-nav-content .nav-links-main {

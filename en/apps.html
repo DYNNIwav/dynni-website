@@ -249,7 +249,12 @@
           </li>
 
           <li class="featured">
-            <a href="https://github.com/DYNNIwav/paneless" target="_blank" rel="noopener noreferrer" class="app-card">
+            <!-- A <div>, not an <a>. See the Norwegian apps.html for the full note: this was the
+                 only card whose frame was itself a link, wrapping both a <button> and another <a>.
+                 Interactive content inside a link is invalid, the browser closes the outer link
+                 where the inner one starts, and `.js .app-card { opacity: 0 }` then leaves the
+                 orphaned half invisible. That was the blank card on mobile. -->
+            <div class="app-card">
               <div class="app-icon" style="--glow: rgba(0, 210, 211, 0.3)">
                 <img src="../assets/img/apps/paneless.png" alt="Paneless" />
               </div>
@@ -261,15 +266,20 @@
                 <p class="description">
                   Tiling window manager for macOS. Moves and resizes other apps’ windows through the Accessibility API, animated on the display’s own refresh with CVDisplayLink. Virtual workspaces. Needs macOS 14 or later.
                 </p>
-                <button class="install-cmd" onclick="event.preventDefault();event.stopPropagation();navigator.clipboard.writeText('brew install --cask DYNNIwav/paneless/paneless');this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),1500)">
+                <button type="button" class="install-cmd" onclick="navigator.clipboard.writeText('brew install --cask DYNNIwav/paneless/paneless');this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),1500)">
                   <span>brew install --cask DYNNIwav/paneless/paneless</span>
                   <i class="fa-regular fa-copy"></i>
                 </button>
-                <a class="install-alt" href="https://github.com/DYNNIwav/paneless/releases/latest/download/Paneless.app.zip" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-download"></i> Or download directly
-                </a>
+                <div class="app-actions">
+                  <a class="app-cta" href="https://github.com/DYNNIwav/paneless" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> View on GitHub
+                  </a>
+                  <a class="app-link" href="https://github.com/DYNNIwav/paneless/releases/latest/download/Paneless.app.zip" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-download"></i> Download directly
+                  </a>
+                </div>
               </div>
-            </a>
+            </div>
           </li>
 
           <li>

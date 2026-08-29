@@ -251,7 +251,16 @@
           </li>
 
           <li class="featured">
-            <a href="https://github.com/DYNNIwav/paneless" target="_blank" rel="noopener noreferrer" class="app-card">
+            <!-- KORTET ER EIN <div>, IKKJE EIN <a>, OG DET ER HEILE POENGET.
+                 Dette var det einaste kortet der sjølve ramma var ei lenke, og inni låg både ein
+                 <button> og endå ei <a>. Begge delar er ugyldig HTML: ei lenke kan ikkje innehalde
+                 interaktivt innhald. Nettlesaren rettar det opp ved å STENGJE den ytre lenka der
+                 den indre byrjar, og resten av innhaldet hamnar i eit nytt element.
+                 Det er difor kortet var blankt på mobil: `.js .app-card` er `opacity: 0` til
+                 observatøren legg til `.show`, og han fann berre den fyrste halvdelen. Ikonet kom,
+                 teksten stod usynleg og heldt plassen sin.
+                 Glimt-kortet har alltid vore ein <div> med lenkene inni. No er dette det same. -->
+            <div class="app-card">
               <div class="app-icon" style="--glow: rgba(0, 210, 211, 0.3)">
                 <img src="./assets/img/apps/paneless.png" alt="Paneless" />
               </div>
@@ -263,15 +272,20 @@
                 <p class="description">
                   Flisleggjande vindaugsbehandlar for macOS. Flyttar og endrar storleik på andre appar sine vindauge gjennom Accessibility-API-et, animert på skjermen sin eigen refresh med CVDisplayLink. Virtuelle arbeidsområde. Krev macOS 14 eller nyare.
                 </p>
-                <button class="install-cmd" onclick="event.preventDefault();event.stopPropagation();navigator.clipboard.writeText('brew install --cask DYNNIwav/paneless/paneless');this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),1500)">
+                <button type="button" class="install-cmd" onclick="navigator.clipboard.writeText('brew install --cask DYNNIwav/paneless/paneless');this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),1500)">
                   <span>brew install --cask DYNNIwav/paneless/paneless</span>
                   <i class="fa-regular fa-copy"></i>
                 </button>
-                <a class="install-alt" href="https://github.com/DYNNIwav/paneless/releases/latest/download/Paneless.app.zip" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-                  <i class="fa-solid fa-download"></i> Eller last ned direkte
-                </a>
+                <div class="app-actions">
+                  <a class="app-cta" href="https://github.com/DYNNIwav/paneless" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> Sjå på GitHub
+                  </a>
+                  <a class="app-link" href="https://github.com/DYNNIwav/paneless/releases/latest/download/Paneless.app.zip" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-download"></i> Last ned direkte
+                  </a>
+                </div>
               </div>
-            </a>
+            </div>
           </li>
 
           <li>
