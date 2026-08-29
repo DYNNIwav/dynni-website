@@ -125,116 +125,105 @@
     </head>
     <body>
         <header class="site-header">
-            <nav class="nav">
-                <a class="logo" href="/en/"
-                    ><img
-                        src="../assets/img/logo/dynni-logo.svg"
-                        alt="DYNNI logo"
-                /></a>
-                <ul class="nav-links-main">
-                    <li><a href="/en/about">About</a></li>
-                    <li><a href="/en/sound">Sound</a></li>
-                    <li><a href="/en/apps">Apps</a></li>
-                    <li><a href="/en/services">Services</a></li>
-                    <li><a href="/en/blog">Blog</a></li>
-                    <li><a href="/en/contact">Contact</a></li>
-                </ul>
-                <span class="sidebar-text">© DYNNI 2026</span>
-                <ul class="nav-links-social">
-                    <li>
-                        <a
-                            href="https://www.instagram.com/dynni.wav"
-                            target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            ><i class="fab fa-instagram"></i
-                        ></a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://github.com/DYNNIwav"
-                            target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            ><i class="fab fa-github"></i
-                        ></a>
-                    </li>
-                    <li>
-                        <a
-                            href="https://www.linkedin.com/in/dynni"
-                            target="_blank" rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                            ><i class="fab fa-linkedin"></i
-                        ></a>
-                    </li>
-                </ul>
-                <div class="lang-switch">
-                    <a href="/kontakt">NO</a>
-                    <a href="/en/contact" class="active">EN</a>
-                </div>
-            </nav>
-            <!-- Mobile Hamburger Menu -->
-            <div class="hamburger-menu">
-                <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-                <label for="menu-toggle" class="hamburger-btn">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </label>
+      <!-- NAV-BEGIN generert av scripts/nav.mjs, ikkje rediger for hand -->
+      <nav class="nav" aria-label="Main menu">
+        <a class="logo" href="/en/"
+          ><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
+        /></a>
 
-                <!-- Mobile Navigation Overlay -->
-                <div class="mobile-nav-overlay">
-                    <nav class="mobile-nav">
-                        <div class="mobile-nav-content">
-                            <a class="logo" href="/en/">
-                                <img
-                                    src="../assets/img/logo/dynni-logo.svg"
-                                    alt="DYNNI logo"
-                                />
-                            </a>
+        <ul class="nav-links-main">
+          <li><a href="/en/about">About</a></li>
+          <li><a href="/en/sound">Sound</a></li>
+          <li><a href="/en/apps">Apps</a></li>
+          <li><a href="/en/services">Services</a></li>
+          <li><a href="/en/blog">Blog</a></li>
+          <li><a href="/en/contact" aria-current="page">Contact</a></li>
+        </ul>
 
-                            <ul class="nav-links-main">
-                                <li><a href="/en/about">About</a></li>
-                                <li><a href="/en/sound">Sound</a></li>
-                                <li><a href="/en/apps">Apps</a></li>
-                                <li><a href="/en/services">Services</a></li>
-                                <li><a href="/en/blog">Blog</a></li>
-                                <li><a href="/en/contact">Contact</a></li>
-                            </ul>
-                            <span class="sidebar-text">© DYNNI 2026</span>
+        <span class="sidebar-text">© DYNNI 2026</span>
 
-                            <ul class="nav-links-social">
-                                <li>
-                                    <a
-                                        href="https://www.instagram.com/dynni.wav"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="Instagram"
-                                        ><i class="fab fa-instagram"></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://github.com/DYNNIwav"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="GitHub"
-                                        ><i class="fab fa-github"></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://www.linkedin.com/in/dynni"
-                                        target="_blank" rel="noopener noreferrer"
-                                        aria-label="LinkedIn"
-                                        ><i class="fab fa-linkedin"></i
-                                    ></a>
-                                </li>
-                            </ul>
-                            <div class="lang-switch">
-                                <a href="/kontakt">NO</a>
-                                <a href="/en/contact" class="active">EN</a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
+        <ul class="nav-links-social">
+          <li>
+            <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="lang-switch">
+          <a href="/kontakt">NO</a>
+          <a href="/en/contact" class="active" aria-current="true">EN</a>
+        </div>
+      </nav>
+
+      <!-- HAMBURGAREN ER AVKRYSSINGSBOKSEN, IKKJE ETIKETTEN.
+           Boksen var «display: none», og eit element som ikkje blir rendra kan ikkje få fokus. Etiketten
+           er ikkje fokuserbar av seg sjølv og hadde korkje tekst, aria-label eller rolle, så det
+           tilgjengelege namnet var tomt. Ein tastaturbrukar på telefon tabba gjennom 13 usynlege lenker
+           og kunne så ikkje opne menyen i det heile.
+           No: boksen ligg synleg for maskina men gjennomsiktig oppå knappen, med sitt eige namn, og
+           etiketten er «aria-hidden» fordi han berre er dei tre strekane. Framleis null JavaScript. -->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Menu" />
+        <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </label>
+
+        <div class="mobile-nav-overlay">
+          <nav class="mobile-nav" aria-label="Main menu">
+            <div class="mobile-nav-content">
+              <a class="logo" href="/en/">
+                <img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
+              </a>
+
+              <ul class="nav-links-main">
+                <li><a href="/en/about">About</a></li>
+                <li><a href="/en/sound">Sound</a></li>
+                <li><a href="/en/apps">Apps</a></li>
+                <li><a href="/en/services">Services</a></li>
+                <li><a href="/en/blog">Blog</a></li>
+                <li><a href="/en/contact" aria-current="page">Contact</a></li>
+              </ul>
+
+              <span class="sidebar-text">© DYNNI 2026</span>
+
+              <ul class="nav-links-social">
+                <li>
+                  <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+              </ul>
+              <div class="lang-switch">
+                <a href="/kontakt">NO</a>
+                <a href="/en/contact" class="active" aria-current="true">EN</a>
+              </div>
             </div>
+          </nav>
+        </div>
+      </div>
+      <!-- NAV-END -->
         </header>
 
         <main>

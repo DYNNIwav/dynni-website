@@ -73,6 +73,13 @@
     background: var(--glass-strong);
 }
 
+/* Sida du står på. `aria-current` fanst null gonger på nettstaden før no, så korkje ein sjåande
+   brukar eller ein skjermlesar kunne sjå kva for ei av sju lenker som var her. */
+.nav-links-main a[aria-current="page"] {
+    color: var(--blue);
+    font-weight: 600;
+}
+
 .nav-links-main a:focus-visible,
 .nav-links-social a:focus-visible,
 .lang-switch a:focus-visible {
@@ -142,8 +149,46 @@
     display: none;
 }
 
+/* AVKRYSSINGSBOKSEN ER KONTROLLEN, OG DÅ MÅ HAN KUNNE FÅ FOKUS.
+ *
+ * `display: none` her var grunnen til at hamburgaren ikkje kunne opnast med tastatur i det heile:
+ * eit element som ikkje blir rendra er ikkje i tabbrekkjefølgja. Etiketten er ikkje fokuserbar av
+ * seg sjølv, så det fanst ingen veg inn i menyen utan mus.
+ *
+ * No ligg boksen nøyaktig oppå knappen, gjennomsiktig, 44x44 som knappen, og over han i stabelen så
+ * han tek klikket. Skjermlesarar les `aria-label` frå markupen, etiketten er `aria-hidden` fordi han
+ * berre er tre strekar. Mellomrom opnar og lukkar. Framleis null JavaScript. */
 .menu-toggle {
-    display: none;
+    position: fixed;
+    top: var(--space-md);
+    left: var(--space-md);
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    opacity: 0;
+    z-index: 1002;
+    cursor: pointer;
+}
+
+/* Fokusringen må teiknast på det du SER, sidan boksen sjølv er gjennomsiktig. */
+.menu-toggle:focus-visible + .hamburger-btn {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+/* Strekane hadde ein `transition` som aldri gjorde noko: ingen regel endra dei nokon gong, så
+ * knappen såg byte-identisk ut open og lukka. Det einaste signalet om at menyen var open var
+ * skuffa sjølv. No blir han eit kryss. */
+.menu-toggle:checked ~ .hamburger-btn .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle:checked ~ .hamburger-btn .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle:checked ~ .hamburger-btn .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 .hamburger-btn {
@@ -237,6 +282,10 @@
 
     .nav {
         transform: translateX(-100%);
+        /* `translateX` flyttar berre pikslar. Elementet var framleis `visibility: visible`, så ein
+           skjermlesar las heile desktop-menyen i tillegg til skuffa: sju lenker to gonger, frå to
+           <nav>-landemerke. `hidden` tek han ut av tilgjengelegheitstreet òg. */
+        visibility: hidden;
     }
 
     .mobile-nav-content {

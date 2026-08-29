@@ -13,7 +13,7 @@
     <meta name="title" content="Apps - Pål Omland Eilevstjønn | DYNNI" />
     <meta
       name="description"
-      content="Glimt, a private alternative to Snapchat for iOS and Android, end-to-end encrypted. Paneless, a tiling window manager for macOS. Plus Hourwell, Taake and CarShare."
+      content="Glimt, a private alternative to Snapchat, end-to-end encrypted. Paneless, a tiling window manager for macOS. Peiling, a compass that points at coffee. Plus Hourwell, Taake and CarShare."
     />
     <meta
       name="keywords"
@@ -36,7 +36,7 @@
     />
     <meta
       property="og:description"
-      content="Glimt, a private alternative to Snapchat for iOS and Android, end-to-end encrypted. Paneless, a tiling window manager for macOS. Plus Hourwell, Taake and CarShare."
+      content="Glimt, a private alternative to Snapchat, end-to-end encrypted. Paneless, a tiling window manager for macOS. Peiling, a compass that points at coffee. Plus Hourwell, Taake and CarShare."
     />
     <meta
       property="og:image"
@@ -54,7 +54,7 @@
     />
     <meta
       property="twitter:description"
-      content="Glimt, a private alternative to Snapchat for iOS and Android, end-to-end encrypted. Paneless, a tiling window manager for macOS. Plus Hourwell, Taake and CarShare."
+      content="Glimt, a private alternative to Snapchat, end-to-end encrypted. Paneless, a tiling window manager for macOS. Peiling, a compass that points at coffee. Plus Hourwell, Taake and CarShare."
     />
     <meta
       property="twitter:image"
@@ -101,7 +101,7 @@
           "@type": "Person",
           "name": "Pål Omland Eilevstjønn",
           "alternateName": "DYNNI",
-          "description": "Glimt, a private alternative to Snapchat for iOS and Android, end-to-end encrypted. Paneless, a tiling window manager for macOS. Plus Hourwell, Taake and CarShare.",
+          "description": "Glimt, a private alternative to Snapchat, end-to-end encrypted. Paneless, a tiling window manager for macOS. Peiling, a compass that points at coffee. Plus Hourwell, Taake and CarShare.",
           "url": "https://dynni.no/en/apps",
           "jobTitle": "App Developer",
           "address": {
@@ -115,7 +115,8 @@
   </head>
   <body>
     <header class="site-header">
-      <nav class="nav">
+      <!-- NAV-BEGIN generert av scripts/nav.mjs, ikkje rediger for hand -->
+      <nav class="nav" aria-label="Main menu">
         <a class="logo" href="/en/"
           ><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
         /></a>
@@ -123,7 +124,7 @@
         <ul class="nav-links-main">
           <li><a href="/en/about">About</a></li>
           <li><a href="/en/sound">Sound</a></li>
-          <li><a href="/en/apps">Apps</a></li>
+          <li><a href="/en/apps" aria-current="page">Apps</a></li>
           <li><a href="/en/services">Services</a></li>
           <li><a href="/en/blog">Blog</a></li>
           <li><a href="/en/contact">Contact</a></li>
@@ -150,21 +151,27 @@
         </ul>
         <div class="lang-switch">
           <a href="/apps">NO</a>
-          <a href="/en/apps" class="active">EN</a>
+          <a href="/en/apps" class="active" aria-current="true">EN</a>
         </div>
       </nav>
-      <!-- Mobile Hamburger Menu -->
+
+      <!-- HAMBURGAREN ER AVKRYSSINGSBOKSEN, IKKJE ETIKETTEN.
+           Boksen var «display: none», og eit element som ikkje blir rendra kan ikkje få fokus. Etiketten
+           er ikkje fokuserbar av seg sjølv og hadde korkje tekst, aria-label eller rolle, så det
+           tilgjengelege namnet var tomt. Ein tastaturbrukar på telefon tabba gjennom 13 usynlege lenker
+           og kunne så ikkje opne menyen i det heile.
+           No: boksen ligg synleg for maskina men gjennomsiktig oppå knappen, med sitt eige namn, og
+           etiketten er «aria-hidden» fordi han berre er dei tre strekane. Framleis null JavaScript. -->
       <div class="hamburger-menu">
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="hamburger-btn">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Menu" />
+        <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
         </label>
 
-        <!-- Mobile Navigation Overlay -->
         <div class="mobile-nav-overlay">
-          <nav class="mobile-nav">
+          <nav class="mobile-nav" aria-label="Main menu">
             <div class="mobile-nav-content">
               <a class="logo" href="/en/">
                 <img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
@@ -173,11 +180,12 @@
               <ul class="nav-links-main">
                 <li><a href="/en/about">About</a></li>
                 <li><a href="/en/sound">Sound</a></li>
-                <li><a href="/en/apps">Apps</a></li>
+                <li><a href="/en/apps" aria-current="page">Apps</a></li>
                 <li><a href="/en/services">Services</a></li>
                 <li><a href="/en/blog">Blog</a></li>
                 <li><a href="/en/contact">Contact</a></li>
               </ul>
+
               <span class="sidebar-text">© DYNNI 2026</span>
 
               <ul class="nav-links-social">
@@ -199,12 +207,13 @@
               </ul>
               <div class="lang-switch">
                 <a href="/apps">NO</a>
-                <a href="/en/apps" class="active">EN</a>
+                <a href="/en/apps" class="active" aria-current="true">EN</a>
               </div>
             </div>
           </nav>
         </div>
       </div>
+      <!-- NAV-END -->
     </header>
     <main>
       <div class="background"></div>
@@ -276,6 +285,28 @@
                   </a>
                   <a class="app-link" href="https://github.com/DYNNIwav/paneless/releases/latest/download/Paneless.app.zip" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-download"></i> Download directly
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="app-card">
+              <div class="app-icon" style="--glow: rgba(198, 141, 90, 0.32)">
+                <img src="../assets/img/apps/peiling.png" alt="Peiling" />
+              </div>
+              <div class="app-info">
+                <h3>Peiling</h3>
+                <p class="meta">
+                  <span class="platform"><i class="fab fa-apple"></i> iOS</span> · Developer<span class="status in-beta">In TestFlight</span>
+                </p>
+                <p class="description">
+                  A compass that points at coffee. One needle, one direction and a card about the place it points to, not a map to search through. No account and no server: the cafés ship inside the app bundle, and everything you do stays on the phone.
+                </p>
+                <div class="app-actions">
+                  <a class="app-cta" href="mailto:paal@dynni.no?subject=Peiling%20beta%20access&body=Hi%2C%0A%0AI%27d%20like%20to%20test%20Peiling%20through%20TestFlight.%0A%0AName%3A%0AiOS%20version%3A%0A%0AThanks!">
+                    <i class="fa-solid fa-flask"></i> Join the beta
                   </a>
                 </div>
               </div>

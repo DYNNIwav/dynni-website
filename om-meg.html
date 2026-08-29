@@ -123,13 +123,14 @@
   </head>
   <body>
     <header class="site-header">
-      <nav class="nav">
+      <!-- NAV-BEGIN generert av scripts/nav.mjs, ikkje rediger for hand -->
+      <nav class="nav" aria-label="Hovudmeny">
         <a class="logo" href="/"
           ><img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
         /></a>
 
         <ul class="nav-links-main">
-          <li><a href="/om-meg">Om meg</a></li>
+          <li><a href="/om-meg" aria-current="page">Om meg</a></li>
           <li><a href="/utviklar">Utviklar</a></li>
           <li><a href="/lyd">Lyd</a></li>
           <li><a href="/apps">Apps</a></li>
@@ -158,29 +159,35 @@
           </li>
         </ul>
         <div class="lang-switch">
-          <a href="/om-meg" class="active">NO</a>
+          <a href="/om-meg" class="active" aria-current="true">NO</a>
           <a href="/en/about">EN</a>
         </div>
       </nav>
-      <!-- Mobile Hamburger Menu -->
+
+      <!-- HAMBURGAREN ER AVKRYSSINGSBOKSEN, IKKJE ETIKETTEN.
+           Boksen var «display: none», og eit element som ikkje blir rendra kan ikkje få fokus. Etiketten
+           er ikkje fokuserbar av seg sjølv og hadde korkje tekst, aria-label eller rolle, så det
+           tilgjengelege namnet var tomt. Ein tastaturbrukar på telefon tabba gjennom 13 usynlege lenker
+           og kunne så ikkje opne menyen i det heile.
+           No: boksen ligg synleg for maskina men gjennomsiktig oppå knappen, med sitt eige namn, og
+           etiketten er «aria-hidden» fordi han berre er dei tre strekane. Framleis null JavaScript. -->
       <div class="hamburger-menu">
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="hamburger-btn">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Meny" />
+        <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
         </label>
 
-        <!-- Mobile Navigation Overlay -->
         <div class="mobile-nav-overlay">
-          <nav class="mobile-nav">
+          <nav class="mobile-nav" aria-label="Hovudmeny">
             <div class="mobile-nav-content">
               <a class="logo" href="/">
                 <img src="./assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
               </a>
 
               <ul class="nav-links-main">
-                <li><a href="/om-meg">Om meg</a></li>
+                <li><a href="/om-meg" aria-current="page">Om meg</a></li>
                 <li><a href="/utviklar">Utviklar</a></li>
                 <li><a href="/lyd">Lyd</a></li>
                 <li><a href="/apps">Apps</a></li>
@@ -188,6 +195,7 @@
                 <li><a href="/blogg">Blogg</a></li>
                 <li><a href="/kontakt">Kontakt</a></li>
               </ul>
+
               <span class="sidebar-text">© DYNNI 2026</span>
 
               <ul class="nav-links-social">
@@ -208,13 +216,14 @@
                 </li>
               </ul>
               <div class="lang-switch">
-                <a href="/om-meg" class="active">NO</a>
+                <a href="/om-meg" class="active" aria-current="true">NO</a>
                 <a href="/en/about">EN</a>
               </div>
             </div>
           </nav>
         </div>
       </div>
+      <!-- NAV-END -->
     </header>
     <main>
       <div class="background"></div>
