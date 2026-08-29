@@ -1,3 +1,32 @@
+/* OVERSKRIFTA STOD DER FØR KOMMANDOEN VAR FERDIG.
+ *
+ * `typewriter-5` SCROLLAR berre til `#prosjekt`, han avslører ingenting. Korta har si eiga
+ * `.show`-avsløring frå ein IntersectionObserver, men <h2>-en hadde ingen vakt i det heile, så
+ * «Appar» låg synleg medan prompten framleis skreiv `ls apps/` over han.
+ *
+ * Same feil som `.lyd-intro`: innhaldet var vakta, overskrifta over det var ikkje det. Tenester,
+ * blogg og utviklar vaktar heile seksjonen sin, og det er den forma som ikkje kan gløyme eit barn.
+ *
+ * Vakta gjeld berre sider som lastar apps.css, altså apps og en/apps. `#prosjekt` på lyd-sida har
+ * si eiga i lyd.css. */
+.js #prosjekt {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#prosjekt.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js #prosjekt {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 
 #prosjekt {
     min-height: 100vh;

@@ -502,7 +502,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       selector: ".typewriter-4",
-      texts: isEn ? ["open credits.ptx"] : ["open produksjonar.ptx"],
+      texts: ["open credits.ptx"],
       options: {
         typeSpeed: 60,
         startDelay: 1000,
@@ -638,6 +638,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const isMobile = window.innerWidth <= 768;
             const appsSection = document.querySelector("#prosjekt");
             if (appsSection) {
+              // Denne mangla heilt: handteraren scrolla til seksjonen utan å avsløre han, så
+              // <h2>-en var synleg frå sidelast medan prompten framleis skreiv.
+              appsSection.classList.add("reveal");
               const fits = fitsInViewport(appsSection);
               appsSection.scrollIntoView({
                 behavior: isMobile ? "instant" : "smooth",
