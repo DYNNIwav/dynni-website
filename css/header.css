@@ -364,26 +364,6 @@
 /* Short desktop windows: the fixed vertical sidebar must never let its items collide.
    Let it scroll, tighten the link spacing, and drop the decorative vertical copyright
    (the footer keeps the real copyright). Only applies to the desktop sidebar (>768px). */
-/* DEN LODDRETTE COPYRIGHTEN UT AV KOLONNEN. 180 PIKSLAR FOR EIN DEKORASJON.
- *
- * Målt: dei sju punkta pluss logo, sosiale ikon og språkbytar treng 736px kolonnehøgd, og renn over
- * på 580. `.sidebar-text` åleine står for 180 av dei, altså ein fjerdedel, for tolv teikn sett
- * loddrett.
- *
- * Ein ©-merknad har ingen rettsverknad. Vern er automatisk etter Bernkonvensjonen, merket er ein
- * konvensjon frå ei tid da det ikkje var det. Å bruke 25 % av eit knapt budsjett på det er feil
- * byte.
- *
- * Han står ATT i mobilskuffa, der han ligg vassrett og kostar éi linje av ein skjerm som har plass.
- * Og Glimt- og Hourwell-sidene har ein ekte `<footer>` som ber sin eigen.
- *
- * 736 - 180 = 556px, som får plass i ein hovudsakleg kvar laptop. */
-@media (min-width: 769px) {
-    .nav .sidebar-text {
-        display: none;
-    }
-}
-
 @media (min-width: 769px) {
     .nav {
         overflow-y: auto;
