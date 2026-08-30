@@ -112,7 +112,12 @@
 
 .sidebar-text {
     writing-mode: vertical-rl;
-    text-orientation: upright;
+    /* `mixed` og ikkje `upright`. Same linje, same rolle, 91px i staden for 180.
+     *
+     * `upright` set kvar bokstav ståande og stablar dei, så tolv teikn kostar tolv linjehøgder.
+     * `mixed` roterer heile linja 90 grader, så ho kostar si eiga LENGD i staden. Det er den einaste
+     * posten i kolonnen der du kan halve utgifta utan å fjerne noko. */
+    text-orientation: mixed;
     font-size: 11px;
     letter-spacing: 1px;
     /* `opacity: 0.45` gjorde #8e8e93 til 2.03:1 mot svart. Grensa er 4.5:1, så linja var dekor som
@@ -364,7 +369,36 @@
 /* Short desktop windows: the fixed vertical sidebar must never let its items collide.
    Let it scroll, tighten the link spacing, and drop the decorative vertical copyright
    (the footer keeps the real copyright). Only applies to the desktop sidebar (>768px). */
+/* KOLONNEN ER EIT HØGDEBUDSJETT, OG DESSE TO POSTANE VAR DEI DYRASTE.
+ *
+ * Målt: sju punkt pluss logo, copyright, sosiale ikon og språkbytar treng 734px, og renn over på
+ * 580. Fordelinga var 168px tekst og 144px LUFT mellom teksten, pluss 104px til tre ikon stabla
+ * oppå kvarandre.
+ *
+ * Så: 24px til 16px mellom punkta (sparer 48), og ikona på ei linje slik ein fot faktisk ser ut
+ * (sparer 80). Saman med `text-orientation` over er det 217px, meir enn dobbelt så mykje som å
+ * slå saman to sider ville gitt.
+ *
+ * OG DET ER POENGET. Sidene her er ikkje menypunkt, dei er leveransar: `/lyd` blir sendt åleine
+ * til lydarbeidsgivarar, `/utviklar` blir limt inn i jobbsøknader. Å slå dei saman for å spare
+ * 44px ville brote lenker som alt er sende, for å løyse eit problem som var eit layoutproblem.
+ *
+ * Berre desktop. Skuffa har plass og har sine eigne reglar. */
 @media (min-width: 769px) {
+    .nav-links-main {
+        gap: var(--space-sm);
+    }
+
+    .nav .nav-links-social {
+        flex-direction: row;
+        gap: var(--space-xs);
+    }
+
+    /* 3 x 20 + 2 x 8 = 76px i eit innhaldsfelt på 82. */
+    .nav .nav-links-social a {
+        font-size: 20px;
+    }
+
     .nav {
         overflow-y: auto;
     }
