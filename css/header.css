@@ -162,8 +162,8 @@
     position: fixed;
     top: var(--space-md);
     left: var(--space-md);
-    width: 44px;
-    height: 44px;
+    width: var(--hamburger-size);
+    height: var(--hamburger-size);
     margin: 0;
     opacity: 0;
     z-index: 1002;
@@ -196,8 +196,8 @@
     top: var(--space-md);
     left: var(--space-md);
     z-index: 1001;
-    width: 44px;
-    height: 44px;
+    width: var(--hamburger-size);
+    height: var(--hamburger-size);
     display: flex;
     flex-direction: column;
     justify-content: center;

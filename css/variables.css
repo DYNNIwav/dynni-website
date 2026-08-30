@@ -30,6 +30,13 @@
    * kvar side og åt 60 % av polstringa. Det var den «rare viewporten». */
   --sidebar-width: 116px;
 
+  /* Storleiken på hamburgerknappen, som TO ting må vere samde om.
+   *
+   * `header.css` teiknar knappen, og `styles.css` reknar ut kor langt ned ein seksjon skal scrolle
+   * for å IKKJE hamne under han. Skriv du talet begge stader, og endrar det eine, får du ein
+   * overlapp som ser ut som ein layoutbug og som ingen koplar til knappen. */
+  --hamburger-size: 44px;
+
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SF Mono", Monaco,
     monospace;
   --font-display: var(--font-mono);

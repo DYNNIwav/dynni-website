@@ -162,6 +162,50 @@ main {
     gap: var(--space-xl);
 }
 
+/* KOR EIN SEKSJON SKAL LANDE ETTER AT KOMMANDOEN ER SKRIVEN FERDIG.
+ *
+ * `scrollIntoView({ block: "start" })` legg toppen av elementet på toppen av viewporten, nøyaktig.
+ * På mobil er det feil, og ikkje som ei kjensle: hamburgaren er `position: fixed` med `top:
+ * var(--space-md)` og er `var(--hamburger-size)` høg, så han DEKKJER dei øvste 68 pikslane. Etter
+ * animasjonen låg terminal-chromen og fyrste tekstlinje under knappen.
+ *
+ * `scroll-margin-top` finst for akkurat dette. Han seier kor mykje plass scrollen skal la stå over
+ * elementet, og han er REKNA og ikkje vald:
+ *
+ *     mobil    = knappen sin topp + knappen si høgd + eit pusterom + notch
+ *              = 24 + 44 + 24 + env()   = 92px pluss safe area
+ *     desktop  = pusterom
+ *              = 32px
+ *
+ * Desktop treng mindre fordi ingenting er fast over innhaldet der. Sidebaren står til VENSTRE og tek
+ * null vertikal plass. Det er heile grunnen til at dei to skal vere ulike: det er ikkje smak, det er
+ * at det finst eit element i vegen på den eine og ikkje på den andre.
+ *
+ * Tala kjem frå tokens, så flyttar eller veks knappen, følgjer scrollen etter av seg sjølv.
+ *
+ * Merk: dette gjeld berre `block: "start"`. Om-meg og apps vel `center` når seksjonen får plass, og
+ * då finst ikkje toppkant-problemet i det heile. */
+.about-section,
+#prosjekt,
+.services-section,
+.blog-section,
+.dev-section {
+    scroll-margin-top: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .about-section,
+    #prosjekt,
+    .services-section,
+    .blog-section,
+    .dev-section {
+        scroll-margin-top: calc(
+            var(--space-md) + var(--hamburger-size) + var(--space-md) +
+                env(safe-area-inset-top, 0px)
+        );
+    }
+}
+
 .hero-prompt {
     display: flex;
     align-items: baseline;
