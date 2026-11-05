@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="nn">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>I god tid: Hjelp | DYNNI</title>
+    <meta name="title" content="I god tid: Hjelp | DYNNI" />
+    <meta name="description" content="Hjelp og kontakt for I god tid, ein kalender for iPhone som viser når du må dra." />
+    <meta name="author" content="Pål Omland Eilevstjønn" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://dynni.no/igodtid/support" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dynni.no/igodtid/support" />
+    <meta property="og:title" content="I god tid: Hjelp" />
+    <meta property="og:description" content="Hjelp og kontakt for I god tid." />
+    <meta property="og:image" content="https://dynni.no/assets/img/apps/igodtid.png" />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
+    <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
+    <script src="../scripts.js"></script>
+
+    <style>
+      .privacy-content {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+        line-height: 1.6;
+      }
+      .privacy-content a {
+        color: inherit;
+        text-decoration: underline;
+      }
+      .privacy-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .privacy-content .last-updated {
+        color: var(--color-text-secondary, #777);
+        font-size: 0.9rem;
+        margin-bottom: 3rem;
+      }
+      .privacy-content h2 {
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.4rem;
+      }
+      .privacy-content h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+      .privacy-content p, .privacy-content li {
+        margin-bottom: 0.6rem;
+      }
+      .privacy-content ul {
+        padding-left: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .privacy-content code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9em;
+        padding: 0.1em 0.3em;
+        background: rgba(255,255,255,0.06);
+        border-radius: 4px;
+      }
+      .privacy-content .lang-toggle {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <!-- NAV-BEGIN generert av scripts/nav.mjs, ikkje rediger for hand -->
+      <nav class="nav" aria-label="Hovudmeny">
+        <a class="logo" href="/"
+          ><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
+        /></a>
+
+        <ul class="nav-links-main">
+          <li><a href="/om-meg">Om meg</a></li>
+          <li><a href="/utviklar">Utviklar</a></li>
+          <li><a href="/lyd">Lyd</a></li>
+          <li><a href="/apps">Apps</a></li>
+          <li><a href="/tjenester">Tenester</a></li>
+          <li><a href="/blogg">Blogg</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+
+        <span class="sidebar-text">© DYNNI 2026</span>
+
+        <ul class="nav-links-social">
+          <li>
+            <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="lang-switch">
+          <a href="/" class="active" aria-current="true">NO</a>
+          <a href="/en/">EN</a>
+        </div>
+      </nav>
+
+      <!-- HAMBURGAREN ER AVKRYSSINGSBOKSEN, IKKJE ETIKETTEN.
+           Boksen var «display: none», og eit element som ikkje blir rendra kan ikkje få fokus. Etiketten
+           er ikkje fokuserbar av seg sjølv og hadde korkje tekst, aria-label eller rolle, så det
+           tilgjengelege namnet var tomt. Ein tastaturbrukar på telefon tabba gjennom 13 usynlege lenker
+           og kunne så ikkje opne menyen i det heile.
+           No: boksen ligg synleg for maskina men gjennomsiktig oppå knappen, med sitt eige namn, og
+           etiketten er «aria-hidden» fordi han berre er dei tre strekane. Framleis null JavaScript. -->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Meny" />
+        <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </label>
+
+        <div class="mobile-nav-overlay">
+          <nav class="mobile-nav" aria-label="Hovudmeny">
+            <div class="mobile-nav-content">
+              <a class="logo" href="/">
+                <img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
+              </a>
+
+              <ul class="nav-links-main">
+                <li><a href="/om-meg">Om meg</a></li>
+                <li><a href="/utviklar">Utviklar</a></li>
+                <li><a href="/lyd">Lyd</a></li>
+                <li><a href="/apps">Apps</a></li>
+                <li><a href="/tjenester">Tenester</a></li>
+                <li><a href="/blogg">Blogg</a></li>
+                <li><a href="/kontakt">Kontakt</a></li>
+              </ul>
+
+              <span class="sidebar-text">© DYNNI 2026</span>
+
+              <ul class="nav-links-social">
+                <li>
+                  <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+              </ul>
+              <div class="lang-switch">
+                <a href="/" class="active" aria-current="true">NO</a>
+                <a href="/en/">EN</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- NAV-END -->
+    </header>
+
+    <main class="privacy-content">
+      <h1>I god tid: Hjelp</h1>
+
+      <p>Står du fast, eller er det noko som ikkje verkar? Send meg ein e-post på <a href="mailto:paal@dynni.no">paal@dynni.no</a>. Eg heiter Pål Omland Eilevstjønn og har laga appen sjølv, så det er eg som svarar.</p>
+
+      <h2>Eg ser ikkje kalendrane mine</h2>
+      <p>I god tid treng lov til å lese kalendrane dine. Opne Innstillinger på iPhonen, gå til Personvern og sikkerhet, så Kalendere, og gi I god tid full tilgang.</p>
+
+      <h2>Eg får ikkje reisetid</h2>
+      <p>Avtalen må ha ein stad. For å rekne frå der du er, må appen også få bruke posisjonen din: Innstillinger, Personvern og sikkerhet, Stedstjenester. Kollektivtidene kjem frå Entur og gjeld i Noreg.</p>
+
+      <h2>Eg har kjøpt Pluss, men det er ikkje opna</h2>
+      <p>Opne Pluss i appen og trykk på «Gjenopprett kjøp». Då spør appen App Store om kva du allereie eig.</p>
+
+      <h2>Eg vil ha pengane tilbake</h2>
+      <p>Apple tek seg av alle kjøp, så refusjon ber du om hos Apple på <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+      <h2>Personvern</h2>
+      <p>Les korleis appen handsamar data i <a href="/igodtid/privacy">personvernerklæringa</a>.</p>
+
+      <p class="lang-toggle"><a href="/en/igodtid/support">English version</a></p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="copyright">© DYNNI 2026 — <a href="../kontakt">Kontakt</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
