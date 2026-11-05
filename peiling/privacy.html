@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nn">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>Peiling: personvern | DYNNI</title>
+    <meta name="title" content="Peiling: personvern | DYNNI" />
+    <meta name="description" content="Personvernerklæring for Peiling, eit kompass for iPhone som peikar mot kaffi." />
+    <meta name="author" content="Pål Omland Eilevstjønn" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://dynni.no/peiling/privacy" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dynni.no/peiling/privacy" />
+    <meta property="og:title" content="Peiling: personvern" />
+    <meta property="og:description" content="Personvernerklæring for Peiling." />
+    <meta property="og:image" content="https://dynni.no/assets/img/apps/peiling.png" />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/logo/dynni-logo.svg" />
+    <link rel="apple-touch-icon" href="../assets/img/logo/dynni-logo.svg" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <script src="https://kit.fontawesome.com/0d42989d58.js" crossorigin="anonymous"></script>
+    <script src="../scripts.js"></script>
+
+    <style>
+      .privacy-content {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+        line-height: 1.6;
+      }
+      .privacy-content a {
+        color: inherit;
+        text-decoration: underline;
+      }
+      .privacy-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .privacy-content .last-updated {
+        color: var(--color-text-secondary, #777);
+        font-size: 0.9rem;
+        margin-bottom: 3rem;
+      }
+      .privacy-content h2 {
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.4rem;
+      }
+      .privacy-content h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+      .privacy-content p, .privacy-content li {
+        margin-bottom: 0.6rem;
+      }
+      .privacy-content ul {
+        padding-left: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .privacy-content code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9em;
+        padding: 0.1em 0.3em;
+        background: rgba(255,255,255,0.06);
+        border-radius: 4px;
+      }
+      .privacy-content .lang-toggle {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <!-- NAV-BEGIN generert av scripts/nav.mjs, ikkje rediger for hand -->
+      <nav class="nav" aria-label="Hovudmeny">
+        <a class="logo" href="/"
+          ><img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo"
+        /></a>
+
+        <ul class="nav-links-main">
+          <li><a href="/om-meg">Om meg</a></li>
+          <li><a href="/utviklar">Utviklar</a></li>
+          <li><a href="/lyd">Lyd</a></li>
+          <li><a href="/apps">Apps</a></li>
+          <li><a href="/tjenester">Tenester</a></li>
+          <li><a href="/blogg">Blogg</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+
+        <span class="sidebar-text">© DYNNI 2026</span>
+
+        <ul class="nav-links-social">
+          <li>
+            <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="lang-switch">
+          <a href="/" class="active" aria-current="true">NO</a>
+          <a href="/en/">EN</a>
+        </div>
+      </nav>
+
+      <!-- HAMBURGAREN ER AVKRYSSINGSBOKSEN, IKKJE ETIKETTEN.
+           Boksen var «display: none», og eit element som ikkje blir rendra kan ikkje få fokus. Etiketten
+           er ikkje fokuserbar av seg sjølv og hadde korkje tekst, aria-label eller rolle, så det
+           tilgjengelege namnet var tomt. Ein tastaturbrukar på telefon tabba gjennom 13 usynlege lenker
+           og kunne så ikkje opne menyen i det heile.
+           No: boksen ligg synleg for maskina men gjennomsiktig oppå knappen, med sitt eige namn, og
+           etiketten er «aria-hidden» fordi han berre er dei tre strekane. Framleis null JavaScript. -->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Meny" />
+        <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </label>
+
+        <div class="mobile-nav-overlay">
+          <nav class="mobile-nav" aria-label="Hovudmeny">
+            <div class="mobile-nav-content">
+              <a class="logo" href="/">
+                <img src="../assets/img/logo/dynni-logo.svg" alt="DYNNI logo" />
+              </a>
+
+              <ul class="nav-links-main">
+                <li><a href="/om-meg">Om meg</a></li>
+                <li><a href="/utviklar">Utviklar</a></li>
+                <li><a href="/lyd">Lyd</a></li>
+                <li><a href="/apps">Apps</a></li>
+                <li><a href="/tjenester">Tenester</a></li>
+                <li><a href="/blogg">Blogg</a></li>
+                <li><a href="/kontakt">Kontakt</a></li>
+              </ul>
+
+              <span class="sidebar-text">© DYNNI 2026</span>
+
+              <ul class="nav-links-social">
+                <li>
+                  <a href="https://www.instagram.com/dynni.wav" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://github.com/DYNNIwav" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/dynni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+              </ul>
+              <div class="lang-switch">
+                <a href="/" class="active" aria-current="true">NO</a>
+                <a href="/en/">EN</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- NAV-END -->
+    </header>
+
+    <main class="privacy-content">
+      <h1>Peiling: personvern</h1>
+      <p class="last-updated">Sist oppdatert: 5. november 2026</p>
+
+      <p>Peiling er eit kompass for iPhone som peikar mot kaffi. Appen er laga av Pål Omland Eilevstjønn (DYNNI). Peiling har ingen konto, ingen server, ingen analyse og ingen reklame. Det du gjer i appen (faste stader, smaksbok og notat) blir lagra på telefonen din, og i iCloud-sikkerheitskopien din om du har det slått på. Eg ser det aldri.</p>
+
+      <h2>Kvar du er</h2>
+      <p>Appen brukar posisjonen din medan han er open, for å rekne ut kva veg nåla skal peike. Sjølve peilinga skjer på telefonen.</p>
+      <p>For å finne kafear rundt deg sender appen eit <strong>omtrentleg område</strong> (koordinatar runda av til om lag éin kilometer) til OpenStreetMap sine Overpass-tenarar. Det same omtrentlege området blir sendt til Apple for å finne namnet på byen du er i. Ingen av desse får vite kven du er, og eg lagrar ingenting.</p>
+
+      <h2>Reklame og sporing</h2>
+      <p>Peiling har inga reklame og sporar deg ikkje.</p>
+
+      <h2>Kjøp</h2>
+      <p>Spanderer du ein kaffi, går betalinga gjennom App Store. Eg får ikkje vite kven du er, berre at kjøpet finst.</p>
+
+      <h2>Oppdateringar</h2>
+      <p>Appen hentar oppdateringar frå Expo (EAS Update). Førespurnaden inneheld appversjon og plattform, ikkje noko om deg.</p>
+
+      <h2>Dine rettar</h2>
+      <p>Etter GDPR har du rett til innsyn, retting og sletting. Sidan eg ikkje har noko data om deg, er det ingenting å hente ut eller slette hos meg: slett appen, så er alt han har lagra borte. Du kan klage til Datatilsynet om du meiner data blir handsama feil.</p>
+
+      <h2>Kontakt</h2>
+      <p>Spørsmål? Send e-post til <a href="mailto:paal@dynni.no">paal@dynni.no</a>.</p>
+
+      <p class="lang-toggle"><a href="/en/peiling/privacy">English version</a></p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="copyright">© DYNNI 2026 — <a href="../kontakt">Kontakt</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
