@@ -162,7 +162,7 @@
     -->
     <main class="privacy-content">
       <h1>Glimt — Privacy</h1>
-      <p class="last-updated">Last updated: 29 July 2026 · Policy version: 2026-07-29</p>
+      <p class="last-updated">Last updated: 18 November 2026 · Policy version: 2026-11-18</p>
 
       <p>Glimt is built to be private by default. This policy explains, in plain language, what little data we handle, why, and the rights you have over it. Glimt is operated from Norway and follows the EU/EEA General Data Protection Regulation (GDPR).</p>
 
@@ -208,10 +208,11 @@
             <tr><td><strong>Device push token</strong></td><td>To notify you of new glimt</td><td>Consent, Art. 6(1)(a), given when you allow notifications</td></tr>
             <tr><td><strong>A backup of your encryption key</strong>, sealed with a password only you know</td><td>So your glimt come back if you lose, reset or replace your phone</td><td>Consent, Art. 6(1)(a), given when you choose a recovery password</td></tr>
             <tr><td><strong>Reports you file, and the evidence attached to them</strong></td><td>To keep people safe and to meet our duties as a platform</td><td>Legal obligation, Art. 6(1)(c), and legitimate interest, Art. 6(1)(f). The interest is protecting our users, children above all, from abuse, and being able to act on illegal content at all, which end-to-end encryption otherwise makes impossible</td></tr>
+            <tr><td><strong>If you become a bålvakt (the voluntary subscription): Apple's transaction number for it, which plan, whether it was a test purchase, when your support started and when the current period ends</strong></td><td>To say thank you, to draw your mark, and to know when your support ends</td><td>Contract, Art. 6(1)(b)</td></tr>
           </tbody>
         </table>
       </div>
-      <p>We do <strong>not</strong> collect your contacts, your location, advertising identifiers, or browsing behaviour.</p>
+      <p>We do <strong>not</strong> collect your contacts, your location, advertising identifiers, or browsing behaviour. If you become a bålvakt, Apple takes the payment: we never see your name, card or Apple ID.</p>
 
       <h2>Do you have to give us this?</h2>
       <p>Your email address, username, date of birth and friend list are what an account is made of. Without them there is nothing to sign in to and nothing to deliver a glimt to, so we cannot provide the service and you cannot use Glimt.</p>
@@ -247,6 +248,7 @@
         <li>Account data (email, username, friends) is kept until you delete your account.</li>
         <li>Your sealed key backup is kept until you turn it off or delete your account.</li>
         <li>Your push token is kept until you turn notifications off or delete your account.</li>
+        <li>A bålvakt record is kept while your account exists and is deleted with it. Deleting your account does not stop the subscription at Apple: cancel it in your Apple ID settings first.</li>
         <li>Report evidence is kept only as long as needed to review and act on the report, then deleted. Material that has to be preserved for a law-enforcement or child-protection obligation is kept for as long as that obligation requires.</li>
       </ul>
 
@@ -262,6 +264,7 @@
             <tr><td><strong>Cloudflare R2</strong></td><td>The files themselves: your photos, videos and voice recordings, in encrypted form. Bytes only. The key that opens them sits in the database at Supabase, sealed to your device, so Cloudflare holds a blob it cannot open. Our bucket is set to EU jurisdiction</td></tr>
             <tr><td><strong>Expo</strong>, and through it <strong>Apple Push Notification service</strong> and <strong>Google Firebase Cloud Messaging</strong></td><td>Delivering push notifications: your device token and the text of the notification</td></tr>
             <tr><td><strong>Apple iCloud Keychain</strong> and <strong>Google Block Store</strong></td><td>The platform key escrow described above, end-to-end encrypted by the operating system</td></tr>
+            <tr><td><strong>Apple App Store</strong></td><td>Selling and renewing Bålvakt, if you choose it. Apple handles the payment under its own privacy policy and sends us only the signed record described above</td></tr>
           </tbody>
         </table>
       </div>

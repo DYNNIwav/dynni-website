@@ -158,14 +158,14 @@
       glimt-native repo, because that copy ships in the app and in App Store / Google Play metadata.
       Edit the markdown first, then mirror it here AND in en/glimt/privacy.html (English). All three
       carry the same version below, so a drift is visible with one grep.
-      Policy version: 2026-07-29
+      Policy version: 2026-11-18
 
       This page must stay structurally identical to en/glimt/privacy.html: same sections, same order,
       so a future edit lands in both.
     -->
     <main class="privacy-content">
       <h1>Glimt — Personvern</h1>
-      <p class="last-updated">Sist oppdatert: 29. juli 2026 · Versjon: 2026-07-29</p>
+      <p class="last-updated">Sist oppdatert: 18. november 2026 · Versjon: 2026-11-18</p>
 
       <p>Glimt er bygd for å vere privat frå grunnen av. Denne erklæringa forklarar, i klartekst, kva lite data vi handterer, kvifor, og kva rettar du har. Glimt blir driven frå Noreg og følgjer personvernforordninga (GDPR) i EU/EØS.</p>
 
@@ -214,10 +214,11 @@
             <tr><td><strong>Push-token for eininga</strong></td><td>For å varsle deg om nye glimt</td><td>Samtykke, art. 6(1)(a), gitt når du seier ja til varsel</td></tr>
             <tr><td><strong>Ein backup av krypteringsnøkkelen din</strong>, forsegla med eit passord berre du kjenner</td><td>Så glimta dine kjem tilbake om du mistar, nullstiller eller byter telefon</td><td>Samtykke, art. 6(1)(a), gitt når du vel eit gjenopprettingspassord</td></tr>
             <tr><td><strong>Rapportar du sender, og bevis du legg ved</strong></td><td>For å halde folk trygge og oppfylle pliktene våre som plattform</td><td>Rettsleg plikt, art. 6(1)(c), og rettkomen interesse, art. 6(1)(f). Interessa er å verne brukarane våre, born aller mest, mot overgrep, og i det heile kunne gjere noko med ulovleg innhald, som ende-til-ende-kryptering elles gjer umogleg</td></tr>
+            <tr><td><strong>Blir du bålvakt (det frivillige abonnementet): Apple sitt transaksjonsnummer for det, kva plan, om det var eit testkjøp, når støtta di starta og når perioden du har betalt for, går ut</strong></td><td>For å seie takk, teikne merket ditt og vite når støtta di sluttar</td><td>Avtale, art. 6(1)(b)</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Vi samlar <strong>ikkje</strong> kontaktane dine, posisjonen din, reklame-id-ar eller nettlesar-åtferd.</p>
+      <p>Vi samlar <strong>ikkje</strong> kontaktane dine, posisjonen din, reklame-id-ar eller nettlesar-åtferd. Blir du bålvakt, tek Apple seg av betalinga: vi ser aldri namnet ditt, kortet ditt eller Apple-ID-en din.</p>
 
       <h2>Må du gi oss dette?</h2>
       <p>E-postadressa, brukarnamnet, fødselsdatoen og venelista er det ein konto er laga av. Utan dei finst det ingenting å logge inn på og ingen å levere eit glimt til, så vi kan ikkje levere tenesta og du kan ikkje bruke Glimt.</p>
@@ -253,6 +254,7 @@
         <li>Kontodata (e-post, brukarnamn, vener) blir teke vare på til du slettar kontoen.</li>
         <li>Den forsegla nøkkel-backupen din blir teken vare på til du slår han av eller slettar kontoen.</li>
         <li>Push-tokenet ditt blir teke vare på til du slår av varsel eller slettar kontoen.</li>
+        <li>Ei bålvakt-oppføring blir teke vare på så lenge kontoen din finst, og blir sletta saman med han. Å slette kontoen stoppar ikkje abonnementet hos Apple: sei det opp i Apple-ID-innstillingane først.</li>
         <li>Rapport-bevis blir berre teke vare på så lenge vi treng for å vurdere og handle på rapporten, så sletta. Materiale som må takast vare på av omsyn til ei rettsleg plikt knytt til tryggleik eller etterforsking, blir teke vare på så lenge den plikta krev.</li>
       </ul>
 
@@ -268,6 +270,7 @@
             <tr><td><strong>Cloudflare R2</strong></td><td>Sjølve fila: bileta, videoane og lydopptaka dine, i kryptert form. Berre bytea. Nøkkelen som opnar dei ligg i databasen hjå Supabase, forsegla til eininga di, så Cloudflare har ein klump dei ikkje kan opne. Bøtta vår står i EU-jurisdiksjon</td></tr>
             <tr><td><strong>Expo</strong>, og gjennom Expo <strong>Apple Push Notification service</strong> og <strong>Google Firebase Cloud Messaging</strong></td><td>Levering av push-varsel: push-tokenet til eininga di og teksten i varselet</td></tr>
             <tr><td><strong>Apple iCloud Keychain</strong> og <strong>Google Block Store</strong></td><td>Plattform-oppbevaringa av nøkkelen som er skildra over, ende-til-ende-kryptert av operativsystemet</td></tr>
+            <tr><td><strong>Apple App Store</strong></td><td>Sal og fornying av Bålvakt, om du vel det. Apple tek seg av betalinga etter sine eigne personvernreglar og sender oss berre den signerte oppføringa som er skildra over</td></tr>
           </tbody>
         </table>
       </div>
